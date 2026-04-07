@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diksha Shinde — Industrial Design Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0c0c0b;
+  --bg2:#141412;
+  --bg3:#1c1b18;
+  --fg:#f5f0e8;
+  --fg2:#a09890;
+  --fg3:#605850;
+  --border:rgba(245,240,232,0.1);
+  --border2:rgba(245,240,232,0.22);
+  --f:'Bricolage Grotesque',sans-serif;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{background:var(--bg);color:var(--fg);font-family:var(--f);overflow-x:hidden;cursor:none}
+
+/* CURSOR */
+#cur,#curR{position:fixed;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);will-change:left,top}
+#cur{width:8px;height:8px;background:var(--fg);transition:width .15s,height .15s,opacity .2s}
+#curR{width:34px;height:34px;border:1px solid rgba(245,240,232,.35);transition:width .22s,height .22s,opacity .2s;opacity:.55}
+
+/* NAV */
+nav{position:fixed;inset:0 0 auto;z-index:500;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 44px;background:rgba(12,12,11,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid transparent;transition:border-color .3s}
+nav.stuck{border-bottom-color:var(--border)}
+.nav-logo{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fg);text-decoration:none}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--fg2);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--fg)}
+.nav-r{font-size:11px;color:var(--fg3);letter-spacing:.06em}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.ham span{display:block;height:1.5px;background:var(--fg);transition:transform .3s,opacity .3s,width .3s}
+.ham span:nth-child(1){width:22px}
+.ham span:nth-child(2){width:16px}
+.ham span:nth-child(3){width:22px}
+.ham.x span:nth-child(1){transform:translateY(6.5px) rotate(45deg);width:22px}
+.ham.x span:nth-child(2){opacity:0}
+.ham.x span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* MOBILE MENU */
+.mob-menu{position:fixed;inset:0;z-index:499;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px;visibility:hidden;opacity:0;transition:opacity .35s,visibility .35s}
+.mob-menu.open{visibility:visible;opacity:1}
+.mob-menu a{font-size:clamp(32px,10vw,56px);font-weight:800;letter-spacing:-.02em;text-transform:uppercase;color:var(--fg);text-decoration:none;transition:color .2s}
+.mob-menu a:hover{color:var(--fg2)}
+
+/* HERO */
+#hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;padding-top:58px}
+.hero-l{display:flex;flex-direction:column;justify-content:flex-end;padding:56px 44px 68px;border-right:1px solid var(--border)}
+.hero-r{display:flex;flex-direction:column;overflow:hidden}
+.hero-r-top{flex:1;overflow:hidden;position:relative;border-bottom:1px solid var(--border)}
+.hero-r-top img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.25,.46,.45,.94)}
+.hero-r-top:hover img{transform:scale(1.05)}
+.hero-r-bot{height:130px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:flex-end;padding:0 32px}
+.hero-r-bot-bg{position:absolute;inset:0;overflow:hidden}
+.hero-r-bot-bg img{width:100%;height:100%;object-fit:cover;opacity:.4;display:block;object-position:center top}
+
+.hero-eyebrow{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--fg3);margin-bottom:24px}
+.hero-h1{font-size:clamp(36px,5.5vw,72px);font-weight:800;line-height:1.02;letter-spacing:-.03em;color:var(--fg);margin-bottom:28px}
+.hero-h1 i{font-weight:200;font-style:italic}
+.hero-p{font-size:15px;line-height:1.7;color:var(--fg2);font-weight:300;max-width:400px;margin-bottom:44px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--fg);color:var(--bg);padding:13px 26px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:opacity .2s;font-family:var(--f)}
+.btn-primary:hover{opacity:.82}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--border2);color:var(--fg);padding:13px 26px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s,border-color .2s;font-family:var(--f)}
+.btn-ghost:hover{background:rgba(245,240,232,.06);border-color:rgba(245,240,232,.4)}
+.hero-r-bot-label{position:relative;z-index:2;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--fg2)}
+
+/* TICKER */
+.ticker{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2);padding:15px 0}
+.ticker-t{display:flex;width:max-content;animation:tick 32s linear infinite}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.t-item{display:flex;align-items:center;gap:32px;padding:0 32px;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--fg3);white-space:nowrap;border-right:1px solid var(--border)}
+.t-item::after{content:'✦';font-size:8px;color:var(--fg3)}
+
+/* WORK */
+#work{padding:80px 44px}
+.work-top{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:28px;margin-bottom:44px;gap:20px;flex-wrap:wrap}
+.s-eyebrow{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--fg3);margin-bottom:14px;display:block}
+.s-h2{font-size:clamp(26px,4vw,50px);font-weight:800;letter-spacing:-.03em;line-height:1.05;color:var(--fg)}
+.see-all{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--fg2);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s;white-space:nowrap}
+.see-all:hover{color:var(--fg)}
+.see-all svg{transition:transform .2s}
+.see-all:hover svg{transform:translateX(5px)}
+
+/* PROJECT CATEGORIES */
+.cat-section{margin-bottom:4px}
+.cat-label{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--fg3);padding:18px 0 14px;border-bottom:1px solid var(--border);margin-bottom:2px;display:block}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);margin-bottom:2px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:var(--border);margin-bottom:2px}
+.pcard{position:relative;overflow:hidden;text-decoration:none;display:block;background:var(--bg);aspect-ratio:4/3}
+.pcard.wide{aspect-ratio:16/9}
+.pcard.tall{aspect-ratio:3/4}
+.pcard img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .75s cubic-bezier(.25,.46,.45,.94);filter:brightness(.88) saturate(.9)}
+.pcard:hover img{transform:scale(1.06);filter:brightness(1) saturate(1)}
+.pcard-info{position:absolute;bottom:0;left:0;right:0;padding:20px 24px 24px;background:linear-gradient(to top,rgba(12,12,11,.95) 0%,rgba(12,12,11,.5) 55%,transparent 100%)}
+.pcard-cat{font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--fg2);margin-bottom:7px}
+.pcard-title{font-size:clamp(13px,1.5vw,19px);font-weight:700;color:var(--fg);line-height:1.25;letter-spacing:-.015em}
+.pcard-arr{position:absolute;top:18px;right:18px;width:36px;height:36px;border:1px solid rgba(245,240,232,.2);background:rgba(12,12,11,.55);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--fg);opacity:0;transform:scale(.8) rotate(-45deg);transition:opacity .3s,transform .3s}
+.pcard:hover .pcard-arr{opacity:1;transform:scale(1) rotate(0)}
+
+/* ABOUT */
+#about{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border)}
+.ab-l{padding:80px 44px;border-right:1px solid var(--border)}
+.ab-r{padding:80px 44px}
+.ab-h2{font-size:clamp(24px,3.5vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.08;color:var(--fg);margin-bottom:24px}
+.ab-h2 i{font-weight:200;font-style:italic}
+.ab-p{font-size:15px;line-height:1.72;color:var(--fg2);font-weight:300;margin-bottom:36px}
+.ab-photo{position:relative;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--border)}
+.ab-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(20%);transition:transform .8s cubic-bezier(.25,.46,.45,.94),filter .4s}
+.ab-photo:hover img{transform:scale(1.04);filter:grayscale(0%)}
+.ab-cols{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.ab-col-head{font-size:9.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--fg3);display:block;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.sk-row{font-size:13px;font-weight:400;color:var(--fg);padding:10px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;cursor:default;transition:color .18s}
+.sk-row:hover{color:var(--fg2)}
+.sk-row::before{content:'';width:3px;height:3px;background:var(--fg3);border-radius:50%;flex-shrink:0}
+.em-row{font-size:13px;font-weight:400;color:var(--fg2);padding:10px 0;border-bottom:1px solid var(--border)}
+
+/* SKETCHES STRIP */
+#sketches{padding:80px 44px;border-top:1px solid var(--border)}
+.sketch-scroll{overflow-x:auto;display:flex;gap:2px;background:var(--border);scrollbar-width:none;-ms-overflow-style:none;cursor:grab}
+.sketch-scroll::-webkit-scrollbar{display:none}
+.sketch-scroll.dragging{cursor:grabbing}
+.sketch-img{flex:0 0 auto;height:320px;overflow:hidden}
+.sketch-img img{height:100%;width:auto;display:block;filter:grayscale(10%);transition:filter .3s}
+.sketch-img:hover img{filter:grayscale(0%)}
+
+/* CONTACT */
+#contact{padding:80px 44px 56px;border-top:1px solid var(--border);text-align:center;position:relative;overflow:hidden}
+#contact::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:800px;height:500px;background:radial-gradient(ellipse,rgba(245,240,232,.035) 0%,transparent 68%);pointer-events:none}
+.ct-eye{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--fg3);display:block;margin-bottom:20px}
+.ct-big{font-size:clamp(44px,9vw,120px);font-weight:800;letter-spacing:-.04em;line-height:.92;color:var(--fg);display:block;margin-bottom:52px}
+.ct-big i{font-weight:200;font-style:italic}
+.ct-soc{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:44px}
+.ct-a{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--fg2);text-decoration:none;border:1px solid var(--border);padding:11px 22px;transition:all .2s;font-family:var(--f)}
+.ct-a:hover{color:var(--fg);border-color:var(--border2);background:rgba(245,240,232,.05)}
+.ct-globe{display:flex;align-items:center;justify-content:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--fg3);margin-bottom:48px}
+.ct-btn{display:inline-flex;align-items:center;gap:18px;border:1px solid var(--border2);padding:22px 56px;font-size:clamp(18px,3vw,34px);font-weight:800;letter-spacing:-.02em;color:var(--fg);text-decoration:none;position:relative;overflow:hidden;transition:color .35s,border-color .35s;font-family:var(--f)}
+.ct-btn::before{content:'';position:absolute;inset:0;background:var(--fg);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.77,0,.18,1);z-index:0}
+.ct-btn:hover::before{transform:scaleX(1)}
+.ct-btn:hover{color:var(--bg);border-color:var(--fg)}
+.ct-btn span{position:relative;z-index:1}
+.ct-arr{position:relative;z-index:1;transition:transform .25s}
+.ct-btn:hover .ct-arr{transform:translateX(8px)}
+
+/* FOOTER */
+footer{padding:18px 44px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border)}
+.f-copy{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3)}
+.f-top{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);text-decoration:none;transition:color .2s}
+.f-top:hover{color:var(--fg)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.25,.46,.45,.94),transform .75s cubic-bezier(.25,.46,.45,.94)}
+.rv.on{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  nav{padding:0 22px}
+  .nav-links,.nav-r{display:none}
+  .ham{display:flex}
+  #hero{grid-template-columns:1fr}
+  .hero-l{border-right:none;border-bottom:1px solid var(--border);padding:48px 22px 44px}
+  .hero-r{height:60vw;min-height:260px}
+  .hero-r-bot{display:none}
+  #work{padding:60px 22px}
+  .work-top{flex-direction:column;align-items:flex-start}
+  .grid,.grid-3{grid-template-columns:1fr}
+  .pcard{aspect-ratio:16/9!important}
+  .pcard-info{opacity:1}
+  .pcard-arr{opacity:1;transform:scale(1) rotate(0)}
+  #about{grid-template-columns:1fr}
+  .ab-l{border-right:none;border-bottom:1px solid var(--border);padding:60px 22px}
+  .ab-r{padding:60px 22px}
+  #sketches{padding:60px 22px}
+  .sketch-img{height:220px}
+  #contact{padding:60px 22px 48px}
+  .ct-big{font-size:clamp(38px,12vw,78px)}
+  .ct-btn{padding:18px 38px;font-size:clamp(16px,5.5vw,26px)}
+  footer{padding:16px 22px;flex-direction:column;gap:8px;text-align:center}
+}
+@media(max-width:520px){
+  .ab-cols{grid-template-columns:1fr}
+  .hero-h1{font-size:clamp(28px,9vw,44px)}
+  .ct-big{font-size:clamp(30px,13vw,58px)}
+  .hero-btns{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="curR"></div>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#hero" onclick="closeMenu()">Home</a>
+  <a href="#work" onclick="closeMenu()">Work</a>
+  <a href="#sketches" onclick="closeMenu()">Sketches</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">Diksha Shinde</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#sketches">Sketches</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <span class="nav-r">®2026</span>
+  <div class="ham" id="ham" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-l">
+    <p class="hero-eyebrow rv">Industrial Designer · Pune, India</p>
+    <h1 class="hero-h1 rv" style="transition-delay:.07s">
+      Living for curiosity,<br>
+      <i>Designing</i><br>
+      for the World.
+    </h1>
+    <p class="hero-p rv" style="transition-delay:.13s">
+      Hey, check out my portfolio! I'm excited to share my work with you. Explore my projects, skills, and experience to get a sense of what I'm passionate about.
+    </p>
+    <div class="hero-btns rv" style="transition-delay:.19s">
+      <a href="#work" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-ghost">Let's Talk &rarr;</a>
+    </div>
+  </div>
+
+  <div class="hero-r">
+    <div class="hero-r-top">
+      <!-- Glide graduation project as hero image -->
+      <img src="https://static.wixstatic.com/media/56a47b_187493f0fd4f4bb4ba78e997e1e0ae90~mv2.png/v1/fit/w_758,h_424,q_75,enc_avif,quality_auto/56a47b_187493f0fd4f4bb4ba78e997e1e0ae90~mv2.png" alt="Glide Graduation Project" loading="eager">
+    </div>
+    <div class="hero-r-bot">
+      <div class="hero-r-bot-bg">
+        <img src="https://static.wixstatic.com/media/56a47b_08e8ead8555746c4b3ff6936e130c42a~mv2.png/v1/fill/w_2076,h_438,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/iteration%20ddnayan.png" alt="Automotive Sketches">
+      </div>
+      <span class="hero-r-bot-label">Industrial · Automotive · Spatial</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TICKER ═══ -->
+<div class="ticker">
+  <div class="ticker-t" id="tickerT">
+    <span class="t-item">Industrial Design</span>
+    <span class="t-item">Automotive Design</span>
+    <span class="t-item">Furniture & Spatial</span>
+    <span class="t-item">Product Design</span>
+    <span class="t-item">Sketching & Renders</span>
+    <span class="t-item">CMF Design</span>
+    <span class="t-item">User Research</span>
+    <span class="t-item">3D Modelling</span>
+    <span class="t-item">Industrial Design</span>
+    <span class="t-item">Automotive Design</span>
+    <span class="t-item">Furniture & Spatial</span>
+    <span class="t-item">Product Design</span>
+    <span class="t-item">Sketching & Renders</span>
+    <span class="t-item">CMF Design</span>
+    <span class="t-item">User Research</span>
+    <span class="t-item">3D Modelling</span>
+  </div>
+</div>
+
+<!-- ═══ WORK ═══ -->
+<section id="work">
+  <div class="work-top rv">
+    <div>
+      <span class="s-eyebrow">Selected Projects</span>
+      <h2 class="s-h2">My Prowess</h2>
+    </div>
+    <a href="https://dikshashinde11046.wixsite.com/home" target="_blank" class="see-all">
+      See More Of My Work
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+
+  <!-- GRADUATION -->
+  <span class="cat-label rv">Graduation Project</span>
+  <div class="grid rv" style="transition-delay:.05s">
+    <a href="https://dikshashinde11046.wixsite.com/home/glide-graduationproject" target="_blank" class="pcard wide" style="grid-column:span 2">
+      <img src="https://static.wixstatic.com/media/56a47b_187493f0fd4f4bb4ba78e997e1e0ae90~mv2.png/v1/fit/w_758,h_424,q_75,enc_avif,quality_auto/56a47b_187493f0fd4f4bb4ba78e997e1e0ae90~mv2.png" alt="Glide">
+      <div class="pcard-info">
+        <div class="pcard-cat">Mobility · E-Commerce · Urban Design</div>
+        <div class="pcard-title">Glide — Urban Delivery Solution for Local Vendors</div>
+      </div>
+      <div class="pcard-arr">↗</div>
+    </a>
+  </div>
+
+  <!-- AUTOMOTIVE -->
+  <span class="cat-label rv">Automotive Design</span>
+  <div class="grid rv" style="transition-delay:.05s">
+    <a href="https://dikshashinde11046.wixsite.com/home/reimagined-glide" target="_blank" class="pcard">
+      <img src="https://static.wixstatic.com/media/56a47b_9dae8781679840529408dea30cad28ef~mv2.jpg/v1/fill/w_416,h_416,q_75,enc_avif,quality_auto/56a47b_9dae8781679840529408dea30cad28ef~mv2.jpg" alt="Re-imagining Delivery">
+      <div class="pcard-info">
+        <div class="pcard-cat">Automotive · CMF · Urban India</div>
+        <div class="pcard-title">Re-imagining Delivery Vehicles for Urban India & CMF</div>
+      </div>
+      <div class="pcard-arr">↗</div>
+    </a>
+    <a href="https://dikshashinde11046.wixsite.com/home/concept-e" target="_blank" class="pcard">
+      <img src="https://static.wixstatic.com/media/56a47b_8b32a170e980421d8c886eb87fa0ef7e~mv2.jpg/v1/fill/w_416,h_416,q_75,enc_avif,quality_auto/56a47b_8b32a170e980421d8c886eb87fa0ef7e~mv2.jpg" alt="Concept E">
+      <div class="pcard-info">
+        <div class="pcard-cat">Automotive · Concept Design</div>
+        <div class="pcard-title">Delivery Vehicle and Attachment — Concept E</div>
+      </div>
+      <div class="pcard-arr">↗</div>
+    </a>
+  </div>
+
+  <!-- FURNITURE & SPATIAL -->
+  <span class="cat-label rv">Furniture &amp; Spatial Design</span>
+  <div class="grid rv" style="transition-delay:.05s">
+    <a href="https://dikshashinde11046.wixsite.com/home/interior-visualization" target="_blank" class="pcard">
+      <img src="https://static.wixstatic.com/media/56a47b_44c56098eb6f47f3bb062dec440b0138~mv2.png/v1/fill/w_416,h_416,q_75,enc_avif,quality_auto/56a47b_44c56098eb6f47f3bb062dec440b0138~mv2.png" alt="Interior Visualization">
+      <div class="pcard-info">
+        <div class="pcard-cat">Interior · Visualization · Spatial</div>
+        <div class="pcard-title">Interior and Visualization</div>
+      </div>
+      <div class="pcard-arr">↗</div>
+    </a>
+    <a href="https://dikshashinde11046.wixsite.com/home/home-decor-accessories" target="_blank" class="pcard">
+      <img src="https://static.wixstatic.com/media/56a47b_abe0963c5d92429687c5d95cdbf2c1dd~mv2.jpg/v1/fill/w_416,h_416,q_75,enc_avif,quality_auto/56a47b_abe0963c5d92429687c5d95cdbf2c1dd~mv2.jpg" alt="Home Accessories">
+      <div class="pcard-info">
+        <div class="pcard-cat">Furniture · Home Accessories</div>
+        <div class="pcard-title">Home Accessories and Furniture</div>
+      </div>
+      <div class="pcard-arr">↗</div>
+    </a>
+  </div>
+
+  <!-- PRODUCT DESIGN -->
+  <span class="cat-label rv">Product Design</span>
+  <div class="grid rv" style="transition-delay:.05s">
+    <a href="https://dikshashinde11046.wixsite.com/home/sante-plantmonitor" target="_blank" class="pcard">
+      <img src="https://static.wixstatic.com/media/56a47b_8201a82a1cef4852ae5ff5eee322109c~mv2.png/v1/fill/w_416,h_416,q_75,enc_avif,quality_auto/56a47b_8201a82a1cef4852ae5ff5eee322109c~mv2.png" alt="Plant Monitor">
+      <div class="pcard-info">
+        <div class="pcard-cat">IoT · Product Design</div>
+        <div class="pcard-title">Santé — Smart Plant Monitoring System</div>
+      </div>
+      <div class="pcard-arr">↗</div>
+    </a>
+    <a href="https://dikshashinde11046.wixsite.com/home/sanitary-napkindisposer" target="_blank" class="pcard">
+      <img src="https://static.wixstatic.com/media/56a47b_aedbe2b22a804486a1a69a5dbf74e883~mv2.jpg/v1/fill/w_416,h_416,q_75,enc_avif,quality_auto/56a47b_aedbe2b22a804486a1a69a5dbf74e883~mv2.jpg" alt="Sanitary Napkin Disposer">
+      <div class="pcard-info">
+        <div class="pcard-cat">Social Impact · Product Design</div>
+        <div class="pcard-title">Solving Everyday Problems with Design</div>
+      </div>
+      <div class="pcard-arr">↗</div>
+    </a>
+  </div>
+
+  <!-- MINOR PROJECTS -->
+  <span class="cat-label rv">Minor Projects</span>
+  <div class="grid rv" style="transition-delay:.05s">
+    <a href="https://dikshashinde11046.wixsite.com/home/walkingstick" target="_blank" class="pcard">
+      <img src="https://static.wixstatic.com/media/56a47b_052f41bbc2494aad8553c911f9e3798e~mv2.png/v1/fill/w_416,h_416,q_75,enc_avif,quality_auto/56a47b_052f41bbc2494aad8553c911f9e3798e~mv2.png" alt="Walking Stick">
+      <div class="pcard-info">
+        <div class="pcard-cat">Inclusive Design · Elderly Care</div>
+        <div class="pcard-title">Enabling Elderly to Walk with Confidence</div>
+      </div>
+      <div class="pcard-arr">↗</div>
+    </a>
+    <a href="https://dikshashinde11046.wixsite.com/home/lightinstallation" target="_blank" class="pcard">
+      <img src="https://static.wixstatic.com/media/56a47b_4f4ede76a88244f0ab7be2b9e7a5c71f~mv2.png/v1/fill/w_416,h_416,q_75,enc_avif,quality_auto/56a47b_4f4ede76a88244f0ab7be2b9e7a5c71f~mv2.png" alt="Light Installation">
+      <div class="pcard-info">
+        <div class="pcard-cat">Art · Installation Design</div>
+        <div class="pcard-title">Mushroom-Inspired Light Installation</div>
+      </div>
+      <div class="pcard-arr">↗</div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ SKETCHES ═══ -->
+<section id="sketches">
+  <div class="work-top rv">
+    <div>
+      <span class="s-eyebrow">Process & Exploration</span>
+      <h2 class="s-h2">Sketches &amp; Renders</h2>
+    </div>
+    <a href="https://dikshashinde11046.wixsite.com/home/sketches" target="_blank" class="see-all">
+      See All Sketches
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+  <div class="sketch-scroll rv" id="sketchScroll">
+    <div class="sketch-img"><img src="https://static.wixstatic.com/media/56a47b_73712fbe5e324dcfb3a7dedd3cdec91f~mv2.png/v1/fit/w_559,h_395,q_90,enc_avif,quality_auto/56a47b_73712fbe5e324dcfb3a7dedd3cdec91f~mv2.png" alt="Sketch 1" loading="lazy"></div>
+    <div class="sketch-img"><img src="https://static.wixstatic.com/media/56a47b_9024d562c9e247dea10b588a18179b4c~mv2.jpg/v1/fit/w_982,h_395,q_90,enc_avif,quality_auto/56a47b_9024d562c9e247dea10b588a18179b4c~mv2.jpg" alt="Sketch 2" loading="lazy"></div>
+    <div class="sketch-img"><img src="https://static.wixstatic.com/media/56a47b_0c8983e12d484a6fa358a1da293a1386~mv2.png/v1/fit/w_1022,h_395,q_90,enc_avif,quality_auto/56a47b_0c8983e12d484a6fa358a1da293a1386~mv2.png" alt="Sketch 3" loading="lazy"></div>
+    <div class="sketch-img"><img src="https://static.wixstatic.com/media/56a47b_6a7a65652d524762bd7ac6a959f27f1b~mv2.png/v1/fit/w_702,h_395,q_90,enc_avif,quality_auto/56a47b_6a7a65652d524762bd7ac6a959f27f1b~mv2.png" alt="Sketch 4" loading="lazy"></div>
+    <div class="sketch-img"><img src="https://static.wixstatic.com/media/56a47b_c4a677b7fb82443e9342ef8abda32a29~mv2.jpg/v1/fit/w_1020,h_395,q_90,enc_avif,quality_auto/56a47b_c4a677b7fb82443e9342ef8abda32a29~mv2.jpg" alt="Sketch 5" loading="lazy"></div>
+    <div class="sketch-img"><img src="https://static.wixstatic.com/media/56a47b_eb31bc94cdfd47e98ce12afb61d3069a~mv2.png/v1/fit/w_980,h_395,q_90,enc_avif,quality_auto/56a47b_eb31bc94cdfd47e98ce12afb61d3069a~mv2.png" alt="Sketch 6" loading="lazy"></div>
+    <div class="sketch-img"><img src="https://static.wixstatic.com/media/56a47b_4572217dda1d483db24f775afe65ce52~mv2.jpg/v1/fit/w_527,h_395,q_90,enc_avif,quality_auto/56a47b_4572217dda1d483db24f775afe65ce52~mv2.jpg" alt="Sketch 7" loading="lazy"></div>
+    <div class="sketch-img"><img src="https://static.wixstatic.com/media/56a47b_05181ccda36d4538bc27e75c2d2bdf87~mv2.png/v1/fit/w_724,h_395,q_90,enc_avif,quality_auto/56a47b_05181ccda36d4538bc27e75c2d2bdf87~mv2.png" alt="Sketch 8" loading="lazy"></div>
+    <div class="sketch-img"><img src="https://static.wixstatic.com/media/56a47b_3aa368d59fee4b8e940c40c311bee90d~mv2.jpg/v1/fit/w_1042,h_395,q_90,enc_avif,quality_auto/56a47b_3aa368d59fee4b8e940c40c311bee90d~mv2.jpg" alt="Sketch 9" loading="lazy"></div>
+    <div class="sketch-img"><img src="https://static.wixstatic.com/media/56a47b_49b186fa0f4640518baeb4e8197776d0~mv2.webp/v1/fit/w_628,h_395,q_90,enc_avif,quality_auto/56a47b_49b186fa0f4640518baeb4e8197776d0~mv2.webp" alt="Sketch 10" loading="lazy"></div>
+  </div>
+  <p style="font-size:10px;color:var(--fg3);letter-spacing:.1em;text-transform:uppercase;margin-top:12px;font-weight:600">← Drag to scroll →</p>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="ab-l rv">
+    <span class="s-eyebrow">About Me</span>
+    <h2 class="ab-h2">
+      I'm <i>Diksha Shinde</i>,<br>
+      the person you're<br>
+      looking for.
+    </h2>
+    <p class="ab-p">
+      With a focus on problem solving through industrial design, I strive to create solutions that are both functional and emotionally resonant. From urban mobility to home accessories, my work spans diverse domains — always grounded in user research and a passion for everyday mechanics.
+    </p>
+    <!-- 👇 Replace src with your own portrait photo when ready -->
+    <div class="ab-photo">
+      <img src="https://static.wixstatic.com/media/56a47b_187493f0fd4f4bb4ba78e997e1e0ae90~mv2.png/v1/fit/w_758,h_424,q_75,enc_avif,quality_auto/56a47b_187493f0fd4f4bb4ba78e997e1e0ae90~mv2.png" alt="Diksha Shinde">
+    </div>
+  </div>
+
+  <div class="ab-r rv" style="transition-delay:.12s">
+    <div class="ab-cols">
+      <div>
+        <span class="ab-col-head">Skillset</span>
+        <div class="sk-row">Industrial Design</div>
+        <div class="sk-row">Automotive Design</div>
+        <div class="sk-row">Sketching &amp; Rendering</div>
+        <div class="sk-row">Furniture &amp; Spatial Design</div>
+        <div class="sk-row">CMF Design</div>
+        <div class="sk-row">3D Modelling</div>
+        <div class="sk-row">User Research</div>
+        <div class="sk-row">Prototyping</div>
+      </div>
+      <div>
+        <span class="ab-col-head">Education &amp; Experience</span>
+        <div class="em-row">Industrial Design Graduate</div>
+        <div class="em-row">Graduation Project — Glide</div>
+        <div class="em-row">Urban Mobility Research</div>
+        <div class="em-row">Product Concept Design</div>
+        <div class="em-row">Inclusive Design Projects</div>
+        <div class="em-row">Pune, India 🇮🇳</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <span class="ct-eye rv">Get In Touch</span>
+  <span class="ct-big rv" style="transition-delay:.06s">I'm here<br>for <i>you.</i></span>
+
+  <div class="ct-soc rv" style="transition-delay:.12s">
+    <a href="https://dikshashinde11046.wixsite.com/home/resume" target="_blank" class="ct-a">Resume ↗</a>
+    <a href="https://www.linkedin.com/in/diksha-shinde-421a05260/" target="_blank" class="ct-a">LinkedIn ↗</a>
+    <a href="https://www.instagram.com/_line.byline/" target="_blank" class="ct-a">Instagram ↗</a>
+    <a href="https://dikshashinde11046.wixsite.com/home/sketches" target="_blank" class="ct-a">Sketches ↗</a>
+  </div>
+
+  <div class="ct-globe rv" style="transition-delay:.16s">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    INDIA &nbsp;·&nbsp; Open to opportunities
+  </div>
+
+  <div class="rv" style="transition-delay:.2s">
+    <a href="mailto:diksha@email.com" class="ct-btn">
+      <span>Let's Talk</span>
+      <span class="ct-arr">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="f-copy">2026 ® Diksha Shinde</span>
+  <a href="#hero" class="f-top">↑ Top</a>
+</footer>
+
+<script>
+(function(){
+  /* CURSOR */
+  const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+  let mx=0,my=0,rx=0,ry=0;
+  const mob=()=>window.innerWidth<=860;
+  if(!mob()){
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+    (function loop(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(loop);})();
+    document.addEventListener('mouseleave',()=>{cur.style.opacity='0';curR.style.opacity='0'});
+    document.addEventListener('mouseenter',()=>{cur.style.opacity='1';curR.style.opacity='.55'});
+    document.querySelectorAll('a,button,.pcard,.sk-row').forEach(el=>{
+      el.addEventListener('mouseenter',()=>{cur.style.width='14px';cur.style.height='14px';curR.style.width='50px';curR.style.height='50px'});
+      el.addEventListener('mouseleave',()=>{cur.style.width='8px';cur.style.height='8px';curR.style.width='34px';curR.style.height='34px'});
+    });
+  } else {cur.style.display='none';curR.style.display='none';}
+
+  /* NAV */
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>nav.classList.toggle('stuck',scrollY>20),{passive:true});
+
+  /* MOBILE MENU */
+  let open=false;
+  window.toggleMenu=function(){
+    open=!open;
+    document.getElementById('mobMenu').classList.toggle('open',open);
+    document.getElementById('ham').classList.toggle('x',open);
+    document.body.style.overflow=open?'hidden':'';
+  };
+  window.closeMenu=function(){if(open)toggleMenu();};
+
+  /* SCROLL REVEAL */
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});
+  },{threshold:.08,rootMargin:'0px 0px -36px 0px'});
+  document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+
+  /* TICKER PAUSE */
+  const tt=document.getElementById('tickerT');
+  if(tt){tt.addEventListener('mouseenter',()=>tt.style.animationPlayState='paused');tt.addEventListener('mouseleave',()=>tt.style.animationPlayState='running');}
+
+  /* SKETCH DRAG SCROLL */
+  const sk=document.getElementById('sketchScroll');
+  if(sk){
+    let isDown=false,startX,scrollL;
+    sk.addEventListener('mousedown',e=>{isDown=true;sk.classList.add('dragging');startX=e.pageX-sk.offsetLeft;scrollL=sk.scrollLeft;});
+    sk.addEventListener('mouseleave',()=>{isDown=false;sk.classList.remove('dragging');});
+    sk.addEventListener('mouseup',()=>{isDown=false;sk.classList.remove('dragging');});
+    sk.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-sk.offsetLeft;sk.scrollLeft=scrollL-(x-startX)*1.5;});
+    /* touch */
+    let tStartX,tScrollL;
+    sk.addEventListener('touchstart',e=>{tStartX=e.touches[0].pageX;tScrollL=sk.scrollLeft;},{passive:true});
+    sk.addEventListener('touchmove',e=>{const dx=tStartX-e.touches[0].pageX;sk.scrollLeft=tScrollL+dx;},{passive:true});
+  }
+})();
+</script>
+</body>
+</html>
