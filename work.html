@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Diksha</title>
+  <meta name="description" content="Selected UI/UX and Industrial Design projects by Diksha." />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/work.css" />
+</head>
+<body>
+
+  <div class="page-overlay"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="mainNav">
+    <div class="nav__left">
+      <a href="work.html" class="nav__link" style="opacity:0.45;">Work</a>
+      <a href="about.html" class="nav__link">About</a>
+    </div>
+    <div><a href="index.html" class="nav__logo">DIKSHA</a></div>
+    <div class="nav__right">
+      <a href="contact.html" class="nav__cta">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="work-hero" data-reveal="up">
+    <h1 class="work-hero__title">Selected<br /><em>Work</em></h1>
+    <p class="work-hero__sub">A curated collection of UI/UX and Industrial Design projects — built at the intersection of form, function, and experience.</p>
+  </header>
+
+  <!-- FILTERS -->
+  <div class="work-filters" role="tablist" aria-label="Filter projects">
+    <button class="filter-btn is-active" data-filter="all" role="tab" id="filter-all">All</button>
+    <button class="filter-btn" data-filter="uiux" role="tab" id="filter-uiux">UI / UX</button>
+    <button class="filter-btn" data-filter="industrial" role="tab" id="filter-industrial">Industrial</button>
+  </div>
+
+  <!-- PROJECT GRID -->
+  <main class="work-grid" id="workGrid">
+
+    <!-- Featured: Aura -->
+    <a href="case-studies/aura.html" class="work-grid__item work-grid__item--featured" data-category="uiux" id="gridAura">
+      <div class="work-grid__img">
+        <div class="work-grid__img-bg img--aura"></div>
+      </div>
+      <div>
+        <div class="work-grid__meta">
+          <span class="tag tag--accent">UI / UX</span>
+          <span class="caption" style="color:var(--color-text-tertiary)">2025</span>
+        </div>
+        <h2 class="work-grid__title">Aura — <em>Wellness App</em></h2>
+        <p class="work-grid__desc">A holistic wellness platform for Gen-Z — merging biometrics with calm-first interfaces.</p>
+        <div class="mt-8">
+          <span class="btn btn--text">View Case Study <span class="btn__arrow">→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Luma -->
+    <a href="case-studies/luma.html" class="work-grid__item" data-category="industrial" id="gridLuma">
+      <div class="work-grid__img">
+        <div class="work-grid__img-bg img--luma"></div>
+      </div>
+      <div class="work-grid__meta">
+        <span class="tag tag--accent">Industrial</span>
+        <span class="caption" style="color:var(--color-text-tertiary)">2025</span>
+      </div>
+      <h2 class="work-grid__title">Luma — <em>Smart Lamp</em></h2>
+      <p class="work-grid__desc">A circadian-aware lamp that learns your rhythms. Form follows behavior.</p>
+      <div class="mt-6">
+        <span class="btn btn--text">View Case Study <span class="btn__arrow">→</span></span>
+      </div>
+    </a>
+
+    <!-- Flux -->
+    <a href="case-studies/flux.html" class="work-grid__item" data-category="uiux" id="gridFlux">
+      <div class="work-grid__img">
+        <div class="work-grid__img-bg img--flux"></div>
+      </div>
+      <div class="work-grid__meta">
+        <span class="tag tag--accent">UI / UX</span>
+        <span class="caption" style="color:var(--color-text-tertiary)">2024</span>
+      </div>
+      <h2 class="work-grid__title">Flux — <em>Finance Dashboard</em></h2>
+      <p class="work-grid__desc">Dense data made human. Dark-first, information-dense yet breathable.</p>
+      <div class="mt-6">
+        <span class="btn btn--text">View Case Study <span class="btn__arrow">→</span></span>
+      </div>
+    </a>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <a href="index.html" class="footer__logo">DIKSHA</a>
+      <div class="footer__links">
+        <a href="https://linkedin.com/in/dikshadesign" target="_blank" rel="noopener" class="footer__link">LinkedIn</a>
+        <a href="https://behance.net/dikshadesign" target="_blank" rel="noopener" class="footer__link">Behance</a>
+        <a href="https://dribbble.com/dikshadesign" target="_blank" rel="noopener" class="footer__link">Dribbble</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">©2026 Diksha</span>
+      <span class="footer__copy">Designed & built by Diksha</span>
+    </div>
+  </footer>
+
+  <script src="js/utils.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/work.js"></script>
+</body>
+</html>

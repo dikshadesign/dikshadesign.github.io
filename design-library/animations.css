@@ -1,0 +1,198 @@
+/* ═══════════════════════════════════════════════════════════════
+   DESIGN LIBRARY — animations.css
+   All @keyframes + utility animation classes.
+   Scroll-triggered via IntersectionObserver (adds .is-visible).
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────
+   KEYFRAMES
+   ───────────────────────────────────────── */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes revealMask {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+@keyframes scanLine {
+  0%   { left: -100%; }
+  50%  { left: 100%; }
+  100% { left: 100%; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50%       { transform: scale(1.05); opacity: 1; }
+}
+
+/* ─────────────────────────────────────────
+   SCROLL-REVEAL BASE STATE
+   (applied to elements before they enter view)
+   ───────────────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition: opacity var(--duration-slower) var(--ease-out-expo),
+              transform var(--duration-slower) var(--ease-out-expo);
+}
+
+[data-reveal="up"]    { transform: translateY(60px); }
+[data-reveal="down"]  { transform: translateY(-40px); }
+[data-reveal="left"]  { transform: translateX(60px); }
+[data-reveal="right"] { transform: translateX(-60px); }
+[data-reveal="scale"] { transform: scale(0.9); }
+[data-reveal="fade"]  { transform: none; }
+
+/* Visible state — added by IntersectionObserver in core.js */
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Staggered delay children */
+[data-reveal-stagger] > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-slower) var(--ease-out-expo),
+              transform var(--duration-slower) var(--ease-out-expo);
+}
+
+[data-reveal-stagger].is-visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0ms; }
+[data-reveal-stagger].is-visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 100ms; }
+[data-reveal-stagger].is-visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 200ms; }
+[data-reveal-stagger].is-visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 300ms; }
+[data-reveal-stagger].is-visible > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 400ms; }
+[data-reveal-stagger].is-visible > *:nth-child(6) { opacity: 1; transform: none; transition-delay: 500ms; }
+
+/* Delay modifiers */
+[data-delay="100"] { transition-delay: 100ms; }
+[data-delay="200"] { transition-delay: 200ms; }
+[data-delay="300"] { transition-delay: 300ms; }
+[data-delay="400"] { transition-delay: 400ms; }
+[data-delay="500"] { transition-delay: 500ms; }
+[data-delay="600"] { transition-delay: 600ms; }
+
+/* ─────────────────────────────────────────
+   UTILITY ANIMATION CLASSES
+   ───────────────────────────────────────── */
+.anim-fade-in      { animation: fadeIn      var(--duration-slow)   var(--ease-out-expo) forwards; }
+.anim-fade-up      { animation: fadeUp      var(--duration-slower) var(--ease-out-expo) forwards; }
+.anim-fade-down    { animation: fadeDown    var(--duration-slow)   var(--ease-out-expo) forwards; }
+.anim-scale-in     { animation: scaleIn     var(--duration-slower) var(--ease-out-expo) forwards; }
+.anim-reveal-mask  { animation: revealMask  var(--duration-slower) var(--ease-in-out-circ) forwards; }
+.anim-pulse        { animation: pulse       2s ease-in-out infinite; }
+.anim-spin         { animation: spin        1s linear infinite; }
+.anim-breathe      { animation: breathe     4s ease-in-out infinite; }
+
+/* ─────────────────────────────────────────
+   HOVER MICRO-ANIMATIONS
+   ───────────────────────────────────────── */
+.hover-lift {
+  transition: transform var(--duration-base) var(--ease-out-expo);
+}
+.hover-lift:hover { transform: translateY(-4px); }
+
+.hover-scale {
+  transition: transform var(--duration-base) var(--ease-out-expo);
+}
+.hover-scale:hover { transform: scale(1.02); }
+
+/* ─────────────────────────────────────────
+   MARQUEE STRIP
+   ───────────────────────────────────────── */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+}
+
+.marquee__track {
+  display: inline-flex;
+  gap: var(--space-10);
+  animation: marquee 20s linear infinite;
+}
+
+.marquee--reverse .marquee__track {
+  animation-direction: reverse;
+}
+
+/* ─────────────────────────────────────────
+   SCAN LINE (decorative)
+   ───────────────────────────────────────── */
+.scan-line {
+  position: relative;
+  overflow: hidden;
+}
+.scan-line::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  animation: scanLine 2.5s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────
+   RESPECT REDUCED MOTION
+   ───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}

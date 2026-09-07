@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diksha — UI/UX & Industrial Design</title>
+  <meta name="description" content="Portfolio of Diksha — UI/UX Designer & Industrial Designer crafting experiences at the intersection of digital interaction and physical form." />
+  <meta property="og:title" content="Diksha — UI/UX & Industrial Design" />
+  <meta property="og:description" content="Portfolio of Diksha — UI/UX & Industrial Designer" />
+  <meta property="og:url" content="https://dikshadesign.github.io" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+
+  <!-- Design system -->
+  <link rel="stylesheet" href="css/main.css" />
+  <!-- Page styles -->
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+
+  <!-- Page transition overlay -->
+  <div class="page-overlay"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ────────────── NAVBAR ────────────── -->
+  <nav class="nav" id="mainNav">
+    <div class="nav__left">
+      <a href="work.html" class="nav__link">Work</a>
+      <a href="about.html" class="nav__link">About</a>
+    </div>
+    <div>
+      <a href="index.html" class="nav__logo">DIKSHA</a>
+    </div>
+    <div class="nav__right">
+      <a href="work.html" class="nav__link hide-mobile">Selected Work</a>
+      <a href="contact.html" class="nav__cta" id="navContact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ────────────── HERO ────────────── -->
+  <section id="hero">
+
+    <!-- Eyebrow text (white bg visible) -->
+    <div class="hero__eyebrow" id="heroEyebrow">
+      <span class="label">UI/UX · Industrial Design · 2026</span>
+    </div>
+
+    <!-- THE EXPANDING BLACK FRAME -->
+    <div class="black-frame" id="blackFrame">
+      <div class="black-frame__inner">
+
+        <div class="black-frame__glow"></div>
+
+        <!-- Play / showreel -->
+        <div class="black-frame__play" id="framePlay">
+          <div class="play-circle">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+              <polygon points="6,4 20,12 6,20" fill="white" />
+            </svg>
+          </div>
+          <span class="play-label">View Showreel</span>
+        </div>
+
+        <!-- Headline (scroll-revealed) -->
+        <div class="black-frame__headline" id="frameHeadline">
+          <h1>Design is<br /><em>where intent<br />becomes form.</em></h1>
+          <p class="black-frame__sub">Crafting experiences that live between<br />pixels and the physical world.</p>
+        </div>
+
+        <!-- Corner decorations -->
+        <div class="black-frame__corner black-frame__corner--tl">
+          <span class="mono">©2026</span>
+        </div>
+        <div class="black-frame__corner black-frame__corner--br">
+          <span class="label" style="color: rgba(255,255,255,0.25);">Scroll to explore</span>
+          <div class="scroll-indicator"></div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ────────────── PROJECTS ────────────── -->
+  <section id="projects">
+
+    <div class="projects-header">
+      <span class="projects-header__title">Selected Work</span>
+      <span class="projects-header__count label">03 Projects</span>
+    </div>
+
+    <!-- Project 01 -->
+    <article class="project-row" id="proj01" data-category="uiux">
+      <div class="project-row__num">01</div>
+      <div class="project-row__content">
+        <div class="project-row__meta">
+          <span class="tag tag--accent">UI / UX Design</span>
+          <span class="caption" style="color: var(--color-text-tertiary);">2025</span>
+        </div>
+        <h2 class="project-row__title">Aura — <em>Wellness App</em></h2>
+        <p class="project-row__desc">A holistic wellness platform designed for Gen-Z. Merging biometric data with ambient, calm-first interfaces where every micro-interaction reduces cognitive load.</p>
+        <div class="mt-6">
+          <a href="case-studies/aura.html" class="btn btn--text" id="viewAura">
+            View Case Study <span class="btn__arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="project-row__visual">
+        <div class="project-row__img-wrap">
+          <div class="project-row__img img--aura"></div>
+        </div>
+        <div class="project-row__tool-tags">
+          <span class="tag tag--ghost">Figma</span>
+          <span class="tag tag--ghost">Prototyping</span>
+          <span class="tag tag--ghost">User Research</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 02 -->
+    <article class="project-row" id="proj02" data-category="industrial">
+      <div class="project-row__num">02</div>
+      <div class="project-row__content">
+        <div class="project-row__meta">
+          <span class="tag tag--accent">Industrial Design</span>
+          <span class="caption" style="color: var(--color-text-tertiary);">2025</span>
+        </div>
+        <h2 class="project-row__title">Luma — <em>Smart Lamp</em></h2>
+        <p class="project-row__desc">A circadian-aware desk lamp that learns your rhythms. Form follows behavior — the physical language communicates softness and quiet intelligence.</p>
+        <div class="mt-6">
+          <a href="case-studies/luma.html" class="btn btn--text" id="viewLuma">
+            View Case Study <span class="btn__arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="project-row__visual">
+        <div class="project-row__img-wrap">
+          <div class="project-row__img img--luma"></div>
+        </div>
+        <div class="project-row__tool-tags">
+          <span class="tag tag--ghost">Rhino 3D</span>
+          <span class="tag tag--ghost">Keyshot</span>
+          <span class="tag tag--ghost">CMF</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 03 -->
+    <article class="project-row" id="proj03" data-category="uiux">
+      <div class="project-row__num">03</div>
+      <div class="project-row__content">
+        <div class="project-row__meta">
+          <span class="tag tag--accent">UI / UX Design</span>
+          <span class="caption" style="color: var(--color-text-tertiary);">2024</span>
+        </div>
+        <h2 class="project-row__title">Flux — <em>Finance Dashboard</em></h2>
+        <p class="project-row__desc">A next-gen personal finance platform for power users. Dense data made human — dark-first, information-dense yet breathable.</p>
+        <div class="mt-6">
+          <a href="case-studies/flux.html" class="btn btn--text" id="viewFlux">
+            View Case Study <span class="btn__arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="project-row__visual">
+        <div class="project-row__img-wrap">
+          <div class="project-row__img img--flux"></div>
+        </div>
+        <div class="project-row__tool-tags">
+          <span class="tag tag--ghost">Design Systems</span>
+          <span class="tag tag--ghost">Data Viz</span>
+          <span class="tag tag--ghost">Figma</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- View all -->
+    <div style="padding: var(--space-12) var(--gutter-lg);">
+      <a href="work.html" class="btn btn--ghost">View All Work</a>
+    </div>
+
+  </section>
+
+  <!-- ────────────── ABOUT STRIP ────────────── -->
+  <section id="home-about">
+    <div class="home-about__inner" data-reveal-stagger>
+      <div>
+        <span class="home-about__label label">About</span>
+        <h2 class="home-about__title">I design at the<br /><em>edge of disciplines.</em></h2>
+      </div>
+      <div class="home-about__right">
+        <p class="body-md">UI/UX designer and Industrial Designer based in India. I work at the intersection of digital experience and physical form — believing the best design is invisible.</p>
+        <p class="body-md">Currently open to <strong>full-time roles</strong> and <strong>freelance projects</strong> in product design, interaction design, and design strategy.</p>
+        <div class="mt-6">
+          <a href="contact.html" class="btn btn--text">Get in touch <span class="btn__arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────────── FOOTER ────────────── -->
+  <footer class="footer">
+    <div class="footer__top">
+      <a href="index.html" class="footer__logo">DIKSHA</a>
+      <div class="footer__links">
+        <a href="https://linkedin.com/in/dikshadesign" target="_blank" rel="noopener" class="footer__link">LinkedIn</a>
+        <a href="https://behance.net/dikshadesign" target="_blank" rel="noopener" class="footer__link">Behance</a>
+        <a href="https://dribbble.com/dikshadesign" target="_blank" rel="noopener" class="footer__link">Dribbble</a>
+        <a href="https://instagram.com/dikshadesign" target="_blank" rel="noopener" class="footer__link">Instagram</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">©2026 Diksha. All rights reserved.</span>
+      <span class="footer__copy">Designed & built by Diksha</span>
+    </div>
+  </footer>
+
+  <!-- Scripts: utils → core → page-specific -->
+  <script src="js/utils.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+/* ═══════════════════════════════════════════════════════════════
+   css/main.css
+   Master stylesheet — imports design library in correct cascade.
+   Every page links ONLY to this file (+ its page-specific css).
+   ═══════════════════════════════════════════════════════════════ */
+
+/* 1. Design tokens (must be first — everything else inherits) */
+@import url('../design-library/tokens.css');
+
+/* 2. Typography (fonts + text hierarchy) */
+@import url('../design-library/typography.css');
+
+/* 3. Shared components */
+@import url('../design-library/components.css');
+
+/* 4. Animations & keyframes */
+@import url('../design-library/animations.css');
+
+/* 5. Utilities (layout, spacing, visibility) */
+@import url('../design-library/utilities.css');

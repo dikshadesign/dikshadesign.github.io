@@ -1,0 +1,231 @@
+/* ═══════════════════════════════════════════════════════════════
+   DESIGN LIBRARY — utilities.css
+   Layout helpers, spacing utilities, grid, visibility.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────
+   RESET
+   ───────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg-page-light);
+  color: var(--color-text-dark);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+img, video { display: block; max-width: 100%; }
+button { cursor: none; font-family: inherit; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: var(--radius-full); }
+
+/* ─────────────────────────────────────────
+   LAYOUT CONTAINERS
+   ───────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter-lg);
+  padding-right: var(--gutter-lg);
+}
+
+.container--wide {
+  max-width: var(--max-width);
+  padding-left: var(--gutter-lg);
+  padding-right: var(--gutter-lg);
+}
+
+.container--narrow {
+  max-width: 720px;
+  padding-left: var(--gutter-md);
+  padding-right: var(--gutter-md);
+}
+
+/* ─────────────────────────────────────────
+   GRID SYSTEM
+   ───────────────────────────────────────── */
+.grid {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.grid-2  { grid-template-columns: repeat(2, 1fr); }
+.grid-3  { grid-template-columns: repeat(3, 1fr); }
+.grid-4  { grid-template-columns: repeat(4, 1fr); }
+.grid-12 { grid-template-columns: repeat(12, 1fr); }
+
+/* Column spans */
+.col-span-1  { grid-column: span 1; }
+.col-span-2  { grid-column: span 2; }
+.col-span-3  { grid-column: span 3; }
+.col-span-4  { grid-column: span 4; }
+.col-span-5  { grid-column: span 5; }
+.col-span-6  { grid-column: span 6; }
+.col-span-7  { grid-column: span 7; }
+.col-span-8  { grid-column: span 8; }
+.col-span-12 { grid-column: span 12; }
+
+/* Gap modifiers */
+.gap-4  { gap: var(--space-4); }
+.gap-6  { gap: var(--space-6); }
+.gap-8  { gap: var(--space-8); }
+.gap-10 { gap: var(--space-10); }
+.gap-12 { gap: var(--space-12); }
+.gap-16 { gap: var(--space-16); }
+.gap-20 { gap: var(--space-20); }
+
+/* ─────────────────────────────────────────
+   FLEXBOX
+   ───────────────────────────────────────── */
+.flex             { display: flex; }
+.flex-col         { display: flex; flex-direction: column; }
+.flex-center      { display: flex; align-items: center; justify-content: center; }
+.flex-between     { display: flex; align-items: center; justify-content: space-between; }
+.flex-start       { display: flex; align-items: flex-start; }
+.flex-end         { display: flex; align-items: flex-end; }
+.flex-wrap        { flex-wrap: wrap; }
+.items-center     { align-items: center; }
+.items-start      { align-items: flex-start; }
+.justify-center   { justify-content: center; }
+.justify-between  { justify-content: space-between; }
+.justify-end      { justify-content: flex-end; }
+
+/* ─────────────────────────────────────────
+   SPACING
+   ───────────────────────────────────────── */
+.mt-4  { margin-top: var(--space-4); }
+.mt-6  { margin-top: var(--space-6); }
+.mt-8  { margin-top: var(--space-8); }
+.mt-10 { margin-top: var(--space-10); }
+.mt-12 { margin-top: var(--space-12); }
+.mt-16 { margin-top: var(--space-16); }
+.mt-20 { margin-top: var(--space-20); }
+.mt-24 { margin-top: var(--space-24); }
+.mt-32 { margin-top: var(--space-32); }
+
+.mb-4  { margin-bottom: var(--space-4); }
+.mb-6  { margin-bottom: var(--space-6); }
+.mb-8  { margin-bottom: var(--space-8); }
+.mb-10 { margin-bottom: var(--space-10); }
+.mb-12 { margin-bottom: var(--space-12); }
+.mb-16 { margin-bottom: var(--space-16); }
+.mb-20 { margin-bottom: var(--space-20); }
+
+.pt-12 { padding-top: var(--space-12); }
+.pt-16 { padding-top: var(--space-16); }
+.pt-20 { padding-top: var(--space-20); }
+.pt-24 { padding-top: var(--space-24); }
+.pt-32 { padding-top: var(--space-32); }
+
+.pb-12 { padding-bottom: var(--space-12); }
+.pb-16 { padding-bottom: var(--space-16); }
+.pb-20 { padding-bottom: var(--space-20); }
+.pb-24 { padding-bottom: var(--space-24); }
+.pb-32 { padding-bottom: var(--space-32); }
+
+/* ─────────────────────────────────────────
+   POSITIONING
+   ───────────────────────────────────────── */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed    { position: fixed; }
+.sticky   { position: sticky; }
+.inset-0  { inset: 0; }
+
+/* ─────────────────────────────────────────
+   DIMENSIONS
+   ───────────────────────────────────────── */
+.w-full  { width: 100%; }
+.h-full  { height: 100%; }
+.h-screen { height: 100vh; }
+.min-h-screen { min-height: 100vh; }
+
+/* ─────────────────────────────────────────
+   OVERFLOW
+   ───────────────────────────────────────── */
+.overflow-hidden { overflow: hidden; }
+.overflow-x-hidden { overflow-x: hidden; }
+
+/* ─────────────────────────────────────────
+   VISIBILITY
+   ───────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hidden       { display: none; }
+.opacity-0    { opacity: 0; }
+.opacity-50   { opacity: 0.5; }
+.pointer-none { pointer-events: none; }
+
+/* ─────────────────────────────────────────
+   TEXT UTILITIES
+   ───────────────────────────────────────── */
+.text-center  { text-align: center; }
+.text-left    { text-align: left; }
+.text-right   { text-align: right; }
+.text-white   { color: var(--color-white); }
+.text-black   { color: var(--color-black); }
+.text-accent  { color: var(--color-accent); }
+.text-muted   { color: var(--color-text-secondary); }
+.text-dimmed  { color: var(--color-text-tertiary); }
+
+/* ─────────────────────────────────────────
+   SECTION PADDING
+   ───────────────────────────────────────── */
+.section-py {
+  padding-top: var(--space-32);
+  padding-bottom: var(--space-32);
+}
+
+.section-py-lg {
+  padding-top: var(--space-48);
+  padding-bottom: var(--space-48);
+}
+
+/* ─────────────────────────────────────────
+   ASPECT RATIOS
+   ───────────────────────────────────────── */
+.aspect-16-9  { aspect-ratio: 16 / 9; }
+.aspect-16-10 { aspect-ratio: 16 / 10; }
+.aspect-4-3   { aspect-ratio: 4 / 3; }
+.aspect-1-1   { aspect-ratio: 1; }
+.aspect-3-4   { aspect-ratio: 3 / 4; }
+
+/* ─────────────────────────────────────────
+   RESPONSIVE UTILITIES
+   ───────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .container      { padding-left: var(--gutter-sm); padding-right: var(--gutter-sm); }
+  .container--wide { padding-left: var(--gutter-sm); padding-right: var(--gutter-sm); }
+  .grid-3         { grid-template-columns: repeat(2, 1fr); }
+  .grid-4         { grid-template-columns: repeat(2, 1fr); }
+  .hide-tablet    { display: none; }
+}
+
+@media (max-width: 640px) {
+  .container      { padding-left: var(--gutter-xs); padding-right: var(--gutter-xs); }
+  .grid-2,
+  .grid-3,
+  .grid-4         { grid-template-columns: 1fr; }
+  .hide-mobile    { display: none; }
+  .nav { padding: 0 var(--gutter-xs); }
+}

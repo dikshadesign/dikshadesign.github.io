@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Diksha</title>
+  <meta name="description" content="Get in touch with Diksha for design collaboration, full-time roles, or freelance projects." />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+</head>
+<body>
+
+  <div class="page-overlay"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="mainNav">
+    <div class="nav__left">
+      <a href="work.html" class="nav__link">Work</a>
+      <a href="about.html" class="nav__link">About</a>
+    </div>
+    <div><a href="index.html" class="nav__logo">DIKSHA</a></div>
+    <div class="nav__right">
+      <a href="contact.html" class="nav__cta" style="background:var(--color-accent);color:var(--color-black);">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="contact-hero" data-reveal="up">
+      <h1 class="contact-hero__title">Let's make<br /><em>something great.</em></h1>
+      <p class="contact-hero__sub">Whether it's a full-time role, freelance project, or just a conversation about design — I'd love to connect.</p>
+    </section>
+
+    <!-- CONTACT BODY -->
+    <section class="contact-body">
+
+      <!-- Left: info -->
+      <div class="contact-body__left" data-reveal="right">
+
+        <div class="contact-info-item">
+          <span class="contact-info-item__label">Email</span>
+          <span class="contact-info-item__value">
+            <a href="mailto:hello@dikshadesign.com" id="emailLink">hello@dikshadesign.com</a>
+          </span>
+        </div>
+
+        <div class="contact-info-item">
+          <span class="contact-info-item__label">Based in</span>
+          <span class="contact-info-item__value">India · Available globally</span>
+        </div>
+
+        <div class="contact-info-item">
+          <span class="contact-info-item__label">Availability</span>
+          <span class="contact-info-item__value">Open to opportunities</span>
+        </div>
+
+        <div class="contact-info-item">
+          <span class="contact-info-item__label">Find me</span>
+          <div class="contact-socials mt-4">
+            <a href="https://linkedin.com/in/dikshadesign" target="_blank" rel="noopener" class="tag tag--ghost" id="socialLinkedin">LinkedIn</a>
+            <a href="https://behance.net/dikshadesign" target="_blank" rel="noopener" class="tag tag--ghost" id="socialBehance">Behance</a>
+            <a href="https://dribbble.com/dikshadesign" target="_blank" rel="noopener" class="tag tag--ghost" id="socialDribbble">Dribbble</a>
+            <a href="https://instagram.com/dikshadesign" target="_blank" rel="noopener" class="tag tag--ghost" id="socialInstagram">Instagram</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: form -->
+      <div class="contact-body__right" data-reveal="left">
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+          <div class="form-group">
+            <label class="form-label" for="formName">Name</label>
+            <input class="form-input" type="text" id="formName" name="name" placeholder="Your name" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="formEmail">Email</label>
+            <input class="form-input" type="email" id="formEmail" name="email" placeholder="your@email.com" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="formSubject">Subject</label>
+            <input class="form-input" type="text" id="formSubject" name="subject" placeholder="What's this about?" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="formMessage">Message</label>
+            <textarea class="form-textarea" id="formMessage" name="message" placeholder="Tell me about your project..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary form-submit" id="submitBtn">
+            Send Message →
+          </button>
+
+        </form>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <a href="index.html" class="footer__logo">DIKSHA</a>
+      <div class="footer__links">
+        <a href="https://linkedin.com/in/dikshadesign" target="_blank" rel="noopener" class="footer__link">LinkedIn</a>
+        <a href="https://behance.net/dikshadesign" target="_blank" rel="noopener" class="footer__link">Behance</a>
+        <a href="https://dribbble.com/dikshadesign" target="_blank" rel="noopener" class="footer__link">Dribbble</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">©2026 Diksha</span>
+      <span class="footer__copy">Designed & built by Diksha</span>
+    </div>
+  </footer>
+
+  <script src="js/utils.js"></script>
+  <script src="js/core.js"></script>
+  <script>window.Cursor.setDark(true);</script>
+</body>
+</html>

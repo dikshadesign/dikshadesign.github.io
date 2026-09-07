@@ -1,0 +1,140 @@
+/* ═══════════════════════════════════════════════════════════════
+   DESIGN LIBRARY — typography.css
+   Font imports, heading hierarchy, body styles, captions.
+   All values reference tokens.css.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── GOOGLE FONTS ─── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ─── BASE ─── */
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-primary);
+}
+
+/* ─── HEADINGS — SANS ─── */
+.h1-sans,
+.h2-sans,
+.h3-sans {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+}
+
+.h1-sans { font-size: clamp(var(--text-4xl), 6vw, var(--text-6xl)); }
+.h2-sans { font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl)); }
+.h3-sans { font-size: clamp(var(--text-2xl), 3vw, var(--text-4xl)); }
+
+/* ─── HEADINGS — SERIF (editorial / hero) ─── */
+.h1-serif,
+.h2-serif,
+.h3-serif {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-snug);
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+}
+
+.h1-serif { font-size: clamp(var(--text-4xl), 6vw, var(--text-7xl)); }
+.h2-serif { font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl)); }
+.h3-serif { font-size: clamp(var(--text-xl), 2.5vw, var(--text-3xl)); }
+
+/* Italic modifier (used in hero, section headers) */
+.italic {
+  font-style: italic;
+  color: var(--color-text-secondary);
+}
+
+/* ─── BODY TEXT ─── */
+.body-lg {
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.body-md {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.body-sm {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-tertiary);
+}
+
+/* ─── DISPLAY / EDITORIAL ─── */
+.display {
+  font-family: var(--font-serif);
+  font-size: clamp(var(--text-5xl), 10vw, var(--text-7xl));
+  font-weight: var(--weight-regular);
+  line-height: 0.95;
+  letter-spacing: var(--tracking-tight);
+}
+
+/* ─── LABELS / OVERLINES ─── */
+.label {
+  font-family: var(--font-sans);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.label-accent {
+  font-family: var(--font-sans);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* ─── CAPTION ─── */
+.caption {
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-wide);
+}
+
+/* ─── MONO ─── */
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  color: var(--color-text-tertiary);
+}
+
+/* ─── LINKS ─── */
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: none;
+}
+
+/* ─── SELECTION ─── */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-black);
+}
+
+/* ─── STRONG ─── */
+strong { font-weight: var(--weight-semibold); color: var(--color-text-primary); }
+em     { font-style: italic; }

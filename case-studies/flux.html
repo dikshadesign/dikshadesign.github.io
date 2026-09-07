@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flux — Case Study · Diksha</title>
+  <meta name="description" content="Flux is a next-gen personal finance dashboard designed for power users — dense data made human." />
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/case-study.css" />
+  <style>
+    :root { --cs-bg: linear-gradient(160deg, #0a0a0a 0%, #0d1117 50%, #161b22 100%); }
+  </style>
+</head>
+<body>
+
+  <div class="page-overlay"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+  <div class="cs-progress-bar" id="progressBar"></div>
+
+  <nav class="nav" id="mainNav">
+    <div class="nav__left">
+      <a href="../work.html" class="nav__link">Work</a>
+      <a href="../about.html" class="nav__link">About</a>
+    </div>
+    <div><a href="../index.html" class="nav__logo">DIKSHA</a></div>
+    <div class="nav__right">
+      <a href="../contact.html" class="nav__cta">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="cs-hero">
+      <div class="cs-hero__bg"></div>
+      <div class="cs-hero__content">
+        <a href="../work.html" class="cs-hero__back" id="backToWork">← All Work</a>
+        <div class="cs-hero__meta">
+          <span class="tag tag--accent">UI / UX Design</span>
+          <span class="caption" style="color:var(--color-text-tertiary)">2024 · 10 weeks</span>
+        </div>
+        <h1 class="cs-hero__title">Flux — Finance Dashboard</h1>
+        <p class="cs-hero__subtitle">A next-gen personal finance platform for power users. Dense data made human — dark-first, breathable, ruthlessly functional.</p>
+      </div>
+    </section>
+
+    <div class="cs-overview" data-reveal-stagger>
+      <div class="cs-overview__item">
+        <span class="cs-overview__label">Role</span>
+        <span class="cs-overview__value">UX / Visual Designer</span>
+      </div>
+      <div class="cs-overview__item">
+        <span class="cs-overview__label">Timeline</span>
+        <span class="cs-overview__value">10 Weeks</span>
+      </div>
+      <div class="cs-overview__item">
+        <span class="cs-overview__label">Tools</span>
+        <span class="cs-overview__value">Figma, FigJam</span>
+      </div>
+      <div class="cs-overview__item">
+        <span class="cs-overview__label">Focus</span>
+        <span class="cs-overview__value">Design Systems, Data Viz</span>
+      </div>
+    </div>
+
+    <section class="cs-section cs-section--split" data-reveal="up">
+      <div class="cs-section__label">01 / Problem</div>
+      <div>
+        <h2 class="cs-section__title">Finance apps treat users like beginners forever.</h2>
+        <div class="cs-section__body">
+          <p>Power users — investors, freelancers, the financially sophisticated — are underserved. Every app hides advanced data behind onboarding wizards designed for someone's first savings account.</p>
+          <p>Flux was designed for the person who has multiple accounts, a stock portfolio, freelance income, and wants everything in one glanceable view — without a tutorial.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="cs-img-full" style="margin: 0; border-radius: 0;">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0a0a,#1a2233);display:flex;align-items:center;justify-content:center;">
+        <span class="label" style="color:rgba(255,255,255,0.12);">[ Dashboard Screenshot ]</span>
+      </div>
+    </div>
+
+    <section class="cs-section cs-section--split" data-reveal="up">
+      <div class="cs-section__label">02 / Design System</div>
+      <div>
+        <h2 class="cs-section__title">A system that scales with complexity.</h2>
+        <div class="cs-section__body">
+          <p>The design system was built first — 48 component variants, 6 data visualization patterns, and a typographic scale that makes dense numerical data scannable at a glance.</p>
+          <p>Color was used semantically: green for gains, but never red for losses (tested to reduce anxiety). Neutral gray communicates "unchanged." Lime accent for user-defined highlights.</p>
+        </div>
+        <div class="cs-img-grid mt-8">
+          <div class="cs-img-grid__item" style="background:linear-gradient(135deg,#0d1117,#1a2233);display:flex;align-items:center;justify-content:center;">
+            <span class="label" style="color:rgba(255,255,255,0.1);">[ Component Library ]</span>
+          </div>
+          <div class="cs-img-grid__item" style="background:linear-gradient(135deg,#111,#0d1117);display:flex;align-items:center;justify-content:center;">
+            <span class="label" style="color:rgba(255,255,255,0.1);">[ Data Viz ]</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-section cs-section--split" data-reveal="up">
+      <div class="cs-section__label">03 / Outcome</div>
+      <div>
+        <h2 class="cs-section__title">Task completion up 40% vs. leading competitor.</h2>
+        <div class="cs-section__body">
+          <p>Usability testing with 18 power users showed a 40% improvement in time-to-complete common tasks vs. the leading competitor. Users described Flux as "the first finance app that respects my intelligence."</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <a href="aura.html" class="cs-next" id="nextProject">
+    <div class="container">
+      <p class="cs-next__label">Next Project</p>
+      <h2 class="cs-next__title">Aura — Wellness App</h2>
+    </div>
+  </a>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <a href="../index.html" class="footer__logo">DIKSHA</a>
+      <div class="footer__links">
+        <a href="../work.html" class="footer__link">Work</a>
+        <a href="../about.html" class="footer__link">About</a>
+        <a href="../contact.html" class="footer__link">Contact</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">©2026 Diksha</span>
+    </div>
+  </footer>
+
+  <script src="../js/utils.js"></script>
+  <script src="../js/core.js"></script>
+  <script src="../js/case-study.js"></script>
+</body>
+</html>

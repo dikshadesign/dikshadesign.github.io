@@ -1,0 +1,155 @@
+/* ═══════════════════════════════════════════════════════════════
+   css/work.css — Page-specific: work.html
+   ═══════════════════════════════════════════════════════════════ */
+
+body { background: var(--color-black); }
+
+/* ─────────────────────────────────────────
+   WORK HERO
+   ───────────────────────────────────────── */
+.work-hero {
+  padding-top: calc(var(--nav-height) + var(--space-20));
+  padding-bottom: var(--space-20);
+  padding-left: var(--gutter-lg);
+  padding-right: var(--gutter-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.work-hero__title {
+  font-family: var(--font-serif);
+  font-size: clamp(var(--text-4xl), 7vw, var(--text-6xl));
+  font-weight: var(--weight-regular);
+  color: var(--color-white);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-8);
+}
+
+.work-hero__sub {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  max-width: 480px;
+  line-height: var(--leading-relaxed);
+}
+
+/* ─────────────────────────────────────────
+   FILTERS
+   ───────────────────────────────────────── */
+.work-filters {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-6) var(--gutter-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.filter-btn {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  padding: var(--space-2) var(--space-5);
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  background: none;
+  cursor: none;
+  transition: all var(--duration-base) ease;
+}
+
+.filter-btn:hover { color: var(--color-white); }
+
+.filter-btn.is-active {
+  color: var(--color-white);
+  border-color: var(--color-border);
+}
+
+/* ─────────────────────────────────────────
+   PROJECT GRID
+   ───────────────────────────────────────── */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--color-border);
+  padding-bottom: var(--space-32);
+}
+
+.work-grid__item {
+  background: var(--color-black);
+  padding: var(--space-12) var(--gutter-lg);
+  text-decoration: none;
+  display: block;
+  cursor: none;
+  transition: background var(--duration-base) ease;
+}
+
+.work-grid__item:hover { background: var(--color-surface); }
+
+/* Featured (full-width) */
+.work-grid__item--featured {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.work-grid__item--featured .project-card__image {
+  aspect-ratio: 16 / 9;
+}
+
+.work-grid__img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-6);
+}
+
+.work-grid__img-bg {
+  width: 100%;
+  height: 100%;
+  transition: transform var(--duration-slower) var(--ease-out-expo);
+}
+.work-grid__item:hover .work-grid__img-bg { transform: scale(1.04); }
+
+.work-grid__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.work-grid__title {
+  font-family: var(--font-serif);
+  font-size: clamp(var(--text-xl), 2.5vw, var(--text-3xl));
+  font-weight: var(--weight-regular);
+  color: var(--color-white);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-snug);
+  margin-bottom: var(--space-4);
+}
+.work-grid__title em { font-style: italic; color: var(--color-text-secondary); }
+
+.work-grid__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: 380px;
+}
+
+/* Hidden when filtered */
+.work-grid__item[data-hidden] {
+  display: none;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .work-grid { grid-template-columns: 1fr; }
+  .work-grid__item--featured { grid-column: span 1; grid-template-columns: 1fr; }
+  .work-hero, .work-filters { padding-left: var(--gutter-sm); padding-right: var(--gutter-sm); }
+  .work-grid__item { padding: var(--space-10) var(--gutter-sm); }
+}
