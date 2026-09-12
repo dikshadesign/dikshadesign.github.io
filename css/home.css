@@ -621,7 +621,7 @@ a, button { cursor: none; }
 .char {
   display: inline-block;
   opacity: 0;
-  will-change: transform, opacity;
+  will-change: opacity;
 }
 
 /* Base states for JS to animate */

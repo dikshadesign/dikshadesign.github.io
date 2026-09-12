@@ -96,13 +96,13 @@ import { animate, stagger, spring, inView } from "https://cdn.jsdelivr.net/npm/m
       heroTitle.appendChild(span);
     });
 
-    // 1. Reveal letters with a slower spring + subtle opacity
+    // 1. Pure opacity stagger — letters fade in from nothing, no movement
     animate('.char', 
-      { opacity: [0, 1], y: [30, 0] },
+      { opacity: [0, 1] },
       { 
-        duration: 1.2,
-        easing: [0.22, 1, 0.36, 1],
-        delay: stagger(0.06),
+        duration: 1.6,
+        easing: [0.25, 0.1, 0.25, 1],
+        delay: stagger(0.05),
       }
     ).finished.then(() => {
       // 2. Once title finishes, reveal the rest of the page with spring + opacity
