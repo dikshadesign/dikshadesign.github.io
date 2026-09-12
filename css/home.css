@@ -526,18 +526,27 @@ a, button { cursor: none; }
   border-radius: var(--radius-lg);
   position: relative;
   overflow: hidden;
+  transition: box-shadow 0.5s;
+}
+
+.project-card__image-inner {
+  position: absolute;
+  /* Make the inner layer slightly larger so zooming out doesn't reveal edges */
+  inset: -5%;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Apply the dynamic JS scroll scale */
+  /* Apply the dynamic JS scroll scale here instead */
   transform: scale(var(--scroll-scale, 1));
-  transition: box-shadow 0.5s;
   will-change: transform;
 }
+
 .project-card:hover .project-card__image-wrapper {
-  /* On hover, slightly compress *relative* to its scroll scale */
-  transform: scale(calc(var(--scroll-scale, 1) * 0.97));
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+.project-card:hover .project-card__image-inner {
+  /* Combine hover scale with scroll scale */
+  transform: scale(calc(var(--scroll-scale, 1) * 0.97));
 }
 
 .project-card__info {
