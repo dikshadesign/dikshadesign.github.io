@@ -540,13 +540,43 @@ a, button { cursor: none; }
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-.project-card__title {
-  transition: transform 0.3s, color 0.3s;
-  transform-origin: left;
+.project-card__info {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 4px 0;
 }
+
+.project-card__title {
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.project-card__subtitle-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.project-card__subtitle {
+  font-size: 11px;
+  color: var(--muted);
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  padding-top: 4px;
+}
+
 .project-card:hover .project-card__title {
-  transform: translateX(8px);
-  color: var(--accent);
+  color: #fff;
+}
+
+.project-card:hover .project-card__subtitle-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.project-card:hover .project-card__subtitle {
+  opacity: 1;
 }
 
 /* Bento Cards */
