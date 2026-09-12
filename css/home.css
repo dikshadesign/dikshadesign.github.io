@@ -518,15 +518,22 @@ a, button { cursor: none; }
 .project-card {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  background: var(--bg-card);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.4s;
+  will-change: transform;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
 .project-card__image-wrapper {
   aspect-ratio: 4/3;
-  border-radius: var(--radius-lg);
   position: relative;
   overflow: hidden;
-  transition: box-shadow 0.5s;
 }
 
 .project-card__image-inner {
@@ -536,14 +543,11 @@ a, button { cursor: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Apply the dynamic JS scroll scale here instead */
+  /* Apply the dynamic JS scroll scale here */
   transform: scale(var(--scroll-scale, 1));
   will-change: transform;
 }
 
-.project-card:hover .project-card__image-wrapper {
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
 .project-card:hover .project-card__image-inner {
   /* Combine hover scale with scroll scale */
   transform: scale(calc(var(--scroll-scale, 1) * 0.97));
@@ -552,7 +556,7 @@ a, button { cursor: none; }
 .project-card__info {
   display: flex;
   flex-direction: column;
-  padding: 8px 4px 0;
+  padding: 16px 20px;
 }
 
 .project-card__title {
