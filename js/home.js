@@ -104,19 +104,23 @@ import { animate, stagger, spring, inView } from "https://cdn.jsdelivr.net/npm/m
         easing: [0.25, 0.1, 0.25, 1],
         delay: stagger(0.05),
       }
-    ).finished.then(() => {
-      // 2. Once title finishes, reveal the rest of the page with spring + opacity
-      animate('.header, .hero__bottom, .projects, .bento, .cta, .footer', 
-        { opacity: [0, 1], y: [18, 0] },
+    );
+
+    // Calculate when the last letter finishes: (charCount × staggerDelay + duration) × 1000ms
+    const totalRevealMs = (chars.length * 0.05 + 1.6) * 1000;
+
+    // 2. After title finishes, reveal the rest of the page
+    setTimeout(() => {
+      animate(
+        ['.header', '.hero__bottom', '.projects', '.bento', '.cta', '.footer'],
+        { opacity: [0, 1], y: [15, 0] },
         { 
-          type: spring,
-          stiffness: 70,
-          damping: 18,
-          mass: 1.2,
-          delay: stagger(0.12)
+          duration: 0.9,
+          easing: [0.22, 1, 0.36, 1],
+          delay: stagger(0.1)
         }
       );
-    });
+    }, totalRevealMs - 300); // trigger slightly before last letter fully fades in
   }
 
   /* ── 4. SCROLL REVEAL (inView) ── */
