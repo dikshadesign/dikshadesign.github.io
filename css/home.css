@@ -111,11 +111,12 @@ body {
 }
 
 .hero__title {
-  font-size: clamp(48px, 8vw, 100px);
-  font-weight: 500;
+  font-size: clamp(52px, 9vw, 110px);
+  font-weight: 600;
   letter-spacing: -0.04em;
   line-height: 1;
   margin-bottom: 24px;
+  color: #ffffff;
 }
 
 .hero__bottom {
@@ -621,7 +622,8 @@ a, button { cursor: none; }
 .char {
   display: inline-block;
   opacity: 0;
-  will-change: opacity;
+  filter: blur(12px);
+  will-change: opacity, filter;
 }
 
 /* Base states for JS to animate in on load */

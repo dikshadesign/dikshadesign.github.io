@@ -96,18 +96,21 @@ import { animate, stagger, inView } from "https://esm.sh/motion@11";
       heroTitle.appendChild(span);
     });
 
-    // 1. Pure opacity stagger — letters fade in from nothing, no movement
+    // 1. Opacity + blur stagger — each letter materialises sharp and bright
     animate('.char', 
-      { opacity: [0, 1] },
       { 
-        duration: 1.6,
-        easing: [0.25, 0.1, 0.25, 1],
-        delay: stagger(0.05),
+        opacity: [0, 1],
+        filter: ['blur(12px)', 'blur(0px)']
+      },
+      { 
+        duration: 1.0,
+        easing: [0.22, 1, 0.36, 1],
+        delay: stagger(0.045),
       }
     );
 
     // Calculate when the last letter finishes: (charCount × staggerDelay + duration) × 1000ms
-    const totalRevealMs = (chars.length * 0.05 + 1.6) * 1000;
+    const totalRevealMs = (chars.length * 0.045 + 1.0) * 1000;
 
     // 2. After title finishes, reveal the rest of the page
     setTimeout(() => {
