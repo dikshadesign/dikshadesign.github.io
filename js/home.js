@@ -10,17 +10,28 @@
   const headline = document.getElementById('frameHeadline');
   const play = document.getElementById('framePlay');
 
-  /* ─── FRAME ENTRY ANIMATION ─── */
+  /* ─── ENTRANCE ANIMATION ─── */
   window.addEventListener('load', () => {
-    if (headline) headline.classList.add('is-visible');
-    
-    // Add subtle entry animation for hero elements
-    const elements = document.querySelectorAll('.hero-ui-element');
-    elements.forEach((el, index) => {
+    // Reveal hero section
+    const title = document.querySelector('.huge-title');
+    const bottom = document.querySelector('.hero-info__bottom');
+    if (title) {
+      title.style.opacity = '1';
+      title.style.transform = 'translateY(0)';
+    }
+    if (bottom) {
       setTimeout(() => {
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      }, 500 + (index * 150));
+        bottom.style.opacity = '1';
+        bottom.style.transform = 'translateY(0)';
+      }, 200);
+    }
+
+    // Staggered reveal for bento grid items
+    const bentoItems = document.querySelectorAll('.bento-item');
+    bentoItems.forEach((el, index) => {
+      setTimeout(() => {
+        el.classList.add('is-visible');
+      }, 400 + (index * 100));
     });
   });
 
