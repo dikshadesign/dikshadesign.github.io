@@ -2,7 +2,7 @@
    js/home.js — Framer Motion Physics Integration
    ═══════════════════════════════════════════════════════════════ */
 
-import { animate, stagger, spring, inView } from "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm";
+import { animate, stagger, inView } from "https://esm.sh/motion@11";
 
 (function () {
   
@@ -112,7 +112,7 @@ import { animate, stagger, spring, inView } from "https://cdn.jsdelivr.net/npm/m
     // 2. After title finishes, reveal the rest of the page
     setTimeout(() => {
       animate(
-        ['.header', '.hero__bottom', '.projects', '.bento', '.cta', '.footer'],
+        '.header, .hero__bottom, .projects, .bento, .cta, .footer',
         { opacity: [0, 1], y: [15, 0] },
         { 
           duration: 0.9,
@@ -120,7 +120,7 @@ import { animate, stagger, spring, inView } from "https://cdn.jsdelivr.net/npm/m
           delay: stagger(0.1)
         }
       );
-    }, totalRevealMs - 300); // trigger slightly before last letter fully fades in
+    }, totalRevealMs - 300);
   }
 
   /* ── 4. SCROLL REVEAL (inView) ── */

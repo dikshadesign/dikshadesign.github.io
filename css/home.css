@@ -624,8 +624,8 @@ a, button { cursor: none; }
   will-change: opacity;
 }
 
-/* Base states for JS to animate */
-.header, .hero__bottom, .reveal {
+/* Base states for JS to animate in on load */
+.header, .hero__bottom, .projects, .bento, .cta, .footer {
   opacity: 0;
   will-change: transform, opacity;
 }
