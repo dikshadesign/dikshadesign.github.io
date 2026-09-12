@@ -95,11 +95,39 @@
     requestAnimationFrame(updateParallax);
   }
 
-  /* ── TEXT REVEAL PREP ── */
+  /* ── INITIAL LOAD CHOREOGRAPHY & TEXT REVEAL ── */
   const heroTitle = document.querySelector('.hero__title');
   if (heroTitle) {
     const text = heroTitle.innerText;
-    heroTitle.innerHTML = `<span class="text-reveal"><span>${text}</span></span>`;
+    heroTitle.innerHTML = ''; // clear original text
+    
+    // Split into characters
+    const chars = text.split('');
+    chars.forEach((char, index) => {
+      const span = document.createElement('span');
+      // preserve spaces
+      if (char === ' ') {
+        span.innerHTML = '&nbsp;';
+      } else {
+        span.innerText = char;
+      }
+      span.className = 'char';
+      // Stagger each letter by 30ms
+      span.style.animationDelay = `${index * 0.03}s`;
+      heroTitle.appendChild(span);
+    });
+
+    // Calculate total duration of the title animation (last delay + animation duration)
+    // Delay: chars.length * 0.03. Duration: 0.6s.
+    const totalDuration = (chars.length * 30) + 600;
+    
+    // Wait for the title to mostly finish, then reveal the rest of the page
+    setTimeout(() => {
+      document.body.classList.add('is-loaded');
+    }, totalDuration - 200); // Trigger slightly before the last letter completely stops
+  } else {
+    // Fallback if no title
+    document.body.classList.add('is-loaded');
   }
 
   /* ── DARK / LIGHT THEME TOGGLE ── */
