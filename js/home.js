@@ -1,30 +1,73 @@
 /* ═══════════════════════════════════════════════════════════════
-   js/home.js — Bento Grid Theme interactions
+   js/home.js — Bento Grid Theme interactions & Animations
    ═══════════════════════════════════════════════════════════════ */
 
 'use strict';
 
 (function () {
 
-  /* ── CUSTOM CURSOR (Optional) ── */
+  /* ── CUSTOM CURSOR & MAGNETIC EFFECTS ── */
   const cursor = document.getElementById('cursor');
   const follower = document.getElementById('cursorFollower');
-
+  
   if (cursor && follower && matchMedia('(pointer:fine)').matches) {
+    let mouseX = 0, mouseY = 0;
+    let followerX = 0, followerY = 0;
+    
     document.addEventListener('mousemove', (e) => {
-      cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-      // Add slight delay for follower
-      setTimeout(() => {
-        follower.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-      }, 50);
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
     });
+
+    // Smooth follower animation loop
+    function render() {
+      followerX += (mouseX - followerX) * 0.15;
+      followerY += (mouseY - followerY) * 0.15;
+      follower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0)`;
+      requestAnimationFrame(render);
+    }
+    requestAnimationFrame(render);
+
+    // Hover states for links/buttons
+    const hoverElements = document.querySelectorAll('a, button, .bento-card');
+    hoverElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.classList.add('cursor--hover');
+        follower.classList.add('cursor-follower--hover');
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('cursor--hover');
+        follower.classList.remove('cursor-follower--hover');
+      });
+    });
+
+    // Magnetic Elements
+    const magneticElements = document.querySelectorAll('.header__link, .btn--outline, .header__icon-link');
+    magneticElements.forEach(el => {
+      el.classList.add('magnetic');
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        el.style.transform = `translate3d(${x * 0.3}px, ${y * 0.3}px, 0)`;
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = `translate3d(0px, 0px, 0px)`;
+      });
+    });
+  }
+
+  /* ── TEXT REVEAL PREP ── */
+  const heroTitle = document.querySelector('.hero__title');
+  if (heroTitle) {
+    const text = heroTitle.innerText;
+    heroTitle.innerHTML = `<span class="text-reveal"><span>${text}</span></span>`;
   }
 
   /* ── DARK / LIGHT THEME TOGGLE ── */
   const themeBtn = document.getElementById('themeToggle');
   const html = document.documentElement;
-
-  // Enforce dark theme as default for this design, but allow toggle if requested
   const savedTheme = localStorage.getItem('theme') || 'dark';
   html.dataset.theme = savedTheme;
 

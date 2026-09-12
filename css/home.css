@@ -462,4 +462,109 @@ body {
   .hero__bottom { flex-direction: column; align-items: flex-start; gap: 24px; }
   .cta { margin: 0; border-radius: 0; }
   .bento__logos { flex-wrap: wrap; gap: 16px; justify-content: center; }
+  .cursor, .cursor-follower { display: none !important; }
+}
+
+/* ── CUSTOM CURSOR ── */
+body { cursor: none; }
+a, button { cursor: none; }
+
+.cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 8px; height: 8px;
+  background: var(--fg);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, opacity 0.2s;
+}
+
+.cursor-follower {
+  position: fixed;
+  top: 0; left: 0;
+  width: 40px; height: 40px;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1), 
+              height 0.3s cubic-bezier(0.19, 1, 0.22, 1), 
+              background 0.3s;
+}
+
+/* Hover States for Cursor */
+.cursor--hover {
+  width: 0; height: 0; opacity: 0;
+}
+.cursor-follower--hover {
+  width: 60px; height: 60px;
+  background: rgba(255,255,255,0.1);
+  border-color: transparent;
+  backdrop-filter: blur(4px);
+}
+
+/* ── MICRO-ANIMATIONS ── */
+/* Magnetic items */
+.magnetic {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: transform;
+}
+
+/* Project Cards */
+.project-card__image-wrapper {
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.5s;
+}
+.project-card:hover .project-card__image-wrapper {
+  transform: scale(0.97);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+.project-card__title {
+  transition: transform 0.3s, color 0.3s;
+  transform-origin: left;
+}
+.project-card:hover .project-card__title {
+  transform: translateX(8px);
+  color: var(--accent);
+}
+
+/* Bento Cards */
+.bento-card {
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), background 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+.bento-card:hover {
+  transform: translateY(-4px);
+  background: #1a1a1a;
+}
+.bento-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 1px solid rgba(255,255,255,0);
+  border-radius: var(--radius-lg);
+  transition: border 0.4s;
+  pointer-events: none;
+}
+.bento-card:hover::after {
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Text Reveal Animation for Hero */
+.text-reveal {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.text-reveal span {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+  animation: slideUp 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+@keyframes slideUp {
+  to { transform: translateY(0); opacity: 1; }
 }
