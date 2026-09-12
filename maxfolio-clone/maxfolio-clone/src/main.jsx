@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import {motion,useScroll,useSpring,useTransform,AnimatePresence} from 'framer-motion';
-import {ArrowUpRight,ArrowDown,Sun,Moon,Menu,X,Mail,Linkedin,Instagram,Download} from 'lucide-react';
+import {ArrowUpRight,ArrowDown,Sun,Moon,Menu,X,Mail,Linkedin,Globe,Download} from 'lucide-react';
 import './styles.css';
 
 const projects=[

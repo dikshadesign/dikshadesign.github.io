@@ -1,140 +1,228 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flux — Case Study · Diksha</title>
-  <meta name="description" content="Flux is a next-gen personal finance dashboard designed for power users — dense data made human." />
+  <title>GLIDE — Case Study · Diksha</title>
+  <meta name="description" content="GLIDE — A mobile pop-up retail and delivery vehicle designed for dense urban environments." />
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
-  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/case-study.css" />
-  <style>
-    :root { --cs-bg: linear-gradient(160deg, #0a0a0a 0%, #0d1117 50%, #161b22 100%); }
-  </style>
 </head>
 <body>
 
-  <div class="page-overlay"></div>
-  <div class="cursor"></div>
-  <div class="cursor-follower"></div>
-  <div class="cs-progress-bar" id="progressBar"></div>
+  <!-- Scroll progress bar -->
+  <div class="cs-progress" id="csProgress"></div>
 
-  <nav class="nav" id="mainNav">
-    <div class="nav__left">
-      <a href="../work.html" class="nav__link">Work</a>
-      <a href="../about.html" class="nav__link">About</a>
+  <!-- NAVBAR -->
+  <header class="cs-nav">
+    <a class="cs-brand" href="../index.html">DIKSHA<sup>&#8482;</sup></a>
+    <nav class="cs-nav-links">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <div class="cs-nav-actions">
+      <button class="cs-icon-btn" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
     </div>
-    <div><a href="../index.html" class="nav__logo">DIKSHA</a></div>
-    <div class="nav__right">
-      <a href="../contact.html" class="nav__cta">Contact</a>
-    </div>
-  </nav>
+  </header>
 
   <main>
 
+    <!-- HERO -->
     <section class="cs-hero">
-      <div class="cs-hero__bg"></div>
-      <div class="cs-hero__content">
-        <a href="../work.html" class="cs-hero__back" id="backToWork">← All Work</a>
-        <div class="cs-hero__meta">
-          <span class="tag tag--accent">UI / UX Design</span>
-          <span class="caption" style="color:var(--color-text-tertiary)">2024 · 10 weeks</span>
+      <a href="../index.html#work" class="cs-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        All Work
+      </a>
+
+      <div class="cs-hero-body">
+        <div class="cs-hero-left">
+          <p class="cs-hero-type">Industrial / UX — 2026</p>
+          <h1 class="cs-hero-title">GLIDE</h1>
         </div>
-        <h1 class="cs-hero__title">Flux — Finance Dashboard</h1>
-        <p class="cs-hero__subtitle">A next-gen personal finance platform for power users. Dense data made human — dark-first, breathable, ruthlessly functional.</p>
+        <p class="cs-hero-desc">A mobile pop-up retail and delivery vehicle designed for dense urban environments — where the street is the store.</p>
+      </div>
+
+      <!-- Meta row -->
+      <div class="cs-meta-row">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Role</span>
+          <span class="cs-meta-val">Industrial Designer</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Year</span>
+          <span class="cs-meta-val">2026</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Duration</span>
+          <span class="cs-meta-val">14 Weeks</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Tools</span>
+          <span class="cs-meta-val">Rhino 3D, Keyshot, Figma</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Focus</span>
+          <span class="cs-meta-val">Mobility, Retail, Urban</span>
+        </div>
       </div>
     </section>
 
-    <div class="cs-overview" data-reveal-stagger>
-      <div class="cs-overview__item">
-        <span class="cs-overview__label">Role</span>
-        <span class="cs-overview__value">UX / Visual Designer</span>
-      </div>
-      <div class="cs-overview__item">
-        <span class="cs-overview__label">Timeline</span>
-        <span class="cs-overview__value">10 Weeks</span>
-      </div>
-      <div class="cs-overview__item">
-        <span class="cs-overview__label">Tools</span>
-        <span class="cs-overview__value">Figma, FigJam</span>
-      </div>
-      <div class="cs-overview__item">
-        <span class="cs-overview__label">Focus</span>
-        <span class="cs-overview__value">Design Systems, Data Viz</span>
+    <!-- FULL-BLEED HERO IMAGE -->
+    <div class="cs-full-img cs-full-img--tall">
+      <div class="cs-full-img__inner glide-bg">
+        <div class="cs-visual-grid"></div>
+        <div class="cs-hero-product glide-product"></div>
       </div>
     </div>
 
-    <section class="cs-section cs-section--split" data-reveal="up">
-      <div class="cs-section__label">01 / Problem</div>
-      <div>
-        <h2 class="cs-section__title">Finance apps treat users like beginners forever.</h2>
-        <div class="cs-section__body">
-          <p>Power users — investors, freelancers, the financially sophisticated — are underserved. Every app hides advanced data behind onboarding wizards designed for someone's first savings account.</p>
-          <p>Flux was designed for the person who has multiple accounts, a stock portfolio, freelance income, and wants everything in one glanceable view — without a tutorial.</p>
+    <!-- SECTION 01 — OVERVIEW -->
+    <section class="cs-block cs-block--split reveal">
+      <div class="cs-block-label">
+        <span>01 — Overview</span>
+      </div>
+      <div class="cs-block-content">
+        <h2 class="cs-heading">Urban retail is broken for both vendors and customers.</h2>
+        <div class="cs-body">
+          <p>Pop-up retail in dense cities is expensive, logistically fragile, and almost always ugly. Vendors carry too much, customers can't find them, and the experience feels improvised.</p>
+          <p>GLIDE was designed from the ground up as a purpose-built mobile retail and micro-delivery platform — a vehicle that makes the street feel like a flagship store.</p>
         </div>
       </div>
     </section>
 
-    <div class="cs-img-full" style="margin: 0; border-radius: 0;">
-      <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0a0a,#1a2233);display:flex;align-items:center;justify-content:center;">
-        <span class="label" style="color:rgba(255,255,255,0.12);">[ Dashboard Screenshot ]</span>
+    <!-- FULL-BLEED IMAGE 2 -->
+    <div class="cs-full-img reveal">
+      <div class="cs-full-img__inner" style="background: linear-gradient(145deg, #9da1a4 0%, #303236 100%);">
+        <div class="cs-visual-grid"></div>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+          <div style="width:60%;height:35%;background:linear-gradient(145deg,#c0c2c5,#2d2f34);border-radius:20px;box-shadow:0 40px 100px rgba(0,0,0,0.3);"></div>
+        </div>
+        <div class="cs-img-caption">Vehicle exterior — deployed configuration</div>
       </div>
     </div>
 
-    <section class="cs-section cs-section--split" data-reveal="up">
-      <div class="cs-section__label">02 / Design System</div>
-      <div>
-        <h2 class="cs-section__title">A system that scales with complexity.</h2>
-        <div class="cs-section__body">
-          <p>The design system was built first — 48 component variants, 6 data visualization patterns, and a typographic scale that makes dense numerical data scannable at a glance.</p>
-          <p>Color was used semantically: green for gains, but never red for losses (tested to reduce anxiety). Neutral gray communicates "unchanged." Lime accent for user-defined highlights.</p>
+    <!-- SECTION 02 — DESIGN INTENT -->
+    <section class="cs-block cs-block--split reveal">
+      <div class="cs-block-label">
+        <span>02 — Design Intent</span>
+      </div>
+      <div class="cs-block-content">
+        <h2 class="cs-heading">Form that communicates trust before a word is spoken.</h2>
+        <div class="cs-body">
+          <p>The physical language of GLIDE borrows from Scandinavian micro-mobility and Japanese kei trucks — compact but complete. Every surface angle is intentional: the awning deploys in 8 seconds, the counter locks at exactly ergonomic height, the lighting system shifts from neutral white to warm amber at dusk automatically.</p>
+          <p>The goal was for GLIDE to feel like it belongs on a high street, not a car boot sale.</p>
         </div>
-        <div class="cs-img-grid mt-8">
-          <div class="cs-img-grid__item" style="background:linear-gradient(135deg,#0d1117,#1a2233);display:flex;align-items:center;justify-content:center;">
-            <span class="label" style="color:rgba(255,255,255,0.1);">[ Component Library ]</span>
+      </div>
+    </section>
+
+    <!-- 2-UP IMAGES -->
+    <div class="cs-two-up reveal">
+      <div class="cs-two-up__item" style="background: linear-gradient(145deg, #e8e5dd, #c5c2b8);">
+        <div class="cs-visual-grid" style="opacity:.15;"></div>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+          <div style="width:30%;height:70%;background:linear-gradient(90deg,#d0cec6,#888682);border-radius:40px;"></div>
+        </div>
+        <div class="cs-img-caption">Storage module — closed</div>
+      </div>
+      <div class="cs-two-up__item" style="background: linear-gradient(145deg, #20221f, #666963);">
+        <div class="cs-visual-grid" style="opacity:.2;"></div>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+          <div style="width:30%;height:70%;background:linear-gradient(90deg,#3a3c39,#1a1c19);border-radius:40px;"></div>
+        </div>
+        <div class="cs-img-caption">Storage module — deployed</div>
+      </div>
+    </div>
+
+    <!-- SECTION 03 — UX LAYER -->
+    <section class="cs-block cs-block--split reveal">
+      <div class="cs-block-label">
+        <span>03 — Digital Layer</span>
+      </div>
+      <div class="cs-block-content">
+        <h2 class="cs-heading">The vehicle and the app are one product.</h2>
+        <div class="cs-body">
+          <p>Vendors manage their GLIDE through a companion app — route planning, inventory tracking, real-time customer proximity alerts, and sales data all in one place. The app interface mirrors the physical controls: the same gesture that deploys the awning in the app triggers it on the vehicle.</p>
+          <p>Customers can find active GLIDEs on a map, see live menus, and pre-order for pick-up — removing the worst friction in street retail: not knowing what's available.</p>
+        </div>
+
+        <!-- Inline stat block -->
+        <div class="cs-stats reveal">
+          <div class="cs-stat">
+            <span class="cs-stat-num">8s</span>
+            <span class="cs-stat-label">Deploy time</span>
           </div>
-          <div class="cs-img-grid__item" style="background:linear-gradient(135deg,#111,#0d1117);display:flex;align-items:center;justify-content:center;">
-            <span class="label" style="color:rgba(255,255,255,0.1);">[ Data Viz ]</span>
+          <div class="cs-stat">
+            <span class="cs-stat-num">340L</span>
+            <span class="cs-stat-label">Storage capacity</span>
+          </div>
+          <div class="cs-stat">
+            <span class="cs-stat-num">12hr</span>
+            <span class="cs-stat-label">Battery range</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="cs-section cs-section--split" data-reveal="up">
-      <div class="cs-section__label">03 / Outcome</div>
-      <div>
-        <h2 class="cs-section__title">Task completion up 40% vs. leading competitor.</h2>
-        <div class="cs-section__body">
-          <p>Usability testing with 18 power users showed a 40% improvement in time-to-complete common tasks vs. the leading competitor. Users described Flux as "the first finance app that respects my intelligence."</p>
+    <!-- FULL-BLEED IMAGE 3 -->
+    <div class="cs-full-img reveal">
+      <div class="cs-full-img__inner" style="background: conic-gradient(from 200deg at 60% 40%, #111 0%, #444 30%, #bbb 50%, #888 70%, #111 100%);">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+          <div style="width:55%;height:30%;background:rgba(0,0,0,0.15);backdrop-filter:blur(10px);border-radius:16px;border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'DM Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,0.5);">App Interface Preview</span>
+          </div>
+        </div>
+        <div class="cs-img-caption">Companion app — vendor dashboard</div>
+      </div>
+    </div>
+
+    <!-- SECTION 04 — OUTCOME -->
+    <section class="cs-block cs-block--split reveal">
+      <div class="cs-block-label">
+        <span>04 — Outcome</span>
+      </div>
+      <div class="cs-block-content">
+        <h2 class="cs-heading">A vehicle that made vendors feel like retailers.</h2>
+        <div class="cs-body">
+          <p>Prototype user tests with 12 street vendors across three cities showed that GLIDE reduced setup time by 65% and increased customer dwell time by 40% compared to a standard market stall.</p>
+          <p>More importantly, vendors described feeling "professional" and "confident" — an emotional outcome that no brief can specify, but every good design should deliver.</p>
         </div>
       </div>
     </section>
 
   </main>
 
-  <a href="aura.html" class="cs-next" id="nextProject">
-    <div class="container">
-      <p class="cs-next__label">Next Project</p>
-      <h2 class="cs-next__title">Aura — Wellness App</h2>
+  <!-- NEXT PROJECT -->
+  <a href="../index.html#work" class="cs-next reveal">
+    <div class="cs-next-inner">
+      <span class="cs-next-label">Next Project</span>
+      <h2 class="cs-next-title">AERA<br><em>Air Purifier</em></h2>
+      <span class="cs-next-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </span>
     </div>
   </a>
 
-  <footer class="footer">
-    <div class="footer__top">
-      <a href="../index.html" class="footer__logo">DIKSHA</a>
-      <div class="footer__links">
-        <a href="../work.html" class="footer__link">Work</a>
-        <a href="../about.html" class="footer__link">About</a>
-        <a href="../contact.html" class="footer__link">Contact</a>
-      </div>
+  <!-- FOOTER -->
+  <footer class="cs-footer">
+    <div>
+      <a href="../index.html" class="cs-brand">DIKSHA<sup>&#8482;</sup></a>
     </div>
-    <div class="footer__bottom">
-      <span class="footer__copy">©2026 Diksha</span>
+    <div style="font:11px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);">
+      &copy; 2026 Diksha
+    </div>
+    <div class="cs-footer-links">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
     </div>
   </footer>
 
-  <script src="../js/utils.js"></script>
-  <script src="../js/core.js"></script>
   <script src="../js/case-study.js"></script>
 </body>
 </html>
