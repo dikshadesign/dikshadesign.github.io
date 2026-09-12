@@ -82,6 +82,22 @@ body {
   gap: 16px;
 }
 
+.header__nav {
+  display: flex;
+  gap: 24px;
+}
+
+.header__link {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.header__link:hover {
+  color: var(--fg);
+}
+
 .header__icon-link {
   color: var(--fg);
   opacity: 0.7;
