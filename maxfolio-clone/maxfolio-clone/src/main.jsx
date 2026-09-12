@@ -1,0 +1,33 @@
+import React,{useEffect,useState} from 'react';
+import {createRoot} from 'react-dom/client';
+import {motion,useScroll,useSpring,useTransform,AnimatePresence} from 'framer-motion';
+import {ArrowUpRight,ArrowDown,Sun,Moon,Menu,X,Mail,Linkedin,Instagram,Download} from 'lucide-react';
+import './styles.css';
+
+const projects=[
+ {year:'2026',type:'Industrial / UX',title:'GLIDE',desc:'A mobile pop-up retail and delivery vehicle designed for dense urban environments.',className:'glide',accent:'urban'},
+ {year:'2025',type:'Product / UI',title:'AERA',desc:'An air purifier experience that makes invisible air quality understandable.',className:'aera',accent:'air'},
+ {year:'2025',type:'Digital / Product',title:'NORDIC ONE',desc:'A connected vision-system platform bringing industrial data into one clear workflow.',className:'nordic',accent:'vision'},
+ {year:'2025',type:'Motion / Interaction',title:'CLIENT WORK',desc:'Selected animation, interface and visual systems developed across collaborations.',className:'motion',accent:'motion'}
+];
+
+function Reveal({children,className='',delay=0}){return <motion.div className={className} initial={{opacity:0,y:35}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.15}} transition={{duration:.75,ease:[.22,1,.36,1],delay}}>{children}</motion.div>}
+function ProjectCard({p,i}){return <motion.a href={'#'+p.title.toLowerCase().replaceAll(' ','-')} className="project" whileHover="hover" initial="rest" animate="rest"><div className={'projectVisual '+p.className}><div className="visualGrid"/><motion.div className="fakeProduct" variants={{rest:{scale:1,rotate:0},hover:{scale:1.045,rotate:i%2?1.5:-1.5}}}/><div className="visualLabel">{p.title}</div><motion.div className="viewPill" variants={{rest:{opacity:0,scale:.85},hover:{opacity:1,scale:1}}}>View project <ArrowUpRight size={16}/></motion.div></div><div className="projectMeta"><div><span>{p.year}</span><span>{p.type}</span></div><h3>{p.title}</h3><p>{p.desc}</p></div></motion.a>}
+function App(){
+ const [dark,setDark]=useState(false); const [menu,setMenu]=useState(false);
+ const {scrollYProgress}=useScroll(); const progress=useSpring(scrollYProgress,{stiffness:100,damping:30});
+ useEffect(()=>{document.documentElement.dataset.theme=dark?'dark':'light'},[dark]);
+ return <div className="site">
+  <motion.div className="progress" style={{scaleX:progress}}/>
+  <header className="nav"><a className="brand" href="#top">DIKSHA<span>™</span></a><nav className={menu?'open':''}><a href="#work" onClick={()=>setMenu(false)}>Work</a><a href="#about" onClick={()=>setMenu(false)}>About</a><a href="#contact" onClick={()=>setMenu(false)}>Contact</a></nav><div className="navActions"><button className="iconBtn" aria-label="theme" onClick={()=>setDark(v=>!v)}>{dark?<Sun size={18}/>:<Moon size={18}/>}</button><button className="iconBtn mobile" onClick={()=>setMenu(v=>!v)}>{menu?<X size={20}/>:<Menu size={20}/>}</button></div></header>
+  <main id="top">
+   <section className="hero section"><div className="heroTop"><span>Portfolio / 2026</span><span>Based in India · Available for select work</span></div><div className="heroTitle"><motion.h1 initial={{opacity:0,y:80}} animate={{opacity:1,y:0}} transition={{duration:1,ease:[.22,1,.36,1]}}>Product<br/><em>&amp; Industrial</em><br/>Designer</motion.h1><motion.p initial={{opacity:0,y:30}} animate={{opacity:1,y:0}} transition={{delay:.35,duration:.8}}>I design physical and digital experiences where objects, interfaces and people meet — with clarity, curiosity and a little personality.</motion.p></div><motion.a href="#work" className="scrollHint" initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1}}><span>Scroll to explore</span><ArrowDown size={17}/></motion.a></section>
+   <section id="work" className="work section"><div className="sectionHead"><span>01 — Selected work</span><span>Projects / 04</span></div><div className="projects">{projects.map((p,i)=><Reveal key={p.title} delay={i*.04}><ProjectCard p={p} i={i}/></Reveal>)}</div></section>
+   <section id="about" className="about section"><div className="sectionHead"><span>02 — About</span><span>Designer / Maker / Researcher</span></div><div className="aboutGrid"><div className="aboutLead"><h2>I move between <span>physical objects</span>, digital systems and the stories that connect them.</h2></div><div className="aboutCopy"><p>I’m Diksha, a product and industrial designer interested in how design can make complex systems feel intuitive, human and useful.</p><p>My work spans industrial design, UX/UI, visual storytelling and motion — from an urban delivery vehicle to connected industrial interfaces and everyday consumer products.</p><div className="facts"><span>Product design</span><span>Industrial design</span><span>UX / UI</span><span>Motion</span><span>Design research</span></div></div></div><div className="experience"><div className="sectionHead"><span>Experience</span><span>Selected</span></div>{[['2025—Now','Independent Designer','Product · Industrial · Digital'],['2024—25','Client & Studio Projects','UX/UI · Motion · Visual systems'],['2021—24','Design Education','Industrial & product design']].map((x,i)=><Reveal key={i}><div className="expRow"><span>{x[0]}</span><strong>{x[1]}</strong><span>{x[2]}</span></div></Reveal>)}</div></section>
+   <section className="statement section"><Reveal><p>Good design should be <span>felt before it is explained.</span></p></Reveal></section>
+   <section className="testimonials section"><div className="sectionHead"><span>03 — Words</span><span>Selected feedback</span></div><div className="quoteGrid">{[['“Thoughtful, curious and extremely intentional. The work always starts with a real problem.”','Collaborator'],['“A rare ability to move from the physical product to the digital experience without losing the thread.”','Client'],['“Strong visual thinking, but always grounded in how people actually use things.”','Project lead']].map((q,i)=><Reveal delay={i*.08} key={i}><blockquote><span>0{i+1}</span><p>{q[0]}</p><footer>{q[1]}</footer></blockquote></Reveal>)}</div></section>
+   <section id="contact" className="contact section"><div className="sectionHead"><span>04 — Contact</span><span>Let’s make something</span></div><div className="contactBody"><h2>Have a problem<br/><em>worth designing?</em></h2><a className="emailLink" href="mailto:hello@diksha.design">hello@diksha.design <ArrowUpRight/></a></div><div className="contactFooter"><div>© 2026 Diksha</div><div className="socials"><a href="#">LinkedIn <ArrowUpRight size={14}/></a><a href="#">Instagram <ArrowUpRight size={14}/></a><a href="#">CV <Download size={14}/></a></div></div></section>
+  </main>
+ </div>
+}
+createRoot(document.getElementById('root')).render(<App/>);
