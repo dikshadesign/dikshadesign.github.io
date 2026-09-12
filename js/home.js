@@ -4,6 +4,19 @@
 
 import { animate, stagger, inView } from "https://esm.sh/motion@11";
 
+// Safety: if anything fails, ensure page is visible after 4s
+const _safetyTimer = setTimeout(() => {
+  document.querySelectorAll('.header,.hero__bottom,.projects,.bento,.cta,.footer').forEach(el => {
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+    el.style.filter = 'none';
+  });
+  document.querySelectorAll('.char').forEach(el => {
+    el.style.opacity = '1';
+    el.style.filter = 'none';
+  });
+}, 4000);
+
 (function () {
   
   /* ── 1. CUSTOM CURSOR & MAGNETIC PHYSICS ── */

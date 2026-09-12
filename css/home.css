@@ -617,17 +617,23 @@ a, button { cursor: none; }
 }
 
 /* ── JS PHYSICS PREP ── */
-/* Elements that will be animated by Motion are left alone.
-   We remove hardcoded CSS transitions for transforms so JS can take over seamlessly. */
+/* Hidden states are gated on html.js below — see end of file */
 .char {
   display: inline-block;
+}
+
+/* Base states for JS to animate in on load — only active if JS runs */
+html.js .header,
+html.js .hero__bottom,
+html.js .projects,
+html.js .bento,
+html.js .cta,
+html.js .footer {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+html.js .char {
   opacity: 0;
   filter: blur(12px);
   will-change: opacity, filter;
-}
-
-/* Base states for JS to animate in on load */
-.header, .hero__bottom, .projects, .bento, .cta, .footer {
-  opacity: 0;
-  will-change: transform, opacity;
 }
