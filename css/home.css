@@ -515,13 +515,31 @@ a, button { cursor: none; }
 }
 
 /* Project Cards */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .project-card__image-wrapper {
-  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.5s;
+  aspect-ratio: 4/3;
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Apply the dynamic JS scroll scale */
+  transform: scale(var(--scroll-scale, 1));
+  transition: box-shadow 0.5s;
+  will-change: transform;
 }
 .project-card:hover .project-card__image-wrapper {
-  transform: scale(0.97);
+  /* On hover, slightly compress *relative* to its scroll scale */
+  transform: scale(calc(var(--scroll-scale, 1) * 0.97));
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
+
 .project-card__title {
   transition: transform 0.3s, color 0.3s;
   transform-origin: left;

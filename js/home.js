@@ -58,6 +58,43 @@
     });
   }
 
+  /* ── SCROLL PARALLAX (Subtle Zoom) ── */
+  const parallaxImages = document.querySelectorAll('.project-card__image-wrapper');
+  
+  if (parallaxImages.length) {
+    function updateParallax() {
+      const windowHeight = window.innerHeight;
+      
+      parallaxImages.forEach(img => {
+        const rect = img.getBoundingClientRect();
+        // Calculate how far the center of the image is from the center of the screen
+        const elementCenter = rect.top + rect.height / 2;
+        const screenCenter = windowHeight / 2;
+        const distanceFromCenter = elementCenter - screenCenter;
+        
+        // Normalize the distance (roughly -1 to 1 based on screen height)
+        const normalized = distanceFromCenter / windowHeight;
+        
+        // Scale maps from 1.05 (bottom) to 0.95 (top) - very subtle
+        // When scrolling down, element moves up (normalized goes from positive to negative)
+        // We want it to zoom out as you scroll down, so scale decreases.
+        let scale = 1 + (normalized * 0.05);
+        
+        // Clamp the scale to prevent extreme zooming
+        scale = Math.max(0.95, Math.min(scale, 1.05));
+        
+        // We need to preserve the hover scale if the user is hovering.
+        // We can use CSS variables to combine them, or just apply it directly.
+        // The cleanest way in JS is applying the scale directly to an inner element, 
+        // but since we only have the wrapper, we'll apply it directly and let CSS handle hover via specificity or child elements.
+        // Let's set a CSS variable that CSS can use.
+        img.style.setProperty('--scroll-scale', scale);
+      });
+      requestAnimationFrame(updateParallax);
+    }
+    requestAnimationFrame(updateParallax);
+  }
+
   /* ── TEXT REVEAL PREP ── */
   const heroTitle = document.querySelector('.hero__title');
   if (heroTitle) {
