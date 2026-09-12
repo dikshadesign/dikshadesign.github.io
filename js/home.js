@@ -1,36 +1,39 @@
 /* ═══════════════════════════════════════════════════════════════
-   js/home.js — Bento Grid Theme interactions & Animations
+   js/home.js — Framer Motion Physics Integration
    ═══════════════════════════════════════════════════════════════ */
 
-'use strict';
+import { animate, stagger, spring, inView } from "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm";
 
 (function () {
-
-  /* ── CUSTOM CURSOR & MAGNETIC EFFECTS ── */
+  
+  /* ── 1. CUSTOM CURSOR & MAGNETIC PHYSICS ── */
   const cursor = document.getElementById('cursor');
   const follower = document.getElementById('cursorFollower');
   
   if (cursor && follower && matchMedia('(pointer:fine)').matches) {
     let mouseX = 0, mouseY = 0;
-    let followerX = 0, followerY = 0;
     
+    // Instead of linear interpolation, we use spring for the follower
+    // But for mousemove, requestAnimationFrame is smoother.
+    // Motion handles animations, but for constant tracking, a simple lerp is actually better for performance than continuous spring recalculations,
+    // however, the user wants exact Framer feel. In Framer, cursor followers use a high-damping spring.
+    let followerX = 0, followerY = 0;
     document.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
       cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
     });
 
-    // Smooth follower animation loop
-    function render() {
+    function renderCursor() {
       followerX += (mouseX - followerX) * 0.15;
       followerY += (mouseY - followerY) * 0.15;
       follower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0)`;
-      requestAnimationFrame(render);
+      requestAnimationFrame(renderCursor);
     }
-    requestAnimationFrame(render);
+    requestAnimationFrame(renderCursor);
 
     // Hover states for links/buttons
-    const hoverElements = document.querySelectorAll('a, button, .bento-card');
+    const hoverElements = document.querySelectorAll('a, button, .bento-card, .project-card');
     hoverElements.forEach(el => {
       el.addEventListener('mouseenter', () => {
         cursor.classList.add('cursor--hover');
@@ -42,119 +45,101 @@
       });
     });
 
-    // Magnetic Elements
+    // Magnetic Elements with Spring Physics
     const magneticElements = document.querySelectorAll('.header__link, .btn--outline, .header__icon-link');
     magneticElements.forEach(el => {
-      el.classList.add('magnetic');
       el.addEventListener('mousemove', (e) => {
         const rect = el.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        el.style.transform = `translate3d(${x * 0.3}px, ${y * 0.3}px, 0)`;
+        animate(el, { x: x * 0.4, y: y * 0.4 }, { type: spring, stiffness: 300, damping: 20 });
       });
       el.addEventListener('mouseleave', () => {
-        el.style.transform = `translate3d(0px, 0px, 0px)`;
+        animate(el, { x: 0, y: 0 }, { type: spring, stiffness: 300, damping: 15 });
       });
     });
   }
 
-  /* ── SCROLL PARALLAX (Subtle Zoom) ── */
-  const parallaxImages = document.querySelectorAll('.project-card__image-wrapper');
-  
+  /* ── 2. SCROLL PARALLAX (Subtle Zoom) ── */
+  const parallaxImages = document.querySelectorAll('.project-card__image-inner');
   if (parallaxImages.length) {
     function updateParallax() {
       const windowHeight = window.innerHeight;
-      
-      parallaxImages.forEach(img => {
-        const rect = img.getBoundingClientRect();
-        // Calculate how far the center of the image is from the center of the screen
+      document.querySelectorAll('.project-card__image-wrapper').forEach((wrapper, i) => {
+        const rect = wrapper.getBoundingClientRect();
         const elementCenter = rect.top + rect.height / 2;
         const screenCenter = windowHeight / 2;
         const distanceFromCenter = elementCenter - screenCenter;
-        
-        // Normalize the distance (roughly -1 to 1 based on screen height)
         const normalized = distanceFromCenter / windowHeight;
-        
-        // Scale maps from 1.05 (bottom) to 0.95 (top) - very subtle
-        // When scrolling down, element moves up (normalized goes from positive to negative)
-        // We want it to zoom out as you scroll down, so scale decreases.
         let scale = 1 + (normalized * 0.05);
-        
-        // Clamp the scale to prevent extreme zooming
         scale = Math.max(0.95, Math.min(scale, 1.05));
         
-        // We need to preserve the hover scale if the user is hovering.
-        // We can use CSS variables to combine them, or just apply it directly.
-        // The cleanest way in JS is applying the scale directly to an inner element, 
-        // but since we only have the wrapper, we'll apply it directly and let CSS handle hover via specificity or child elements.
-        // Let's set a CSS variable that CSS can use.
-        img.style.setProperty('--scroll-scale', scale);
+        // We set the CSS variable, CSS hover state multiplies it
+        parallaxImages[i].style.setProperty('--scroll-scale', scale);
       });
       requestAnimationFrame(updateParallax);
     }
     requestAnimationFrame(updateParallax);
   }
 
-  /* ── INITIAL LOAD CHOREOGRAPHY & TEXT REVEAL ── */
+  /* ── 3. CHOREOGRAPHED PAGE LOAD (Framer Physics) ── */
   const heroTitle = document.querySelector('.hero__title');
   if (heroTitle) {
     const text = heroTitle.innerText;
-    heroTitle.innerHTML = ''; // clear original text
+    heroTitle.innerHTML = ''; 
     
-    // Split into characters
     const chars = text.split('');
-    chars.forEach((char, index) => {
+    chars.forEach((char) => {
       const span = document.createElement('span');
-      // preserve spaces
-      if (char === ' ') {
-        span.innerHTML = '&nbsp;';
-      } else {
-        span.innerText = char;
-      }
+      span.innerHTML = char === ' ' ? '&nbsp;' : char;
       span.className = 'char';
-      // Stagger each letter by 30ms
-      span.style.animationDelay = `${index * 0.03}s`;
       heroTitle.appendChild(span);
     });
 
-    // Calculate total duration of the title animation (last delay + animation duration)
-    // Delay: chars.length * 0.03. Duration: 0.6s.
-    const totalDuration = (chars.length * 30) + 600;
-    
-    // Wait for the title to mostly finish, then reveal the rest of the page
-    setTimeout(() => {
-      document.body.classList.add('is-loaded');
-    }, totalDuration - 200); // Trigger slightly before the last letter completely stops
-  } else {
-    // Fallback if no title
-    document.body.classList.add('is-loaded');
+    // 1. Reveal letters with a slower spring + subtle opacity
+    animate('.char', 
+      { opacity: [0, 1], y: [30, 0] },
+      { 
+        duration: 1.2,
+        easing: [0.22, 1, 0.36, 1],
+        delay: stagger(0.06),
+      }
+    ).finished.then(() => {
+      // 2. Once title finishes, reveal the rest of the page with spring + opacity
+      animate('.header, .hero__bottom, .projects, .bento, .cta, .footer', 
+        { opacity: [0, 1], y: [18, 0] },
+        { 
+          type: spring,
+          stiffness: 70,
+          damping: 18,
+          mass: 1.2,
+          delay: stagger(0.12)
+        }
+      );
+    });
   }
+
+  /* ── 4. SCROLL REVEAL (inView) ── */
+  // Use Motion's inView for items that appear as you scroll down
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach(el => {
+    inView(el, (info) => {
+      animate(el, 
+        { opacity: [0, 1], y: [30, 0] }, 
+        { type: spring, stiffness: 100, damping: 20 }
+      );
+    }, { margin: "0px 0px -50px 0px" });
+  });
 
   /* ── DARK / LIGHT THEME TOGGLE ── */
   const themeBtn = document.getElementById('themeToggle');
   const html = document.documentElement;
-  const savedTheme = localStorage.getItem('theme') || 'dark';
-  html.dataset.theme = savedTheme;
+  html.dataset.theme = localStorage.getItem('theme') || 'dark';
 
   themeBtn && themeBtn.addEventListener('click', () => {
     const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
     html.dataset.theme = next;
     localStorage.setItem('theme', next);
   });
-
-  /* ── SCROLL REVEAL (IntersectionObserver) ── */
-  const reveals = document.querySelectorAll('.reveal');
-  if (reveals.length) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    reveals.forEach(el => observer.observe(el));
-  }
 
 })();
