@@ -82,6 +82,81 @@ body {
   text-align: center;
 }
 
+/* ── STICKY JOURNEY NAV ── */
+.cs-journey-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--bg);
+  padding: 0 var(--pad);
+  border-bottom: 1px solid var(--line);
+  height: 52px;
+  display: flex;
+  align-items: center;
+}
+
+.cs-journey-nav__inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+
+.cs-journey-nav__label {
+  font: 11px var(--mono);
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.cs-journey-nav__links {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 16px;
+}
+
+.cs-journey-link {
+  font: 10px var(--mono);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* Progress lines */
+.cs-journey-link:not(:first-child)::before {
+  content: '';
+  display: inline-block;
+  width: 4vw;
+  min-width: 20px;
+  max-width: 60px;
+  height: 1px;
+  background: var(--line);
+  margin-right: 16px;
+  transition: background 0.3s;
+}
+
+/* Hover & Active States */
+.cs-journey-link:hover {
+  color: var(--fg);
+}
+
+.cs-journey-link.is-active {
+  color: #e0f800; /* bright yellow/green from reference */
+}
+
+/* Highlight preceding lines up to the active item */
+.cs-journey-link.is-active ~ .cs-journey-link::before {
+  background: var(--line);
+}
+.cs-journey-link::before {
+  background: #e0f800;
+}
+
 /* ── HERO HEADER ── */
 .cs-header {
   padding: calc(var(--nav-h) + 32px) var(--pad) 32px;

@@ -56,4 +56,30 @@
     if (title) title.style.transform = '';
   });
 
+  /* ── JOURNEY BUILDER SCROLLSPY ── */
+  const journeyLinks = document.querySelectorAll('.cs-journey-link');
+  const journeySections = document.querySelectorAll('section[id]');
+  
+  if (journeyLinks.length && journeySections.length) {
+    const journeyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Remove active class from all
+          journeyLinks.forEach(link => link.classList.remove('is-active'));
+          // Find matching link and add active class
+          const activeLink = document.querySelector(`.cs-journey-link[href="#${entry.target.id}"]`);
+          if (activeLink) activeLink.classList.add('is-active');
+        }
+      });
+    }, { 
+      // trigger when section hits the top third of the screen
+      rootMargin: '-10% 0px -70% 0px', 
+      threshold: 0 
+    });
+
+    journeySections.forEach(section => {
+      journeyObserver.observe(section);
+    });
+  }
+
 })();

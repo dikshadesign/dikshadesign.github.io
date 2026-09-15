@@ -107,7 +107,11 @@ body {
 
 /* ── HERO ── */
 .hero {
-  padding: 160px var(--pad) 80px;
+  padding: 120px var(--pad) 60px;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .hero__title {
@@ -616,10 +620,11 @@ a, button { cursor: none; }
   border: 1px solid rgba(255,255,255,0.1);
 }
 
-/* ── JS PHYSICS PREP ── */
-/* Hidden states are gated on html.js below — see end of file */
-.char {
-  display: inline-block;
+
+/* ── CHAR REVEAL KEYFRAME (pure CSS, no CDN dependency) ── */
+@keyframes charReveal {
+  0%   { opacity: 0; filter: blur(14px); }
+  100% { opacity: 1; filter: blur(0px); }
 }
 
 /* Base states for JS to animate in on load — only active if JS runs */
@@ -632,8 +637,13 @@ html.js .footer {
   opacity: 0;
   will-change: transform, opacity;
 }
+
+/* Chars: pure CSS animation triggered immediately when html.js is set */
+.char {
+  display: inline-block;
+}
 html.js .char {
   opacity: 0;
-  filter: blur(12px);
-  will-change: opacity, filter;
+  animation: charReveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  /* animation-delay is set per-char via inline style in JS */
 }

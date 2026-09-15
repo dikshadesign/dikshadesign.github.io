@@ -99,43 +99,29 @@ const _safetyTimer = setTimeout(() => {
   const heroTitle = document.querySelector('.hero__title');
   if (heroTitle) {
     const text = heroTitle.innerText;
-    heroTitle.innerHTML = ''; 
+    heroTitle.innerHTML = '';
     
     const chars = text.split('');
-    chars.forEach((char) => {
+    const STAGGER = 0.045;
+    const DURATION = 1.0;
+
+    chars.forEach((char, index) => {
       const span = document.createElement('span');
       span.innerHTML = char === ' ' ? '&nbsp;' : char;
       span.className = 'char';
+      span.style.animationDelay = `${(index * STAGGER).toFixed(3)}s`;
       heroTitle.appendChild(span);
     });
 
-    // 1. Opacity + blur stagger — each letter materialises sharp and bright
-    animate('.char', 
-      { 
-        opacity: [0, 1],
-        filter: ['blur(12px)', 'blur(0px)']
-      },
-      { 
-        duration: 1.0,
-        easing: [0.22, 1, 0.36, 1],
-        delay: stagger(0.045),
-      }
-    );
+    const totalRevealMs = (chars.length * STAGGER + DURATION) * 1000;
 
-    // Calculate when the last letter finishes: (charCount × staggerDelay + duration) × 1000ms
-    const totalRevealMs = (chars.length * 0.045 + 1.0) * 1000;
-
-    // 2. After title finishes, reveal the rest of the page
     setTimeout(() => {
       animate(
         '.header, .hero__bottom, .projects, .bento, .cta, .footer',
         { opacity: [0, 1], y: [15, 0] },
-        { 
-          duration: 0.9,
-          easing: [0.22, 1, 0.36, 1],
-          delay: stagger(0.1)
-        }
+        { duration: 0.9, easing: [0.22, 1, 0.36, 1], delay: stagger(0.1) }
       );
+      clearTimeout(_safetyTimer);
     }, totalRevealMs - 300);
   }
 
