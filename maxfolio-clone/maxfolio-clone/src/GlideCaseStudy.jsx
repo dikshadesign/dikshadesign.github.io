@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Twitter, Dribbble, Instagram } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
 export default function GlideCaseStudy() {
   useEffect(() => {
@@ -16,10 +16,10 @@ export default function GlideCaseStudy() {
           <a href="#" className="flex items-center gap-2 text-sm text-[var(--muted)] hover:text-[var(--fg)] transition-colors">
             <ArrowLeft size={16} /> Back to homepage
           </a>
-          <div className="flex flex-col gap-4 text-[var(--muted)]">
-            <a href="#" className="hover:text-[var(--fg)] transition-colors"><Twitter size={18} /></a>
-            <a href="#" className="hover:text-[var(--fg)] transition-colors"><Dribbble size={18} /></a>
-            <a href="#" className="hover:text-[var(--fg)] transition-colors"><Instagram size={18} /></a>
+          <div className="flex flex-col gap-4 text-xs font-mono uppercase text-[var(--muted)]">
+            <a href="#" className="hover:text-[var(--fg)] transition-colors">Twitter</a>
+            <a href="#" className="hover:text-[var(--fg)] transition-colors">Dribbble</a>
+            <a href="#" className="hover:text-[var(--fg)] transition-colors">Insta</a>
           </div>
         </div>
 
