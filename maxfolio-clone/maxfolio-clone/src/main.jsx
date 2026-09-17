@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import GlideCaseStudy from './GlideCaseStudy';
 import './styles.css';
 
 function Reveal({ children, className = '', delay = 0 }) {
@@ -17,7 +18,7 @@ function Reveal({ children, className = '', delay = 0 }) {
   );
 }
 
-function App() {
+function Home() {
   const [dark, setDark] = useState(true);
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
@@ -91,23 +92,23 @@ function App() {
         <section id="work" className="projects">
           <div className="projects__grid">
             <Reveal delay={0.1}>
-              <a href="case-studies/glide.html" className="project-card">
+              <a href="#case-studies/glide" className="project-card">
                 <div className="project-card__image-wrapper">
                   <div className="project-card__image-inner img-bg-light">
                     <div className="prod-placeholder prod-siri"></div>
                   </div>
                 </div>
                 <div className="project-card__info">
-                  <span className="project-card__title">Siri</span>
+                  <span className="project-card__title">GLIDE</span>
                   <div className="project-card__subtitle-wrapper">
-                    <span className="project-card__subtitle">A voice-driven intelligent assistant, designed to simplify your world.</span>
+                    <span className="project-card__subtitle">A mobile pop-up retail and delivery vehicle designed for dense urban environments.</span>
                   </div>
                 </div>
               </a>
             </Reveal>
 
             <Reveal delay={0.2}>
-              <a href="case-studies/glide.html" className="project-card">
+              <a href="#case-studies/glide" className="project-card">
                 <div className="project-card__image-wrapper">
                   <div className="project-card__image-inner img-bg-dark">
                     <div className="prod-placeholder prod-gamehub"></div>
@@ -123,7 +124,7 @@ function App() {
             </Reveal>
 
             <Reveal delay={0.3}>
-              <a href="case-studies/glide.html" className="project-card">
+              <a href="#case-studies/glide" className="project-card">
                 <div className="project-card__image-wrapper">
                   <div className="project-card__image-inner img-bg-dark">
                     <div className="prod-placeholder prod-fitlife"></div>
@@ -139,7 +140,7 @@ function App() {
             </Reveal>
 
             <Reveal delay={0.4}>
-              <a href="case-studies/glide.html" className="project-card">
+              <a href="#case-studies/glide" className="project-card">
                 <div className="project-card__image-wrapper">
                   <div className="project-card__image-inner img-bg-dark">
                     <div className="prod-placeholder prod-nutracoil"></div>
@@ -157,7 +158,7 @@ function App() {
         </section>
 
         {/* BENTO SECTION */}
-        <section className="bento">
+        <section className="bento" id="about">
           <Reveal className="bento__left">
             <div className="bento__portrait">
               <div className="portrait-placeholder"></div>
@@ -264,6 +265,22 @@ function App() {
       </footer>
     </div>
   );
+}
+
+function App() {
+  const [hash, setHash] = useState(window.location.hash);
+
+  useEffect(() => {
+    const onHashChange = () => setHash(window.location.hash);
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
+  if (hash === '#case-studies/glide') {
+    return <GlideCaseStudy />;
+  }
+
+  return <Home />;
 }
 
 createRoot(document.getElementById('root')).render(<App />);

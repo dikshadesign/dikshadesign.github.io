@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* ═══════════════════════════════════════════════════════════════
    css/home.css — Bento Grid Dark Theme Redesign
    ═══════════════════════════════════════════════════════════════ */
@@ -647,3 +650,4 @@ html.js .char {
   animation: charReveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   /* animation-delay is set per-char via inline style in JS */
 }
+
