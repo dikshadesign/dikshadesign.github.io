@@ -1,33 +1,269 @@
-import React,{useEffect,useState} from 'react';
-import {createRoot} from 'react-dom/client';
-import {motion,useScroll,useSpring,useTransform,AnimatePresence} from 'framer-motion';
-import {ArrowUpRight,ArrowDown,Sun,Moon,Menu,X,Mail,Linkedin,Globe,Download} from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import './styles.css';
 
-const projects=[
- {year:'2026',type:'Industrial / UX',title:'GLIDE',desc:'A mobile pop-up retail and delivery vehicle designed for dense urban environments.',className:'glide',accent:'urban'},
- {year:'2025',type:'Product / UI',title:'AERA',desc:'An air purifier experience that makes invisible air quality understandable.',className:'aera',accent:'air'},
- {year:'2025',type:'Digital / Product',title:'NORDIC ONE',desc:'A connected vision-system platform bringing industrial data into one clear workflow.',className:'nordic',accent:'vision'},
- {year:'2025',type:'Motion / Interaction',title:'CLIENT WORK',desc:'Selected animation, interface and visual systems developed across collaborations.',className:'motion',accent:'motion'}
-];
-
-function Reveal({children,className='',delay=0}){return <motion.div className={className} initial={{opacity:0,y:35}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.15}} transition={{duration:.75,ease:[.22,1,.36,1],delay}}>{children}</motion.div>}
-function ProjectCard({p,i}){return <motion.a href={'#'+p.title.toLowerCase().replaceAll(' ','-')} className="project" whileHover="hover" initial="rest" animate="rest"><div className={'projectVisual '+p.className}><div className="visualGrid"/><motion.div className="fakeProduct" variants={{rest:{scale:1,rotate:0},hover:{scale:1.045,rotate:i%2?1.5:-1.5}}}/><div className="visualLabel">{p.title}</div><motion.div className="viewPill" variants={{rest:{opacity:0,scale:.85},hover:{opacity:1,scale:1}}}>View project <ArrowUpRight size={16}/></motion.div></div><div className="projectMeta"><div><span>{p.year}</span><span>{p.type}</span></div><h3>{p.title}</h3><p>{p.desc}</p></div></motion.a>}
-function App(){
- const [dark,setDark]=useState(false); const [menu,setMenu]=useState(false);
- const {scrollYProgress}=useScroll(); const progress=useSpring(scrollYProgress,{stiffness:100,damping:30});
- useEffect(()=>{document.documentElement.dataset.theme=dark?'dark':'light'},[dark]);
- return <div className="site">
-  <motion.div className="progress" style={{scaleX:progress}}/>
-  <header className="nav"><a className="brand" href="#top">DIKSHA<span>™</span></a><nav className={menu?'open':''}><a href="#work" onClick={()=>setMenu(false)}>Work</a><a href="#about" onClick={()=>setMenu(false)}>About</a><a href="#contact" onClick={()=>setMenu(false)}>Contact</a></nav><div className="navActions"><button className="iconBtn" aria-label="theme" onClick={()=>setDark(v=>!v)}>{dark?<Sun size={18}/>:<Moon size={18}/>}</button><button className="iconBtn mobile" onClick={()=>setMenu(v=>!v)}>{menu?<X size={20}/>:<Menu size={20}/>}</button></div></header>
-  <main id="top">
-   <section className="hero section"><div className="heroTop"><span>Portfolio / 2026</span><span>Based in India · Available for select work</span></div><div className="heroTitle"><motion.h1 initial={{opacity:0,y:80}} animate={{opacity:1,y:0}} transition={{duration:1,ease:[.22,1,.36,1]}}>Product<br/><em>&amp; Industrial</em><br/>Designer</motion.h1><motion.p initial={{opacity:0,y:30}} animate={{opacity:1,y:0}} transition={{delay:.35,duration:.8}}>I design physical and digital experiences where objects, interfaces and people meet — with clarity, curiosity and a little personality.</motion.p></div><motion.a href="#work" className="scrollHint" initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1}}><span>Scroll to explore</span><ArrowDown size={17}/></motion.a></section>
-   <section id="work" className="work section"><div className="sectionHead"><span>01 — Selected work</span><span>Projects / 04</span></div><div className="projects">{projects.map((p,i)=><Reveal key={p.title} delay={i*.04}><ProjectCard p={p} i={i}/></Reveal>)}</div></section>
-   <section id="about" className="about section"><div className="sectionHead"><span>02 — About</span><span>Designer / Maker / Researcher</span></div><div className="aboutGrid"><div className="aboutLead"><h2>I move between <span>physical objects</span>, digital systems and the stories that connect them.</h2></div><div className="aboutCopy"><p>I’m Diksha, a product and industrial designer interested in how design can make complex systems feel intuitive, human and useful.</p><p>My work spans industrial design, UX/UI, visual storytelling and motion — from an urban delivery vehicle to connected industrial interfaces and everyday consumer products.</p><div className="facts"><span>Product design</span><span>Industrial design</span><span>UX / UI</span><span>Motion</span><span>Design research</span></div></div></div><div className="experience"><div className="sectionHead"><span>Experience</span><span>Selected</span></div>{[['2025—Now','Independent Designer','Product · Industrial · Digital'],['2024—25','Client & Studio Projects','UX/UI · Motion · Visual systems'],['2021—24','Design Education','Industrial & product design']].map((x,i)=><Reveal key={i}><div className="expRow"><span>{x[0]}</span><strong>{x[1]}</strong><span>{x[2]}</span></div></Reveal>)}</div></section>
-   <section className="statement section"><Reveal><p>Good design should be <span>felt before it is explained.</span></p></Reveal></section>
-   <section className="testimonials section"><div className="sectionHead"><span>03 — Words</span><span>Selected feedback</span></div><div className="quoteGrid">{[['“Thoughtful, curious and extremely intentional. The work always starts with a real problem.”','Collaborator'],['“A rare ability to move from the physical product to the digital experience without losing the thread.”','Client'],['“Strong visual thinking, but always grounded in how people actually use things.”','Project lead']].map((q,i)=><Reveal delay={i*.08} key={i}><blockquote><span>0{i+1}</span><p>{q[0]}</p><footer>{q[1]}</footer></blockquote></Reveal>)}</div></section>
-   <section id="contact" className="contact section"><div className="sectionHead"><span>04 — Contact</span><span>Let’s make something</span></div><div className="contactBody"><h2>Have a problem<br/><em>worth designing?</em></h2><a className="emailLink" href="mailto:hello@diksha.design">hello@diksha.design <ArrowUpRight/></a></div><div className="contactFooter"><div>© 2026 Diksha</div><div className="socials"><a href="#">LinkedIn <ArrowUpRight size={14}/></a><a href="#">Instagram <ArrowUpRight size={14}/></a><a href="#">CV <Download size={14}/></a></div></div></section>
-  </main>
- </div>
+function Reveal({ children, className = '', delay = 0 }) {
+  return (
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, y: 35 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1], delay }}
+    >
+      {children}
+    </motion.div>
+  );
 }
-createRoot(document.getElementById('root')).render(<App/>);
+
+function App() {
+  const [dark, setDark] = useState(true);
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  }, [dark]);
+
+  return (
+    <div className="site">
+      <motion.div className="progress" style={{ scaleX: progress, position: 'fixed', top: 0, left: 0, right: 0, height: 3, background: 'var(--fg)', zIndex: 100, transformOrigin: '0%' }} />
+      
+      {/* HEADER */}
+      <header className="header">
+        <div className="header__left">
+          <div className="header__avatar">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+              <circle cx="20" cy="20" r="20" fill="#333" />
+              <path d="M20 10a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 12c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z" fill="#fff" />
+            </svg>
+          </div>
+          <div className="header__info">
+            <span className="header__name">Diksha</span>
+            <span className="header__title">Product/Industrial Designer</span>
+          </div>
+        </div>
+        <div className="header__right">
+          <nav className="header__nav">
+            <a href="#about" className="header__link">About</a>
+            <a href="#contact" className="header__link">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        {/* HERO SECTION */}
+        <section className="hero">
+          <div className="hero__content">
+            <motion.h1 
+              className="hero__title"
+              initial={{ opacity: 0, y: 50 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              Digital Designer
+            </motion.h1>
+            <motion.div 
+              className="hero__bottom"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+            >
+              <p className="hero__subtitle">
+                I inject personality into pixels, designing digital experiences<br />
+                that connect and feel human. Based in London.
+              </p>
+              <a href="#work" className="hero__scroll">
+                <span>Scroll to explore</span>
+                <span className="hero__scroll-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <polyline points="19 12 12 19 5 12"></polyline>
+                  </svg>
+                </span>
+              </a>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* PROJECTS GRID (2x2) */}
+        <section id="work" className="projects">
+          <div className="projects__grid">
+            <Reveal delay={0.1}>
+              <a href="case-studies/glide.html" className="project-card">
+                <div className="project-card__image-wrapper">
+                  <div className="project-card__image-inner img-bg-light">
+                    <div className="prod-placeholder prod-siri"></div>
+                  </div>
+                </div>
+                <div className="project-card__info">
+                  <span className="project-card__title">Siri</span>
+                  <div className="project-card__subtitle-wrapper">
+                    <span className="project-card__subtitle">A voice-driven intelligent assistant, designed to simplify your world.</span>
+                  </div>
+                </div>
+              </a>
+            </Reveal>
+
+            <Reveal delay={0.2}>
+              <a href="case-studies/glide.html" className="project-card">
+                <div className="project-card__image-wrapper">
+                  <div className="project-card__image-inner img-bg-dark">
+                    <div className="prod-placeholder prod-gamehub"></div>
+                  </div>
+                </div>
+                <div className="project-card__info">
+                  <span className="project-card__title">Game hub</span>
+                  <div className="project-card__subtitle-wrapper">
+                    <span className="project-card__subtitle">A centralized platform for all your gaming needs and communities.</span>
+                  </div>
+                </div>
+              </a>
+            </Reveal>
+
+            <Reveal delay={0.3}>
+              <a href="case-studies/glide.html" className="project-card">
+                <div className="project-card__image-wrapper">
+                  <div className="project-card__image-inner img-bg-dark">
+                    <div className="prod-placeholder prod-fitlife"></div>
+                  </div>
+                </div>
+                <div className="project-card__info">
+                  <span className="project-card__title">FitLife</span>
+                  <div className="project-card__subtitle-wrapper">
+                    <span className="project-card__subtitle">A fitness app designed for your personalized journey.</span>
+                  </div>
+                </div>
+              </a>
+            </Reveal>
+
+            <Reveal delay={0.4}>
+              <a href="case-studies/glide.html" className="project-card">
+                <div className="project-card__image-wrapper">
+                  <div className="project-card__image-inner img-bg-dark">
+                    <div className="prod-placeholder prod-nutracoil"></div>
+                  </div>
+                </div>
+                <div className="project-card__info">
+                  <span className="project-card__title">Nutra Coil</span>
+                  <div className="project-card__subtitle-wrapper">
+                    <span className="project-card__subtitle">Smart wearable technology for precise health tracking.</span>
+                  </div>
+                </div>
+              </a>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* BENTO SECTION */}
+        <section className="bento">
+          <Reveal className="bento__left">
+            <div className="bento__portrait">
+              <div className="portrait-placeholder"></div>
+            </div>
+            <div className="bento__logos">
+              <span className="logo">amira</span>
+              <span className="logo">freva.</span>
+              <span className="logo">FOX MEDIA</span>
+              <span className="logo">△</span>
+              <span className="logo">amira</span>
+              <span className="logo">freva.</span>
+            </div>
+          </Reveal>
+          <div className="bento__right">
+            <Reveal delay={0.1}>
+              <div className="bento-card">
+                <span className="bento-card__label">About</span>
+                <h3 className="bento-card__title">Hi, I am Diksha<br />A Product Designer</h3>
+                <p className="bento-card__text">
+                  Passionate about the intersection of design, technology, and human behavior. 
+                  I create meaningful solutions that empower users and drive business results. 
+                  With a strong foundation in industrial design and digital experiences, I aim to bridge the gap between physical and digital worlds.
+                </p>
+                <p className="bento-card__text bento-card__text--sub">
+                  When I'm not designing, you can find me exploring the city, reading sci-fi, or experimenting with new rendering techniques.
+                </p>
+              </div>
+            </Reveal>
+            
+            <Reveal delay={0.2}>
+              <div className="bento-card">
+                <span className="bento-card__label">Experience</span>
+                <div className="exp-list">
+                  <div className="exp-item">
+                    <span className="exp-item__year">2024 — Present</span>
+                    <span className="exp-item__role">Independent</span>
+                    <span className="exp-item__desc">Product Designer</span>
+                  </div>
+                  <div className="exp-item">
+                    <span className="exp-item__year">2022 — 2024</span>
+                    <span className="exp-item__role">Co-Founder/Designer</span>
+                    <span className="exp-item__desc">Tech Startup</span>
+                  </div>
+                  <div className="exp-item">
+                    <span className="exp-item__year">2020 — 2022</span>
+                    <span className="exp-item__role">Product Designer</span>
+                    <span className="exp-item__desc">Agency</span>
+                  </div>
+                  <div className="exp-item">
+                    <span className="exp-item__year">2018 — 2020</span>
+                    <span className="exp-item__role">Junior UX Designer</span>
+                    <span className="exp-item__desc">Studio</span>
+                  </div>
+                </div>
+                <a href="#" className="bento-card__link">
+                  Download CV <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                </a>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.3}>
+              <div className="bento-card">
+                <span className="bento-card__label">Testimonials</span>
+                <div className="testimonial-list">
+                  <div className="testimonial-item">
+                    <p className="testimonial-item__quote">"Diksha is an exceptional designer who consistently delivers outstanding work."</p>
+                    <div className="testimonial-item__author">
+                      <span className="author-name">Jane Doe</span>
+                      <span className="author-title">CEO at TechCorp</span>
+                    </div>
+                  </div>
+                  <div className="testimonial-item">
+                    <p className="testimonial-item__quote">"Her ability to understand complex problems and translate them into intuitive designs is remarkable."</p>
+                    <div className="testimonial-item__author">
+                      <span className="author-name">John Smith</span>
+                      <span className="author-title">Product Manager</span>
+                    </div>
+                  </div>
+                </div>
+                <a href="#" className="bento-card__link">
+                  Read more testimonials <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* CTA SECTION */}
+        <Reveal>
+          <section id="contact" className="cta">
+            <span className="cta__label">Contact</span>
+            <h2 className="cta__title">I'm not just here to design products;<br />I'm here to connect with people.</h2>
+            <p className="cta__subtitle">Feel free to contact me for any questions,<br />feedback, or further assistance.</p>
+            <a href="mailto:hello@diksha.design" className="btn btn--outline">Let's talk</a>
+          </section>
+        </Reveal>
+      </main>
+
+      {/* FOOTER */}
+      <footer className="footer">
+        <span className="footer__copy">Last updated 9/2/24</span>
+        <span className="footer__powered">Powered by Diksha</span>
+        <button className="footer__theme-toggle" onClick={() => setDark(!dark)}>Toggle Theme</button>
+      </footer>
+    </div>
+  );
+}
+
+createRoot(document.getElementById('root')).render(<App />);
