@@ -1,9 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-/* ═══════════════════════════════════════════════════════════════
-   css/home.css — Bento Grid Dark Theme Redesign
-   ═══════════════════════════════════════════════════════════════ */
+@import "tailwindcss";
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -16,14 +11,14 @@ p, h1, h2, h3 { margin: 0; }
 ul { margin: 0; padding: 0; list-style: none; }
 button { background: none; border: none; cursor: pointer; font: inherit; color: inherit; }
 
-/* ── TOKENS ── */
+/* ── TOKENS (LIGHT THEME) ── */
 :root {
-  --bg: #0d0d0d;
-  --bg-card: #151515;
-  --bg-card-light: #1c1c1c;
-  --fg: #f5f5f5;
-  --muted: #888;
-  --line: #222;
+  --bg: #ffffff;
+  --bg-card: #f8f8f8;
+  --bg-card-light: #eeeeee;
+  --fg: #111111;
+  --muted: #666666;
+  --line: #eaeaea;
   --accent: #ff4d2e;
   --font-main: 'Inter', sans-serif;
   --pad: 4vw;
@@ -73,11 +68,12 @@ body {
 .header__name {
   font-size: 14px;
   font-weight: 500;
+  color: #fff; /* Due to difference blend mode */
 }
 
 .header__title {
   font-size: 10px;
-  color: var(--muted);
+  color: #ccc;
 }
 
 .header__right {
@@ -94,19 +90,12 @@ body {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--muted);
+  color: #ccc;
   transition: color 0.2s;
 }
 .header__link:hover {
-  color: var(--fg);
+  color: #fff;
 }
-
-.header__icon-link {
-  color: var(--fg);
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
-.header__icon-link:hover { opacity: 1; }
 
 /* ── HERO ── */
 .hero {
@@ -123,7 +112,7 @@ body {
   letter-spacing: -0.04em;
   line-height: 1;
   margin-bottom: 24px;
-  color: #ffffff;
+  color: var(--fg);
 }
 
 .hero__bottom {
@@ -165,25 +154,79 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  background: var(--bg-card);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.4s;
+  will-change: transform;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
 .project-card__image-wrapper {
   aspect-ratio: 4/3;
-  border-radius: var(--radius-lg);
   position: relative;
   overflow: hidden;
+}
+
+.project-card__image-inner {
+  position: absolute;
+  inset: -5%;
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: scale(var(--scroll-scale, 1));
+  will-change: transform;
 }
 
-.img-bg-light { background: #dcdcdc; }
-.img-bg-dark { background: #1a1a1a; }
+.img-bg-light { background: #eaeaea; }
+.img-bg-dark { background: #d0d0d0; }
+
+.project-card:hover .project-card__image-inner {
+  transform: scale(calc(var(--scroll-scale, 1) * 0.97));
+}
+
+.project-card__info {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 20px;
+}
 
 .project-card__title {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
-  padding-left: 4px;
+  transition: color 0.3s;
+  color: var(--fg);
+}
+
+.project-card__subtitle-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.project-card__subtitle {
+  font-size: 11px;
+  color: var(--muted);
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  padding-top: 4px;
+}
+
+.project-card:hover .project-card__title {
+  color: var(--accent);
+}
+
+.project-card:hover .project-card__subtitle-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.project-card:hover .project-card__subtitle {
+  opacity: 1;
 }
 
 /* Placeholder Product Shapes */
@@ -199,11 +242,11 @@ body {
 
 .prod-siri {
   width: 40%; height: 60%;
-  background: linear-gradient(180deg, #333, #000);
+  background: linear-gradient(180deg, #ccc, #aaa);
   border-radius: 40px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
-.prod-siri::before { /* The red handle */
+.prod-siri::before { 
   content: ''; position: absolute;
   top: -20%; left: 10%; right: 10%; bottom: 50%;
   border: 12px solid #ff3333;
@@ -213,22 +256,22 @@ body {
 
 .prod-gamehub {
   width: 70%; height: 50%;
-  background: linear-gradient(145deg, #222, #000);
+  background: linear-gradient(145deg, #ccc, #aaa);
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   top: 60%; left: 60%;
 }
 
 .prod-fitlife {
   width: 25%; height: 60%;
-  background: linear-gradient(90deg, #ccc, #eee);
+  background: linear-gradient(90deg, #fff, #ddd);
   border-radius: 20px;
   left: 30%;
 }
 
 .prod-nutracoil {
   width: 40%; height: 50%;
-  background: linear-gradient(145deg, #111, #333);
+  background: linear-gradient(145deg, #bbb, #999);
   border-radius: 8px;
   transform: translate(-50%, -50%) rotate(-15deg);
 }
@@ -251,7 +294,7 @@ body {
 }
 
 .bento__portrait {
-  background: #1e1e1e;
+  background: #f0f0f0;
   border-radius: var(--radius-lg);
   aspect-ratio: 16/10;
   overflow: hidden;
@@ -261,7 +304,7 @@ body {
 .portrait-placeholder {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, #111, #2a2a2a);
+  background: linear-gradient(to top, #eee, #ddd);
 }
 
 .bento__logos {
@@ -292,6 +335,25 @@ body {
   flex-direction: column;
   gap: 16px;
   flex: 1;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), background 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+.bento-card:hover {
+  transform: translateY(-4px);
+  background: var(--bg-card-light);
+}
+.bento-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 1px solid rgba(0,0,0,0);
+  border-radius: var(--radius-lg);
+  transition: border 0.4s;
+  pointer-events: none;
+}
+.bento-card:hover::after {
+  border: 1px solid rgba(0,0,0,0.05);
 }
 
 .bento-card__label {
@@ -360,7 +422,7 @@ body {
 .testimonial-item__quote {
   font-size: 12px;
   font-style: italic;
-  color: #ccc;
+  color: #555;
 }
 
 .testimonial-item__author {
@@ -422,7 +484,7 @@ body {
 .btn--outline {
   display: inline-block;
   padding: 12px 32px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(0,0,0,0.2);
   border-radius: 30px;
   font-size: 12px;
   transition: background 0.2s, color 0.2s;
@@ -443,24 +505,6 @@ body {
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-}
-
-.footer__theme-toggle {
-  border: 1px solid var(--line);
-  padding: 6px 12px;
-  border-radius: 12px;
-  font-size: 10px;
-}
-
-/* ── REVEAL ANIMATIONS ── */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* ── RESPONSIVE ── */
@@ -493,7 +537,7 @@ a, button { cursor: none; }
   position: fixed;
   top: 0; left: 0;
   width: 40px; height: 40px;
-  border: 1px solid rgba(255,255,255,0.4);
+  border: 1px solid rgba(0,0,0,0.4);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
@@ -503,152 +547,12 @@ a, button { cursor: none; }
               background 0.3s;
 }
 
-/* Hover States for Cursor */
 .cursor--hover {
   width: 0; height: 0; opacity: 0;
 }
 .cursor-follower--hover {
   width: 60px; height: 60px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.05);
   border-color: transparent;
   backdrop-filter: blur(4px);
 }
-
-/* ── MICRO-ANIMATIONS ── */
-/* Magnetic items */
-.magnetic {
-  display: inline-block;
-  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-  will-change: transform;
-}
-
-/* Project Cards */
-.project-card {
-  display: flex;
-  flex-direction: column;
-  background: var(--bg-card);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.4s;
-  will-change: transform;
-}
-
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
-
-.project-card__image-wrapper {
-  aspect-ratio: 4/3;
-  position: relative;
-  overflow: hidden;
-}
-
-.project-card__image-inner {
-  position: absolute;
-  /* Make the inner layer slightly larger so zooming out doesn't reveal edges */
-  inset: -5%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* Apply the dynamic JS scroll scale here */
-  transform: scale(var(--scroll-scale, 1));
-  will-change: transform;
-}
-
-.project-card:hover .project-card__image-inner {
-  /* Combine hover scale with scroll scale */
-  transform: scale(calc(var(--scroll-scale, 1) * 0.97));
-}
-
-.project-card__info {
-  display: flex;
-  flex-direction: column;
-  padding: 16px 20px;
-}
-
-.project-card__title {
-  font-size: 14px;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.project-card__subtitle-wrapper {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.project-card__subtitle {
-  font-size: 11px;
-  color: var(--muted);
-  overflow: hidden;
-  opacity: 0;
-  transition: opacity 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-  padding-top: 4px;
-}
-
-.project-card:hover .project-card__title {
-  color: #fff;
-}
-
-.project-card:hover .project-card__subtitle-wrapper {
-  grid-template-rows: 1fr;
-}
-
-.project-card:hover .project-card__subtitle {
-  opacity: 1;
-}
-
-/* Bento Cards */
-.bento-card {
-  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), background 0.4s;
-  position: relative;
-  overflow: hidden;
-}
-.bento-card:hover {
-  transform: translateY(-4px);
-  background: #1a1a1a;
-}
-.bento-card::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  border: 1px solid rgba(255,255,255,0);
-  border-radius: var(--radius-lg);
-  transition: border 0.4s;
-  pointer-events: none;
-}
-.bento-card:hover::after {
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-
-/* ── CHAR REVEAL KEYFRAME (pure CSS, no CDN dependency) ── */
-@keyframes charReveal {
-  0%   { opacity: 0; filter: blur(14px); }
-  100% { opacity: 1; filter: blur(0px); }
-}
-
-/* Base states for JS to animate in on load — only active if JS runs */
-html.js .header,
-html.js .hero__bottom,
-html.js .projects,
-html.js .bento,
-html.js .cta,
-html.js .footer {
-  opacity: 0;
-  will-change: transform, opacity;
-}
-
-/* Chars: pure CSS animation triggered immediately when html.js is set */
-.char {
-  display: inline-block;
-}
-html.js .char {
-  opacity: 0;
-  animation: charReveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  /* animation-delay is set per-char via inline style in JS */
-}
-
-
