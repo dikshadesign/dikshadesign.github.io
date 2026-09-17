@@ -19,13 +19,12 @@ function Reveal({ children, className = '', delay = 0 }) {
 }
 
 function Home() {
-  const [dark, setDark] = useState(true);
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
   useEffect(() => {
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
-  }, [dark]);
+    document.documentElement.dataset.theme = 'light';
+  }, []);
 
   return (
     <div className="site">
@@ -261,7 +260,6 @@ function Home() {
       <footer className="footer">
         <span className="footer__copy">Last updated 9/2/24</span>
         <span className="footer__powered">Powered by Diksha</span>
-        <button className="footer__theme-toggle" onClick={() => setDark(!dark)}>Toggle Theme</button>
       </footer>
     </div>
   );
