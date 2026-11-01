@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio | Interaction & Industrial Design</title>
+  <meta name="description" content="Interaction and Industrial Design Portfolio. Clean, systems-focused IxD case studies.">
+  
+  <!-- Portfolio Design System -->
+  <link rel="stylesheet" href="design-system/design-system.css">
+  <style>
+    /* Home canvas styling (Blank canvas state ready for future homepage design) */
+    .blank-canvas {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: clamp(48px, 10vw, 120px);
+      padding-bottom: clamp(48px, 10vw, 120px);
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background-color: var(--color-canvas-subtle);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      color: var(--color-ink-muted);
+      margin-bottom: var(--space-4);
+    }
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--color-accent-primary);
+    }
+    .quick-nav {
+      margin-top: var(--space-6);
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Universal Header Placeholder (Header left out for now; will be made common across all pages later) -->
+  <header id="global-header" class="universal-header-slot" aria-label="Universal Site Header"></header>
+
+  <!-- Blank Home Canvas (Ready for future assembly) -->
+  <main class="wrap blank-canvas" id="main-content">
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      <span>Home Page · Ready for Assembly</span>
+    </div>
+    
+    <h1 style="font-size: var(--font-size-display); max-width: 800px; color: var(--color-ink-primary);">
+      Portfolio
+    </h1>
+    
+    <p class="subtitle" style="margin-top: 14px; max-width: 580px;">
+      Home page kept clean. Case studies and design system library are active and linked below.
+    </p>
+
+    <div class="quick-nav">
+      <a href="aera.html" class="btn btn-accent btn-md">
+        Case Study: AERA <span class="arrow">↗</span>
+      </a>
+      <a href="design-system/index.html" class="btn btn-secondary btn-md">
+        Design System Specimen <span class="arrow">↗</span>
+      </a>
+    </div>
+  </main>
+
+  <!-- Universal Footer Placeholder (Footer left out for now; will be made common across all pages later) -->
+  <footer id="global-footer" class="universal-footer-slot" aria-label="Universal Site Footer"></footer>
+
+</body>
+</html>

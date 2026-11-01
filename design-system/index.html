@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio Design System — 1200px Grid, Buttons, Motion & IxD Primitives</title>
+  <link rel="stylesheet" href="./design-system.css">
+  <style>
+    /* Design system specimen showcase layout */
+    .specimen-header {
+      padding: clamp(48px, 6vw, 84px) 0 clamp(24px, 4vw, 44px);
+      border-bottom: 1px solid var(--color-border-hairline);
+    }
+    .specimen-section {
+      padding: clamp(48px, 6vw, 76px) 0;
+      border-bottom: 1px solid var(--color-border-hairline);
+    }
+    .specimen-title {
+      font-size: var(--font-size-h2);
+      margin-bottom: var(--space-2);
+    }
+    .specimen-desc {
+      color: var(--color-ink-muted);
+      font-size: var(--font-size-body-sm);
+      margin-bottom: var(--space-6);
+      max-width: 680px;
+    }
+
+    /* Visualizer Boxes */
+    .demo-box {
+      background: var(--color-canvas-subtle);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-none);
+      padding: var(--space-4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--color-ink-muted);
+      text-align: center;
+      min-height: 48px;
+      transition: all var(--duration-fast) var(--ease-framer);
+    }
+    .demo-box:hover {
+      border-color: var(--color-accent-primary);
+      color: var(--color-accent-primary);
+      background: var(--color-accent-tint);
+    }
+
+    .demo-box.highlight {
+      background: var(--color-accent-soft);
+      border-color: var(--color-border-accent);
+      color: var(--color-accent-primary);
+      font-weight: 600;
+    }
+
+    /* Color Swatch Card */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: var(--space-4);
+    }
+    .swatch-card {
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-none);
+      overflow: hidden;
+      background: var(--color-canvas);
+    }
+    .swatch-color {
+      height: 64px;
+      width: 100%;
+      border-bottom: 1px solid var(--color-border-hairline);
+    }
+    .swatch-info {
+      padding: 10px 12px;
+    }
+    .swatch-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-ink-primary);
+      margin-bottom: 2px;
+    }
+    .swatch-value {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      color: var(--color-ink-muted);
+    }
+
+    /* Typography specimen table */
+    .type-specimen {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .type-row {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: var(--space-4);
+      align-items: baseline;
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-border-hairline);
+    }
+    @media (max-width: 680px) {
+      .type-row { grid-template-columns: 1fr; gap: var(--space-2); }
+    }
+    .type-meta {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--color-ink-muted);
+    }
+
+    /* Spacing Visualizer Bar */
+    .space-bar-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-2);
+    }
+    .space-bar-label {
+      width: 100px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--color-ink-muted);
+    }
+    .space-bar-visual {
+      height: 16px;
+      background: var(--color-accent-soft);
+      border: 1px solid var(--color-border-accent);
+      border-radius: var(--radius-none);
+    }
+
+    /* Rule Badge */
+    .rule-callout {
+      display: flex;
+      gap: 16px;
+      padding: 18px 22px;
+      background: var(--color-canvas-subtle);
+      border-left: 3px solid var(--color-accent-primary);
+      margin-bottom: var(--space-6);
+    }
+    .rule-callout p {
+      margin: 0;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--color-ink-secondary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="specimen-header wrap">
+    <div class="eyebrow" style="margin-bottom: 8px;">Portfolio Design System / Version 2.0</div>
+    <h1 style="font-size: var(--font-size-display);">IxD Component & System Library</h1>
+    <p class="subtitle" style="margin-top: 12px; max-width: 760px;">
+      Engineered for maximum precision: locked to <strong>1200px max-width</strong>, strict <strong>0px geometric corners</strong> on all cards/containers, and <strong>pill-shaped controls</strong> for tactile interaction design.
+    </p>
+
+    <!-- Quick Navigation Pills -->
+    <div style="margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap;">
+      <a href="../aera.html" class="btn btn-accent btn-md">
+        View AERA Case Study <span class="arrow">↗</span>
+      </a>
+      <a href="../index.html" class="btn btn-secondary btn-md">
+        Portfolio Home <span class="arrow">↗</span>
+      </a>
+      <span class="badge" style="background: var(--color-canvas-wash);">
+        <span class="status-dot"></span> Max-Width: 1200px Enforced
+      </span>
+      <span class="badge" style="background: var(--color-canvas-wash);">
+        Radius Rule: 0px Canvas + Pill Buttons
+      </span>
+    </div>
+  </header>
+
+  <!-- Section 1: Page Max Width & Container Rules -->
+  <section class="specimen-section wrap">
+    <div class="label">Architecture / 01</div>
+    <h2 class="specimen-title">1200px Max-Width Layout System</h2>
+    <p class="specimen-desc">All portfolio pages are constrained to a disciplined 1200px bounding container (`--container-max: 1200px`), preventing excessive horizontal span while preserving comfortable typographic measure.</p>
+
+    <div class="rule-callout">
+      <div>
+        <p><strong>1200px Optical Container:</strong> <code>width: min(1200px, calc(100vw - (var(--container-padding) * 2)))</code> with fluid padding scales (clamp 18px to 48px). All grids, sections, and case study media align to this boundary.</p>
+      </div>
+    </div>
+
+    <div style="width: 100%; border: 1px dashed var(--color-border-strong); padding: 18px; text-align: center; background: var(--color-canvas-subtle); margin-top: 16px;">
+      <span class="mono" style="color: var(--color-ink-primary); font-weight: 600;">← 1200px Maximum Page Boundary (`.wrap` / `.container`) →</span>
+    </div>
+  </section>
+
+  <!-- Section 2: Strict Corner Radius Philosophy -->
+  <section class="specimen-section wrap">
+    <div class="label">Philosophy / 02</div>
+    <h2 class="specimen-title">Geometric Radius Philosophy</h2>
+    <p class="specimen-desc">Strict zero-radius rule across all structural elements paired with pill-shaped interactive controls.</p>
+
+    <div class="split">
+      <div style="padding: 24px; border: 1px solid var(--color-border-subtle); background: var(--color-canvas); border-radius: 0;">
+        <div class="label" style="color: var(--color-ink-primary); margin-bottom: 8px;">Rule 1: Strict 0px Corners</div>
+        <h3 style="font-size: 16px; margin-bottom: 8px;">Cards, Tiles, Images & Frames</h3>
+        <p style="font-size: 13px; color: var(--color-ink-muted); margin-bottom: 16px;">All content containers have sharp, brutalist/modern 0px radiuses (`--radius-none: 0px`). No rounded corners on media or structural boxes.</p>
+        <div class="demo-box" style="height: 64px; border-color: var(--color-border-strong);">0px Sharp Frame</div>
+      </div>
+
+      <div style="padding: 24px; border: 1px solid var(--color-border-subtle); background: var(--color-canvas); border-radius: 0;">
+        <div class="label" style="color: var(--color-accent-primary); margin-bottom: 8px;">Rule 2: Pill-Shaped Controls</div>
+        <h3 style="font-size: 16px; margin-bottom: 8px;">Buttons, Badges & Status Pills</h3>
+        <p style="font-size: 13px; color: var(--color-ink-muted); margin-bottom: 16px;">Interactive touchpoints utilize organic, continuous pill curves (`--radius-pill: 9999px`) for immediate affordance.</p>
+        <div style="display: flex; gap: 10px; align-items: center; height: 64px;">
+          <button class="btn btn-primary btn-sm">Pill Button</button>
+          <span class="badge">Pill Badge</span>
+          <span class="pill"><span class="status-dot"></span> Live Pill</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Comprehensive Button System -->
+  <section class="specimen-section wrap">
+    <div class="label">Controls / 03</div>
+    <h2 class="specimen-title">Pill-Shaped Button System & Sizing</h2>
+    <p class="specimen-desc">Systematic button library covering 5 distinct visual hierarchy variants across 3 calibrated sizes with hover lift, active spring, and arrow glide.</p>
+
+    <!-- Button Variants -->
+    <h3 style="font-size: 15px; margin-bottom: 12px;">A. Visual Variants (Medium / Default)</h3>
+    <div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-bottom: 36px;">
+      <a href="#0" class="btn btn-primary">Primary Button <span class="arrow">↗</span></a>
+      <a href="#0" class="btn btn-accent">Accent Button <span class="arrow">↗</span></a>
+      <a href="#0" class="btn btn-secondary">Secondary Button <span class="arrow">↗</span></a>
+      <a href="#0" class="btn btn-outline">Outline Button <span class="arrow">↗</span></a>
+      <a href="#0" class="btn btn-ghost">Ghost Button <span class="arrow">↗</span></a>
+    </div>
+
+    <!-- Button Sizes -->
+    <h3 style="font-size: 15px; margin-bottom: 12px;">B. Sizing Scale</h3>
+    <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-bottom: 36px;">
+      <a href="#0" class="btn btn-primary btn-sm">Small (32px) <span class="arrow">↗</span></a>
+      <a href="#0" class="btn btn-primary btn-md">Medium (42px) <span class="arrow">↗</span></a>
+      <a href="#0" class="btn btn-primary btn-lg">Large (50px) <span class="arrow">↗</span></a>
+    </div>
+
+    <!-- Button Spacing & Padding Metrics -->
+    <h3 style="font-size: 15px; margin-bottom: 12px;">C. Spacing & Padding Tokens</h3>
+    <div style="overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; font-size: 12.5px; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--color-border-subtle); color: var(--color-ink-muted);">
+            <th style="padding: 10px 14px;">Variant</th>
+            <th style="padding: 10px 14px;">Height</th>
+            <th style="padding: 10px 14px;">Padding (Y / X)</th>
+            <th style="padding: 10px 14px;">Font Size</th>
+            <th style="padding: 10px 14px;">Radius</th>
+            <th style="padding: 10px 14px;">Hover Physics</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--color-border-hairline);">
+            <td style="padding: 10px 14px; font-weight: 600;"><code>.btn-sm</code></td>
+            <td style="padding: 10px 14px; font-family: var(--font-mono);">32px</td>
+            <td style="padding: 10px 14px; font-family: var(--font-mono);">6px 16px</td>
+            <td style="padding: 10px 14px; font-family: var(--font-mono);">12px</td>
+            <td style="padding: 10px 14px; font-family: var(--font-mono);">9999px (Pill)</td>
+            <td style="padding: 10px 14px;">translateY(-2px), arrow +3px</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--color-border-hairline);">
+            <td style="padding: 10px 14px; font-weight: 600;"><code>.btn-md</code></td>
+            <td style="padding: 10px 14px; font-family: var(--font-mono);">42px</td>
+            <td style="padding: 10px 14px; font-family: var(--font-mono);">10px 22px</td>
+            <td style="padding: 10px 14px; font-family: var(--font-mono);">13.5px</td>
+            <td style="padding: 10px 14px; font-family: var(--font-mono);">9999px (Pill)</td>
+            <td style="padding: 10px 14px;">translateY(-2px), arrow +3px</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px 14px; font-weight: 600;"><code>.btn-lg</code></td>
+            <td style="padding: 10px 14px; font-family: var(--font-mono);">50px</td>
+            <td style="padding: 10px 14px; font-family: var(--font-mono);">14px 30px</td>
+            <td style="padding: 10px 14px; font-family: var(--font-mono);">15px</td>
+            <td style="padding: 10px 14px; font-family: var(--font-mono);">9999px (Pill)</td>
+            <td style="padding: 10px 14px;">translateY(-2px), arrow +3px</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 4: Multi-Column & Multi-Row Grid Architecture -->
+  <section class="specimen-section wrap">
+    <div class="label">Layout / 04</div>
+    <h2 class="specimen-title">Multi-Column & Multi-Row Settings</h2>
+    <p class="specimen-desc">Comprehensive layout architecture with a 12-column grid, multi-column presets (1 to 6 columns), multi-row spanning, and asymmetric presets.</p>
+
+    <!-- 12-Column Grid Visualizer -->
+    <h3 style="font-size: 15px; margin-bottom: 8px;">A. 12-Column Foundation Grid (`.grid-12`)</h3>
+    <p style="font-size: 12px; color: var(--color-ink-muted); margin-bottom: 14px;">Hover over columns to see layout alignment.</p>
+    <div class="grid-12" style="margin-bottom: 16px;">
+      <div class="demo-box col-1">1</div>
+      <div class="demo-box col-1">2</div>
+      <div class="demo-box col-1">3</div>
+      <div class="demo-box col-1">4</div>
+      <div class="demo-box col-1">5</div>
+      <div class="demo-box col-1">6</div>
+      <div class="demo-box col-1">7</div>
+      <div class="demo-box col-1">8</div>
+      <div class="demo-box col-1">9</div>
+      <div class="demo-box col-1">10</div>
+      <div class="demo-box col-1">11</div>
+      <div class="demo-box col-1">12</div>
+    </div>
+
+    <!-- Spanning Multi-Columns -->
+    <div class="grid-12" style="margin-bottom: 32px;">
+      <div class="demo-box col-4 highlight">col-4 (33.3%)</div>
+      <div class="demo-box col-8">col-8 (66.6%)</div>
+      <div class="demo-box col-6 highlight">col-6 (50%)</div>
+      <div class="demo-box col-6 highlight">col-6 (50%)</div>
+      <div class="demo-box col-3">col-3 (25%)</div>
+      <div class="demo-box col-9 highlight">col-9 (75%)</div>
+    </div>
+
+    <!-- Multi-Column Presets -->
+    <h3 style="font-size: 15px; margin-bottom: 12px;">B. Multi-Column Presets</h3>
+    <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px;">
+      <!-- 2 Columns -->
+      <div>
+        <span class="mono" style="font-size: 11px; color: var(--color-ink-muted); display: block; margin-bottom: 4px;">.cols-2 (1:1 Equal Split)</span>
+        <div class="cols-2">
+          <div class="demo-box">Column 1 (1fr)</div>
+          <div class="demo-box">Column 2 (1fr)</div>
+        </div>
+      </div>
+      <!-- 3 Columns -->
+      <div>
+        <span class="mono" style="font-size: 11px; color: var(--color-ink-muted); display: block; margin-bottom: 4px;">.cols-3 (Equal Thirds)</span>
+        <div class="cols-3">
+          <div class="demo-box">Column 1</div>
+          <div class="demo-box">Column 2</div>
+          <div class="demo-box">Column 3</div>
+        </div>
+      </div>
+      <!-- 4 Columns -->
+      <div>
+        <span class="mono" style="font-size: 11px; color: var(--color-ink-muted); display: block; margin-bottom: 4px;">.cols-4 (Quarter Columns)</span>
+        <div class="cols-4">
+          <div class="demo-box">Col 1</div>
+          <div class="demo-box">Col 2</div>
+          <div class="demo-box">Col 3</div>
+          <div class="demo-box">Col 4</div>
+        </div>
+      </div>
+      <!-- 6 Columns -->
+      <div>
+        <span class="mono" style="font-size: 11px; color: var(--color-ink-muted); display: block; margin-bottom: 4px;">.cols-6 (Sextuple Grid)</span>
+        <div class="cols-6">
+          <div class="demo-box">C1</div>
+          <div class="demo-box">C2</div>
+          <div class="demo-box">C3</div>
+          <div class="demo-box">C4</div>
+          <div class="demo-box">C5</div>
+          <div class="demo-box">C6</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Multi-Row Settings & Spanning -->
+    <h3 style="font-size: 15px; margin-bottom: 12px;">C. Multi-Row Grid & Spanning</h3>
+    <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--gap-md); margin-bottom: 32px;">
+      <div class="demo-box highlight" style="min-height: 180px;">
+        Multi-Row Spanned Container (e.g. Hero CAD / Featured Product Render)
+      </div>
+      <div style="display: grid; grid-template-rows: 1fr 1fr; gap: var(--gap-md);">
+        <div class="demo-box">Stacked Row 1 (`.row-span-1`)</div>
+        <div class="demo-box">Stacked Row 2 (`.row-span-1`)</div>
+      </div>
+    </div>
+
+    <!-- Asymmetric & Golden Split Presets -->
+    <h3 style="font-size: 15px; margin-bottom: 12px;">D. Asymmetric & Sidebar Presets</h3>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div>
+        <span class="mono" style="font-size: 11px; color: var(--color-ink-muted); display: block; margin-bottom: 4px;">.split-golden (0.72fr : 1.28fr — IxD Section Title Layout)</span>
+        <div class="split-golden">
+          <div class="demo-box highlight">Label & Section Heading (0.72fr)</div>
+          <div class="demo-box">Narrative Description Copy (1.28fr)</div>
+        </div>
+      </div>
+      <div>
+        <span class="mono" style="font-size: 11px; color: var(--color-ink-muted); display: block; margin-bottom: 4px;">.split-sidebar-left (280px Fixed Sidebar : 1fr Flexible Main)</span>
+        <div class="split-sidebar-left">
+          <div class="demo-box">Sidebar (280px)</div>
+          <div class="demo-box highlight">Main Canvas Area (1fr)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Padding & Spacing Utility System -->
+  <section class="specimen-section wrap">
+    <div class="label">Spacing / 05</div>
+    <h2 class="specimen-title">Padding, Margin & Gap Utilities</h2>
+    <p class="specimen-desc">Systematic 8pt spatial baseline with utility classes for paddings, gaps, and margins.</p>
+
+    <div class="split">
+      <div>
+        <h4 style="font-size: 14px; margin-bottom: 12px;">Padding Classes</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div class="demo-box" style="justify-content: flex-start; padding: var(--space-2);"><code>.p-xs</code> (8px all sides)</div>
+          <div class="demo-box" style="justify-content: flex-start; padding: var(--space-4);"><code>.p-sm</code> (16px all sides)</div>
+          <div class="demo-box" style="justify-content: flex-start; padding: var(--space-6);"><code>.p-md</code> (24px all sides)</div>
+          <div class="demo-box" style="justify-content: flex-start; padding: var(--space-8);"><code>.p-lg</code> (32px all sides)</div>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="font-size: 14px; margin-bottom: 12px;">Spatial Scale Visualizer</h4>
+        <div>
+          <div class="space-bar-row"><span class="space-bar-label">--space-1 (4px)</span><div class="space-bar-visual" style="width: 4px;"></div></div>
+          <div class="space-bar-row"><span class="space-bar-label">--space-2 (8px)</span><div class="space-bar-visual" style="width: 8px;"></div></div>
+          <div class="space-bar-row"><span class="space-bar-label">--space-3 (12px)</span><div class="space-bar-visual" style="width: 12px;"></div></div>
+          <div class="space-bar-row"><span class="space-bar-label">--space-4 (16px)</span><div class="space-bar-visual" style="width: 16px;"></div></div>
+          <div class="space-bar-row"><span class="space-bar-label">--space-6 (24px)</span><div class="space-bar-visual" style="width: 24px;"></div></div>
+          <div class="space-bar-row"><span class="space-bar-label">--space-8 (32px)</span><div class="space-bar-visual" style="width: 32px;"></div></div>
+          <div class="space-bar-row"><span class="space-bar-label">--space-12 (48px)</span><div class="space-bar-visual" style="width: 48px;"></div></div>
+          <div class="space-bar-row"><span class="space-bar-label">--space-16 (64px)</span><div class="space-bar-visual" style="width: 64px;"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: On-Hover Effects & Motion System -->
+  <section class="specimen-section wrap">
+    <div class="label">Interactivity / 06</div>
+    <h2 class="specimen-title">On-Hover Physics & Micro-Animations</h2>
+    <p class="specimen-desc">Hover over the interactive cards below to test physics-calibrated transforms, zooms, lifts, and arrow slide interactions.</p>
+
+    <div class="cols-3" style="margin-bottom: 24px;">
+      <!-- Effect 1: Hover Lift -->
+      <div class="tile">
+        <div class="img" style="height: 180px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #f5f8ff, #e6ecfa);">
+          <span class="mono" style="color: var(--color-accent-primary);">HOVER LIFT + ZOOM</span>
+        </div>
+        <div class="tile-copy">
+          <h3>Framer Lift Physics</h3>
+          <p>Sharp 0px corner card with translateY(-2px) and image scale(1.03).</p>
+        </div>
+      </div>
+
+      <!-- Effect 2: Technical Schematic Hover -->
+      <div class="ph" style="min-height: 254px;">
+        <span>CONCENTRIC RING SPIN</span>
+      </div>
+
+      <!-- Effect 3: Link & Pill Interactions -->
+      <div style="padding: 24px; border: 1px solid var(--color-border-hairline); background: var(--color-canvas); display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div class="label" style="margin-bottom: 8px;">Micro-Interactions</div>
+          <h3 style="font-size: 15px; margin-bottom: 12px;">Animated Links</h3>
+          <p style="font-size: 12px; color: var(--color-ink-muted); margin-bottom: 16px;">Hover to test underline expansion and arrow trajectory nudging:</p>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div><a href="#0" class="link-animated">Interactive Underline Slide ↗</a></div>
+            <div><a href="#0" class="link-arrow">Directional Trajectory Glide</a></div>
+          </div>
+        </div>
+        <div style="margin-top: 18px;">
+          <span class="pill"><span class="status-dot"></span> Live Breathing Pulse</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Color Tokens -->
+  <section class="specimen-section wrap">
+    <div class="label">Color / 07</div>
+    <h2 class="specimen-title">Curated Token Palette</h2>
+    <p class="specimen-desc">Harmonious tones calibrated for high-contrast typography and subtle atmospheric fills.</p>
+
+    <div class="swatch-grid">
+      <div class="swatch-card">
+        <div class="swatch-color" style="background: var(--color-canvas);"></div>
+        <div class="swatch-info"><div class="swatch-name">Canvas</div><div class="swatch-value">#ffffff (--color-canvas)</div></div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background: var(--color-canvas-subtle);"></div>
+        <div class="swatch-info"><div class="swatch-name">Canvas Subtle</div><div class="swatch-value">#f8fafc (--color-canvas-subtle)</div></div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background: var(--color-canvas-wash);"></div>
+        <div class="swatch-info"><div class="swatch-name">Canvas Wash</div><div class="swatch-value">#f3f6fa (--color-canvas-wash)</div></div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background: var(--color-ink-primary);"></div>
+        <div class="swatch-info"><div class="swatch-name">Ink Primary</div><div class="swatch-value">#151a24 (--color-ink-primary)</div></div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background: var(--color-ink-secondary);"></div>
+        <div class="swatch-info"><div class="swatch-name">Ink Secondary</div><div class="swatch-value">#485363 (--color-ink-secondary)</div></div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background: var(--color-ink-muted);"></div>
+        <div class="swatch-info"><div class="swatch-name">Ink Muted</div><div class="swatch-value">#6f7c90 (--color-ink-muted)</div></div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background: var(--color-accent-primary);"></div>
+        <div class="swatch-info"><div class="swatch-name">Accent Primary</div><div class="swatch-value">#455ea9 (--color-accent-primary)</div></div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background: var(--color-accent-soft);"></div>
+        <div class="swatch-info"><div class="swatch-name">Accent Soft</div><div class="swatch-value">#edf2ff (--color-accent-soft)</div></div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background: var(--color-border-hairline);"></div>
+        <div class="swatch-info"><div class="swatch-name">Hairline Border</div><div class="swatch-value">#e6ebf2 (--color-border-hairline)</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: Typography Scale -->
+  <section class="specimen-section wrap">
+    <div class="label">Typography / 08</div>
+    <h2 class="specimen-title">Inter Variable Type Scale</h2>
+    <p class="specimen-desc">Calibrated tracking, optical sizes, and responsive clamp formulas.</p>
+
+    <div class="type-specimen">
+      <div class="type-row">
+        <div class="type-meta">Display<br>clamp(40px, 6vw, 72px)</div>
+        <div class="text-display">Clean Air Architecture</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Heading 1<br>clamp(32px, 4.5vw, 56px)</div>
+        <h1>Distributed Air Purification</h1>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Heading 2<br>clamp(24px, 3.4vw, 42px)</div>
+        <h2>One building. Different conditions.</h2>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Heading 3<br>clamp(18px, 2.2vw, 24px)</div>
+        <h3>01 / Distributed Purification</h3>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Lead Subtitle<br>clamp(16px, 1.7vw, 20px)</div>
+        <p class="text-lead" style="margin: 0;">A distributed air purification system for commercial spaces, combining ceiling-integrated hardware with digital monitoring.</p>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Body Regular<br>14.5px / 1.68</div>
+        <p style="margin: 0;">AERA explores air purification as a connected system rather than an individual appliance. It combines ceiling-integrated purification units with a digital interface to consider how air quality can be monitored and managed across commercial spaces.</p>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Eyebrow & Badge<br>10px Uppercase (0.12em)</div>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+          <span class="eyebrow">Industrial Design · Systems Thinking</span>
+          <span class="badge">Academic Project · 01</span>
+          <button class="btn btn-sm btn-outline">Pill Button</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="wrap" style="padding: 48px 0 64px; border-top: 1px solid var(--color-border-hairline); display: flex; justify-content: space-between; font-size: 11px; color: var(--color-ink-muted);">
+    <span>Portfolio Design System · 1200px Max-Width · Sharp 0px Corners · Pill Controls</span>
+    <span>Universal Header & Footer Slots Ready</span>
+  </footer>
+
+</body>
+</html>

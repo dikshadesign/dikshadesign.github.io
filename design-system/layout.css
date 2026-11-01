@@ -1,0 +1,442 @@
+/**
+ * ==============================================================================
+ * DESIGN SYSTEM — LAYOUT & SPATIAL SYSTEM
+ * 1200px Max-Width · Multi-Column · Multi-Row · Spacing & Padding Utilities
+ * ==============================================================================
+ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--space-8);
+}
+
+/* ==========================================================================
+   1. MASTER CONTAINERS (STRICT 1200px MAX-WIDTH)
+   ========================================================================== */
+
+.wrap, .container {
+  width: min(var(--container-max), calc(100vw - (var(--container-padding) * 2)));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-wide {
+  width: min(var(--container-wide), calc(100vw - (var(--container-padding) * 2)));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-narrow {
+  width: min(var(--container-narrow), calc(100vw - (var(--container-padding) * 2)));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-full {
+  width: 100%;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* ==========================================================================
+   2. 12-COLUMN GRID SYSTEM
+   ========================================================================== */
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gap-md);
+  width: 100%;
+}
+
+.col-1  { grid-column: span 1 / span 1; }
+.col-2  { grid-column: span 2 / span 2; }
+.col-3  { grid-column: span 3 / span 3; }
+.col-4  { grid-column: span 4 / span 4; }
+.col-5  { grid-column: span 5 / span 5; }
+.col-6  { grid-column: span 6 / span 6; }
+.col-7  { grid-column: span 7 / span 7; }
+.col-8  { grid-column: span 8 / span 8; }
+.col-9  { grid-column: span 9 / span 9; }
+.col-10 { grid-column: span 10 / span 10; }
+.col-11 { grid-column: span 11 / span 11; }
+.col-12 { grid-column: span 12 / span 12; }
+
+/* Column Start Offsets */
+.col-start-1  { grid-column-start: 1; }
+.col-start-2  { grid-column-start: 2; }
+.col-start-3  { grid-column-start: 3; }
+.col-start-4  { grid-column-start: 4; }
+.col-start-5  { grid-column-start: 5; }
+.col-start-6  { grid-column-start: 6; }
+.col-start-7  { grid-column-start: 7; }
+
+/* ==========================================================================
+   3. MULTI-COLUMN PRESETS
+   ========================================================================== */
+
+.cols-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap-md);
+}
+
+.cols-2, .split {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap-md);
+}
+
+.cols-3, .grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap-md);
+}
+
+.cols-4, .grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap-sm);
+}
+
+.cols-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--gap-sm);
+}
+
+.cols-6 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--gap-sm);
+}
+
+/* ==========================================================================
+   4. MULTI-ROW SETTINGS & SPANNING
+   ========================================================================== */
+
+.rows-2 {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  gap: var(--gap-md);
+}
+
+.rows-3 {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: var(--gap-md);
+}
+
+.row-span-1 { grid-row: span 1 / span 1; }
+.row-span-2 { grid-row: span 2 / span 2; }
+.row-span-3 { grid-row: span 3 / span 3; }
+.row-span-4 { grid-row: span 4 / span 4; }
+
+/* ==========================================================================
+   5. ASYMMETRIC GRID CONFIGURATIONS
+   ========================================================================== */
+
+/* Golden & Asymmetric Split Presets */
+.split-golden {
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: var(--gap-lg);
+}
+
+.split-golden-reverse {
+  display: grid;
+  grid-template-columns: 1.28fr 0.72fr;
+  gap: var(--gap-lg);
+}
+
+.split-sidebar-left {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--gap-lg);
+}
+
+.split-sidebar-right {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: var(--gap-lg);
+}
+
+.split-one-third {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--gap-md);
+}
+
+.split-two-thirds {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--gap-md);
+}
+
+/* Auto-Fit / Auto-Fill Responsive Grids */
+.grid-auto-fit-sm {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--gap-md);
+}
+
+.grid-auto-fit-md {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--gap-md);
+}
+
+.grid-auto-fit-lg {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: var(--gap-lg);
+}
+
+/* ==========================================================================
+   6. GRID GAPS & SPACING UTILITIES
+   ========================================================================== */
+
+.gap-xs  { gap: var(--gap-xs); }
+.gap-sm  { gap: var(--gap-sm); }
+.gap-md  { gap: var(--gap-md); }
+.gap-lg  { gap: var(--gap-lg); }
+.gap-xl  { gap: var(--gap-xl); }
+.gap-2xl { gap: var(--gap-2xl); }
+
+/* Padding Utilities */
+.p-0   { padding: 0 !important; }
+.p-xs  { padding: var(--space-2); }
+.p-sm  { padding: var(--space-4); }
+.p-md  { padding: var(--space-6); }
+.p-lg  { padding: var(--space-8); }
+.p-xl  { padding: var(--space-12); }
+
+.px-0  { padding-left: 0 !important; padding-right: 0 !important; }
+.px-xs { padding-left: var(--space-2); padding-right: var(--space-2); }
+.px-sm { padding-left: var(--space-4); padding-right: var(--space-4); }
+.px-md { padding-left: var(--space-6); padding-right: var(--space-6); }
+.px-lg { padding-left: var(--space-8); padding-right: var(--space-8); }
+
+.py-0  { padding-top: 0 !important; padding-bottom: 0 !important; }
+.py-xs { padding-top: var(--space-2); padding-bottom: var(--space-2); }
+.py-sm { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+.py-md { padding-top: var(--space-6); padding-bottom: var(--space-6); }
+.py-lg { padding-top: var(--space-8); padding-bottom: var(--space-8); }
+.py-xl { padding-top: var(--space-12); padding-bottom: var(--space-12); }
+
+/* Margin Flow Utilities */
+.m-0   { margin: 0 !important; }
+.mt-sm { margin-top: var(--space-3); }
+.mt-md { margin-top: var(--space-5); }
+.mt-lg { margin-top: var(--space-8); }
+.mb-sm { margin-bottom: var(--space-3); }
+.mb-md { margin-bottom: var(--space-5); }
+.mb-lg { margin-bottom: var(--space-8); }
+
+/* ==========================================================================
+   7. FLEXBOX ALIGNMENT UTILITIES
+   ========================================================================== */
+
+.flex         { display: flex; }
+.flex-col     { display: flex; flex-direction: column; }
+.flex-wrap    { flex-wrap: wrap; }
+.items-start  { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-end    { align-items: flex-end; }
+.items-stretch{ align-items: stretch; }
+
+.justify-start   { justify-content: flex-start; }
+.justify-center  { justify-content: center; }
+.justify-end     { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+
+/* ==========================================================================
+   8. CASE STUDY SPECIFIC LAYOUT SECTIONS
+   ========================================================================== */
+
+.section {
+  padding-top: var(--section-space-y);
+  padding-bottom: var(--section-space-y);
+  border-top: 1px solid var(--color-border-hairline);
+}
+
+.section-tight {
+  padding-top: clamp(36px, 5vw, 60px);
+  padding-bottom: clamp(36px, 5vw, 60px);
+  border-top: 1px solid var(--color-border-hairline);
+}
+
+/* Standard IxD Two-Column Section Title */
+.section-title {
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: clamp(24px, 5vw, 56px);
+  align-items: start;
+  margin-bottom: var(--space-8);
+}
+
+.section-title h2 {
+  max-width: 680px;
+  margin-top: var(--space-2);
+}
+
+.section-title .desc {
+  max-width: 580px;
+  color: var(--color-ink-muted);
+  font-size: var(--font-size-body-sm);
+  line-height: var(--line-height-relaxed);
+  margin: var(--space-1) 0 0;
+}
+
+/* Specific IxD Layout Grids */
+.intro-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(32px, 7vw, 84px);
+  padding-top: var(--section-intro-y);
+  padding-bottom: clamp(52px, 7vw, 80px);
+  border-top: 1px solid var(--color-border-hairline);
+}
+
+.impact-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(32px, 7vw, 84px);
+  padding-top: var(--section-intro-y);
+  padding-bottom: clamp(52px, 7vw, 80px);
+  border-top: 1px solid var(--color-border-hairline);
+}
+
+.impact-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.opportunity-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1.22fr 0.78fr;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.product-grid .right-stack {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.interface-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.architecture-layout {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.before-after {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+/* ==========================================================================
+   9. RESPONSIVE BREAKPOINTS (COLLAPSING GRIDS)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .cols-6 { grid-template-columns: repeat(3, 1fr); }
+  .cols-5 { grid-template-columns: repeat(3, 1fr); }
+  .grid-12 > .col-6 { grid-column: span 12 / span 12; }
+}
+
+@media (max-width: 900px) {
+  .section-title,
+  .intro-grid,
+  .impact-layout,
+  .architecture-layout,
+  .product-grid,
+  .split-golden,
+  .split-golden-reverse,
+  .split-sidebar-left,
+  .split-sidebar-right,
+  .split-one-third,
+  .split-two-thirds {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .cols-4,
+  .opportunity-grid,
+  .learn-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-12 > [class*="col-"] {
+    grid-column: span 12 / span 12;
+  }
+}
+
+@media (max-width: 768px) {
+  .split,
+  .cols-2,
+  .cols-3,
+  .research-grid,
+  .before-after,
+  .interface-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-grid .right-stack {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .section {
+    padding-top: clamp(40px, 8vw, 56px);
+    padding-bottom: clamp(40px, 8vw, 56px);
+  }
+}
+
+@media (max-width: 480px) {
+  .impact-cards,
+  .opportunity-grid,
+  .learn-grid,
+  .cols-4,
+  .cols-5,
+  .cols-6,
+  .product-grid .right-stack {
+    grid-template-columns: 1fr;
+  }
+}

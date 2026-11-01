@@ -1,0 +1,216 @@
+/**
+ * ==============================================================================
+ * DESIGN SYSTEM — TYPOGRAPHY
+ * Inter Font Family & Systematic Hierarchy for IxD Designers
+ * ==============================================================================
+ */
+
+@import url('https://rsms.me/inter/inter.css');
+
+/* Global typographic defaults */
+html {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "tnum";
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-canvas);
+  color: var(--color-ink-primary);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
+}
+
+/* Headings */
+h1, .h1, .text-display {
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-display);
+  letter-spacing: var(--letter-spacing-h1);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-ink-primary);
+  margin: 0;
+}
+
+h2, .h2 {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-h2);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-ink-primary);
+  margin: 0;
+}
+
+h3, .h3 {
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-h3);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-ink-primary);
+  margin: 0;
+}
+
+h4, .h4 {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-snug);
+  letter-spacing: -0.015em;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-ink-primary);
+  margin: 0;
+}
+
+/* Paragraphs & Text Styles */
+p {
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+  color: var(--color-ink-secondary);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.text-lead, .subtitle {
+  font-size: var(--font-size-lead);
+  line-height: var(--line-height-relaxed);
+  letter-spacing: -0.015em;
+  color: var(--color-ink-secondary);
+  font-weight: var(--font-weight-regular);
+}
+
+.text-muted {
+  color: var(--color-ink-muted);
+}
+
+.text-subtle {
+  color: var(--color-ink-subtle);
+}
+
+.text-body-sm {
+  font-size: var(--font-size-body-sm);
+  line-height: 1.6;
+}
+
+.text-caption {
+  font-size: var(--font-size-caption);
+  line-height: 1.5;
+  color: var(--color-ink-muted);
+}
+
+/* Eyebrows, Labels & Kickers (IxD Signature Styling) */
+.eyebrow, .label, .kicker {
+  display: inline-block;
+  font-size: var(--font-size-eyebrow);
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent-primary);
+}
+
+.label-muted {
+  color: var(--color-ink-muted);
+}
+
+/* Monospace & Tabular details */
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-body-sm);
+  letter-spacing: var(--letter-spacing-mono);
+}
+
+/* Directional Bullets */
+.bullets {
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.bullets li {
+  padding-left: var(--space-5);
+  position: relative;
+  font-size: var(--font-size-body-sm);
+  color: var(--color-ink-secondary);
+  line-height: 1.6;
+}
+
+.bullets li::before {
+  content: "↗";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent-primary);
+  font-size: 13px;
+  line-height: 1;
+  top: 3px;
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Links & Interactive Text Animations */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-framer);
+}
+
+a:hover {
+  color: var(--color-accent-primary);
+}
+
+/* Animated Underline Link */
+.link-animated {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+  color: var(--color-ink-primary);
+}
+
+.link-animated::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-accent-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--duration-base) var(--ease-framer);
+}
+
+.link-animated:hover {
+  color: var(--color-accent-primary);
+}
+
+.link-animated:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Arrow Slide Link */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: var(--font-weight-medium);
+  transition: color var(--duration-fast) var(--ease-framer);
+}
+
+.link-arrow .arrow, .link-arrow::after {
+  content: '↗';
+  display: inline-block;
+  font-size: 1.1em;
+  line-height: 1;
+  transition: transform var(--duration-fast) var(--ease-spring);
+}
+
+.link-arrow:hover .arrow, .link-arrow:hover::after {
+  transform: translate(3px, -3px);
+}
+

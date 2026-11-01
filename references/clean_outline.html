@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AERA — Improving Clean Air Distribution in Commercial Spaces</title>
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<style>
+:root{--ink:#202735;--muted:#687384;--line:#dfe4ec;--paper:#fff;--wash:#f5f7fb;--accent:#5269b5;--soft:#eaf0ff;--max:1120px;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:30px}body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.65 Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),88vw);margin:auto}
+.top{height:62px;padding:0 6vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font-size:10px;letter-spacing:.1em;text-transform:uppercase}.brand{font-weight:750;letter-spacing:.13em}.top nav{display:flex;gap:24px;color:var(--muted)}.eyebrow,.label,.kicker{font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.hero{padding-top:42px}.hero-top{display:flex;align-items:flex-start;justify-content:space-between;gap:28px}.hero h1{font-size:clamp(36px,5.5vw,70px);line-height:.98;letter-spacing:-.075em;font-weight:570;max-width:790px;margin:10px 0 15px}.subtitle{max-width:650px;font-size:clamp(15px,1.7vw,20px);line-height:1.55;color:#596475;margin:0}.hero-index{white-space:nowrap;border:1px solid var(--line);border-radius:100px;padding:7px 12px;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.hero-visual{margin-top:28px;height:clamp(300px,53vw,610px);background:#eef1f6;overflow:hidden;border-radius:9px}.hero-visual img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 48%}.caption{display:flex;justify-content:space-between;gap:18px;padding:10px 0 0;color:var(--accent);font-size:11px}
+.meta{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:22px;border-top:1px solid var(--line);margin-top:34px;padding:20px 0 22px}.meta label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:5px}.meta strong{display:block;font-size:12px;line-height:1.55;font-weight:600}
+.intro-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:7vw;padding:44px 0 64px;border-top:1px solid var(--line)}h2{font-size:clamp(29px,4vw,48px);line-height:1.04;letter-spacing:-.065em;font-weight:570;margin:8px 0 16px}h3{font-size:18px;line-height:1.2;letter-spacing:-.04em;font-weight:620;margin:0 0 8px}.intro-copy{font-size:15px;line-height:1.8;color:#586475;max-width:650px}.intro-copy p{margin:0 0 13px}.bullets{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:9px}.bullets li{padding-left:18px;position:relative;font-size:12px;color:#596475}.bullets li:before{content:"↗";position:absolute;left:0;color:var(--accent)}
+.impact{display:grid;grid-template-columns:.9fr 1.1fr;gap:7vw;padding:45px 0 65px;border-top:1px solid var(--line)}.impact h2{color:var(--accent)}.impact-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}.impact-card{background:var(--soft);border-radius:9px;padding:18px;min-height:130px}.impact-card .number{font-size:10px;color:var(--accent);letter-spacing:.12em;text-transform:uppercase}.impact-card h3{font-size:16px;margin:15px 0 6px}.impact-card p{font-size:11px;line-height:1.6;color:#586475;margin:0}.disclaimer{font-size:10px;color:var(--muted);font-style:italic;margin-top:12px}
+.section{padding:62px 0;border-top:1px solid var(--line)}.section-title{display:grid;grid-template-columns:.72fr 1.28fr;gap:5vw;align-items:start;margin-bottom:28px}.section-title h2{max-width:690px}.section-title .desc{max-width:550px;color:#687384;font-size:13px;line-height:1.8;margin:4px 0 0}.split{display:grid;grid-template-columns:1fr 1fr;gap:14px}.tile{border-radius:9px;overflow:hidden;background:var(--wash);border:1px solid #edf0f5}.tile .img{height:clamp(200px,27vw,330px);position:relative;background:linear-gradient(135deg,#f2f5fa,#e7ecf5)}.tile .img img{width:100%;height:100%;object-fit:cover;display:block}.tile .tile-copy{padding:15px 17px 18px}.tile .tile-copy p{font-size:11px;color:var(--muted);line-height:1.7;margin:0}.tile .tile-copy h3{font-size:15px}.ph{position:relative;min-height:250px;border:1px solid #e1e7f0;border-radius:9px;overflow:hidden;background:linear-gradient(135deg,#f3f6fc,#e7edf8);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}.ph:before,.ph:after{content:"";position:absolute;width:230px;height:230px;border:1px solid #d3dced;border-radius:50%;opacity:.65}.ph:after{width:140px;height:140px}.ph span{position:relative;z-index:1;max-width:260px;background:rgba(255,255,255,.91);border:1px solid #e0e6f1;border-radius:5px;padding:11px 13px;font-size:9px;line-height:1.6;text-transform:uppercase;letter-spacing:.1em;color:#5b6780}.ph.large{min-height:clamp(300px,43vw,500px)}.ph.short{min-height:180px}.ph.tall{min-height:390px}.ph.dark{background:linear-gradient(125deg,#19233d,#536ab6 55%,#edf1fb)}.ph.dark:before,.ph.dark:after{border-color:rgba(255,255,255,.35)}.ph.dark span{background:rgba(255,255,255,.9)}
+.full-visual{margin-top:22px}.full-visual img{width:100%;height:clamp(280px,43vw,500px);display:block;object-fit:cover;border-radius:9px;background:var(--wash)}.full-caption{display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:10px;padding:9px 2px 0}
+.research-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.research-grid .ph{min-height:230px}.research-grid .ph:first-child{min-height:320px}.journey{margin-top:16px}.journey .ph{min-height:clamp(250px,35vw,400px)}
+.opportunity-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}.opp{padding:17px 16px;border-top:2px solid var(--accent);background:#f7f8fc}.opp .num{font-size:9px}.opp h3{font-size:15px;margin-top:17px}.opp p{font-size:11px;color:var(--muted);line-height:1.65;margin:0}
+.product-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;margin-top:20px}.product-grid .ph{min-height:clamp(270px,35vw,420px)}.product-grid .right-stack{display:grid;grid-template-rows:1fr 1fr;gap:14px}.product-grid .right-stack .ph{min-height:190px}
+.interface-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}.screen{background:#f5f7fc;border:1px solid #e3e8f2;border-radius:9px;padding:12px}.screen .ph{min-height:300px;border-radius:5px;background:linear-gradient(160deg,#f7f8fc,#e5eafa)}.screen h3{font-size:15px;margin:13px 2px 4px}.screen p{font-size:11px;color:var(--muted);line-height:1.65;margin:0 2px 4px}
+.architecture{display:grid;grid-template-columns:.7fr 1.3fr;gap:14px;margin-top:20px}.architecture .ph{min-height:clamp(260px,34vw,390px)}
+.before-after{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}.compare{padding:12px;background:#f5f7fb;border-radius:9px}.compare .ph{min-height:clamp(230px,29vw,340px);background:#fff}.compare h3{font-size:14px;margin:11px 3px 5px}.compare p{font-size:11px;color:var(--muted);margin:0 3px 5px}
+.learn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}.learn{padding-top:14px;border-top:1px solid var(--line)}.learn h3{font-size:14px}.learn p{font-size:11px;color:var(--muted);line-height:1.7;margin:0}
+.more{padding:52px 0 68px;border-top:1px solid var(--line)}.more-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px}.more-head h2{font-size:27px;margin:0}.more-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.more-card .ph{min-height:170px}.more-card h3{font-size:14px;margin:11px 0 4px}.more-card p{font-size:11px;color:var(--muted);margin:0}
+footer{background:linear-gradient(115deg,#17213a,#7188ce 62%,#a04f9b);color:#fff;padding:42px 6vw 20px;margin-top:0}.footer-top{display:flex;justify-content:space-between;gap:24px;align-items:flex-start}.footer-title{font-size:27px;letter-spacing:-.05em;line-height:1.1}.footer-meta{font-size:10px;line-height:1.9;opacity:.85;text-align:right}.footer-bottom{display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,.25);margin-top:38px;padding-top:14px;font-size:9px;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .65s var(--ease),transform .65s var(--ease)}.reveal.visible{opacity:1;transform:none}
+@media(max-width:760px){.top nav{display:none}.hero-top{display:block}.hero-index{display:inline-block;margin-top:18px}.hero-visual{height:55vh;min-height:300px;max-height:500px}.meta{grid-template-columns:1fr 1fr;gap:15px}.intro-grid,.impact,.section-title,.architecture,.product-grid{grid-template-columns:1fr;gap:18px}.split,.research-grid,.before-after,.more-grid{grid-template-columns:1fr}.opportunity-grid,.learn-grid{grid-template-columns:1fr 1fr}.interface-grid{grid-template-columns:1fr}.product-grid .right-stack{grid-template-columns:1fr 1fr;grid-template-rows:auto}.product-grid .right-stack .ph{min-height:190px}.impact-cards{grid-template-columns:1fr 1fr}.tile .img{height:260px}.footer-top{display:block}.footer-meta{text-align:left;margin-top:22px}.footer-bottom{gap:10px;flex-wrap:wrap}.section{padding:48px 0}.intro-grid,.impact{padding:38px 0 48px}}
+@media(max-width:430px){.impact-cards,.opportunity-grid,.learn-grid{grid-template-columns:1fr}.product-grid .right-stack{grid-template-columns:1fr}.meta{grid-template-columns:1fr 1fr}.caption{display:block}.caption span{display:block;margin-bottom:4px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<header class="top"><a class="brand" href="#top">DIKSHA SHINDE / PORTFOLIO</a><nav><a href="#challenge">Challenge</a><a href="#product">Product</a><a href="#interface">Interface</a><a href="#outcome">Outcome</a></nav><span>AERA / 01</span></header>
+<main id="top">
+<section class="hero wrap">
+  <div class="hero-top">
+    <div><div class="eyebrow">Industrial Design · Systems Thinking · Interaction Design</div><h1>AERA — Improving Clean Air Distribution in Commercial Spaces</h1><p class="subtitle">A distributed air purification system for commercial spaces, combining ceiling-integrated units with digital monitoring.</p></div>
+    <span class="hero-index">Academic project · 01</span>
+  </div>
+  <div class="hero-visual"><img src="[BASE64_IMAGE]" alt="AERA ceiling-integrated air purifier concept"></div>
+  <div class="caption"><span>Distributed air purification system</span><span>Physical product + digital management</span></div>
+  <div class="meta">
+    <div><label>Role</label><strong>Industrial Designer</strong></div>
+    <div><label>Project type</label><strong>Academic Product Design Project</strong></div>
+    <div><label>Scope</label><strong>Physical Product · Spatial Integration · Digital Interface</strong></div>
+    <div><label>Disciplines</label><strong>Industrial Design · Systems Thinking · Interaction Design</strong></div>
+  </div>
+</section>
+
+<section class="intro-grid wrap" id="overview">
+  <div><div class="label">01 / Overview</div><h2>Clean air shouldn't stop at a single point.</h2></div>
+  <div class="intro-copy"><p>AERA explores air purification as a connected system rather than an individual appliance. It combines ceiling-integrated purification units with a digital interface to consider how air quality can be monitored and managed across commercial spaces.</p><p>The project connects four considerations that are often treated separately:</p><ul class="bullets"><li>Distributed air purification</li><li>Ceiling-integrated product design</li><li>Spatial zoning and air-quality monitoring</li><li>Digital system management</li></ul></div>
+</section>
+
+<section class="wrap impact" id="impact">
+  <div><div class="label">02 / Anticipated impact</div><h2>From individual units to system-level visibility.</h2><p class="intro-copy">AERA proposes an integrated approach to commercial air purification, bringing distributed hardware and digital monitoring into one system.</p><p class="disclaimer">These are anticipated design benefits, not measured or validated outcomes.</p></div>
+  <div class="impact-cards">
+    <article class="impact-card"><div class="number">01 / Coverage</div><h3>Distributed purification</h3><p>Explore coverage across multiple areas instead of relying on a single unit.</p></article>
+    <article class="impact-card"><div class="number">02 / Integration</div><h3>Spatial integration</h3><p>Reduce dependence on floor-standing equipment through a ceiling-integrated approach.</p></article>
+    <article class="impact-card"><div class="number">03 / Visibility</div><h3>Air-quality visibility</h3><p>Make zone-level information easier to understand through a digital interface.</p></article>
+    <article class="impact-card"><div class="number">04 / Operations</div><h3>Maintenance management</h3><p>Give system upkeep a defined place within the overall experience.</p></article>
+  </div>
+</section>
+
+<section class="section wrap" id="challenge">
+  <div class="section-title"><div><div class="label">03 / The challenge</div><h2>Air purification is designed around the unit. The problem exists across the space.</h2></div><p class="desc">Commercial environments contain different occupancy patterns, spatial constraints, and air-quality needs. The challenge was to explore how purification could work across these conditions rather than treating each unit as an isolated product.</p></div>
+  <div class="split">
+    <article class="tile"><div class="img"><img src="[BASE64_IMAGE]" alt="AERA unit in a commercial interior"></div><div class="tile-copy"><h3>Different spaces, different needs</h3><p>Movement-heavy areas and longer-stay spaces can call for different considerations when planning purification.</p></div></article>
+    <article class="tile"><div class="img"><img src="[BASE64_IMAGE]" alt="AERA underside and air outlet detail"></div><div class="tile-copy"><h3>The product must fit the environment</h3><p>Ceiling infrastructure, product placement, and service access shape how a distributed system can be integrated.</p></div></article>
+  </div>
+  <div class="full-visual"><div class="ph large"><span>Insert commercial-space analysis: annotate circulation areas, waiting spaces, occupancy patterns, and potential purification zones.</span></div><div class="full-caption"><span>Spatial analysis</span><span>Movement-heavy areas ↔ longer-stay areas</span></div></div>
+</section>
+
+<section class="section wrap" id="research">
+  <div class="section-title"><div><div class="label">04 / Research & insights</div><h2>One building. Different conditions.</h2></div><p class="desc">Research explored how people occupy commercial spaces and how a distributed purification system could respond to their different needs. These observations informed the relationship between unit placement, spatial planning, and monitoring.</p></div>
+  <div class="research-grid">
+    <div class="ph large"><span>Insert research synthesis board / annotated spatial studies</span></div>
+    <div class="ph"><span>Insert ceiling infrastructure reference analysis / 600 × 600 mm ceiling-grid study, if shown in your original research</span></div>
+    <div class="ph"><span>Insert occupancy or movement observations</span></div>
+    <div class="ph"><span>Insert serviceability study: implications of maintaining multiple distributed units</span></div>
+  </div>
+  <div class="journey"><div class="label" style="margin:24px 0 10px">Understanding the system</div><div class="ph"><span>Insert your spatial zoning / system journey map. Make this a large, readable image; add a detail crop below if labels become too small.</span></div></div>
+</section>
+
+<section class="section wrap" id="opportunity">
+  <div class="section-title"><div><div class="label">05 / Design opportunity</div><h2>From a standalone purifier to a distributed system.</h2></div><p class="desc">The opportunity was to connect air purification with spatial planning and digital management. Four areas guided the development of the system.</p></div>
+  <div class="opportunity-grid">
+    <article class="opp"><div class="num">01 / Air distribution</div><h3>Think across zones</h3><p>Explore purification across different commercial areas rather than one isolated point.</p></article>
+    <article class="opp"><div class="num">02 / Spatial integration</div><h3>Design for the interior</h3><p>Consider how the product could fit into existing commercial environments.</p></article>
+    <article class="opp"><div class="num">03 / Product architecture</div><h3>Make function legible</h3><p>Develop the physical concept around its intended function and spatial context.</p></article>
+    <article class="opp"><div class="num">04 / Serviceability</div><h3>Plan for upkeep</h3><p>Consider access and maintenance alongside form and installation.</p></article>
+  </div>
+  <div class="full-visual"><div class="ph large"><span>Insert a four-part opportunity diagram linking each design opportunity to the design response. Use short labels and simple visual connections.</span></div></div>
+</section>
+
+<section class="section wrap" id="product">
+  <div class="section-title"><div><div class="label">06 / Physical product design</div><h2>Bringing purification into the ceiling.</h2></div><p class="desc">I explored a ceiling-integrated form that could preserve usable floor space while becoming part of the commercial interior. The process focused on the relationship between product form, internal architecture, and access for servicing.</p></div>
+  <div class="product-grid">
+    <div class="ph dark"><span>Large CAD / final product render: show the overall form, ceiling integration, and relationship to the room.</span></div>
+    <div class="right-stack">
+      <div class="ph"><span>Insert form iterations / sketch progression</span></div>
+      <div class="ph"><span>Insert CAD development / dimensions or mounting context</span></div>
+    </div>
+  </div>
+  <div class="split" style="margin-top:14px">
+    <div class="tile"><div class="img"><img src="[BASE64_IMAGE]" alt="AERA product form detail"></div><div class="tile-copy"><h3>Form & proportion</h3><p>Explore how the product reads as part of the ceiling rather than a separate floor-standing appliance.</p></div></div>
+    <div class="tile"><div class="img"><img src="[BASE64_IMAGE]" alt="AERA finish exploration"></div><div class="tile-copy"><h3>Material & finish direction</h3><p>Use the final material or finish study here if it represents the actual design exploration.</p></div></div>
+  </div>
+  <div class="full-visual"><div class="ph large"><span>Insert exploded view / component arrangement / airflow path. Keep annotations readable and use a separate crop for fine details.</span></div><div class="full-caption"><span>Product architecture</span><span>Form · Function · Service access</span></div></div>
+  <div class="split" style="margin-top:14px">
+    <div class="ph"><span>Insert underside / air outlet detail</span></div>
+    <div class="ph"><span>Insert service-access concept / maintenance access view</span></div>
+  </div>
+</section>
+
+<section class="section wrap" id="interface">
+  <div class="section-title"><div><div class="label">07 / Digital interface</div><h2>Making an invisible environment easier to understand.</h2></div><p class="desc">The digital interface extends the system beyond the physical unit, organising information around air quality, spatial zones, and maintenance. Its structure helps users understand the wider system rather than viewing each unit in isolation.</p></div>
+  <div class="interface-grid">
+    <article class="screen"><div class="ph"><span>Place actual Air dashboard screen here</span></div><h3>01 / Air</h3><p>Understand the environment through a dedicated air-quality monitoring view.</p></article>
+    <article class="screen"><div class="ph"><span>Place actual Zones map / spatial overview here</span></div><h3>02 / Zones</h3><p>Organise information around spatial areas for a clearer view of the environment.</p></article>
+    <article class="screen"><div class="ph"><span>Place actual Maintain screen here</span></div><h3>03 / Maintain</h3><p>Give maintenance-related information and system upkeep a dedicated space.</p></article>
+  </div>
+  <div class="full-visual"><div class="ph dark large"><span>Insert an interface walkthrough GIF or screen recording: Air → Zones → Maintain. Add concise callouts for the interactions you designed.</span></div><div class="full-caption"><span>Interface walkthrough</span><span>Replace placeholder with GIF / video</span></div></div>
+</section>
+
+<section class="section wrap" id="system">
+  <div class="section-title"><div><div class="label">08 / System integration</div><h2>One system. Connected physical and digital touchpoints.</h2></div><p class="desc">AERA brings the ceiling-integrated product, spatial zones, and digital interface into one system concept. The aim is to make the relationship between the physical product and its wider environment easier to understand and manage.</p></div>
+  <div class="architecture">
+    <div class="ph"><span>Insert system architecture diagram</span></div>
+    <div class="ph large"><span>Insert a wide system map connecting physical units → spatial zones → digital monitoring → maintenance. Prioritise a clear hierarchy over dense labels.</span></div>
+  </div>
+  <div class="split" style="margin-top:14px">
+    <div class="ph"><span>Insert physical product + matching digital state visual</span></div>
+    <div class="ph"><span>Insert system-level user scenario / how a facilities user identifies a zone and checks system status</span></div>
+  </div>
+</section>
+
+<section class="section wrap" id="outcome">
+  <div class="section-title"><div><div class="label">09 / Outcome & learnings</div><h2>Designing beyond the individual product.</h2></div><p class="desc">AERA explores how industrial design can extend from an individual object to a system shaped by its environment, operation, and maintenance. The project brought physical product design and digital interaction together around a shared commercial air-quality challenge.</p></div>
+  <div class="before-after">
+    <article class="compare"><div class="label">The starting point</div><div class="ph"><span>Insert original challenge / standalone purifier or problem framing visual</span></div><h3>From an isolated unit…</h3><p>Air purification considered primarily at the product level.</p></article>
+    <article class="compare"><div class="label">The design response</div><div class="ph"><span>Insert final system composition: product + zones + interface</span></div><h3>…to a connected system.</h3><p>A physical product concept paired with spatial zoning and digital system management.</p></article>
+  </div>
+  <div class="learn-grid">
+    <article class="learn"><h3>Design for the environment</h3><p>Consider how a product works within the space around it.</p></article>
+    <article class="learn"><h3>Integrate serviceability early</h3><p>Treat maintenance as a product-design consideration, not an afterthought.</p></article>
+    <article class="learn"><h3>Connect physical and digital</h3><p>Use the interface to extend the value of the physical product.</p></article>
+    <article class="learn"><h3>Think beyond the object</h3><p>Consider how multiple units and user touchpoints work together.</p></article>
+  </div>
+  <div class="full-visual"><img src="[BASE64_IMAGE]" alt="AERA final product concept render"><div class="full-caption"><span>AERA / Final concept</span><span>Industrial Design · Systems Thinking · Interaction Design</span></div></div>
+</section>
+
+<section class="more wrap">
+  <div class="more-head"><div><div class="label">Selected work</div><h2>More projects</h2></div><span class="label">Next ↗</span></div>
+  <div class="more-grid">
+    <article class="more-card"><div class="ph"><span>Insert GLIDE automotive project image</span></div><h3>GLIDE — Urban mobility concept</h3><p>Industrial design · Mobility systems</p></article>
+    <article class="more-card"><div class="ph"><span>Insert Nordic OS / enterprise platform project image</span></div><h3>Nordic OS — Connected work systems</h3><p>Interaction design · Digital systems</p></article>
+  </div>
+</section>
+</main>
+<footer><div class="footer-top"><div><div class="eyebrow" style="color:#dbe4ff">Diksha Shinde · Portfolio</div><div class="footer-title">Designing for the<br>air we share.</div></div><div class="footer-meta">Industrial Design<br>Systems Thinking<br>Interaction Design<br><br>END OF CASE STUDY ↗</div></div><div class="footer-bottom"><span>AERA · Distributed Air Purification System</span><span>© 2026 Diksha Shinde</span></div></footer>
+<script>(()=>{const els=document.querySelectorAll('.section,.hero-visual,.meta,.tile,.ph,.impact-card,.opp,.screen,.learn');if(!('IntersectionObserver'in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;els.forEach(e=>e.classList.add('reveal'));const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.06,rootMargin:'0px 0px -25px 0px'});els.forEach(e=>io.observe(e));})();</script>
+</body></html>
