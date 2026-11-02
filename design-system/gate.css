@@ -1,0 +1,114 @@
+/* =========================================================
+   PORTFOLIO SITE PASSWORD GATE (PASSWORD: 8962)
+   ========================================================= */
+
+html.site-locked body > *:not(#site-gate-overlay) {
+  display: none !important;
+}
+
+html.site-locked body {
+  background: #0f1115 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100vh !important;
+}
+
+#site-gate-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999999;
+  background: #0f1115;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+}
+
+.site-gate-box {
+  background: #16181d;
+  border: 1px solid #292e39;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7);
+  padding: 36px 30px;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  color: #f8fafc;
+  animation: gateFadeIn 0.25s ease-out;
+}
+
+@keyframes gateFadeIn {
+  from { opacity: 0; transform: scale(0.96) translateY(6px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.site-gate-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+
+.site-gate-sub {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0 0 22px;
+}
+
+.site-gate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.site-gate-input {
+  background: #0b0d11;
+  border: 1px solid #333a47;
+  color: #ffffff;
+  padding: 12px 14px;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0.15em;
+  font-family: inherit;
+  outline: none;
+  border-radius: 0;
+  transition: border-color 0.2s ease;
+}
+
+.site-gate-input:focus {
+  border-color: #3b82f6;
+}
+
+.site-gate-btn {
+  background: #f8fafc;
+  color: #0f172a;
+  border: none;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 0;
+  transition: background 0.15s ease;
+}
+
+.site-gate-btn:hover {
+  background: #e2e8f0;
+}
+
+.site-gate-error {
+  color: #f87171;
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+
+.gate-shake {
+  animation: gateShake 0.4s ease;
+}
+
+@keyframes gateShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
