@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="100%" height="100%">
+  <defs>
+    <style>
+      .screen-bg { fill: #0f172a; rx: 8; }
+      .card-bg { fill: #1e293b; stroke: #334155; stroke-width: 1; rx: 6; }
+      .alert-card { fill: rgba(239, 68, 68, 0.08); stroke: rgba(239, 68, 68, 0.4); stroke-width: 1; rx: 6; }
+      .title { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 13px; font-weight: 700; fill: #f8fafc; }
+      .sub { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 10px; fill: #94a3b8; }
+      .progress-track { fill: #334155; rx: 3; }
+      .progress-fill-green { fill: #10b981; rx: 3; }
+      .progress-fill-amber { fill: #f59e0b; rx: 3; }
+      .progress-fill-red { fill: #ef4444; rx: 3; }
+      .btn-primary { fill: #5269b5; rx: 4; }
+      .btn-text { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 10px; font-weight: 700; fill: #ffffff; letter-spacing: 0.05em; }
+    </style>
+  </defs>
+
+  <rect width="400" height="520" class="screen-bg"/>
+  <rect x="0" y="0" width="400" height="520" fill="none" stroke="#334155" stroke-width="1.5" rx="8"/>
+
+  <!-- Top Navigation -->
+  <g transform="translate(20, 20)">
+    <text x="0" y="16" font-family="Inter, sans-serif" font-size="14px" font-weight="800" fill="#f8fafc">AERA · MAINTAIN</text>
+    <rect x="230" y="2" width="130" height="20" fill="#1e293b" stroke="#334155" rx="10"/>
+    <text x="295" y="15" text-anchor="middle" font-family="Inter, sans-serif" font-size="9px" font-weight="600" fill="#10b981">FLEET HEALTH: 94%</text>
+    <line x1="0" y1="32" x2="360" y2="32" stroke="#1e293b" stroke-width="1"/>
+  </g>
+
+  <!-- Priority Maintenance Alert Card -->
+  <g transform="translate(20, 65)">
+    <rect width="360" height="95" class="alert-card"/>
+    <circle cx="28" cy="30" r="10" fill="rgba(239, 68, 68, 0.2)"/>
+    <text x="28" y="34" text-anchor="middle" font-family="Inter, sans-serif" font-size="12px" font-weight="800" fill="#ef4444">!</text>
+    <text x="48" y="28" class="title" fill="#fca5a5">Replacement Recommended · Unit 03</text>
+    <text x="48" y="44" class="sub" fill="#cbd5e1">Executive Boardroom · Filter delta-P threshold reached (880 hrs)</text>
+    
+    <!-- Action buttons -->
+    <rect x="48" y="58" width="130" height="26" class="btn-primary"/>
+    <text x="113" y="74" text-anchor="middle" class="btn-text">DISPATCH TECH</text>
+
+    <rect x="188" y="58" width="110" height="26" fill="#1e293b" stroke="#475569" stroke-width="1" rx="4"/>
+    <text x="243" y="74" text-anchor="middle" class="btn-text" fill="#cbd5e1">ORDER PART</text>
+  </g>
+
+  <!-- Filter Health List -->
+  <g transform="translate(20, 180)">
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="10.5px" font-weight="700" fill="#94a3b8" letter-spacing="0.08em">UNIT FILTER LIFESPAN INVENTORY</text>
+
+    <!-- Unit 01 -->
+    <g transform="translate(0, 15)">
+      <rect width="360" height="58" class="card-bg"/>
+      <text x="16" y="24" class="title" font-size="12px">Unit 01 · Main Reception</text>
+      <text x="344" y="24" text-anchor="end" font-family="Inter, sans-serif" font-size="11px" font-weight="700" fill="#10b981">84%</text>
+      <rect x="16" y="36" width="328" height="6" class="progress-track"/>
+      <rect x="16" y="36" width="275" height="6" class="progress-fill-green"/>
+    </g>
+
+    <!-- Unit 02 -->
+    <g transform="translate(0, 85)">
+      <rect width="360" height="58" class="card-bg"/>
+      <text x="16" y="24" class="title" font-size="12px">Unit 02 · Open Workstations East</text>
+      <text x="344" y="24" text-anchor="end" font-family="Inter, sans-serif" font-size="11px" font-weight="700" fill="#10b981">78%</text>
+      <rect x="16" y="36" width="328" height="6" class="progress-track"/>
+      <rect x="16" y="36" width="255" height="6" class="progress-fill-green"/>
+    </g>
+
+    <!-- Unit 03 (Warning) -->
+    <g transform="translate(0, 155)">
+      <rect width="360" height="58" class="card-bg" stroke="#ef4444"/>
+      <text x="16" y="24" class="title" font-size="12px">Unit 03 · Executive Boardroom</text>
+      <text x="344" y="24" text-anchor="end" font-family="Inter, sans-serif" font-size="11px" font-weight="700" fill="#ef4444">12%</text>
+      <rect x="16" y="36" width="328" height="6" class="progress-track"/>
+      <rect x="16" y="36" width="40" height="6" class="progress-fill-red"/>
+    </g>
+
+    <!-- Unit 04 -->
+    <g transform="translate(0, 225)">
+      <rect width="360" height="58" class="card-bg"/>
+      <text x="16" y="24" class="title" font-size="12px">Unit 04 · Collaboration Lounge</text>
+      <text x="344" y="24" text-anchor="end" font-family="Inter, sans-serif" font-size="11px" font-weight="700" fill="#10b981">92%</text>
+      <rect x="16" y="36" width="328" height="6" class="progress-track"/>
+      <rect x="16" y="36" width="300" height="6" class="progress-fill-green"/>
+    </g>
+  </g>
+
+  <!-- Bottom Fast-Action Step Bar -->
+  <g transform="translate(20, 475)">
+    <rect width="360" height="32" fill="#1e293b" stroke="#334155" rx="4"/>
+    <text x="180" y="20" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5px" font-weight="600" fill="#94a3b8">
+      Tool-free quarter-turn cartridge replacement: Avg duration 24 seconds
+    </text>
+  </g>
+</svg>

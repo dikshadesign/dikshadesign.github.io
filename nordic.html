@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nordic ONE — Federated Platform Architecture for Industrial Systems | Case Study</title>
+  <meta name="description" content="An industrial software platform architected to unify machine vision, MES telemetry, ERP planning, EQMS compliance, and facility security under a shared micro-frontend shell and RBAC governance.">
+  
+  <!-- Portfolio Design System (1200px max-width, Inter font, 0px radiuses + pill controls) -->
+  <link rel="stylesheet" href="design-system/design-system.css">
+  <style>
+    /* Project Specific Custom Styles for Nordic ONE */
+    .ecosystem-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: var(--space-5);
+    }
+    .ecosystem-card {
+      background: var(--color-canvas-wash);
+      border: 1px solid var(--color-border-hairline);
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .ecosystem-card .app-code {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .code-vision { color: #0284c7; }
+    .code-erp { color: #4f46e5; }
+    .code-mes { color: #059669; }
+    .code-eqms { color: #d97706; }
+    .code-visitor { color: #7c3aed; }
+
+    .ecosystem-card h4 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--color-ink-primary);
+      margin: 0 0 6px;
+    }
+    .ecosystem-card p {
+      font-size: 11px;
+      line-height: 1.5;
+      color: var(--color-ink-muted);
+      margin: 0 0 10px;
+    }
+    .ecosystem-card .workflow-tag {
+      font-size: 9.5px;
+      font-weight: 600;
+      background: var(--color-canvas-pure);
+      border: 1px solid var(--color-border-subtle);
+      padding: 4px 6px;
+      color: var(--color-ink-secondary);
+    }
+
+    .challenge-dual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-5);
+      margin-top: var(--space-5);
+    }
+    .challenge-panel {
+      background: var(--color-canvas-wash);
+      border: 1px solid var(--color-border-hairline);
+      padding: var(--space-5);
+    }
+    .challenge-panel h3 {
+      font-size: 16px;
+      margin: 0 0 10px;
+      color: var(--color-ink-primary);
+    }
+    .challenge-panel p {
+      font-size: 13px;
+      color: var(--color-ink-secondary);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .key-callout {
+      background: #f4f6fb;
+      border-left: 3px solid var(--color-accent-primary);
+      padding: 20px 24px;
+      margin: var(--space-6) 0;
+    }
+    .key-callout p {
+      font-size: clamp(15px, 1.4vw, 18px);
+      line-height: 1.6;
+      font-weight: 600;
+      color: var(--color-ink-primary);
+      margin: 0;
+    }
+    .key-callout span {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent-primary);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: var(--space-5);
+    }
+    .principles-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+    }
+    .principle-card {
+      background: var(--color-canvas-wash);
+      border: 1px solid var(--color-border-hairline);
+      padding: var(--space-5);
+    }
+    .principle-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--color-accent-primary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .principle-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-ink-primary);
+      margin: 0 0 8px;
+    }
+    .principle-card p {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--color-ink-secondary);
+      margin: 0;
+    }
+
+    .flow-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: var(--space-5);
+    }
+    .flow-step-card {
+      background: var(--color-canvas-wash);
+      border: 1px solid var(--color-border-hairline);
+      padding: var(--space-5);
+    }
+    .flow-step-num {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .flow-step-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-ink-primary);
+      margin: 0 0 6px;
+    }
+    .flow-step-card p {
+      font-size: 11.5px;
+      line-height: 1.55;
+      color: var(--color-ink-secondary);
+      margin: 0;
+    }
+
+    .principles-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+    }
+
+    .credits-box {
+      background: var(--color-canvas-wash);
+      border: 1px solid var(--color-border-hairline);
+      padding: var(--space-6);
+      margin: var(--space-7) 0 var(--space-6);
+    }
+    .credits-box h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 0 6px;
+      color: var(--color-ink-primary);
+    }
+    .credits-box p {
+      font-size: 13px;
+      color: var(--color-ink-muted);
+      margin: 0;
+    }
+
+    @media (max-width: 992px) {
+      .ecosystem-grid, .principles-grid, .flow-steps-grid, .principles-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .principles-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .challenge-dual-grid, .principles-grid, .principles-grid-4, .principles-grid-3, .flow-steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .ecosystem-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Universal Header Placeholder -->
+  <header id="global-header" class="universal-header-slot" aria-label="Universal Site Header"></header>
+
+  <main id="main-content">
+
+    <!-- Compact Top Header (Established Portfolio Standard) -->
+    <div class="hero-compact-header wrap">
+      <nav class="back-nav" aria-label="Breadcrumbs">
+        <a href="index.html" class="back-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Back to homepage</span>
+        </a>
+      </nav>
+
+      <div class="hero-compact-content">
+        <h1 id="hero-heading" class="hero-compact-h1">Federated Platform Architecture for Industrial Manufacturing Systems</h1>
+        <p class="hero-compact-subtitle">Nordic ONE · Architecting a unified enterprise platform uniting machine vision inspection, MES floor telemetry, ERP resource planning, EQMS quality compliance, and facility security into a synchronized operational ecosystem.</p>
+        <div class="hero-compact-disciplines">Systems Design · UI/UX Architecture · Role-Based Access Control (RBAC) · Industrial Ecosystems</div>
+      </div>
+    </div>
+
+    <!-- Quick Action / Skip Research Strip -->
+    <div class="skip-research-strip" id="skip-research-banner">
+      <div class="wrap">
+        <a href="#platform-design" class="skip-research-btn" id="btn-skip-research">
+          <span>Skip Research</span>
+          <span class="skip-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Visual & Believable Enterprise Metadata -->
+    <section class="hero-body wrap" aria-label="Nordic ONE Hero Presentation">
+      <!-- [ASSET: NORDIC-IMG-01] Hero Visual -->
+      <div class="hero-visual" id="slot-nordic-img-01">
+        <img id="nordic-img-01" data-asset-id="NORDIC-IMG-01" src="assets/projects/nordic/nordic-hero.svg" alt="Nordic ONE full-width platform overview screenshot showing central application launcher and connected ecosystem" loading="eager">
+      </div>
+      <div class="caption">
+        <span>Nordic ONE · Industrial Software Platform</span>
+        <span>A connected view of industrial operations unifying Vision, ERP, MES, EQMS &amp; Visitor Management</span>
+      </div>
+
+      <!-- Project Metadata Grid (Believable Enterprise Breakdown) -->
+      <div class="meta">
+        <div class="meta-role-block">
+          <label>Role</label>
+          <strong>Lead UI/UX &amp; Systems Designer · Platform Architecture &amp; Governance</strong>
+          <ul class="meta-role-desc">
+            <li><strong>Systems Architecture &amp; Governance:</strong> Defined the platform topology connecting 5 independent domain micro-applications through a unified micro-frontend shell and shared design tokens</li>
+            <li><strong>Role-Based Access Control (RBAC):</strong> Architected the ecosystem permission matrix and dynamic UI adaptation—governing what machine operators, quality auditors, plant managers, and security staff can see, configure, or execute</li>
+            <li><strong>Cross-Application State &amp; IA:</strong> Structured multi-tenant facility hierarchies (Facility → Plant → Line → Station) and persistent entity context so batch Lot IDs and work order states persist seamlessly across tools</li>
+            <li><strong>Hardware-Software Ergonomics:</strong> Tailored interaction patterns to distinct physical environments—from 44px rugged touch-targets on CNC factory floors (MES) to darkroom optical feeds (Vision) and self-service visitor kiosks</li>
+          </ul>
+        </div>
+
+        <div>
+          <label>Collaborators</label>
+          <ul class="meta-list">
+            <li><strong>Me (Lead UI/UX &amp; Systems Designer)</strong> — Platform Architecture, RBAC, Design System &amp; 5 Domain Suites</li>
+            <li><strong>1 Software Developer</strong> — Full-Stack Implementation, Micro-Frontend Shell &amp; API Integrations</li>
+            <li><strong>CEO</strong> — Product Vision, Strategic Roadmap &amp; Executive Design Reviews</li>
+          </ul>
+        </div>
+
+        <div>
+          <label>Product</label>
+          <strong>Nordic ONE</strong>
+          <span style="display: block; font-size: 12px; color: var(--color-ink-muted); margin-top: 4px; line-height: 1.45;">
+            Scope: Systems Design · Role-Based Access Control (RBAC) · Platform Architecture · Information Architecture · Industrial Ergonomics · Cross-Suite Consistency
+          </span>
+        </div>
+
+        <div>
+          <label>Timeline</label>
+          <strong>6 Months</strong>
+          <span style="display: block; font-size: 12px; color: var(--color-ink-muted); margin-top: 4px; line-height: 1.45;">
+            Industrial Software Ecosystem · Systems Architecture · Design System
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 01: Operational Overview -->
+    <section class="section wrap" id="overview">
+      <div class="sec-label">
+        <span class="sec-num">01</span>
+        <span class="sec-title">Operational Overview</span>
+      </div>
+      <div class="sec-content">
+        <h2>Breaking down the operational silos between shop-floor telemetry and enterprise planning.</h2>
+        <p>High-throughput manufacturing environments operate on five mission-critical digital layers: sub-millimeter optical defect inspection (Nordic Vision), enterprise resource planning (ERP), manufacturing execution (MES), quality compliance (EQMS), and physical perimeter security (Visitor Access).</p>
+        <p>In standard manufacturing plants, these systems exist as isolated software islands. When high-speed vision cameras detect a critical micro-crack on a machining line, downstream stations don't halt automatically. Operators manually re-key batch lot numbers across separate terminals, paper non-conformance logs circulate days late, and plant managers reconcile machine uptime in disconnected spreadsheets.</p>
+        <p>Nordic ONE was architected to eliminate these operational blindspots. As the lead systems and UI/UX designer working alongside one full-stack engineer and executive leadership, I designed the platform topology, federated micro-frontend shell, role-based access governance (RBAC), and shared design system that unified five disparate enterprise suites into a single real-time operational ecosystem.</p>
+
+        <div class="key-callout">
+          <span>The Core Operational Thesis</span>
+          <p>Industrial software shouldn't force operators to act as human data bridges between isolated machines and enterprise ledgers.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 02: My Role & Systems Architecture -->
+    <section class="section wrap" id="role">
+      <div class="sec-label">
+        <span class="sec-num">02</span>
+        <span class="sec-title">My Role &amp; Systems</span>
+      </div>
+      <div class="sec-content">
+        <h2>Designing beyond interaction: systems architecture, role-based access, and operational governance.</h2>
+        <p>My work on Nordic ONE extended far beyond surface interaction design. Industrial environments cannot function on visual polish alone—they require rigorous systems architecture, clear permission boundaries, and device-responsive ergonomics.</p>
+        <p>My role encompassed defining the structural foundation of the platform: how domain applications federate within a unified shell, how role-based access control (RBAC) dynamically adapts the UI across plant hierarchies, and how mission-critical workflows maintain state across five disparate software suites.</p>
+
+        <div class="principles-grid-3">
+          <div class="principle-card">
+            <div class="principle-num">Scope 01</div>
+            <h3>Systems Architecture &amp; Federation</h3>
+            <p>Defined the overarching platform topology connecting five domain applications under a shared micro-frontend shell with centralized SSO and global audit trails.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-num">Scope 02</div>
+            <h3>Role-Based Access Control (RBAC)</h3>
+            <p>Architected the enterprise permission matrix—governing multi-tenant authorizations, dynamic UI redaction, and compliance privilege tiers across industrial roles.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-num">Scope 03</div>
+            <h3>Multi-Tenant Hierarchy &amp; State</h3>
+            <p>Structured facility-level hierarchies (Facility → Plant → Line → Station) and persistent cross-app entity state so operators never lose active context.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-num">Scope 04</div>
+            <h3>Industrial Ergonomics &amp; Hardware</h3>
+            <p>Engineered resilient interface standards for contrasting physical environments—from 44px rugged touch-targets on CNC factory floors to optical cleanroom darkrooms.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-num">Scope 05</div>
+            <h3>Shared Tokens &amp; Component Foundation</h3>
+            <p>Established the centralized 0px radius token library, accessible typography scales, shared data table components, and universal keyboard shortcuts across squads.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-num">Scope 06</div>
+            <h3>Workflow Continuity &amp; Event Bus</h3>
+            <p>Mapped end-to-end operational handshakes between physical shop-floor machinery, optical camera triggers, EQMS non-conformance tickets, and ERP inventory ledgers.</p>
+          </div>
+        </div>
+
+        <!-- [ASSET: NORDIC-IMG-02A] Role-Based Access Control (RBAC) Matrix -->
+        <figure class="fig" id="slot-nordic-img-02a" style="margin-top: var(--space-6);">
+          <img id="nordic-img-02a" data-asset-id="NORDIC-IMG-02A" src="assets/projects/nordic/nordic-rbac-systems.svg" alt="Role-Based Access Control (RBAC) Governance Matrix showing permissions and dynamic UI adaptations across five industrial persona roles" loading="lazy">
+          <figcaption class="fig-cap">
+            <span>Role-Based Access Control (RBAC) &amp; Systems Governance Matrix</span>
+            <span>Multi-tenant permissions and dynamic UI redaction tailored to General Managers, QA Engineers, CNC Operators, Auditors, and Security Staff</span>
+          </figcaption>
+        </figure>
+
+        <!-- [ASSET: NORDIC-IMG-02B] Platform Architecture Diagram -->
+        <figure class="fig" id="slot-nordic-img-02b" style="margin-top: var(--space-6);">
+          <img id="nordic-img-02b" data-asset-id="NORDIC-IMG-02B" src="assets/projects/nordic/nordic-architecture.svg" alt="Platform architecture diagram showing Nordic ONE at the top and the individual applications beneath it" loading="lazy">
+          <figcaption class="fig-cap">
+            <span>Platform Architecture &amp; Ecosystem Topology</span>
+            <span>Shared platform shell hosting micro-frontend federations, design system token foundations, and specialized domain suites</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 03: Operational Friction & Failure Modes -->
+    <section class="section wrap" id="why-this-matters">
+      <div class="sec-label">
+        <span class="sec-num">03</span>
+        <span class="sec-title">Systemic Friction</span>
+      </div>
+      <div class="sec-content">
+        <h2>The cost of decoupled systems: Data latency, phantom inventory, and untracked scrap.</h2>
+        <p>When manufacturing software operates as disconnected point solutions, operational friction compounds across shifts, stations, and departments:</p>
+        <p><strong>1. Asynchronous Defect Propagation:</strong> When an optical camera flags a surface anomaly on Station 04, the defect is logged locally. The ERP remains blind to the rejection, continuing to commit raw materials to an already-compromised production order while scrap accumulates on the floor.</p>
+        <p><strong>2. High-Stress Context Switching:</strong> Floor operators running high-speed CNC machinery must toggle between conflicting interfaces, incompatible hotkeys, and disconnected terminals, increasing cognitive fatigue and manual data-entry errors.</p>
+        <p><strong>3. Retrospective Root-Cause Audits:</strong> Quality assurance leads investigating warranty claims spend days manually correlating camera image timestamps with physical paper travel sheets and supplier material heat certificates.</p>
+
+        <div class="key-callout">
+          <span>Architectural Distinction</span>
+          <p>Unifying access (SSO and launcher) solves navigation friction; synchronizing data contracts and entity contexts eliminates operational downtime.</p>
+        </div>
+
+        <!-- [ASSET: NORDIC-IMG-03] Before-and-After Diagram -->
+        <figure class="fig" id="slot-nordic-img-03" style="margin-top: var(--space-5);">
+          <img id="nordic-img-03" data-asset-id="NORDIC-IMG-03" src="assets/projects/nordic/nordic-before-after.svg" alt="Before-and-after diagram comparing isolated applications with a unified platform, distinguishing shared access from data integration" loading="lazy">
+          <figcaption class="fig-cap">
+            <span>Before &amp; After · Architectural Comparison</span>
+            <span>Distinguishing shared access (Level 1: Platform Shell &amp; SSO) from operational integration (Level 2: Cross-App Event Bus)</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 04: Understanding the Ecosystem -->
+    <section class="section wrap" id="understanding-ecosystem">
+      <div class="sec-label">
+        <span class="sec-num">04</span>
+        <span class="sec-title">Enterprise Ecosystem</span>
+      </div>
+      <div class="sec-content">
+        <h2>Five specialized enterprise suites. One synchronized operational context.</h2>
+        <p>Each application within the Nordic ONE suite handles a dedicated tier of industrial plant management while adhering to a shared entity context:</p>
+
+        <div class="ecosystem-grid">
+          <div class="ecosystem-card">
+            <div>
+              <span class="app-code code-vision">01 · See &amp; Inspect</span>
+              <h4>Nordic Vision</h4>
+              <p>Sub-millimeter optical inspection, AI defect classification, real-time edge camera streaming, and automated pass/fail line trigger gates.</p>
+            </div>
+            <span class="workflow-tag">Task: Sub-Millimeter Defect Classification</span>
+          </div>
+
+          <div class="ecosystem-card">
+            <div>
+              <span class="app-code code-erp">02 · Plan &amp; Manage</span>
+              <h4>Nordic ERP</h4>
+              <p>Enterprise resource planning, multi-warehouse inventory allocation, supplier purchase orders, and real-time material cost ledgers.</p>
+            </div>
+            <span class="workflow-tag">Task: Material Lot Allocation</span>
+          </div>
+
+          <div class="ecosystem-card">
+            <div>
+              <span class="app-code code-mes">03 · Coordinate Production</span>
+              <h4>Nordic MES</h4>
+              <p>Manufacturing execution, live OEE (Overall Equipment Effectiveness) telemetry, machine status monitoring, and workstation cycle times.</p>
+            </div>
+            <span class="workflow-tag">Task: Real-Time OEE &amp; Telemetry</span>
+          </div>
+
+          <div class="ecosystem-card">
+            <div>
+              <span class="app-code code-eqms">04 · Manage Quality</span>
+              <h4>Nordic EQMS</h4>
+              <p>Enterprise quality management, automated non-conformance logging, CAPA root-cause workflows, and ISO/IATF compliance audit trails.</p>
+            </div>
+            <span class="workflow-tag">Task: Non-Conformance &amp; CAPA</span>
+          </div>
+
+          <div class="ecosystem-card">
+            <div>
+              <span class="app-code code-visitor">05 · Manage Site Access</span>
+              <h4>Visitor Access</h4>
+              <p>Site perimeter security, contractor induction verification, hazardous cleanroom access control, and physical safety compliance.</p>
+            </div>
+            <span class="workflow-tag">Task: Contractor Gate Kiosk</span>
+          </div>
+        </div>
+
+        <h3 style="margin-top: var(--space-6); font-size: 19px; color: var(--color-ink-primary);">The Shared Industrial Data Contract</h3>
+        <p>In physical manufacturing, components don't exist in a vacuum—they are governed by a continuous physical lineage: <strong>Enterprise → Facility → Plant Line → Station → Work Order → Lot ID</strong>.</p>
+        <p>By enforcing this relational hierarchy across all five tools, Nordic ONE ensures that an optical defect flagged in Nordic Vision instantly halts work order routing in MES, triggers a non-conformance quarantine in EQMS, and flags inventory depreciation in ERP without manual human handoffs.</p>
+
+        <!-- [ASSET: NORDIC-IMG-04] Five Application Panels -->
+        <figure class="fig" id="slot-nordic-img-04" style="margin-top: var(--space-5);">
+          <img id="nordic-img-04" data-asset-id="NORDIC-IMG-04" src="assets/projects/nordic/nordic-ecosystem-suite.svg" alt="Five application cards showing screenshots and representative operational tasks across factory, product, and operators" loading="lazy">
+          <figcaption class="fig-cap">
+            <span>The Five Applications in Context</span>
+            <span>How each application relates to the factory, the physical product, and the operators using it</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 05: The Architectural & Ergonomic Challenge -->
+    <section class="section wrap" id="challenge">
+      <div class="sec-label">
+        <span class="sec-num">05</span>
+        <span class="sec-title">Ergonomic Tension</span>
+      </div>
+      <div class="sec-content">
+        <h2>Designing across opposing ergonomic realities: Harsh shop floors vs. analytical back-office suites.</h2>
+        <p>Unifying an enterprise industrial platform is not a cosmetic exercise of applying a single stylesheet across products. The five applications serve diametrically opposed physical and cognitive environments:</p>
+
+        <div class="challenge-dual-grid">
+          <div class="challenge-panel">
+            <h3>Shop Floor High-Velocity Execution (MES &amp; Vision)</h3>
+            <p>Operates under loud ambient noise, poor overhead lighting, and nitrile/leather PPE gloves. Requires 48px minimum tactile touch targets, high-contrast ISO status colors, zero decorative whitespace, and one-tap bypasses for line alarms.</p>
+          </div>
+          <div class="challenge-panel">
+            <h3>Analytical Multi-Monitor Workstations (ERP &amp; EQMS)</h3>
+            <p>Operates in standard office environments on dual 4K desktop displays. Requires extreme data density, multi-level BOM trees, inline tabular cell editing, multi-parameter SQL filtering, and global keyboard shortcuts (⌘K).</p>
+          </div>
+        </div>
+
+        <p style="margin-top: var(--space-4);">The architectural challenge was creating a shared platform shell, unified typography, and cohesive component primitives without blunting the domain-specific efficiency each role demands.</p>
+
+        <div class="key-callout">
+          <span>The Core Systems Challenge</span>
+          <p>How to architect a coherent platform shell and unified design language without sacrificing the extreme ergonomic specialization required on the factory floor.</p>
+        </div>
+
+        <!-- [ASSET: NORDIC-IMG-05] Cross-Application Screen Comparison -->
+        <figure class="fig" id="slot-nordic-img-05" style="margin-top: var(--space-5);">
+          <img id="nordic-img-05" data-asset-id="NORDIC-IMG-05" src="assets/projects/nordic/nordic-cross-app.svg" alt="Side-by-side application screens annotating differences in purpose, information density, and primary actions" loading="lazy">
+          <figcaption class="fig-cap">
+            <span>Side-by-Side Comparison of Application Needs</span>
+            <span>Annotating differences in information density, purpose, and primary actions between inspection and shop-floor execution</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 06: How the Systems Relate in a Factory -->
+    <!-- SECTION 06: Closed-Loop Operational Telemetry -->
+    <section class="section wrap" id="factory-flow">
+      <div class="sec-label">
+        <span class="sec-num">06</span>
+        <span class="sec-title">Closed-Loop Telemetry</span>
+      </div>
+      <div class="sec-content">
+        <h2>Closed-loop production telemetry: From work order dispatch to automated quality containment.</h2>
+        <p>Instead of manual paper handovers and batch spreadsheet reconciliations, Nordic ONE orchestrates an event-driven data loop connecting production, automated optical inspection, and enterprise planning in real time:</p>
+
+        <div class="flow-steps-grid">
+          <div class="flow-step-card">
+            <div class="flow-step-num" style="color: #4f46e5;">01 / ERP</div>
+            <h3>Work Order Dispatch</h3>
+            <p>Allocates raw material batches, validates inventory availability, and commits scheduled work orders to active production lines.</p>
+          </div>
+          <div class="flow-step-card">
+            <div class="flow-step-num" style="color: #059669;">02 / MES</div>
+            <h3>Line Telemetry &amp; Routing</h3>
+            <p>Dispatches routing tasks to workstation touch terminals, capturing real-time machine cycle times, operator handoffs, and line OEE.</p>
+          </div>
+          <div class="flow-step-card">
+            <div class="flow-step-num" style="color: #0284c7;">03 / Vision</div>
+            <h3>Sub-Millimeter Inspection</h3>
+            <p>High-speed industrial cameras capture components at line speed, executing AI defect classification against millimeter CAD tolerances.</p>
+          </div>
+          <div class="flow-step-card">
+            <div class="flow-step-num" style="color: #d97706;">04 / EQMS</div>
+            <h3>Automated Quarantine</h3>
+            <p>An optical defect instantly halts downstream station indexing, auto-generates a non-conformance ticket, and locks the material lot.</p>
+          </div>
+          <div class="flow-step-card">
+            <div class="flow-step-num" style="color: #7c3aed;">05 / Visitor</div>
+            <h3>Facility Safety Access</h3>
+            <p>Controls technician and calibration contractor facility access, ensuring only certified personnel enter restricted cleanrooms.</p>
+          </div>
+        </div>
+
+        <h3 style="margin-top: var(--space-6); font-size: 19px; color: var(--color-ink-primary);">Closed-Loop Telemetry vs. Batch Handoffs</h3>
+        <p>The operational breakthrough of Nordic ONE is the real-time event loop. When Nordic Vision identifies a defect cluster on Line 02, it does not simply log an alert to a local monitor—it broadcasts an event across the platform shell, automatically halting work order progression in MES, generating an ISO non-conformance ticket in EQMS, and updating raw material scrap ledgers in ERP within milliseconds.</p>
+
+        <!-- [ASSET: NORDIC-IMG-06] Large Process Diagram -->
+        <figure class="fig" id="slot-nordic-img-06" style="margin-top: var(--space-5);">
+          <img id="nordic-img-06" data-asset-id="NORDIC-IMG-06" src="assets/projects/nordic/nordic-factory-flow.svg" alt="Large process diagram showing manufacturing flow from planning to production to inspection, quality branch, and parallel facility operation" loading="lazy">
+          <figcaption class="fig-cap">
+            <span>End-to-End Operational Flow Diagram</span>
+            <span>Primary production sequence (ERP → MES → Vision), automated quality exception branch (EQMS), and parallel facility access (Visitor Management)</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 07: Platform Governance & Design System Architecture -->
+    <section class="section wrap" id="opportunity">
+      <div class="sec-label">
+        <span class="sec-num">07</span>
+        <span class="sec-title">Platform Governance</span>
+      </div>
+      <div class="sec-content">
+        <h2>Systemic consistency without flattening domain autonomy.</h2>
+        <p>A successful enterprise platform cannot force arbitrary visual uniformity on specialized tools. Instead, Nordic ONE enforces governance at the platform shell while preserving domain-specific execution speed:</p>
+
+        <div class="principles-grid">
+          <div class="principle-card">
+            <div class="principle-num">01</div>
+            <h3>Micro-Frontend Federation</h3>
+            <p>Architected a zero-reload platform shell hosting independent domain micro-applications via Module Federation and shared state buses.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-num">02</div>
+            <h3>Persistent Entity State</h3>
+            <p>Maintains persistent multi-tenant breadcrumbs (Facility → Plant → Line → Station) so operators never lose active context when switching tools.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-num">03</div>
+            <h3>0px Industrial Token Base</h3>
+            <p>Engineered a precision design token foundation using 0px border radiuses, maximizing screen density and scannability on technical data tables.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-num">04</div>
+            <h3>Ergonomic UI Adaptation</h3>
+            <p>Dynamically scales interaction targets between 48px rugged touch targets for floor tablets and compact desktop grids for office analysts.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-num">05</div>
+            <h3>Role-Based Dynamic Masking</h3>
+            <p>Enforces RBAC permissions directly in UI components, redacting sensitive controls or financial ledgers based on active operator badge clearance.</p>
+          </div>
+        </div>
+
+        <div class="key-callout">
+          <span>The Architectural Standard</span>
+          <p>Platform governance should provide shared authentication, entity context, and design tokens—never bottlenecking domain execution speeds.</p>
+        </div>
+
+        <!-- [ASSET: NORDIC-IMG-07] Design System Hierarchy Visual -->
+        <figure class="fig" id="slot-nordic-img-07" style="margin-top: var(--space-5);">
+          <img id="nordic-img-07" data-asset-id="NORDIC-IMG-07" src="assets/projects/nordic/nordic-design-system.svg" alt="Platform architecture, shared navigation, and examples of common versus application-specific interface patterns" loading="lazy">
+          <figcaption class="fig-cap">
+            <span>Platform Architecture &amp; Token Foundation</span>
+            <span>Establishing shared 0px radius tokens, global search, and shell chrome while preserving application-specific ergonomics</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 08: Platform Shell Architecture & Industrial UX -->
+    <section class="section wrap" id="platform-design">
+      <div class="sec-label">
+        <span class="sec-num">08</span>
+        <span class="sec-title">Shell Chrome &amp; UX</span>
+      </div>
+      <div class="sec-content">
+        <h2>Architecting the platform shell: Unified navigation, universal ⌘K command palette, and persistent context.</h2>
+        <p>The platform shell acts as the operating system for the factory floor. Instead of a superficial portal launcher, the shell delivers four critical system-level capabilities:</p>
+
+        <div class="principles-grid-4">
+          <div class="principle-card">
+            <div class="principle-num">Focus 01</div>
+            <h3>Zero-Reload App Switching</h3>
+            <p>Enables instant transitions between MES routing and Vision camera feeds via micro-frontends without losing active station state or re-authenticating.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-num">Focus 02</div>
+            <h3>Universal ⌘K Command Palette</h3>
+            <p>Allows plant managers to query any Lot ID, Work Order, Machine Camera ID, or Supplier SKU across all five applications in under 200 milliseconds.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-num">Focus 03</div>
+            <h3>Multi-Tenant Plant Breadcrumbs</h3>
+            <p>Anchors the operator's active physical context (Plant → Line → Station) permanently in the top chrome, eliminating accidental misconfiguration.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-num">Focus 04</div>
+            <h3>Dense Monospace Data Tables</h3>
+            <p>Virtualized data grids engineered for 1,000+ row ERP and MES ledgers, featuring multi-column sorting, inline filtering, and millisecond rendering.</p>
+          </div>
+        </div>
+
+        <!-- [ASSET: NORDIC-IMG-08] Launcher & Detailed Interface Sequence -->
+        <figure class="fig" id="slot-nordic-img-08" style="margin-top: var(--space-6);">
+          <img id="nordic-img-08" data-asset-id="NORDIC-IMG-08" src="assets/projects/nordic/nordic-launcher-ui.svg" alt="Nordic ONE launcher interface showing shared navigation, federated search, and detailed interface annotations" loading="lazy">
+          <figcaption class="fig-cap">
+            <span>Global Application Launcher &amp; Shared Top Chrome</span>
+            <span>Zero-reload application switching, federated ⌘K search, and persistent plant context annotations</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 09: Systems Impact & Architectural Principles -->
+    <section class="section wrap" id="outcome">
+      <div class="sec-label">
+        <span class="sec-num">09</span>
+        <span class="sec-title">Systems Principles</span>
+      </div>
+      <div class="sec-content">
+        <h2>Deploying an industrial software ecosystem: Core systems architectural principles.</h2>
+        <p>Architecting an overarching platform across five mission-critical manufacturing domains reinforced five foundational realities of industrial systems design:</p>
+
+        <div class="principles-grid">
+          <div class="principle-card">
+            <div class="principle-num">01</div>
+            <h3>Data Contracts Precede UI Polish</h3>
+            <p>In enterprise software, visual consistency is useless if underlying schemas cannot exchange entity context. Normalizing data models (Plant → Station → Lot ID) is the true foundation of UX.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-num">02</div>
+            <h3>Physical Ergonomics Over Trends</h3>
+            <p>Factory floor interfaces cannot tolerate decorative whitespace or low contrast. 0px border radiuses, monospace tabular grids, and 48px touch targets keep production lines operating safely.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-num">03</div>
+            <h3>RBAC is an Interaction Model</h3>
+            <p>Role permissions shouldn't merely disable buttons—they must reshape the visual hierarchy so operators only see actionable controls certified for their active badge clearance.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-num">04</div>
+            <h3>Event Telemetry Prevents Scrap</h3>
+            <p>Connecting machine vision and MES via a real-time event bus ensures defect quarantine occurs in milliseconds rather than being caught hours later during post-shift audits.</p>
+          </div>
+          <div class="principle-card">
+            <div class="principle-num">05</div>
+            <h3>Lean Team Execution</h3>
+            <p>Architecting five domain applications with one software developer and the CEO required ruthless token standardization, strict API contracts, and continuous shop-floor validation.</p>
+          </div>
+        </div>
+
+        <p style="margin-top: var(--space-5);">Nordic ONE proves that industrial software doesn't need to choose between enterprise robustness and intuitive usability. By treating the platform as a cohesive operating system, complex manufacturing workflows become faster, safer, and fully auditable.</p>
+
+        <!-- [ASSET: NORDIC-IMG-09] Final Composition Visual -->
+        <figure class="fig" id="slot-nordic-img-09" style="margin-top: var(--space-6);">
+          <img id="nordic-img-09" data-asset-id="NORDIC-IMG-09" src="assets/projects/nordic/nordic-composite-final.svg" alt="Final composition showing Nordic ONE alongside representative application screens ending with the ecosystem as a whole" loading="lazy">
+          <figcaption class="fig-cap">
+            <span>The Breadth of the Ecosystem and the Unity of Its Platform Experience</span>
+            <span>Nordic ONE central shell coordinating Vision, MES, ERP, EQMS, and Visitor Management</span>
+          </figcaption>
+        </figure>
+
+        <!-- Project Credits Box -->
+        <div class="credits-box">
+          <h3>Nordic ONE — Industrial Software Ecosystem</h3>
+          <p>Systems Design · UI/UX Architecture · Role-Based Access Control (RBAC) · Enterprise Software</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Selected Work / Explore Other Projects Navigation -->
+    <section class="section wrap" id="selected-work" style="border-top: 1px solid var(--color-border-subtle); padding-top: var(--space-7); margin-top: var(--space-7);">
+      <div class="sec-label">
+        <span class="sec-num">Explore</span>
+        <span class="sec-title">More Projects</span>
+      </div>
+      <div class="sec-content">
+        <h2>Explore other case studies</h2>
+        <div class="more-projects-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin-top: var(--space-5);">
+          
+          <!-- Project 1: AERA -->
+          <a href="aera.html" class="more-project-card" style="text-decoration: none; color: inherit; display: block; border: 1px solid var(--color-border-hairline); background: var(--color-canvas-wash); padding: var(--space-5);">
+            <div style="font-size: 11px; font-weight: 700; color: var(--color-accent-primary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">Case Study 01</div>
+            <h3 style="font-size: 16px; margin: 0 0 6px; color: var(--color-ink-primary);">AERA</h3>
+            <p style="font-size: 12px; color: var(--color-ink-secondary); margin: 0 0 14px; line-height: 1.55;">
+              Improving clean air distribution in commercial workspaces through modular architectural air-purification.
+            </p>
+            <span style="font-size: 12px; font-weight: 600; color: var(--color-ink-primary);">View case study →</span>
+          </a>
+
+          <!-- Project 2: GLIDE -->
+          <a href="glide.html" class="more-project-card" style="text-decoration: none; color: inherit; display: block; border: 1px solid var(--color-border-hairline); background: var(--color-canvas-wash); padding: var(--space-5);">
+            <div style="font-size: 11px; font-weight: 700; color: var(--color-accent-primary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">Case Study 02</div>
+            <h3 style="font-size: 16px; margin: 0 0 6px; color: var(--color-ink-primary);">GLIDE</h3>
+            <p style="font-size: 12px; color: var(--color-ink-secondary); margin: 0 0 14px; line-height: 1.55;">
+              Taking local businesses beyond the storefront with a transformable electric vehicle and pop-up retail system.
+            </p>
+            <span style="font-size: 12px; font-weight: 600; color: var(--color-ink-primary);">View case study →</span>
+          </a>
+
+          <!-- Project 3: Nordic OS -->
+          <a href="nordicos.html" class="more-project-card" style="text-decoration: none; color: inherit; display: block; border: 1px solid var(--color-border-hairline); background: var(--color-canvas-wash); padding: var(--space-5);">
+            <div style="font-size: 11px; font-weight: 700; color: var(--color-accent-primary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">Case Study 04</div>
+            <h3 style="font-size: 16px; margin: 0 0 6px; color: var(--color-ink-primary);">Nordic OS</h3>
+            <p style="font-size: 12px; color: var(--color-ink-secondary); margin: 0 0 14px; line-height: 1.55;">
+              Internal operations workspace connecting optical discovery, 9-stage engineering handoffs, and 11-role access.
+            </p>
+            <span style="font-size: 12px; font-weight: 600; color: var(--color-ink-primary);">View case study →</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Safe Intersection Observer Scroll Reveal Script -->
+  <script>
+    (function () {
+      'use strict';
+      if (!('IntersectionObserver' in window)) return;
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.section, .hero-body, .fig, .key-callout, .ecosystem-card, .principle-card, .flow-step-card').forEach(function (el) {
+        el.classList.add('reveal-on-scroll');
+        observer.observe(el);
+      });
+    })();
+  </script>
+</body>
+</html>

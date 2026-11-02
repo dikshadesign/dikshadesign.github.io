@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+      .benefit-card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.2; rx: 4; }
+      .inner-screen { fill: #0f172a; stroke: #1e293b; stroke-width: 1; rx: 3; }
+      .tag { fill: #eff6ff; stroke: #3b82f6; stroke-width: 1; rx: 3; }
+      .tag-num { font-family: Inter, sans-serif; font-size: 11px; font-weight: 800; fill: #1e40af; }
+      .card-title { font-family: Inter, sans-serif; font-size: 13px; font-weight: 700; fill: #0f172a; }
+      .card-desc { font-family: Inter, sans-serif; font-size: 10px; fill: #475569; line-height: 1.45; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="440" class="bg"/>
+
+  <!-- Top Title Banner -->
+  <rect x="40" y="20" width="1120" height="38" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+  <text x="60" y="44" class="font-sans" font-size="13px" font-weight="700" fill="#0f172a">Section 03 · Four Anticipated Platform Benefits &amp; Representative Capabilities</text>
+  <text x="770" y="44" class="font-sans" font-size="10.5px" fill="#64748b">Intended ecosystem value across enterprise access, navigation, consistency &amp; continuity</text>
+
+  <!-- 4 BENEFIT CARDS -->
+  <g transform="translate(40, 76)">
+    
+    <!-- CARD 01: Unified Access -->
+    <g transform="translate(0, 0)">
+      <rect width="265" height="335" class="benefit-card"/>
+      
+      <!-- Mini Mockup Header -->
+      <g transform="translate(16, 16)">
+        <rect width="233" height="130" class="inner-screen"/>
+        <!-- App Grid inside launcher screen -->
+        <rect x="12" y="12" width="209" height="20" rx="2" fill="#1e293b"/>
+        <circle cx="22" cy="22" r="3" fill="#38bdf8"/>
+        <text x="32" y="25" class="font-sans" font-size="8.5px" fill="#cbd5e1">SSO Auth: Authorized (Tenant 04)</text>
+
+        <!-- 5 App Tiles -->
+        <rect x="12" y="40" width="36" height="36" rx="3" fill="#0284c7"/>
+        <text x="30" y="62" text-anchor="middle" class="font-sans" font-size="9px" font-weight="800" fill="#fff">VIS</text>
+
+        <rect x="55" y="40" width="36" height="36" rx="3" fill="#4f46e5"/>
+        <text x="73" y="62" text-anchor="middle" class="font-sans" font-size="9px" font-weight="800" fill="#fff">ERP</text>
+
+        <rect x="98" y="40" width="36" height="36" rx="3" fill="#059669"/>
+        <text x="116" y="62" text-anchor="middle" class="font-sans" font-size="9px" font-weight="800" fill="#fff">MES</text>
+
+        <rect x="141" y="40" width="36" height="36" rx="3" fill="#d97706"/>
+        <text x="159" y="62" text-anchor="middle" class="font-sans" font-size="9px" font-weight="800" fill="#fff">QMS</text>
+
+        <rect x="184" y="40" width="36" height="36" rx="3" fill="#7c3aed"/>
+        <text x="202" y="62" text-anchor="middle" class="font-sans" font-size="9px" font-weight="800" fill="#fff">VMS</text>
+
+        <text x="12" y="96" class="font-sans" font-size="8.5px" fill="#94a3b8">Active User: Senior Industrial Ops</text>
+        <rect x="12" y="104" width="209" height="14" rx="2" fill="#1e293b"/>
+        <text x="116" y="114" text-anchor="middle" class="font-sans" font-size="7.5px" fill="#38bdf8">Single Sign-On Token Active (2FA)</text>
+      </g>
+
+      <!-- Text Content -->
+      <g transform="translate(16, 162)">
+        <rect width="32" height="20" class="tag"/>
+        <text x="16" y="14" text-anchor="middle" class="tag-num">01</text>
+        <text x="40" y="15" class="card-title">Unified Access</text>
+        <text x="0" y="38" class="card-desc">Brings five disparate industrial applications into one consolidated platform experience. Operators authenticate once to gain role-governed access across the entire operational stack.</text>
+        
+        <rect y="125" width="233" height="24" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" rx="3"/>
+        <text x="12" y="141" class="font-sans" font-size="9px" font-weight="600" fill="#0f172a">Eliminates 5 disconnected logins</text>
+      </g>
+    </g>
+
+    <!-- CARD 02: Clearer Navigation -->
+    <g transform="translate(285, 0)">
+      <rect width="265" height="335" class="benefit-card"/>
+      
+      <!-- Mini Mockup Header -->
+      <g transform="translate(16, 16)">
+        <rect width="233" height="130" class="inner-screen"/>
+        <!-- Universal Search bar & Breadcrumb -->
+        <rect x="12" y="14" width="209" height="24" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+        <text x="22" y="29" class="font-sans" font-size="8.5px" fill="#64748b">⌘K Search "Lot B-881"...</text>
+        <rect x="180" y="18" width="32" height="16" rx="2" fill="#0f172a"/>
+        <text x="196" y="29" text-anchor="middle" class="font-sans" font-size="7.5px" fill="#38bdf8">⌘ K</text>
+
+        <!-- Dropdown hits -->
+        <rect x="12" y="44" width="209" height="74" rx="2" fill="#0b1120" stroke="#38bdf8" stroke-width="1"/>
+        <rect x="16" y="50" width="201" height="18" rx="2" fill="#1e293b"/>
+        <text x="22" y="62" class="font-sans" font-size="7.5px" font-weight="700" fill="#38bdf8">VIS · Lot B-881 Defect Frame #04</text>
+        
+        <text x="22" y="82" class="font-sans" font-size="7.5px" fill="#cbd5e1">MES · Work Order WO-8912</text>
+        <text x="22" y="98" class="font-sans" font-size="7.5px" fill="#cbd5e1">EQMS · Ticket NC-4402</text>
+        <text x="22" y="112" class="font-sans" font-size="7.5px" fill="#cbd5e1">ERP · Inventory Quarantined</text>
+      </g>
+
+      <!-- Text Content -->
+      <g transform="translate(16, 162)">
+        <rect width="32" height="20" class="tag"/>
+        <text x="16" y="14" text-anchor="middle" class="tag-num">02</text>
+        <text x="40" y="15" class="card-title">Clearer Navigation</text>
+        <text x="0" y="38" class="card-desc">Helps users identify and access tools instantly without mental overhead. Universal federated search (⌘K) indexes physical batches, machine IDs, and visitor records across domains.</text>
+        
+        <rect y="125" width="233" height="24" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" rx="3"/>
+        <text x="12" y="141" class="font-sans" font-size="9px" font-weight="600" fill="#0f172a">Zero-reload cross-domain routing</text>
+      </g>
+    </g>
+
+    <!-- CARD 03: Consistent Interactions -->
+    <g transform="translate(570, 0)">
+      <rect width="265" height="335" class="benefit-card"/>
+      
+      <!-- Mini Mockup Header -->
+      <g transform="translate(16, 16)">
+        <rect width="233" height="130" class="inner-screen"/>
+        <!-- Design System Tokens visual -->
+        <rect x="12" y="12" width="209" height="20" rx="2" fill="#1e293b"/>
+        <text x="20" y="25" class="font-sans" font-size="8px" font-weight="700" fill="#38bdf8">DESIGN TOKENS · 0px RADII</text>
+        
+        <!-- Standard Data Table Component -->
+        <rect x="12" y="38" width="209" height="78" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+        <rect x="12" y="38" width="209" height="16" fill="#1e293b"/>
+        <text x="18" y="49" class="font-sans" font-size="7.5px" font-weight="700" fill="#94a3b8">IDENTIFIER</text>
+        <text x="95" y="49" class="font-sans" font-size="7.5px" font-weight="700" fill="#94a3b8">STATUS</text>
+        <text x="165" y="49" class="font-sans" font-size="7.5px" font-weight="700" fill="#94a3b8">OPERATOR</text>
+
+        <text x="18" y="66" class="font-sans" font-size="7.5px" fill="#cbd5e1">WO-8912</text>
+        <rect x="95" y="58" width="42" height="11" rx="2" fill="#059669"/>
+        <text x="116" y="66" text-anchor="middle" class="font-sans" font-size="6.5px" font-weight="700" fill="#fff">RUNNING</text>
+        <text x="165" y="66" class="font-sans" font-size="7.5px" fill="#94a3b8">M. Berg</text>
+
+        <line x1="12" y1="74" x2="221" y2="74" stroke="#1e293b"/>
+        <text x="18" y="86" class="font-sans" font-size="7.5px" fill="#cbd5e1">NC-4402</text>
+        <rect x="95" y="78" width="42" height="11" rx="2" fill="#e11d48"/>
+        <text x="116" y="86" text-anchor="middle" class="font-sans" font-size="6.5px" font-weight="700" fill="#fff">ALERT</text>
+        <text x="165" y="86" class="font-sans" font-size="7.5px" fill="#94a3b8">K. Holm</text>
+
+        <line x1="12" y1="94" x2="221" y2="94" stroke="#1e293b"/>
+        <text x="18" y="106" class="font-sans" font-size="7.5px" fill="#cbd5e1">PAS-091</text>
+        <rect x="95" y="98" width="42" height="11" rx="2" fill="#d97706"/>
+        <text x="116" y="106" text-anchor="middle" class="font-sans" font-size="6.5px" font-weight="700" fill="#fff">ACTIVE</text>
+        <text x="165" y="106" class="font-sans" font-size="7.5px" fill="#94a3b8">Security</text>
+      </g>
+
+      <!-- Text Content -->
+      <g transform="translate(16, 162)">
+        <rect width="32" height="20" class="tag"/>
+        <text x="16" y="14" text-anchor="middle" class="tag-num">03</text>
+        <text x="40" y="15" class="card-title">Consistent Interactions</text>
+        <text x="0" y="38" class="card-desc">Establishes shared interface patterns across all five suites—standardizing tables, status chips, drawer modals, and keybindings so learning one tool empowers operators across all.</text>
+        
+        <rect y="125" width="233" height="24" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" rx="3"/>
+        <text x="12" y="141" class="font-sans" font-size="9px" font-weight="600" fill="#0f172a">Drastic reduction in operator training time</text>
+      </g>
+    </g>
+
+    <!-- CARD 04: Connected Workflows -->
+    <g transform="translate(855, 0)">
+      <rect width="265" height="335" class="benefit-card"/>
+      
+      <!-- Mini Mockup Header -->
+      <g transform="translate(16, 16)">
+        <rect width="233" height="130" class="inner-screen"/>
+        <!-- Cross-app event pipeline diagram -->
+        <rect x="12" y="12" width="209" height="20" rx="2" fill="#1e293b"/>
+        <text x="20" y="25" class="font-sans" font-size="8px" font-weight="700" fill="#10b981">EVENT BUS · LIVE PIPELINE</text>
+
+        <!-- Connected Step Blocks -->
+        <rect x="12" y="38" width="96" height="36" rx="2" fill="#1e293b" stroke="#0284c7" stroke-width="1"/>
+        <text x="18" y="52" class="font-sans" font-size="7px" font-weight="700" fill="#38bdf8">VISION TRIGGER</text>
+        <text x="18" y="66" class="font-sans" font-size="6.5px" fill="#cbd5e1">Defect Detected</text>
+
+        <line x1="108" y1="56" x2="124" y2="56" stroke="#38bdf8" stroke-width="1.5"/>
+
+        <rect x="125" y="38" width="96" height="36" rx="2" fill="#1e293b" stroke="#d97706" stroke-width="1"/>
+        <text x="131" y="52" class="font-sans" font-size="7px" font-weight="700" fill="#fbbf24">EQMS TICKET</text>
+        <text x="131" y="66" class="font-sans" font-size="6.5px" fill="#cbd5e1">Auto Non-Conformance</text>
+
+        <rect x="12" y="82" width="96" height="36" rx="2" fill="#1e293b" stroke="#059669" stroke-width="1"/>
+        <text x="18" y="96" class="font-sans" font-size="7px" font-weight="700" fill="#34d399">MES INTERLOCK</text>
+        <text x="18" y="110" class="font-sans" font-size="6.5px" fill="#cbd5e1">Line 03 Paused</text>
+
+        <line x1="108" y1="100" x2="124" y2="100" stroke="#10b981" stroke-width="1.5"/>
+
+        <rect x="125" y="82" width="96" height="36" rx="2" fill="#1e293b" stroke="#4f46e5" stroke-width="1"/>
+        <text x="131" y="96" class="font-sans" font-size="7px" font-weight="700" fill="#818cf8">ERP QUARANTINE</text>
+        <text x="131" y="110" class="font-sans" font-size="6.5px" fill="#cbd5e1">Batch Blocked</text>
+      </g>
+
+      <!-- Text Content -->
+      <g transform="translate(16, 162)">
+        <rect width="32" height="20" class="tag"/>
+        <text x="16" y="14" text-anchor="middle" class="tag-num">04</text>
+        <text x="40" y="15" class="card-title">Connected Workflows</text>
+        <text x="0" y="38" class="card-desc">Creates a coherent operational loop across applications while retaining the deep, specialised capabilities of each tool. Information flows synchronously from inspection to ERP.</text>
+        
+        <rect y="125" width="233" height="24" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" rx="3"/>
+        <text x="12" y="141" class="font-sans" font-size="9px" font-weight="600" fill="#0f172a">Zero data silos between factory &amp; back office</text>
+      </g>
+    </g>
+
+  </g>
+</svg>

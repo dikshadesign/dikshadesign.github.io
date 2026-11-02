@@ -1,0 +1,224 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+      .matrix-card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.2; rx: 4; }
+      .role-row { fill: #f8fafc; stroke: #e2e8f0; stroke-width: 1; rx: 3; }
+      .perm-full { fill: #dcfce7; stroke: #16a34a; stroke-width: 1; rx: 3; }
+      .perm-read { fill: #e0f2fe; stroke: #0284c7; stroke-width: 1; rx: 3; }
+      .perm-none { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1; rx: 3; }
+      .perm-exec { fill: #fef3c7; stroke: #d97706; stroke-width: 1; rx: 3; }
+      .callout { fill: #0f172a; rx: 4; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="580" class="bg"/>
+
+  <!-- Top Title Banner -->
+  <rect x="40" y="20" width="1120" height="42" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="60" y="46" class="font-sans" font-size="14px" font-weight="700" fill="#0f172a">Section 02 · Systems Design &amp; Role-Based Access Control (RBAC) Governance</text>
+  <text x="680" y="46" class="font-sans" font-size="11px" fill="#64748b">Designing multi-tenant authorization, industrial privilege tiers, and contextual UI adaptation</text>
+
+  <!-- RBAC MATRIX CONTAINER -->
+  <g transform="translate(40, 76)">
+    <rect width="1120" height="340" class="matrix-card"/>
+
+    <!-- Matrix Header Row -->
+    <rect width="1120" height="42" fill="#0f172a" rx="4 4 0 0"/>
+    <text x="24" y="26" class="font-sans" font-size="11px" font-weight="700" fill="#f8fafc">OPERATIONAL ROLE / CREDENTIAL</text>
+    
+    <!-- 5 App Columns -->
+    <text x="320" y="26" class="font-sans" font-size="10.5px" font-weight="700" fill="#38bdf8">NORDIC VISION</text>
+    <text x="480" y="26" class="font-sans" font-size="10.5px" font-weight="700" fill="#818cf8">NORDIC ERP</text>
+    <text x="640" y="26" class="font-sans" font-size="10.5px" font-weight="700" fill="#34d399">NORDIC MES</text>
+    <text x="800" y="26" class="font-sans" font-size="10.5px" font-weight="700" fill="#fbbf24">NORDIC EQMS</text>
+    <text x="960" y="26" class="font-sans" font-size="10.5px" font-weight="700" fill="#c084fc">VISITOR ACCESS</text>
+
+    <!-- ROW 1: Plant General Manager -->
+    <g transform="translate(16, 52)">
+      <rect width="1088" height="50" class="role-row"/>
+      <circle cx="20" cy="25" r="10" fill="#38bdf8"/>
+      <text x="20" y="29" text-anchor="middle" class="font-sans" font-size="9px" font-weight="800" fill="#0f172a">GM</text>
+      <text x="40" y="22" class="font-sans" font-size="11px" font-weight="700" fill="#0f172a">Plant General Manager</text>
+      <text x="40" y="38" class="font-sans" font-size="9px" fill="#64748b">Cross-domain operational authority · Plant #04</text>
+
+      <!-- Perms -->
+      <g transform="translate(295, 12)">
+        <rect width="135" height="26" class="perm-full"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#166534">FULL ADMIN / TELEMETRY</text>
+      </g>
+      <g transform="translate(455, 12)">
+        <rect width="135" height="26" class="perm-full"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#166534">FINANCIAL / INVENTORY</text>
+      </g>
+      <g transform="translate(615, 12)">
+        <rect width="135" height="26" class="perm-full"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#166534">SHOP OEE OVERSIGHT</text>
+      </g>
+      <g transform="translate(775, 12)">
+        <rect width="135" height="26" class="perm-full"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#166534">FINAL CAPA SIGNOFF</text>
+      </g>
+      <g transform="translate(935, 12)">
+        <rect width="135" height="26" class="perm-read"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#0369a1">HEADCOUNT ROSTER</text>
+      </g>
+    </g>
+
+    <!-- ROW 2: Optical QA Engineer -->
+    <g transform="translate(16, 108)">
+      <rect width="1088" height="50" class="role-row"/>
+      <circle cx="20" cy="25" r="10" fill="#0284c7"/>
+      <text x="20" y="29" text-anchor="middle" class="font-sans" font-size="9px" font-weight="800" fill="#ffffff">QA</text>
+      <text x="40" y="22" class="font-sans" font-size="11px" font-weight="700" fill="#0f172a">Optical QA Engineer</text>
+      <text x="40" y="38" class="font-sans" font-size="9px" fill="#64748b">Cleanroom camera calibration &amp; defect classification</text>
+
+      <g transform="translate(295, 12)">
+        <rect width="135" height="26" class="perm-full"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#166534">CAMERA &amp; AI CALIBRATION</text>
+      </g>
+      <g transform="translate(455, 12)">
+        <rect width="135" height="26" class="perm-read"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#0369a1">BATCH BOM READ-ONLY</text>
+      </g>
+      <g transform="translate(615, 12)">
+        <rect width="135" height="26" class="perm-read"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#0369a1">ACTIVE RUN VIEW</text>
+      </g>
+      <g transform="translate(775, 12)">
+        <rect width="135" height="26" class="perm-exec"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#b45309">AUTO-EMIT NC TICKET</text>
+      </g>
+      <g transform="translate(935, 12)">
+        <rect width="135" height="26" class="perm-none"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" fill="#94a3b8">RESTRICTED</text>
+      </g>
+    </g>
+
+    <!-- ROW 3: CNC Machine Operator -->
+    <g transform="translate(16, 164)">
+      <rect width="1088" height="50" class="role-row"/>
+      <circle cx="20" cy="25" r="10" fill="#059669"/>
+      <text x="20" y="29" text-anchor="middle" class="font-sans" font-size="9px" font-weight="800" fill="#ffffff">OP</text>
+      <text x="40" y="22" class="font-sans" font-size="11px" font-weight="700" fill="#0f172a">CNC Machine Operator</text>
+      <text x="40" y="38" class="font-sans" font-size="9px" fill="#64748b">Shop floor milling station · Touch terminal (gloves)</text>
+
+      <g transform="translate(295, 12)">
+        <rect width="135" height="26" class="perm-read"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#0369a1">INSPECTION STATUS</text>
+      </g>
+      <g transform="translate(455, 12)">
+        <rect width="135" height="26" class="perm-none"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" fill="#94a3b8">RESTRICTED</text>
+      </g>
+      <g transform="translate(615, 12)">
+        <rect width="135" height="26" class="perm-full"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#166534">START/HALT WORK ORDER</text>
+      </g>
+      <g transform="translate(775, 12)">
+        <rect width="135" height="26" class="perm-read"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#0369a1">INTERLOCK ALERTS</text>
+      </g>
+      <g transform="translate(935, 12)">
+        <rect width="135" height="26" class="perm-none"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" fill="#94a3b8">RESTRICTED</text>
+      </g>
+    </g>
+
+    <!-- ROW 4: ISO Compliance Auditor -->
+    <g transform="translate(16, 220)">
+      <rect width="1088" height="50" class="role-row"/>
+      <circle cx="20" cy="25" r="10" fill="#d97706"/>
+      <text x="20" y="29" text-anchor="middle" class="font-sans" font-size="9px" font-weight="800" fill="#ffffff">AU</text>
+      <text x="40" y="22" class="font-sans" font-size="11px" font-weight="700" fill="#0f172a">Compliance Auditor (ISO 9001)</text>
+      <text x="40" y="38" class="font-sans" font-size="9px" fill="#64748b">External Bureau Veritas auditor · Read audit trail</text>
+
+      <g transform="translate(295, 12)">
+        <rect width="135" height="26" class="perm-read"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#0369a1">DEFECT LOG EVIDENCE</text>
+      </g>
+      <g transform="translate(455, 12)">
+        <rect width="135" height="26" class="perm-read"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#0369a1">LOT PROVENANCE</text>
+      </g>
+      <g transform="translate(615, 12)">
+        <rect width="135" height="26" class="perm-read"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#0369a1">LINE CALIBRATION LOG</text>
+      </g>
+      <g transform="translate(775, 12)">
+        <rect width="135" height="26" class="perm-full"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#166534">AUDIT CAPA INVESTIGATION</text>
+      </g>
+      <g transform="translate(935, 12)">
+        <rect width="135" height="26" class="perm-read"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#0369a1">PPE BADGE LOG</text>
+      </g>
+    </g>
+
+    <!-- ROW 5: Front Gate Security -->
+    <g transform="translate(16, 276)">
+      <rect width="1088" height="50" class="role-row"/>
+      <circle cx="20" cy="25" r="10" fill="#7c3aed"/>
+      <text x="20" y="29" text-anchor="middle" class="font-sans" font-size="9px" font-weight="800" fill="#ffffff">SC</text>
+      <text x="40" y="22" class="font-sans" font-size="11px" font-weight="700" fill="#0f172a">Facility Security &amp; Reception</text>
+      <text x="40" y="38" class="font-sans" font-size="9px" fill="#64748b">Perimeter gate access, NDA signing, visitor roster</text>
+
+      <g transform="translate(295, 12)">
+        <rect width="135" height="26" class="perm-none"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" fill="#94a3b8">RESTRICTED</text>
+      </g>
+      <g transform="translate(455, 12)">
+        <rect width="135" height="26" class="perm-none"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" fill="#94a3b8">RESTRICTED</text>
+      </g>
+      <g transform="translate(615, 12)">
+        <rect width="135" height="26" class="perm-none"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" fill="#94a3b8">RESTRICTED</text>
+      </g>
+      <g transform="translate(775, 12)">
+        <rect width="135" height="26" class="perm-none"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" fill="#94a3b8">RESTRICTED</text>
+      </g>
+      <g transform="translate(935, 12)">
+        <rect width="135" height="26" class="perm-full"/>
+        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#166534">KIOSK &amp; BADGE ISSUANCE</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 3 SYSTEMS DESIGN HIGHLIGHT CARDS (Bottom Row) -->
+  <g transform="translate(40, 430)">
+    
+    <!-- Card 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="360" height="125" class="matrix-card"/>
+      <rect width="360" height="4" fill="#38bdf8" rx="2"/>
+      <text x="16" y="24" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">01 / Dynamic UI Adaptation by Role</text>
+      <text x="16" y="44" class="font-sans" font-size="9.5px" fill="#475569" width="320">The platform shell automatically adapts the interface based on authenticated RBAC tokens. Sensitive ERP revenue figures or Vision AI weights are completely stripped from shop-floor views to protect IP and reduce cognitive load.</text>
+      <rect x="16" y="92" width="180" height="20" rx="3" fill="#f0f9ff" stroke="#bae6fd"/>
+      <text x="24" y="105" class="font-sans" font-size="8.5px" font-weight="600" fill="#0284c7">Zero Cognitive Noise for Operators</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(380, 0)">
+      <rect width="360" height="125" class="matrix-card"/>
+      <rect width="360" height="4" fill="#059669" rx="2"/>
+      <text x="16" y="24" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">02 / Hardware-Specific Ergonomic Targets</text>
+      <text x="16" y="44" class="font-sans" font-size="9.5px" fill="#475569">Systems design encompassed device constraints: MES interfaces feature 44px minimum touch targets and high-contrast alert bars for gloved factory operators, while Vision interfaces feature darkroom-optimized palettes for optical specialists.</text>
+      <rect x="16" y="92" width="190" height="20" rx="3" fill="#f0fdf4" stroke="#bbf7d0"/>
+      <text x="24" y="105" class="font-sans" font-size="8.5px" font-weight="600" fill="#059669">44px Touch Targets &amp; Darkroom Modes</text>
+    </g>
+
+    <!-- Card 3 -->
+    <g transform="translate(760, 0)">
+      <rect width="360" height="125" class="matrix-card"/>
+      <rect width="360" height="4" fill="#d97706" rx="2"/>
+      <text x="16" y="24" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">03 / Multi-Tenant Plant Hierarchy</text>
+      <text x="16" y="44" class="font-sans" font-size="9.5px" fill="#475569">Designed the multi-tenant governance model allowing enterprise supervisors to switch between geographic plants (e.g., Gothenburg vs Stuttgart) while keeping line operators strictly isolated to their active physical workstation and shift.</text>
+      <rect x="16" y="92" width="200" height="20" rx="3" fill="#fffbeb" stroke="#fde68a"/>
+      <text x="24" y="105" class="font-sans" font-size="8.5px" font-weight="600" fill="#d97706">Facility → Plant → Line → Station</text>
+    </g>
+
+  </g>
+</svg>

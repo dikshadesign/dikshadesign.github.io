@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .header-title { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 15px; font-weight: 700; fill: #0f172a; }
+      .header-sub { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 11px; fill: #64748b; }
+      .tier-card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1; rx: 4; }
+      .tier-header { fill: #f1f5f9; }
+      .tier-num { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 10px; font-weight: 700; fill: #5269b5; letter-spacing: 0.1em; text-transform: uppercase; }
+      .tier-title { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 13.5px; font-weight: 700; fill: #0f172a; }
+      .item-box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1; rx: 3; }
+      .item-title { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 11px; font-weight: 700; fill: #1e293b; }
+      .item-desc { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 10px; line-height: 1.45; fill: #64748b; }
+      .conn-arrow { stroke: #5269b5; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="520" class="bg"/>
+
+  <!-- Top Title Banner -->
+  <rect x="40" y="25" width="1120" height="44" class="tier-card"/>
+  <text x="64" y="52" class="header-title">AERA · Hardware-to-Cloud System Architecture &amp; Data Pipeline</text>
+  <text x="740" y="52" class="header-sub">Continuous environmental telemetry from physical sensors to operations</text>
+
+  <!-- 4 Architecture Tiers Side-by-Side -->
+  <!-- Tier 01: Physical Ceiling Hardware -->
+  <g transform="translate(40, 85)">
+    <rect width="260" height="400" class="tier-card"/>
+    <rect width="260" height="38" class="tier-header"/>
+    <text x="16" y="24" class="tier-num">TIER 01 / HARDWARE</text>
+
+    <!-- Item 1 -->
+    <g transform="translate(14, 52)">
+      <rect width="232" height="74" class="item-box"/>
+      <text x="14" y="22" class="item-title">Ceiling Unit Nodes</text>
+      <text x="14" y="40" class="item-desc">600 × 600 mm modular drop-in units equipped with brushless centrifugal fan.</text>
+    </g>
+
+    <!-- Item 2 -->
+    <g transform="translate(14, 136)">
+      <rect width="232" height="74" class="item-box"/>
+      <text x="14" y="22" class="item-title">Multi-Sensor Telemetry</text>
+      <text x="14" y="40" class="item-desc">Integrated laser PM2.5, non-dispersive infrared CO2, and photo-ionization VOCs.</text>
+    </g>
+
+    <!-- Item 3 -->
+    <g transform="translate(14, 220)">
+      <rect width="232" height="74" class="item-box"/>
+      <text x="14" y="22" class="item-title">HEPA H13 Filtration</text>
+      <text x="14" y="40" class="item-desc">360° cylindrical cartridge capturing 99.97% particulates down to 0.3 microns.</text>
+    </g>
+
+    <!-- Item 4 -->
+    <g transform="translate(14, 304)">
+      <rect width="232" height="74" class="item-box"/>
+      <text x="14" y="22" class="item-title">Magnetic Cartridge Latch</text>
+      <text x="14" y="40" class="item-desc">Pressure sensor monitoring filter loading; tool-free release for rapid service.</text>
+    </g>
+  </g>
+
+  <!-- Connection Arrow 1 -> 2 -->
+  <path d="M 305 285 L 320 285 M 315 280 L 321 285 L 315 290" class="conn-arrow"/>
+
+  <!-- Tier 02: Spatial Network & Mesh -->
+  <g transform="translate(325, 85)">
+    <rect width="260" height="400" class="tier-card"/>
+    <rect width="260" height="38" class="tier-header"/>
+    <text x="16" y="24" class="tier-num">TIER 02 / NETWORK</text>
+
+    <!-- Item 1 -->
+    <g transform="translate(14, 52)">
+      <rect width="232" height="74" class="item-box"/>
+      <text x="14" y="22" class="item-title">Local Sub-GHz Mesh</text>
+      <text x="14" y="40" class="item-desc">Zero-interference low-power radio communication across ceiling ceiling nodes.</text>
+    </g>
+
+    <!-- Item 2 -->
+    <g transform="translate(14, 136)">
+      <rect width="232" height="74" class="item-box"/>
+      <text x="14" y="22" class="item-title">Cross-Zone Balancing</text>
+      <text x="14" y="40" class="item-desc">Peer-to-peer logic transfers airflow between zones during meeting room surges.</text>
+    </g>
+
+    <!-- Item 3 -->
+    <g transform="translate(14, 220)">
+      <rect width="232" height="74" class="item-box"/>
+      <text x="14" y="22" class="item-title">Acoustic Auto-Throttle</text>
+      <text x="14" y="40" class="item-desc">Sound dampening synchronization ensures adjacent units don't amplify harmonics.</text>
+    </g>
+
+    <!-- Item 4 -->
+    <g transform="translate(14, 304)">
+      <rect width="232" height="74" class="item-box"/>
+      <text x="14" y="22" class="item-title">Floor Gateway Hub</text>
+      <text x="14" y="40" class="item-desc">Secure bridge sending aggregate floor telemetry to the building cloud server.</text>
+    </g>
+  </g>
+
+  <!-- Connection Arrow 2 -> 3 -->
+  <path d="M 590 285 L 605 285 M 600 280 L 606 285 L 600 290" class="conn-arrow"/>
+
+  <!-- Tier 03: Cloud & Analytics Engine -->
+  <g transform="translate(610, 85)">
+    <rect width="260" height="400" class="tier-card"/>
+    <rect width="260" height="38" class="tier-header"/>
+    <text x="16" y="24" class="tier-num">TIER 03 / CLOUD &amp; DATA</text>
+
+    <!-- Item 1 -->
+    <g transform="translate(14, 52)">
+      <rect width="232" height="74" class="item-box"/>
+      <text x="14" y="22" class="item-title">Predictive Filter Lifespan</text>
+      <text x="14" y="40" class="item-desc">Machine learning calculates exact degradation rate based on ambient dust history.</text>
+    </g>
+
+    <!-- Item 2 -->
+    <g transform="translate(14, 136)">
+      <rect width="232" height="74" class="item-box"/>
+      <text x="14" y="22" class="item-title">Building BMS Integration</text>
+      <text x="14" y="40" class="item-desc">BACnet/IP protocol interface feeds air metrics to central HVAC cooling loops.</text>
+    </g>
+
+    <!-- Item 3 -->
+    <g transform="translate(14, 220)">
+      <rect width="232" height="74" class="item-box"/>
+      <text x="14" y="22" class="item-title">Compliance Logging</text>
+      <text x="14" y="40" class="item-desc">Automated OSHA &amp; WELL Building standard indoor air quality certification audit reports.</text>
+    </g>
+
+    <!-- Item 4 -->
+    <g transform="translate(14, 304)">
+      <rect width="232" height="74" class="item-box"/>
+      <text x="14" y="22" class="item-title">Automated Replenishment</text>
+      <text x="14" y="40" class="item-desc">Triggers supplier cartridge dispatch 14 days prior to estimated filter saturation.</text>
+    </g>
+  </g>
+
+  <!-- Connection Arrow 3 -> 4 -->
+  <path d="M 875 285 L 890 285 M 885 280 L 891 285 L 885 290" class="conn-arrow"/>
+
+  <!-- Tier 04: Human Touchpoints & Operations -->
+  <g transform="translate(895, 85)">
+    <rect width="260" height="400" class="tier-card"/>
+    <rect width="260" height="38" class="tier-header"/>
+    <text x="16" y="24" class="tier-num">TIER 04 / TOUCHPOINTS</text>
+
+    <!-- Item 1 -->
+    <g transform="translate(14, 52)">
+      <rect width="232" height="74" class="item-box"/>
+      <text x="14" y="22" class="item-title">Facility Manager App</text>
+      <text x="14" y="40" class="item-desc">Tablet &amp; desktop overview of all spatial zones, fan velocities, and energy usage.</text>
+    </g>
+
+    <!-- Item 2 -->
+    <g transform="translate(14, 136)">
+      <rect width="232" height="74" class="item-box"/>
+      <text x="14" y="22" class="item-title">Ambient Unit Glow Ring</text>
+      <text x="14" y="40" class="item-desc">Subtle ceiling lighting communicates ambient air health non-intrusively to occupants.</text>
+    </g>
+
+    <!-- Item 3 -->
+    <g transform="translate(14, 220)">
+      <rect width="232" height="74" class="item-box"/>
+      <text x="14" y="22" class="item-title">Occupant Glance Portal</text>
+      <text x="14" y="40" class="item-desc">QR code at meeting room entry shows live CO2 &amp; fresh air renewal index.</text>
+    </g>
+
+    <!-- Item 4 -->
+    <g transform="translate(14, 304)">
+      <rect width="232" height="74" class="item-box"/>
+      <text x="14" y="22" class="item-title">Technician Quick-Swap</text>
+      <text x="14" y="40" class="item-desc">Clear floorplan route and part ID guide maintenance staff to exact target unit.</text>
+    </g>
+  </g>
+</svg>

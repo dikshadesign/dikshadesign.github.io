@@ -96,7 +96,10 @@ server.listen(PORT, '0.0.0.0', () => {
   console.log(`PORTFOLIO SERVER ACTIVE (Dual-Stack IPv4 / IPv6)`);
   console.log(`  Local URL:        http://localhost:${PORT}/`);
   console.log(`  Local IP:         http://127.0.0.1:${PORT}/`);
-  console.log(`  AERA Case Study:  http://localhost:${PORT}/aera.html`);
-  console.log(`  Design System:    http://localhost:${PORT}/design-system/index.html`);
+  console.log(`  AERA Case Study:      http://localhost:${PORT}/aera.html`);
+  console.log(`  GLIDE Case Study:     http://localhost:${PORT}/glide.html`);
+  console.log(`  Nordic ONE Case Study: http://localhost:${PORT}/nordic.html`);
+  console.log(`  Nordic OS Case Study:  http://localhost:${PORT}/nordicos.html`);
+  console.log(`  Design System:        http://localhost:${PORT}/design-system/index.html`);
   console.log(`=======================================================`);
 });

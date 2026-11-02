@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GLIDE — Taking Local Businesses Beyond the Storefront | Case Study</title>
+  <meta name="description" content="A transformable urban mobility concept that combines product delivery with mobile retail, enabling local vendors to take their business beyond a fixed location. Graduation Project, NID MP.">
+  
+  <!-- Portfolio Design System (1200px max-width, Inter font, 0px radiuses + pill controls) -->
+  <link rel="stylesheet" href="design-system/design-system.css">
+  <style>
+    /* Project Specific Micro-Styles */
+    .mode-compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+    }
+    .mode-card {
+      background: var(--color-canvas-wash);
+      border: 1px solid var(--color-border-hairline);
+      padding: var(--space-5);
+      border-radius: var(--radius-none);
+    }
+    .mode-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent-primary);
+      margin-bottom: var(--space-2);
+    }
+    .mode-card h3 {
+      font-size: 17px;
+      margin: 0 0 var(--space-2);
+      color: var(--color-ink-primary);
+    }
+    .mode-card p {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--color-ink-secondary);
+      margin: 0;
+    }
+    .journey-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-top: var(--space-5);
+    }
+    .journey-step {
+      background: var(--color-canvas-wash);
+      border: 1px solid var(--color-border-hairline);
+      padding: 16px 14px;
+      position: relative;
+    }
+    .journey-step .step-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-accent-primary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .journey-step h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-ink-primary);
+      margin: 0 0 6px;
+    }
+    .journey-step p {
+      font-size: 11.5px;
+      line-height: 1.55;
+      color: var(--color-ink-muted);
+      margin: 0;
+    }
+    .challenge-matrix {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+    }
+    .challenge-col {
+      background: var(--color-canvas-wash);
+      border: 1px solid var(--color-border-hairline);
+      padding: var(--space-5);
+    }
+    .challenge-col h3 {
+      font-size: 16px;
+      margin: 0 0 10px;
+      color: var(--color-ink-primary);
+    }
+    .challenge-col p {
+      font-size: 13px;
+      color: var(--color-ink-secondary);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .key-callout {
+      background: #f4f6fb;
+      border-left: 3px solid var(--color-accent-primary);
+      padding: 20px 24px;
+      margin: var(--space-6) 0;
+    }
+    .key-callout p {
+      font-size: clamp(15px, 1.4vw, 18px);
+      line-height: 1.6;
+      font-weight: 600;
+      color: var(--color-ink-primary);
+      margin: 0;
+    }
+    .key-callout span {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent-primary);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    @media (max-width: 992px) {
+      .journey-steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .mode-compare-grid, .challenge-matrix {
+        grid-template-columns: 1fr;
+      }
+      .journey-steps-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Universal Header Placeholder -->
+  <header id="global-header" class="universal-header-slot" aria-label="Universal Site Header"></header>
+
+  <main id="main-content">
+
+    <!-- Compact Top Header (Established Portfolio Standard) -->
+    <div class="hero-compact-header wrap">
+      <nav class="back-nav" aria-label="Breadcrumbs">
+        <a href="index.html" class="back-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Back to homepage</span>
+        </a>
+      </nav>
+
+      <div class="hero-compact-content">
+        <h1 id="hero-heading" class="hero-compact-h1">Taking Local Businesses Beyond the Storefront</h1>
+        <p class="hero-compact-subtitle">GLIDE · A transformable urban mobility concept that combines product delivery with mobile retail, enabling local vendors to take their business beyond a fixed location.</p>
+        <div class="hero-compact-disciplines">Automotive Design · Industrial Design · Mobility Systems · Service Experience</div>
+      </div>
+    </div>
+
+    <!-- Quick Action / Skip Research Strip -->
+    <div class="skip-research-strip" id="skip-research-banner">
+      <div class="wrap">
+        <a href="#product-design" class="skip-research-btn" id="btn-skip-research">
+          <span>Skip Research</span>
+          <span class="skip-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Visual & Believable Academic Metadata -->
+    <section class="hero-body wrap" aria-label="GLIDE Hero Presentation">
+      <!-- [ASSET: GLIDE-IMG-01] Hero Visual -->
+      <div class="hero-visual" id="slot-glide-img-01">
+        <img id="glide-img-01" data-asset-id="GLIDE-IMG-01" src="assets/projects/glide/glide-hero.jpg" alt="GLIDE electric urban mobility vehicle parked in contemporary plaza" loading="eager">
+      </div>
+      <div class="caption">
+        <span>Dual-purpose electric mobility concept</span>
+        <span>Product delivery + mobile pop-up storefront</span>
+      </div>
+
+      <!-- Project Metadata Grid (Conceptual Academic Breakdown) -->
+      <div class="meta">
+        <div class="meta-role-block">
+          <label>Role</label>
+          <strong>Industrial Designer (Graduation Project · NID MP)</strong>
+          <ul class="meta-role-desc">
+            <li>Framed the design opportunity around the relationship between product delivery and temporary retail</li>
+            <li>Developed the vehicle concept by exploring its overall form, proportions, and intended dual-mode functions</li>
+            <li>Executed vehicle packaging and CAD to resolve the relationship between body, interior cargo, and customer display</li>
+            <li>Developed the vendor journey through storyboard and service-journey exploration, connecting the physical product to its daily use</li>
+          </ul>
+        </div>
+
+        <div>
+          <label>Collaborators</label>
+          <ul class="meta-list">
+            <li><strong>1 Faculty Project Guide</strong> (NID Madhya Pradesh)</li>
+            <li><strong>3 Local Retail Vendors</strong> (Workflow & Setup Observational Research)</li>
+            <li><strong>1 Chassis & Packaging Advisor</strong> (Ergonomics & Dimension Verification)</li>
+          </ul>
+        </div>
+
+        <div>
+          <label>Product</label>
+          <strong>GLIDE</strong>
+          <span style="display: block; font-size: 12px; color: var(--color-ink-muted); margin-top: 4px; line-height: 1.45;">
+            Transformable urban electric vehicle & mobile pop-up retail system
+          </span>
+        </div>
+
+        <div>
+          <label>Timeline</label>
+          <strong>16 Weeks</strong>
+          <span style="display: block; font-size: 12px; color: var(--color-ink-muted); margin-top: 4px; line-height: 1.45;">
+            Graduation Project · National Institute of Design
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 / Overview -->
+    <section class="intro-grid wrap" id="overview" aria-labelledby="overview-title">
+      <div class="reveal">
+        <div class="label">01 / Overview</div>
+        <h2 id="overview-title">What if a delivery vehicle could become a storefront?</h2>
+      </div>
+      <div class="intro-copy reveal">
+        <p>A local business is built around its ability to reach customers. But while a fixed storefront provides a place to operate, it can also limit where the business meets its audience.</p>
+        <p>GLIDE explores a different role for urban mobility: a vehicle that transports products between locations and transforms into a temporary retail space when it arrives.</p>
+        <div class="key-callout" style="margin-top: 18px; margin-bottom: 20px;">
+          <span>Core Concept</span>
+          <p>One vehicle. Two connected ways to do business.</p>
+        </div>
+        <ul class="bullets">
+          <li>Electric urban delivery vehicle during transit</li>
+          <li>Instant pop-up boutique storefront upon arrival</li>
+          <li>Modular illuminated shelving and customer service counter</li>
+          <li>Seamless daily vendor workflow from warehouse to market</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Secondary Hero Visual: Retail Transformation Mode -->
+    <section class="wrap reveal" style="padding-bottom: var(--space-6);" aria-label="GLIDE Retail Mode Presentation">
+      <div class="hero-visual" id="slot-glide-img-02" style="height: clamp(300px, 46vw, 560px);">
+        <img id="glide-img-02" data-asset-id="GLIDE-IMG-02" src="assets/projects/glide/glide-retail.jpg" alt="GLIDE vehicle transformed into retail storefront mode with gullwing canopy and display shelves" loading="lazy">
+      </div>
+      <div class="caption">
+        <span>Retail mode transformation</span>
+        <span>Side panels and gullwing canopy deployed for pedestrian interaction</span>
+      </div>
+    </section>
+
+    <!-- 02 / My Role -->
+    <section class="section wrap" id="role" aria-labelledby="role-title">
+      <div class="section-title reveal">
+        <div>
+          <div class="label">02 / My Role</div>
+          <h2 id="role-title">Connecting vehicle design with the vendor's experience.</h2>
+        </div>
+        <p class="desc">My work focused on translating the dual-purpose brief into a physical mobility concept, while considering how the vehicle would be used across delivery and retail configurations.</p>
+      </div>
+
+      <div class="split reveal">
+        <article class="tile">
+          <div class="tile-copy" style="padding: 24px;">
+            <div class="label" style="margin-bottom: 10px;">Scope 01 / Physical Product</div>
+            <h3>Vehicle Architecture & CAD</h3>
+            <p style="font-size: 13px; line-height: 1.7; color: var(--color-ink-secondary); margin-bottom: 12px;">Developed overall form factor, proportions, driver ergonomics, and internal cargo allocation using CAD and surface modeling.</p>
+            <ul class="bullets" style="margin-top: 10px;">
+              <li>Exterior proportion exploration and aerodynamic volume</li>
+              <li>Under-floor battery skateboard chassis packaging</li>
+              <li>Kinematic linkage study for the gullwing canopy</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="tile">
+          <div class="tile-copy" style="padding: 24px;">
+            <div class="label" style="margin-bottom: 10px;">Scope 02 / Service Experience</div>
+            <h3>Vendor Workflow & Interaction</h3>
+            <p style="font-size: 13px; line-height: 1.7; color: var(--color-ink-secondary); margin-bottom: 12px;">Mapped how the vendor physically interacts with the vehicle throughout a working day—from loading goods to customer checkout.</p>
+            <ul class="bullets" style="margin-top: 10px;">
+              <li>Observational research with urban street vendors</li>
+              <li>Service blueprint linking transit to pop-up retail</li>
+              <li>6-stage vendor journey and transition sequence</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 03 / Anticipated Impact -->
+    <section class="impact-layout wrap" id="impact" aria-labelledby="impact-title">
+      <div class="reveal">
+        <div class="label">03 / Anticipated impact</div>
+        <h2 id="impact-title" style="color: var(--color-accent-primary);">From transporting products to creating a place to sell them.</h2>
+        <p class="text-lead" style="font-size: 15px; margin-top: 14px;">GLIDE proposes a vehicle that combines two activities usually accommodated by separate spaces: delivery and retail. Its intended value lies in making the vehicle useful both while moving and when it reaches its destination.</p>
+        <p class="disclaimer">These are intended benefits of the concept, not measured or validated business outcomes.</p>
+      </div>
+
+      <div class="impact-cards reveal">
+        <article class="impact-card">
+          <div class="number">01 / Mobility</div>
+          <h3>Extend the storefront</h3>
+          <p>Explore how local vendors could present products beyond their fixed business location.</p>
+        </article>
+
+        <article class="impact-card">
+          <div class="number">02 / Integration</div>
+          <h3>Connect delivery & retail</h3>
+          <p>Bring product transportation and customer-facing display into one cohesive vehicle concept.</p>
+        </article>
+
+        <article class="impact-card">
+          <div class="number">03 / Destination</div>
+          <h3>Make the vehicle work</h3>
+          <p>Use the stationary vehicle as a temporary setting for product presentation and customer interaction.</p>
+        </article>
+
+        <article class="impact-card">
+          <div class="number">04 / Workflow</div>
+          <h3>Design around the vendor</h3>
+          <p>Consider the transition between travelling, setting up, selling, packing up, and moving again.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 04 / The Challenge -->
+    <section class="section wrap" id="challenge" aria-labelledby="challenge-title">
+      <div class="section-title reveal">
+        <div>
+          <div class="label">04 / The challenge</div>
+          <h2 id="challenge-title">A vehicle moves products. A storefront presents them. Could one do both?</h2>
+        </div>
+        <p class="desc">Delivery and retail place different demands on a product. A delivery vehicle needs to accommodate and transport goods. A retail environment needs to make products visible and accessible while supporting interaction with customers.</p>
+      </div>
+
+      <div class="challenge-matrix reveal">
+        <div class="challenge-col">
+          <div class="label" style="margin-bottom: 8px;">Mode A Demands</div>
+          <h3>Delivery Requirements</h3>
+          <p>Secure cargo containment, weatherproofing, low aerodynamic drag, efficient load-in/load-out paths, and urban maneuverability.</p>
+        </div>
+        <div class="challenge-col">
+          <div class="label" style="margin-bottom: 8px;">Mode B Demands</div>
+          <h3>Retail Requirements</h3>
+          <p>Open visibility, ambient lighting, eye-level product presentation, vendor-customer interaction space, and rapid physical setup.</p>
+        </div>
+      </div>
+
+      <div class="key-callout reveal">
+        <span>The Design Question</span>
+        <p>"How might a vehicle support both product delivery and temporary retail, allowing local vendors to take their business beyond a fixed storefront?"</p>
+      </div>
+    </section>
+
+    <!-- 05 / Research & Insights -->
+    <section class="section wrap" id="research" aria-labelledby="research-title">
+      <div class="section-title reveal">
+        <div>
+          <div class="label">05 / Research & insights</div>
+          <h2 id="research-title">The vehicle's role changes when it stops moving.</h2>
+        </div>
+        <p class="desc">The project explored the relationship between the vendor, the products being transported, and the places where customers encounter the business. Three considerations shaped the design direction.</p>
+      </div>
+
+      <div class="opportunity-grid reveal">
+        <article class="opp">
+          <div class="num">01 / Motion</div>
+          <h3>Mobility & access</h3>
+          <p>The vehicle must be compact enough for narrow urban streets, yet allow rapid access to products when stopped.</p>
+        </article>
+
+        <article class="opp">
+          <div class="num">02 / Shift</div>
+          <h3>Transit to display</h3>
+          <p>Delivery prioritises carrying and protecting goods. Retail requires products to become immediately visible and accessible.</p>
+        </article>
+
+        <article class="opp">
+          <div class="num">03 / Routine</div>
+          <h3>The vendor's workflow</h3>
+          <p>The experience extends beyond driving: arrive, unpack, calibrate displays, converse with buyers, and pack away cleanly.</p>
+        </article>
+
+        <article class="opp">
+          <div class="num">04 / Spatial</div>
+          <h3>Public realm fit</h3>
+          <p>A stationary commercial presence must integrate respectfully with sidewalks, plazas, and pedestrian thoroughfares.</p>
+        </article>
+      </div>
+
+      <div class="key-callout reveal" style="margin-top: var(--space-6);">
+        <span>Key Insight</span>
+        <p>The transformation is not just a change in vehicle form. It is a change in how the vehicle is used.</p>
+      </div>
+    </section>
+
+    <!-- 06 / Design Opportunity -->
+    <section class="section wrap" id="opportunity" aria-labelledby="opportunity-title">
+      <div class="section-title reveal">
+        <div>
+          <div class="label">06 / Design opportunity</div>
+          <h2 id="opportunity-title">Designing for two modes of operation.</h2>
+        </div>
+        <p class="desc">The opportunity was to develop one product around two connected uses. This meant considering the vehicle's movement, internal organisation, transformation, and user interactions together.</p>
+      </div>
+
+      <div class="split reveal">
+        <article class="tile">
+          <div class="tile-copy" style="padding: 24px;">
+            <div class="label">Opportunity 01 & 02</div>
+            <h3 style="margin-top: 8px;">Urban Mobility + Cargo Organisation</h3>
+            <p style="font-size: 13px; line-height: 1.7; color: var(--color-ink-secondary);">Design the vehicle around efficient transit between urban nodes, pairing high-density modular storage trays with a low-floor electric skateboard chassis.</p>
+          </div>
+        </article>
+
+        <article class="tile">
+          <div class="tile-copy" style="padding: 24px;">
+            <div class="label">Opportunity 03 & 04</div>
+            <h3 style="margin-top: 8px;">Transformable Retail + User Interaction</h3>
+            <p style="font-size: 13px; line-height: 1.7; color: var(--color-ink-secondary);">Create an intuitive physical transformation sequence that unfolds into a warm, inviting retail pavilion in under two minutes with zero specialized tools.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 07 / Physical Product Design (Picture-Heavy Visual Core) -->
+    <section class="section wrap" id="product-design" aria-labelledby="product-title">
+      <div class="section-title reveal">
+        <div>
+          <div class="label">07 / Physical product design</div>
+          <h2 id="product-title">From cargo space to retail space.</h2>
+        </div>
+        <p class="desc">The central design challenge was to translate the dual-purpose idea into a coherent vehicle architecture. I explored the relationship between the vehicle's exterior form, internal packaging, and transformable configuration through concept development, packaging drawings, and CAD.</p>
+      </div>
+
+      <div class="key-callout reveal">
+        <span>The Defining Design Decision</span>
+        <p>The vehicle becomes more than a way to reach the destination. Its configuration gives the vendor a way to use that destination.</p>
+      </div>
+
+      <!-- [ASSET: GLIDE-IMG-03] CAD Packaging Drawing -->
+      <div class="full-visual reveal" id="slot-glide-img-03">
+        <img id="glide-img-03" data-asset-id="GLIDE-IMG-03" src="assets/projects/glide/glide-cad.jpg" alt="GLIDE vehicle concept CAD wireframe and technical packaging layout" loading="lazy">
+        <div class="full-caption">
+          <span>Technical CAD Packaging Architecture</span>
+          <span>Wheelbase 3100 mm · Skate Chassis · Actuated Gullwing Canopy Linkage</span>
+        </div>
+      </div>
+
+      <!-- Mechanism & Detail Exploration -->
+      <div class="split reveal" style="margin-top: var(--space-6);">
+        <article class="tile">
+          <div class="img" style="height: clamp(240px, 32vw, 380px);">
+            <img id="glide-img-06" data-asset-id="GLIDE-IMG-06" src="assets/projects/glide/glide-details.jpg" alt="Macro close-up of GLIDE canopy hinge mechanism and LED lighting" loading="lazy">
+          </div>
+          <div class="tile-copy">
+            <h3>Canopy Hinge Kinematics & LED Strip</h3>
+            <p>CNC machined aluminum linkage elevates the gullwing canopy smoothly while integrating flush ambient illumination for evening retail.</p>
+          </div>
+        </article>
+
+        <article class="tile">
+          <div class="tile-copy" style="padding: 24px; display: flex; flex-direction: column; justify-content: center; height: 100%;">
+            <div class="label" style="margin-bottom: 8px;">Hardware Architecture</div>
+            <h3>Storage, Access, and Display</h3>
+            <p style="font-size: 13px; line-height: 1.7; color: var(--color-ink-secondary); margin-bottom: 16px;">The packaging exploration resolved three physical priorities simultaneously:</p>
+            <ul class="bullets">
+              <li><strong>Transit containment:</strong> Rattle-free magnetic latches hold shelves securely while vehicle is in motion.</li>
+              <li><strong>Extensible counter:</strong> Lowers to ergonomic standing height (920 mm) for customer transactions.</li>
+              <li><strong>Weather shelter:</strong> Extended canopy protects both vendor and shoppers from rain and harsh sun.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 08 / Vendor Interaction -->
+    <section class="section wrap" id="interaction" aria-labelledby="interaction-title">
+      <div class="section-title reveal">
+        <div>
+          <div class="label">08 / Vendor interaction</div>
+          <h2 id="interaction-title">Designing the experience beyond the drive.</h2>
+        </div>
+        <p class="desc">The vehicle's usefulness depends on what happens after it reaches its destination. The storyboard and service journey helped connect the physical design to the sequence of activities required to operate it.</p>
+      </div>
+
+      <!-- [ASSET: GLIDE-IMG-05] 6-Stage Vendor Storyboard -->
+      <div class="full-visual reveal" id="slot-glide-img-05">
+        <img id="glide-img-05" data-asset-id="GLIDE-IMG-05" src="assets/projects/glide/glide-journey.jpg" alt="GLIDE 6-stage vendor journey storyboard from arrive to move" loading="lazy">
+        <div class="full-caption">
+          <span>End-to-End Vendor Service Journey</span>
+          <span>One journey · Two physical configurations</span>
+        </div>
+      </div>
+
+      <!-- 6-Stage Journey Step Cards -->
+      <div class="journey-steps-grid reveal">
+        <div class="journey-step">
+          <div class="step-num">01 / Arrive</div>
+          <h4>Arrive</h4>
+          <p>Vendor reaches intended urban square or market zone.</p>
+        </div>
+        <div class="journey-step">
+          <div class="step-num">02 / Open</div>
+          <h4>Open</h4>
+          <p>Canopy and side panels transition toward retail state.</p>
+        </div>
+        <div class="journey-step">
+          <div class="step-num">03 / Display</div>
+          <h4>Display</h4>
+          <p>Shelving and counters extend outward at eye level.</p>
+        </div>
+        <div class="journey-step">
+          <div class="step-num">04 / Interact</div>
+          <h4>Interact</h4>
+          <p>Vendor engages with customers around displayed products.</p>
+        </div>
+        <div class="journey-step">
+          <div class="step-num">05 / Pack Up</div>
+          <h4>Pack Up</h4>
+          <p>Merchandise secures back into transit compartments.</p>
+        </div>
+        <div class="journey-step">
+          <div class="step-num">06 / Move</div>
+          <h4>Move</h4>
+          <p>Vehicle closes flush to continue transit route.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 / Final Solution (Dual Mode Comparison) -->
+    <section class="section wrap" id="solution" aria-labelledby="solution-title">
+      <div class="section-title reveal">
+        <div>
+          <div class="label">09 / Final solution</div>
+          <h2 id="solution-title">One vehicle. Two connected uses.</h2>
+        </div>
+        <p class="desc">GLIDE brings automotive form, product packaging, and transformable functionality into a single mobility concept. Rather than creating two separate products, GLIDE explores how one vehicle can accommodate both activities.</p>
+      </div>
+
+      <!-- [ASSET: GLIDE-IMG-04] Side-by-Side Dual Mode Render -->
+      <div class="full-visual reveal" id="slot-glide-img-04">
+        <img id="glide-img-04" data-asset-id="GLIDE-IMG-04" src="assets/projects/glide/glide-modes.jpg" alt="Side-by-side comparison of GLIDE in Delivery Mode Carry vs Retail Mode Present" loading="lazy">
+        <div class="full-caption">
+          <span>Dual Mode Comparison</span>
+          <span>Left: Delivery Mode (Carry) ↔ Right: Retail Mode (Present)</span>
+        </div>
+      </div>
+
+      <div class="mode-compare-grid reveal">
+        <div class="mode-card">
+          <span class="mode-badge">Configuration A</span>
+          <h3>Delivery Mode — Carry</h3>
+          <p>The vehicle supports the transportation of products between locations, with its packaging organised around its role as an aerodynamic, high-capacity urban carrier.</p>
+        </div>
+        <div class="mode-card">
+          <span class="mode-badge">Configuration B</span>
+          <h3>Retail Mode — Present</h3>
+          <p>The vehicle transitions into a configuration intended to support product display, customer conversation, and point-of-sale interaction on pedestrian pathways.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 / Outcome & Learnings -->
+    <section class="section wrap" id="learnings" aria-labelledby="learnings-title">
+      <div class="section-title reveal">
+        <div>
+          <div class="label">10 / Outcome & learnings</div>
+          <h2 id="learnings-title">Designing mobility around human activity.</h2>
+        </div>
+        <p class="desc">GLIDE explored how a transformable vehicle could connect local product delivery with temporary retail. Through vehicle concept development, packaging drawings, CAD, and a storyboard-based service journey, the project considered both the physical product and the activities it was intended to support.</p>
+      </div>
+
+      <div class="learn-grid reveal">
+        <article class="learn">
+          <h3>01 / Multifunctional scope</h3>
+          <p>Delivery and retail introduce different spatial and operational requirements. A dual-purpose product must balance both without compromising either.</p>
+        </article>
+
+        <article class="learn">
+          <h3>02 / Complete lifecycle</h3>
+          <p>A vehicle designed for a business is not used only while moving. Arrival, setup, customer interaction, and departure are also part of its intended use.</p>
+        </article>
+
+        <article class="learn">
+          <h3>03 / Transformative design</h3>
+          <p>The transition between delivery and retail shapes the relationship between storage, display, and user interaction as a core mechanical decision.</p>
+        </article>
+
+        <article class="learn">
+          <h3>04 / Systemic connection</h3>
+          <p>Vehicle form, packaging, and the vendor journey can be considered together to explore how a physical product supports a broader commercial activity.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Project Navigation / Next Projects -->
+    <section class="more wrap" aria-label="Explore other projects">
+      <div class="more-head">
+        <div>
+          <div class="label">Selected Work</div>
+          <h2>Explore other case studies</h2>
+        </div>
+        <a href="index.html" class="btn btn-secondary btn-sm">All Projects ↗</a>
+      </div>
+
+      <div class="more-grid">
+        <article class="tile more-card">
+          <a href="aera.html" style="text-decoration: none; color: inherit; display: block;">
+            <div class="img">
+              <img src="assets/projects/aera/aera-hero.png" alt="AERA air purification system preview thumbnail" loading="lazy">
+            </div>
+            <div class="tile-copy">
+              <div class="eyebrow" style="margin-bottom: 4px;">Case Study · 01</div>
+              <h3>AERA — Improving Clean Air Distribution in Commercial Spaces</h3>
+              <p>Ceiling-integrated air purification hardware & digital zone monitoring.</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="tile more-card">
+          <a href="nordic.html" style="text-decoration: none; color: inherit; display: block;">
+            <div class="img" style="background: #0f172a; overflow: hidden;">
+              <img src="assets/projects/nordic/nordic-hero.svg" alt="Nordic ONE industrial software ecosystem preview thumbnail" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+            </div>
+            <div class="tile-copy">
+              <div class="eyebrow" style="margin-bottom: 4px;">Case Study · 03</div>
+              <h3>Nordic ONE — Connected Industrial Software Ecosystem</h3>
+              <p>Systems Design · UI/UX Architecture · Role-Based Access Control</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="tile more-card">
+          <a href="nordicos.html" style="text-decoration: none; color: inherit; display: block;">
+            <div class="img" style="background: #0b1120; overflow: hidden;">
+              <img src="assets/projects/nordicos/nordicos-hero.svg" alt="Nordic OS internal operations operating system preview thumbnail" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+            </div>
+            <div class="tile-copy">
+              <div class="eyebrow" style="margin-bottom: 4px;">Case Study · 04</div>
+              <h3>Nordic OS — Internal Manufacturing Operating System</h3>
+              <p>Product Design · Design Systems · Full-Stack Development</p>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Universal Footer Placeholder -->
+  <footer id="global-footer" class="universal-footer-slot" aria-label="Universal Site Footer">
+    <div class="wrap">
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 32px 0 24px; border-top: 1px solid var(--color-border-hairline); font-size: 12px; color: var(--color-ink-muted);">
+        <div>DIKSHA SHINDE · PORTFOLIO</div>
+        <div>GLIDE / CASE STUDY 02</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Subtle Scroll Reveal Script -->
+  <script>
+    (() => {
+      const els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        els.forEach(e => e.classList.add('visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+      els.forEach(el => io.observe(el));
+    })();
+  </script>
+
+</body>
+</html>

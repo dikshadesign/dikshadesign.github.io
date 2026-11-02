@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .header-title { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 15px; font-weight: 700; fill: #0f172a; }
+      .header-sub { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 11px; fill: #64748b; }
+      .card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1; rx: 4; }
+      .opp-tag { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 10px; font-weight: 700; fill: #5269b5; letter-spacing: 0.1em; text-transform: uppercase; }
+      .opp-title { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 14px; font-weight: 700; fill: #0f172a; }
+      .box-left { fill: #f8fafc; stroke: #cbd5e1; stroke-dasharray: 3 3; rx: 3; }
+      .box-right { fill: #f0fdf4; stroke: #86efac; rx: 3; }
+      .label-left { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 9.5px; font-weight: 700; fill: #64748b; text-transform: uppercase; letter-spacing: 0.06em; }
+      .label-right { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 9.5px; font-weight: 700; fill: #16a34a; text-transform: uppercase; letter-spacing: 0.06em; }
+      .text-content { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 11.5px; line-height: 1.5; fill: #334155; }
+      .arrow { stroke: #5269b5; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="420" class="bg"/>
+
+  <!-- Top Title Banner -->
+  <rect x="40" y="25" width="1120" height="44" class="card"/>
+  <text x="64" y="52" class="header-title">AERA · Design Opportunity &amp; Architectural Response Framework</text>
+  <text x="750" y="52" class="header-sub">Direct mapping between observed systemic friction and design solution</text>
+
+  <!-- 4 Framework Rows -->
+  <!-- Row 1: Air Distribution -->
+  <g transform="translate(40, 85)">
+    <rect width="1120" height="70" class="card"/>
+    <text x="24" y="28" class="opp-tag">01 / DISTRIBUTION</text>
+    <text x="24" y="48" class="opp-title">Think Across Zones</text>
+
+    <!-- Left Box: The Opportunity -->
+    <rect x="230" y="10" width="380" height="50" class="box-left"/>
+    <text x="245" y="26" class="label-left">Design Opportunity</text>
+    <text x="245" y="44" class="text-content">Break reliance on isolated corner units that leave central desk rows in dead air zones.</text>
+
+    <!-- Linking Arrow -->
+    <path d="M 625 35 L 665 35 M 658 29 L 666 35 L 658 41" class="arrow"/>
+
+    <!-- Right Box: Design Response -->
+    <rect x="680" y="10" width="415" height="50" class="box-right"/>
+    <text x="695" y="26" class="label-right">Design Response</text>
+    <text x="695" y="44" class="text-content">Ceiling-integrated distributed array with calibrated overlapping radial coverage.</text>
+  </g>
+
+  <!-- Row 2: Spatial Integration -->
+  <g transform="translate(40, 165)">
+    <rect width="1120" height="70" class="card"/>
+    <text x="24" y="28" class="opp-tag">02 / INTEGRATION</text>
+    <text x="24" y="48" class="opp-title">Design For The Interior</text>
+
+    <rect x="230" y="10" width="380" height="50" class="box-left"/>
+    <text x="245" y="26" class="label-left">Design Opportunity</text>
+    <text x="245" y="44" class="text-content">Avoid bulky appliances that occupy valuable floor area and create cable clutter.</text>
+
+    <path d="M 625 35 L 665 35 M 658 29 L 666 35 L 658 41" class="arrow"/>
+
+    <rect x="680" y="10" width="415" height="50" class="box-right"/>
+    <text x="695" y="26" class="label-right">Design Response</text>
+    <text x="695" y="44" class="text-content">Standard 600 × 600 mm flush drop-in chassis matching architectural suspended ceiling grids.</text>
+  </g>
+
+  <!-- Row 3: Product Architecture -->
+  <g transform="translate(40, 245)">
+    <rect width="1120" height="70" class="card"/>
+    <text x="24" y="28" class="opp-tag">03 / ARCHITECTURE</text>
+    <text x="24" y="48" class="opp-title">Make Function Legible</text>
+
+    <rect x="230" y="10" width="380" height="50" class="box-left"/>
+    <text x="245" y="26" class="label-left">Design Opportunity</text>
+    <text x="245" y="44" class="text-content">Eliminate noisy high-velocity fans that disrupt focused workplace acoustic environments.</text>
+
+    <path d="M 625 35 L 665 35 M 658 29 L 666 35 L 658 41" class="arrow"/>
+
+    <rect x="680" y="10" width="415" height="50" class="box-right"/>
+    <text x="695" y="26" class="label-right">Design Response</text>
+    <text x="695" y="44" class="text-content">Centrifugal intake paired with acoustic baffles, operating at whisper-quiet &lt; 32 dBA.</text>
+  </g>
+
+  <!-- Row 4: Serviceability -->
+  <g transform="translate(40, 325)">
+    <rect width="1120" height="70" class="card"/>
+    <text x="24" y="28" class="opp-tag">04 / SERVICEABILITY</text>
+    <text x="24" y="48" class="opp-title">Plan For Upkeep</text>
+
+    <rect x="230" y="10" width="380" height="50" class="box-left"/>
+    <text x="245" y="26" class="label-left">Design Opportunity</text>
+    <text x="245" y="44" class="text-content">Prevent filter degradation caused by complex screw-latches and inconvenient access.</text>
+
+    <path d="M 625 35 L 665 35 M 658 29 L 666 35 L 658 41" class="arrow"/>
+
+    <rect x="680" y="10" width="415" height="50" class="box-right"/>
+    <text x="695" y="26" class="label-right">Design Response</text>
+    <text x="695" y="44" class="text-content">Magnetic quarter-turn drop cartridge allowing filter replacement in under 30 seconds.</text>
+  </g>
+</svg>

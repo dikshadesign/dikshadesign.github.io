@@ -1,0 +1,260 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #0a0f1d; }
+      .panel { fill: #11192e; stroke: #1e293b; stroke-width: 1.2; rx: 6; }
+      .panel-header { fill: #0b1224; }
+      .app-title { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 13.5px; font-weight: 700; fill: #f8fafc; }
+      .app-role { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+      .body-text { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 10.5px; line-height: 1.45; fill: #94a3b8; }
+      .mock-screen { fill: #070b14; stroke: #1e293b; stroke-width: 1; rx: 3; }
+      .wf-title { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 9.5px; font-weight: 700; fill: #64748b; text-transform: uppercase; letter-spacing: 0.06em; }
+    </style>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="580" class="bg"/>
+
+  <!-- Top Title Banner -->
+  <g transform="translate(40, 25)">
+    <rect width="1120" height="42" fill="#11192e" stroke="#1e293b" rx="4"/>
+    <text x="24" y="26" font-family="Inter, sans-serif" font-size="14px" font-weight="700" fill="#f8fafc">Nordic ONE · The 5 Specialized Domain Software Applications</text>
+    <text x="680" y="26" font-family="Inter, sans-serif" font-size="11px" fill="#94a3b8">Preserving domain-specific workflows under a unified platform structure</text>
+  </g>
+
+  <!-- 5 Columns for the 5 Software Products -->
+  <g transform="translate(40, 85)">
+    
+    <!-- 01: Nordic Vision -->
+    <g transform="translate(0, 0)">
+      <rect width="212" height="465" class="panel"/>
+      <path d="M 0 6 Q 0 0 6 0 L 206 0 Q 212 0 212 6 L 212 40 L 0 40 Z" fill="#0c1527"/>
+      <circle cx="20" cy="20" r="4" fill="#38bdf8"/>
+      <text x="32" y="24" class="app-title">Nordic Vision</text>
+      <text x="16" y="58" class="app-role" fill="#38bdf8">Machine Vision &amp; QA</text>
+      <text x="16" y="78" class="body-text">High-speed inspection software for camera calibration, AI defect boundaries, and automated part sorting.</text>
+
+      <!-- UI Preview: Inspection Canvas -->
+      <g transform="translate(14, 115)">
+        <rect width="184" height="155" class="mock-screen"/>
+        <!-- Camera feed grid -->
+        <rect x="15" y="15" width="154" height="95" fill="#020617" stroke="#334155"/>
+        <line x1="92" y1="15" x2="92" y2="110" stroke="#1e293b" stroke-dasharray="2 2"/>
+        <line x1="15" y1="62" x2="169" y2="62" stroke="#1e293b" stroke-dasharray="2 2"/>
+        <!-- Detected part -->
+        <circle cx="92" cy="62" r="28" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+        <rect x="70" y="40" width="44" height="44" fill="none" stroke="#10b981" stroke-width="1.2" stroke-dasharray="3 2"/>
+        <rect x="70" y="30" width="36" height="9" fill="#10b981" rx="2"/>
+        <text x="74" y="37" font-family="monospace" font-size="7px" font-weight="700" fill="#020617">OK 99.8%</text>
+        <!-- Telemetry bottom bar -->
+        <rect x="15" y="118" width="154" height="24" fill="#0f172a"/>
+        <text x="22" y="133" font-family="monospace" font-size="8px" fill="#94a3b8">Exp: 12ms · Gain: 1.4dB · 60fps</text>
+      </g>
+
+      <!-- Workflow Section -->
+      <g transform="translate(16, 290)">
+        <text x="0" y="0" class="wf-title">REPRESENTATIVE WORKFLOW</text>
+        <rect x="0" y="10" width="180" height="42" fill="#070b14" stroke="#1e293b" rx="3"/>
+        <text x="10" y="26" font-family="Inter, sans-serif" font-size="10px" font-weight="600" fill="#f8fafc">1. Calibrate Optical Model</text>
+        <text x="10" y="40" font-family="Inter, sans-serif" font-size="9px" fill="#64748b">Adjust camera exposure &amp; train edge AI</text>
+
+        <rect x="0" y="58" width="180" height="42" fill="#070b14" stroke="#1e293b" rx="3"/>
+        <text x="10" y="74" font-family="Inter, sans-serif" font-size="10px" font-weight="600" fill="#f8fafc">2. Run Inline Inspection</text>
+        <text x="10" y="88" font-family="Inter, sans-serif" font-size="9px" fill="#64748b">Automated pneumatic reject trigger</text>
+
+        <rect x="0" y="106" width="180" height="42" fill="#070b14" stroke="#1e293b" rx="3"/>
+        <text x="10" y="122" font-family="Inter, sans-serif" font-size="10px" font-weight="600" fill="#38bdf8">3. Flag Defect to EQMS</text>
+        <text x="10" y="136" font-family="Inter, sans-serif" font-size="9px" fill="#64748b">Automated quality non-conformance</text>
+      </g>
+    </g>
+
+    <!-- 02: Nordic ERP -->
+    <g transform="translate(227, 0)">
+      <rect width="212" height="465" class="panel"/>
+      <path d="M 0 6 Q 0 0 6 0 L 206 0 Q 212 0 212 6 L 212 40 L 0 40 Z" fill="#0c1527"/>
+      <circle cx="20" cy="20" r="4" fill="#818cf8"/>
+      <text x="32" y="24" class="app-title">Nordic ERP</text>
+      <text x="16" y="58" class="app-role" fill="#818cf8">Enterprise Planning</text>
+      <text x="16" y="78" class="body-text">Financial planning, materials inventory, purchase order routing, and enterprise vendor ledgers.</text>
+
+      <!-- UI Preview: Procurement Data Table -->
+      <g transform="translate(14, 115)">
+        <rect width="184" height="155" class="mock-screen"/>
+        <rect x="10" y="12" width="164" height="22" fill="#1e293b" rx="2"/>
+        <text x="18" y="26" font-family="Inter, sans-serif" font-size="9px" font-weight="700" fill="#f8fafc">Purchase Orders (PO)</text>
+        
+        <!-- Table rows -->
+        <rect x="10" y="40" width="164" height="24" fill="#0f172a"/>
+        <text x="16" y="55" font-family="monospace" font-size="8px" fill="#818cf8">#PO-8812 · Alloy Rods</text>
+        <circle cx="160" cy="52" r="3" fill="#10b981"/>
+
+        <rect x="10" y="68" width="164" height="24" fill="#0f172a"/>
+        <text x="16" y="83" font-family="monospace" font-size="8px" fill="#cbd5e1">#PO-8814 · Fasteners</text>
+        <circle cx="160" cy="80" r="3" fill="#f59e0b"/>
+
+        <rect x="10" y="96" width="164" height="24" fill="#0f172a"/>
+        <text x="16" y="111" font-family="monospace" font-size="8px" fill="#cbd5e1">#PO-8819 · Bearings</text>
+        <circle cx="160" cy="108" r="3" fill="#10b981"/>
+
+        <rect x="10" y="125" width="80" height="16" fill="#1e293b" rx="2"/>
+        <text x="50" y="136" text-anchor="middle" font-family="Inter, sans-serif" font-size="8px" fill="#94a3b8">BOM: Balanced</text>
+      </g>
+
+      <g transform="translate(16, 290)">
+        <text x="0" y="0" class="wf-title">REPRESENTATIVE WORKFLOW</text>
+        <rect x="0" y="10" width="180" height="42" fill="#070b14" stroke="#1e293b" rx="3"/>
+        <text x="10" y="26" font-family="Inter, sans-serif" font-size="10px" font-weight="600" fill="#f8fafc">1. Bill of Materials Sync</text>
+        <text x="10" y="40" font-family="Inter, sans-serif" font-size="9px" fill="#64748b">Parse CAD assemblies into component parts</text>
+
+        <rect x="0" y="58" width="180" height="42" fill="#070b14" stroke="#1e293b" rx="3"/>
+        <text x="10" y="74" font-family="Inter, sans-serif" font-size="10px" font-weight="600" fill="#f8fafc">2. Auto-Reorder Spares</text>
+        <text x="10" y="88" font-family="Inter, sans-serif" font-size="9px" fill="#64748b">Threshold trigger for factory raw goods</text>
+
+        <rect x="0" y="106" width="180" height="42" fill="#070b14" stroke="#1e293b" rx="3"/>
+        <text x="10" y="122" font-family="Inter, sans-serif" font-size="10px" font-weight="600" fill="#818cf8">3. Dispatch to Shop Floor</text>
+        <text x="10" y="136" font-family="Inter, sans-serif" font-size="9px" fill="#64748b">Direct handoff to Nordic MES queue</text>
+      </g>
+    </g>
+
+    <!-- 03: Nordic MES -->
+    <g transform="translate(454, 0)">
+      <rect width="212" height="465" class="panel"/>
+      <path d="M 0 6 Q 0 0 6 0 L 206 0 Q 212 0 212 6 L 212 40 L 0 40 Z" fill="#0c1527"/>
+      <circle cx="20" cy="20" r="4" fill="#10b981"/>
+      <text x="32" y="24" class="app-title">Nordic MES</text>
+      <text x="16" y="58" class="app-role" fill="#10b981">Manufacturing Execution</text>
+      <text x="16" y="78" class="body-text">Shop floor production tracking, work station queues, operator touch interfaces, and line telemetry.</text>
+
+      <!-- UI Preview: Touch Operator Screen -->
+      <g transform="translate(14, 115)">
+        <rect width="184" height="155" class="mock-screen"/>
+        <!-- Big OEE status -->
+        <rect x="10" y="12" width="164" height="34" fill="#064e3b" stroke="#059669" rx="3"/>
+        <text x="20" y="32" font-family="Inter, sans-serif" font-size="14px" font-weight="800" fill="#ecfdf5">OEE: 89.2%</text>
+        <text x="120" y="32" font-family="Inter, sans-serif" font-size="9px" font-weight="700" fill="#6ee7b7">LINE 4 RUN</text>
+
+        <!-- Big touch buttons for operator -->
+        <rect x="10" y="55" width="78" height="42" fill="#1e293b" rx="4"/>
+        <text x="49" y="74" text-anchor="middle" font-family="Inter, sans-serif" font-size="9px" font-weight="700" fill="#f8fafc">START BATCH</text>
+        <text x="49" y="88" text-anchor="middle" font-family="monospace" font-size="8px" fill="#10b981">▶ ACTIVE</text>
+
+        <rect x="96" y="55" width="78" height="42" fill="#1e293b" rx="4"/>
+        <text x="135" y="74" text-anchor="middle" font-family="Inter, sans-serif" font-size="9px" font-weight="700" fill="#f8fafc">LOG DEFECT</text>
+        <text x="135" y="88" text-anchor="middle" font-family="monospace" font-size="8px" fill="#ef4444">1 Tap</text>
+
+        <!-- Production count -->
+        <rect x="10" y="105" width="164" height="38" fill="#0f172a" rx="2"/>
+        <text x="20" y="122" font-family="Inter, sans-serif" font-size="9px" fill="#94a3b8">Target: 1,600 | Completed: 1,420</text>
+        <rect x="20" y="128" width="144" height="6" fill="#1e293b" rx="3"/>
+        <rect x="20" y="128" width="128" height="6" fill="#10b981" rx="3"/>
+      </g>
+
+      <g transform="translate(16, 290)">
+        <text x="0" y="0" class="wf-title">REPRESENTATIVE WORKFLOW</text>
+        <rect x="0" y="10" width="180" height="42" fill="#070b14" stroke="#1e293b" rx="3"/>
+        <text x="10" y="26" font-family="Inter, sans-serif" font-size="10px" font-weight="600" fill="#f8fafc">1. Shift Clock-in &amp; Task</text>
+        <text x="10" y="40" font-family="Inter, sans-serif" font-size="9px" fill="#64748b">Operator scans badge at station terminal</text>
+
+        <rect x="0" y="58" width="180" height="42" fill="#070b14" stroke="#1e293b" rx="3"/>
+        <text x="10" y="74" font-family="Inter, sans-serif" font-size="10px" font-weight="600" fill="#f8fafc">2. Cycle Execution</text>
+        <text x="10" y="88" font-family="Inter, sans-serif" font-size="9px" fill="#64748b">PLC interlock validates assembly sequence</text>
+
+        <rect x="0" y="106" width="180" height="42" fill="#070b14" stroke="#1e293b" rx="3"/>
+        <text x="10" y="122" font-family="Inter, sans-serif" font-size="10px" font-weight="600" fill="#10b981">3. Automated QA Check</text>
+        <text x="10" y="136" font-family="Inter, sans-serif" font-size="9px" fill="#64748b">Triggers camera pass in Nordic Vision</text>
+      </g>
+    </g>
+
+    <!-- 04: Nordic EQMS -->
+    <g transform="translate(681, 0)">
+      <rect width="212" height="465" class="panel"/>
+      <path d="M 0 6 Q 0 0 6 0 L 206 0 Q 212 0 212 6 L 212 40 L 0 40 Z" fill="#0c1527"/>
+      <circle cx="20" cy="20" r="4" fill="#f59e0b"/>
+      <text x="32" y="24" class="app-title">Nordic EQMS</text>
+      <text x="16" y="58" class="app-role" fill="#f59e0b">Quality &amp; Compliance</text>
+      <text x="16" y="78" class="body-text">Enterprise quality assurance, automated CAPA investigation trees, compliance audit logs, and document control.</text>
+
+      <!-- UI Preview: CAPA Flow -->
+      <g transform="translate(14, 115)">
+        <rect width="184" height="155" class="mock-screen"/>
+        <rect x="10" y="12" width="164" height="22" fill="#1e293b" rx="2"/>
+        <text x="18" y="26" font-family="Inter, sans-serif" font-size="9px" font-weight="700" fill="#f8fafc">CAPA Investigation #492</text>
+        
+        <!-- Root cause tree diagram -->
+        <rect x="15" y="44" width="70" height="22" fill="#451a03" stroke="#f59e0b" rx="2"/>
+        <text x="50" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-size="8px" font-weight="700" fill="#fef3c7">Anomaly</text>
+        
+        <line x1="85" y1="55" x2="105" y2="55" stroke="#f59e0b"/>
+        
+        <rect x="105" y="44" width="68" height="22" fill="#1e293b" rx="2"/>
+        <text x="139" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-size="8px" fill="#cbd5e1">5-Why Root</text>
+
+        <!-- Compliance status bar -->
+        <rect x="10" y="80" width="164" height="26" fill="#0f172a" rx="2"/>
+        <text x="18" y="96" font-family="Inter, sans-serif" font-size="8.5px" fill="#94a3b8">ISO 9001 Signature: <tspan fill="#10b981" font-weight="700">VERIFIED</tspan></text>
+
+        <rect x="10" y="115" width="164" height="26" fill="#1e293b" rx="3"/>
+        <text x="92" y="132" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.5px" font-weight="600" fill="#f59e0b">Export Audit Dossier ↗</text>
+      </g>
+
+      <g transform="translate(16, 290)">
+        <text x="0" y="0" class="wf-title">REPRESENTATIVE WORKFLOW</text>
+        <rect x="0" y="10" width="180" height="42" fill="#070b14" stroke="#1e293b" rx="3"/>
+        <text x="10" y="26" font-family="Inter, sans-serif" font-size="10px" font-weight="600" fill="#f8fafc">1. Ingest Defect Telemetry</text>
+        <text x="10" y="40" font-family="Inter, sans-serif" font-size="9px" fill="#64748b">Direct event ingestion from Vision/MES</text>
+
+        <rect x="0" y="58" width="180" height="42" fill="#070b14" stroke="#1e293b" rx="3"/>
+        <text x="10" y="74" font-family="Inter, sans-serif" font-size="10px" font-weight="600" fill="#f8fafc">2. Corrective Action Tree</text>
+        <text x="10" y="88" font-family="Inter, sans-serif" font-size="9px" fill="#64748b">Quality team assigns remediation step</text>
+
+        <rect x="0" y="106" width="180" height="42" fill="#070b14" stroke="#1e293b" rx="3"/>
+        <text x="10" y="122" font-family="Inter, sans-serif" font-size="10px" font-weight="600" fill="#f59e0b">3. Regulatory Sign-Off</text>
+        <text x="10" y="136" font-family="Inter, sans-serif" font-size="9px" fill="#64748b">Cryptographic auditor audit stamp</text>
+      </g>
+    </g>
+
+    <!-- 05: Nordic Visitor Management -->
+    <g transform="translate(908, 0)">
+      <rect width="212" height="465" class="panel"/>
+      <path d="M 0 6 Q 0 0 6 0 L 206 0 Q 212 0 212 6 L 212 40 L 0 40 Z" fill="#0c1527"/>
+      <circle cx="20" cy="20" r="4" fill="#a855f7"/>
+      <text x="32" y="24" class="app-title">Nordic Visitor</text>
+      <text x="16" y="58" class="app-role" fill="#a855f7">Facility Access &amp; Security</text>
+      <text x="16" y="78" class="body-text">Self-service kiosk check-in, contractor security induction, badge printing, and real-time on-site headcount.</text>
+
+      <!-- UI Preview: Badge Print Kiosk -->
+      <g transform="translate(14, 115)">
+        <rect width="184" height="155" class="mock-screen"/>
+        <!-- Badge graphic -->
+        <rect x="42" y="15" width="100" height="75" fill="#ffffff" rx="4"/>
+        <rect x="52" y="24" width="22" height="22" fill="#1e293b" rx="2"/>
+        <text x="80" y="32" font-family="Inter, sans-serif" font-size="7px" font-weight="800" fill="#0f172a">VISITOR PASS</text>
+        <text x="80" y="42" font-family="Inter, sans-serif" font-size="6.5px" fill="#64748b">Contractor</text>
+        <!-- QR Code -->
+        <rect x="52" y="52" width="24" height="24" fill="#0f172a"/>
+        <text x="84" y="66" font-family="monospace" font-size="7px" font-weight="700" fill="#059669">VALIDATED</text>
+
+        <!-- Kiosk Status bottom -->
+        <rect x="10" y="105" width="164" height="38" fill="#0f172a" rx="2"/>
+        <text x="20" y="120" font-family="Inter, sans-serif" font-size="8.5px" fill="#cbd5e1">Gateway 1 Kiosk: Ready</text>
+        <text x="20" y="134" font-family="Inter, sans-serif" font-size="8px" fill="#10b981">Thermal Printer Connected</text>
+      </g>
+
+      <g transform="translate(16, 290)">
+        <text x="0" y="0" class="wf-title">REPRESENTATIVE WORKFLOW</text>
+        <rect x="0" y="10" width="180" height="42" fill="#070b14" stroke="#1e293b" rx="3"/>
+        <text x="10" y="26" font-family="Inter, sans-serif" font-size="10px" font-weight="600" fill="#f8fafc">1. Self-Service Kiosk Arrival</text>
+        <text x="10" y="40" font-family="Inter, sans-serif" font-size="9px" fill="#64748b">Scan driver ID or pre-registered invite</text>
+
+        <rect x="0" y="58" width="180" height="42" fill="#070b14" stroke="#1e293b" rx="3"/>
+        <text x="10" y="74" font-family="Inter, sans-serif" font-size="10px" font-weight="600" fill="#f8fafc">2. Plant Safety Briefing</text>
+        <text x="10" y="88" font-family="Inter, sans-serif" font-size="9px" fill="#64748b">Digital signature on PPE requirements</text>
+
+        <rect x="0" y="106" width="180" height="42" fill="#070b14" stroke="#1e293b" rx="3"/>
+        <text x="10" y="122" font-family="Inter, sans-serif" font-size="10px" font-weight="600" fill="#a855f7">3. Instant Badge Print</text>
+        <text x="10" y="136" font-family="Inter, sans-serif" font-size="9px" fill="#64748b">RFID badge grants turnstile entry</text>
+      </g>
+    </g>
+
+  </g>
+</svg>

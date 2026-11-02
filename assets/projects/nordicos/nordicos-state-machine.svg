@@ -1,0 +1,360 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 940" width="100%" height="100%">
+  <defs>
+    <!-- Canvas Grid Pattern -->
+    <pattern id="dot-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#2d3139"/>
+    </pattern>
+
+    <!-- Sticky Note Dropshadow -->
+    <filter id="sticky-shadow" x="-8%" y="-8%" width="120%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <filter id="card-shadow" x="-5%" y="-5%" width="112%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="1" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+
+    <style>
+      .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+      .font-mono { font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; }
+      .font-hand { font-family: "Caveat", "Comic Sans MS", -apple-system, sans-serif; }
+      
+      /* Web threads */
+      .web-thread-blue { stroke: #38bdf8; stroke-width: 2.5; stroke-dasharray: 6 4; fill: none; opacity: 0.85; }
+      .web-thread-amber { stroke: #fbbf24; stroke-width: 2.5; stroke-dasharray: 6 4; fill: none; opacity: 0.85; }
+      .web-thread-rose { stroke: #fb7185; stroke-width: 2.5; stroke-dasharray: 6 4; fill: none; opacity: 0.85; }
+      .web-thread-emerald { stroke: #34d399; stroke-width: 2.5; stroke-dasharray: 6 4; fill: none; opacity: 0.85; }
+      .web-core { stroke: #6366f1; stroke-width: 3.5; fill: none; }
+
+      /* Sticky notes */
+      .sticky-yellow { fill: #fef08a; stroke: #fde047; stroke-width: 1; }
+      .sticky-pink { fill: #fecdd3; stroke: #fda4af; stroke-width: 1; }
+      .sticky-blue { fill: #bae6fd; stroke: #7dd3fc; stroke-width: 1; }
+      .sticky-green { fill: #bbf7d0; stroke: #86efac; stroke-width: 1; }
+      .sticky-purple { fill: #e9d5ff; stroke: #d8b4fe; stroke-width: 1; }
+      .sticky-orange { fill: #fed7aa; stroke: #fdba74; stroke-width: 1; }
+
+      .sticky-title { font-weight: 700; font-size: 11px; fill: #1c1917; text-transform: uppercase; letter-spacing: 0.05em; }
+      .sticky-text { font-size: 11.5px; fill: #292524; line-height: 1.45; }
+      .sticky-quote { font-size: 11px; font-style: italic; fill: #44403c; }
+
+      /* Tape graphics */
+      .tape { fill: #f8fafc; opacity: 0.45; rx: 1; }
+
+      /* Pipeline node pills */
+      .pipe-node-bg { fill: #1e222b; stroke: #3b82f6; stroke-width: 1.5; rx: 8; }
+      .pipe-node-num { font-family: ui-monospace, monospace; font-size: 9.5px; font-weight: 800; fill: #60a5fa; letter-spacing: 0.05em; }
+      .pipe-node-title { font-size: 11.5px; font-weight: 700; fill: #f8fafc; }
+      .pipe-node-sub { font-size: 9.5px; fill: #94a3b8; }
+    </style>
+  </defs>
+
+  <!-- Dark FigJam Board Background -->
+  <rect width="1200" height="940" fill="#13151a"/>
+  <rect width="1200" height="940" fill="url(#dot-grid)"/>
+
+  <!-- Top FigJam Navigation / Research Header -->
+  <g transform="translate(36, 22)">
+    <rect width="1128" height="54" rx="8" fill="#1c202a" stroke="#2d3342" stroke-width="1.2" filter="url(#card-shadow)"/>
+    <rect x="0" y="0" width="8" height="54" rx="8 0 0 8" fill="#6366f1"/>
+    
+    <text x="24" y="25" class="font-sans" font-size="13.5px" font-weight="700" fill="#f8fafc">Field Research &amp; Systems Synthesis Board · The Hardware-to-Sales Web</text>
+    <text x="24" y="42" class="font-sans" font-size="11px" fill="#94a3b8">Synthesizing ground friction across 11 roles: Mapping optical sample discovery, costings, proforma invoices &amp; CAD freezes</text>
+    
+    <!-- Legend Chips -->
+    <g transform="translate(680, 16)">
+      <rect x="0" y="0" width="85" height="22" rx="4" fill="#fef08a" opacity="0.9"/>
+      <text x="42" y="15" class="font-sans" font-size="9.5px" font-weight="700" fill="#713f12" text-anchor="middle">Field Quotes</text>
+
+      <rect x="95" y="0" width="85" height="22" rx="4" fill="#bae6fd" opacity="0.9"/>
+      <text x="137" y="15" class="font-sans" font-size="9.5px" font-weight="700" fill="#075985" text-anchor="middle">Optics Lab</text>
+
+      <rect x="190" y="0" width="85" height="22" rx="4" fill="#fecdd3" opacity="0.9"/>
+      <text x="232" y="15" class="font-sans" font-size="9.5px" font-weight="700" fill="#9f1239" text-anchor="middle">Critical Gate</text>
+
+      <rect x="285" y="0" width="85" height="22" rx="4" fill="#bbf7d0" opacity="0.9"/>
+      <text x="327" y="15" class="font-sans" font-size="9.5px" font-weight="700" fill="#14532d" text-anchor="middle">System Rule</text>
+
+      <rect x="380" y="0" width="55" height="22" rx="4" fill="#e9d5ff" opacity="0.9"/>
+      <text x="407" y="15" class="font-sans" font-size="9.5px" font-weight="700" fill="#581c87" text-anchor="middle">Advance</text>
+    </g>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- INTERRELATED WEBS (CURVED CONNECTOR THREADS)             -->
+  <!-- ======================================================== -->
+  <g id="webs-layer">
+    <!-- Thread from Optical Quote to Step 1 & 2 -->
+    <path d="M 230 190 C 230 250, 180 280, 180 340" class="web-thread-amber"/>
+    <!-- Thread from POC Rule to Step 3 -->
+    <path d="M 400 240 C 400 290, 480 300, 480 350" class="web-thread-rose"/>
+    <!-- Central Flow Backbone -->
+    <path d="M 180 375 C 230 375, 270 375, 320 375" class="web-core"/>
+    <path d="M 460 375 C 500 375, 540 375, 580 375" class="web-core"/>
+    <path d="M 720 375 C 770 375, 810 375, 860 375" class="web-core"/>
+    <path d="M 1000 375 C 1050 375, 1070 430, 1070 510 C 1070 590, 1050 640, 1000 640" class="web-core"/>
+    <path d="M 860 640 C 810 640, 770 640, 720 640" class="web-core"/>
+    <path d="M 580 640 C 530 640, 490 640, 440 640" class="web-core"/>
+    <path d="M 300 640 C 260 640, 220 640, 180 640" class="web-core"/>
+
+    <!-- Cross-Department Tension Thread (Sales quoting vs Optics) -->
+    <path d="M 230 190 C 400 120, 700 120, 880 200" class="web-thread-rose"/>
+    <!-- Advance Payment Thread to CAD Freeze -->
+    <path d="M 580 770 C 450 780, 250 750, 180 675" class="web-thread-emerald"/>
+    <!-- Feedback Loop: Heads up back to CEO -->
+    <path d="M 180 605 C 120 500, 120 300, 180 200" class="web-thread-blue"/>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- CLUSTER 1: OPTICS LAB & TECHNICAL DISCOVERY              -->
+  <!-- ======================================================== -->
+  <g transform="translate(48, 100)">
+    <!-- Section Pin Label -->
+    <text x="10" y="16" class="font-sans" font-size="11px" font-weight="800" fill="#38bdf8" letter-spacing="0.08em">CLUSTER 01 · OPTICS LAB &amp; TECHNICAL DISCOVERY</text>
+
+    <!-- Sticky 1: User Quote (Yellow) -->
+    <g transform="translate(10, 30) rotate(-2)" filter="url(#sticky-shadow)">
+      <rect width="190" height="115" rx="3" class="sticky-yellow"/>
+      <rect x="75" y="-6" width="40" height="12" class="tape"/>
+      <text x="14" y="24" class="font-sans sticky-title">Optical Lead Quote</text>
+      <text x="14" y="44" class="font-sans sticky-quote">"Sales keeps sending quotes</text>
+      <text x="14" y="60" class="font-sans sticky-quote">before samples even arrive!</text>
+      <text x="14" y="76" class="font-sans sticky-quote">We haven't checked surface</text>
+      <text x="14" y="92" class="font-sans sticky-quote">reflectivity under motion yet!"</text>
+    </g>
+
+    <!-- Sticky 2: Hardware Sizing (Cyan) -->
+    <g transform="translate(225, 26) rotate(1.5)" filter="url(#sticky-shadow)">
+      <rect width="185" height="115" rx="3" class="sticky-blue"/>
+      <rect x="72" y="-6" width="40" height="12" class="tape"/>
+      <text x="14" y="24" class="font-sans sticky-title">Optics &amp; Sizing Reality</text>
+      <text x="14" y="44" class="font-sans sticky-text">• High cast-iron glare</text>
+      <text x="14" y="62" class="font-sans sticky-text">• Needs 25mm telecentric lens</text>
+      <text x="14" y="80" class="font-sans sticky-text">• Polarized dome illumination</text>
+      <text x="14" y="98" class="font-sans sticky-text">• Frame rate: 60 FPS motion</text>
+    </g>
+
+    <!-- Sticky 3: Critical POC Gate (Pink) -->
+    <g transform="translate(435, 28) rotate(-1)" filter="url(#sticky-shadow)">
+      <rect width="185" height="115" rx="3" class="sticky-pink"/>
+      <rect x="72" y="-6" width="40" height="12" class="tape"/>
+      <text x="14" y="24" class="font-sans sticky-title" fill="#9f1239">Strict Stage Rule</text>
+      <text x="14" y="45" class="font-sans sticky-text" font-weight="700" fill="#881337">POC = Trial Images ONLY.</text>
+      <text x="14" y="65" class="font-sans sticky-text">Zero costing permitted</text>
+      <text x="14" y="81" class="font-sans sticky-text">until optical feasibility is</text>
+      <text x="14" y="97" class="font-sans sticky-text">signed off by Engineering.</text>
+    </g>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- CLUSTER 2: COSTINGS & MECHANICAL DAP                     -->
+  <!-- ======================================================== -->
+  <g transform="translate(710, 100)">
+    <!-- Section Pin Label -->
+    <text x="10" y="16" class="font-sans" font-size="11px" font-weight="800" fill="#fbbf24" letter-spacing="0.08em">CLUSTER 02 · MECHANICAL DAP &amp; COSTING GATES</text>
+
+    <!-- Sticky 4: Quotation Guesswork (Orange) -->
+    <g transform="translate(10, 30) rotate(-1.5)" filter="url(#sticky-shadow)">
+      <rect width="195" height="115" rx="3" class="sticky-orange"/>
+      <rect x="77" y="-6" width="40" height="12" class="tape"/>
+      <text x="14" y="24" class="font-sans sticky-title">Past Failure Mode</text>
+      <text x="14" y="44" class="font-sans sticky-quote">"Quoting ₹77 Lakhs on</text>
+      <text x="14" y="60" class="font-sans sticky-quote">gut-feel resulted in a 24%</text>
+      <text x="14" y="76" class="font-sans sticky-quote">margin bleed when custom</text>
+      <text x="14" y="92" class="font-sans sticky-quote">brackets had to be CNC'd."</text>
+    </g>
+
+    <!-- Sticky 5: The Costing Gate (Green) -->
+    <g transform="translate(230, 26) rotate(2)" filter="url(#sticky-shadow)">
+      <rect width="200" height="115" rx="3" class="sticky-green"/>
+      <rect x="80" y="-6" width="40" height="12" class="tape"/>
+      <text x="14" y="24" class="font-sans sticky-title">The Costing Engine</text>
+      <text x="14" y="44" class="font-sans sticky-text">• Auto-calculates BOM costs</text>
+      <text x="14" y="62" class="font-sans sticky-text">• Multiplies assembly labor</text>
+      <text x="14" y="80" class="font-sans sticky-text">• Enforces target margin %</text>
+      <text x="14" y="98" class="font-sans sticky-text">• Locks commercial terms</text>
+    </g>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- 9-STAGE CORE PIPELINE SPINE (CENTER ROW 1 & ROW 2)       -->
+  <!-- ======================================================== -->
+  
+  <!-- ROW 1: Stages 1 to 5 (Left to Right) -->
+  <g transform="translate(50, 345)">
+    <!-- Stage 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="140" height="60" class="pipe-node-bg"/>
+      <text x="14" y="22" class="pipe-node-num">STEP 01</text>
+      <text x="14" y="38" class="pipe-node-title">Technical Discovery</text>
+      <text x="14" y="50" class="pipe-node-sub">Part Specs &amp; Reflectivity</text>
+    </g>
+
+    <!-- Stage 2 -->
+    <g transform="translate(180, 0)">
+      <rect width="140" height="60" class="pipe-node-bg"/>
+      <text x="14" y="22" class="pipe-node-num">STEP 02</text>
+      <text x="14" y="38" class="pipe-node-title">Solution Architecture</text>
+      <text x="14" y="50" class="pipe-node-sub">Hardware Sizing &amp; Optics</text>
+    </g>
+
+    <!-- Stage 3 -->
+    <g transform="translate(360, 0)">
+      <rect width="140" height="60" class="pipe-node-bg" stroke="#f43f5e"/>
+      <text x="14" y="22" class="pipe-node-num" fill="#fb7185">STEP 03 · GATE</text>
+      <text x="14" y="38" class="pipe-node-title">POC Trial Setup</text>
+      <text x="14" y="50" class="pipe-node-sub">Trial Images · NO Costing</text>
+    </g>
+
+    <!-- Stage 4 -->
+    <g transform="translate(540, 0)">
+      <rect width="140" height="60" class="pipe-node-bg"/>
+      <text x="14" y="22" class="pipe-node-num">STEP 04</text>
+      <text x="14" y="38" class="pipe-node-title">Internal DAP</text>
+      <text x="14" y="50" class="pipe-node-sub">Mechanical &amp; SPM Layout</text>
+    </g>
+
+    <!-- Stage 5 -->
+    <g transform="translate(720, 0)">
+      <rect width="150" height="60" class="pipe-node-bg" stroke="#10b981"/>
+      <text x="14" y="22" class="pipe-node-num" fill="#34d399">STEP 05 · LOCK</text>
+      <text x="14" y="38" class="pipe-node-title">Confirmed Costings</text>
+      <text x="14" y="50" class="pipe-node-sub">BOM, Labor &amp; Margin Lock</text>
+    </g>
+
+    <!-- Inter-stage Handshake Pill -->
+    <g transform="translate(900, 16)">
+      <rect width="170" height="28" rx="14" fill="#312e81" stroke="#6366f1" stroke-width="1.2"/>
+      <text x="85" y="18" class="font-sans" font-size="10px" font-weight="700" fill="#e0e7ff" text-anchor="middle">Release to Sales for Invoice ➔</text>
+    </g>
+  </g>
+
+  <!-- Turn Connector Label -->
+  <g transform="translate(1010, 485)">
+    <rect width="130" height="42" rx="6" fill="#1e1b4b" stroke="#4f46e5" stroke-width="1"/>
+    <text x="65" y="18" class="font-sans" font-size="9.5px" font-weight="700" fill="#a5b4fc" text-anchor="middle">COMMERCIAL HANDOFF</text>
+    <text x="65" y="32" class="font-sans" font-size="8.5px" fill="#c7d2fe" text-anchor="middle">Auto-Populate Proforma</text>
+  </g>
+
+  <!-- ROW 2: Stages 6 to 9 (Right to Left) -->
+  <g transform="translate(50, 610)">
+    <!-- Stage 9 (Final) -->
+    <g transform="translate(0, 0)">
+      <rect width="160" height="60" class="pipe-node-bg" stroke="#10b981" stroke-width="2"/>
+      <rect x="0" y="0" width="6" height="60" rx="4 0 0 4" fill="#10b981"/>
+      <text x="16" y="22" class="pipe-node-num" fill="#34d399">STEP 09 · RELEASE</text>
+      <text x="16" y="38" class="pipe-node-title">Post-PO DAP Internal</text>
+      <text x="16" y="50" class="pipe-node-sub">3D CAD Freeze &amp; DFM Sourcing</text>
+    </g>
+
+    <!-- Inter-stage Handshake Pill -->
+    <g transform="translate(190, 16)">
+      <rect width="140" height="28" rx="14" fill="#064e3b" stroke="#10b981" stroke-width="1.2"/>
+      <text x="70" y="18" class="font-sans" font-size="10px" font-weight="700" fill="#a7f3d0" text-anchor="middle">Confirm PO &amp; Heads Up ➔</text>
+    </g>
+
+    <!-- Stage 8 -->
+    <g transform="translate(360, 0)">
+      <rect width="150" height="60" class="pipe-node-bg" stroke="#f59e0b"/>
+      <text x="14" y="22" class="pipe-node-num" fill="#fbbf24">STEP 08 · UPLOAD</text>
+      <text x="14" y="38" class="pipe-node-title">Upload Customer PO</text>
+      <text x="14" y="50" class="pipe-node-sub">Logs PO #, Date &amp; PDF</text>
+    </g>
+
+    <!-- Inter-stage Handshake Pill -->
+    <g transform="translate(540, 16)">
+      <rect width="130" height="28" rx="14" fill="#451a03" stroke="#f59e0b" stroke-width="1.2"/>
+      <text x="65" y="18" class="font-sans" font-size="10px" font-weight="700" fill="#fde68a" text-anchor="middle">Official Customer PO ➔</text>
+    </g>
+
+    <!-- Stage 7 -->
+    <g transform="translate(700, 0)">
+      <rect width="150" height="60" class="pipe-node-bg" stroke="#f43f5e" stroke-width="1.8"/>
+      <text x="14" y="22" class="pipe-node-num" fill="#fb7185">STEP 07 · GATE</text>
+      <text x="14" y="38" class="pipe-node-title">Customer Acceptance</text>
+      <text x="14" y="50" class="pipe-node-sub">50% Advance Terms</text>
+    </g>
+
+    <!-- Stage 6 -->
+    <g transform="translate(880, 0)">
+      <rect width="160" height="60" class="pipe-node-bg"/>
+      <text x="14" y="22" class="pipe-node-num">STEP 06 · SALES</text>
+      <text x="14" y="38" class="pipe-node-title">PO &amp; Proforma Invoice</text>
+      <text x="14" y="50" class="pipe-node-sub">Auto-Populated from Costing</text>
+    </g>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- CLUSTER 3 & 4: COMMERCIAL ADVANCE & CAD FREEZE (BOTTOM)  -->
+  <!-- ======================================================== -->
+  <g transform="translate(48, 715)">
+    <!-- Section Pin Label -->
+    <text x="10" y="16" class="font-sans" font-size="11px" font-weight="800" fill="#fb7185" letter-spacing="0.08em">CLUSTER 03 · ADVANCE PROTECTION</text>
+
+    <!-- Sticky 6: CEO Mandate (Purple) -->
+    <g transform="translate(10, 30) rotate(-1.5)" filter="url(#sticky-shadow)">
+      <rect width="230" height="110" rx="3" class="sticky-purple"/>
+      <rect x="95" y="-6" width="40" height="12" class="tape"/>
+      <text x="14" y="24" class="font-sans sticky-title">CEO Operational Mandate</text>
+      <text x="14" y="44" class="font-sans sticky-quote">"Never begin 3D CAD modeling</text>
+      <text x="14" y="60" class="font-sans sticky-quote">without a signed PO and 50%</text>
+      <text x="14" y="76" class="font-sans sticky-quote">advance. Engineering time is our</text>
+      <text x="14" y="92" class="font-sans sticky-quote">most expensive resource!"</text>
+    </g>
+
+    <!-- Sticky 7: The 50% Gate (Pink) -->
+    <g transform="translate(270, 26) rotate(1)" filter="url(#sticky-shadow)">
+      <rect width="220" height="110" rx="3" class="sticky-pink"/>
+      <rect x="90" y="-6" width="40" height="12" class="tape"/>
+      <text x="14" y="24" class="font-sans sticky-title" fill="#9f1239">The 50% Advance Lock</text>
+      <text x="14" y="44" class="font-sans sticky-text">• Proforma auto-sent to client</text>
+      <text x="14" y="62" class="font-sans sticky-text">• System waits for client PO</text>
+      <text x="14" y="80" class="font-sans sticky-text">• Finance verifies advance</text>
+      <text x="14" y="98" class="font-sans sticky-text">• CAD tools remain locked</text>
+    </g>
+  </g>
+
+  <g transform="translate(590, 715)">
+    <!-- Section Pin Label -->
+    <text x="10" y="16" class="font-sans" font-size="11px" font-weight="800" fill="#34d399" letter-spacing="0.08em">CLUSTER 04 · MANUFACTURING &amp; DFM RELEASE</text>
+
+    <!-- Sticky 8: Signed PO Upload (Yellow) -->
+    <g transform="translate(10, 30) rotate(2)" filter="url(#sticky-shadow)">
+      <rect width="250" height="110" rx="3" class="sticky-yellow"/>
+      <rect x="105" y="-6" width="40" height="12" class="tape"/>
+      <text x="14" y="24" class="font-sans sticky-title">Sales Upload Handshake</text>
+      <text x="14" y="44" class="font-sans sticky-text">• Sales uploads signed PDF</text>
+      <text x="14" y="62" class="font-sans sticky-text">• System records PO date &amp; number</text>
+      <text x="14" y="80" class="font-sans sticky-text">• Emits 'Heads Up' notification</text>
+      <text x="14" y="98" class="font-sans sticky-text">• Unlocks Post-PO Engineering tab</text>
+    </g>
+
+    <!-- Sticky 9: Final Release (Green) -->
+    <g transform="translate(290, 26) rotate(-1)" filter="url(#sticky-shadow)">
+      <rect width="240" height="110" rx="3" class="sticky-green"/>
+      <rect x="100" y="-6" width="40" height="12" class="tape"/>
+      <text x="14" y="24" class="font-sans sticky-title">Shop Floor Clearance</text>
+      <text x="14" y="44" class="font-sans sticky-text">3D CAD model is frozen &amp; locked.</text>
+      <text x="14" y="62" class="font-sans sticky-text">DFM drawings issued to machining.</text>
+      <text x="14" y="80" class="font-sans sticky-text">Procurement orders actuators &amp; lenses.</text>
+      <text x="14" y="98" class="font-sans sticky-text" font-weight="700">Zero scrap from outdated drawings!</text>
+    </g>
+  </g>
+
+  <!-- Pushpins -->
+  <g fill="#ef4444" stroke="#b91c1c" stroke-width="1">
+    <circle cx="150" cy="120" r="4.5"/>
+    <circle cx="360" cy="115" r="4.5"/>
+    <circle cx="570" cy="118" r="4.5"/>
+    <circle cx="850" cy="118" r="4.5"/>
+    <circle cx="1070" cy="116" r="4.5"/>
+    <circle cx="160" cy="735" r="4.5"/>
+    <circle cx="420" cy="732" r="4.5"/>
+    <circle cx="730" cy="735" r="4.5"/>
+    <circle cx="1020" cy="732" r="4.5"/>
+  </g>
+
+  <!-- Footer Watermark / Signature -->
+  <g transform="translate(48, 905)">
+    <text x="0" y="14" class="font-mono" font-size="10px" fill="#64748b">INTERACTION DESIGN RESEARCH ARTIFACT · FIGJAM AFFINITY BOARD · MAPPING HARDWARE REALITIES TO DIGITAL STAGE GATES</text>
+  </g>
+</svg>

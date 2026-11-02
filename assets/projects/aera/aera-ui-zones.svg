@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="100%" height="100%">
+  <defs>
+    <style>
+      .screen-bg { fill: #0f172a; rx: 8; }
+      .card-bg { fill: #1e293b; stroke: #334155; stroke-width: 1; rx: 6; }
+      .zone-active { fill: rgba(82, 105, 181, 0.2); stroke: #5269b5; stroke-width: 1.5; rx: 6; }
+      .title { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 13px; font-weight: 700; fill: #f8fafc; }
+      .sub { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 10px; fill: #94a3b8; }
+    </style>
+  </defs>
+
+  <rect width="400" height="520" class="screen-bg"/>
+  <rect x="0" y="0" width="400" height="520" fill="none" stroke="#334155" stroke-width="1.5" rx="8"/>
+
+  <!-- Top Navigation -->
+  <g transform="translate(20, 20)">
+    <text x="0" y="16" font-family="Inter, sans-serif" font-size="14px" font-weight="800" fill="#f8fafc">AERA · ZONES</text>
+    <rect x="250" y="2" width="110" height="20" fill="#1e293b" stroke="#334155" rx="10"/>
+    <text x="305" y="15" text-anchor="middle" font-family="Inter, sans-serif" font-size="9px" font-weight="600" fill="#94a3b8">FLOOR 03 · 720m²</text>
+    <line x1="0" y1="32" x2="360" y2="32" stroke="#1e293b" stroke-width="1"/>
+  </g>
+
+  <!-- Interactive 2D/3D Floorplan Visual Map -->
+  <g transform="translate(20, 65)">
+    <rect width="360" height="200" fill="#1e293b" stroke="#334155" rx="6"/>
+    <!-- Floor plan outline -->
+    <rect x="25" y="20" width="310" height="160" fill="#0f172a" stroke="#475569" stroke-width="1.5" rx="3"/>
+    
+    <!-- Dividers -->
+    <line x1="130" y1="20" x2="130" y2="180" stroke="#334155" stroke-width="1.2"/>
+    <line x1="240" y1="20" x2="240" y2="180" stroke="#334155" stroke-width="1.2"/>
+    <line x1="240" y1="100" x2="335" y2="100" stroke="#334155" stroke-width="1.2"/>
+
+    <!-- Zone 01 Highlight -->
+    <rect x="30" y="25" width="95" height="150" fill="rgba(82, 105, 181, 0.15)"/>
+    <circle cx="75" cy="100" r="14" fill="#5269b5" opacity="0.3"/>
+    <circle cx="75" cy="100" r="5" fill="#38bdf8"/>
+    <text x="75" y="125" text-anchor="middle" font-family="Inter, sans-serif" font-size="8px" fill="#94a3b8">ZONE 01</text>
+
+    <!-- Zone 02 Active Selection Highlight -->
+    <rect x="135" y="25" width="100" height="150" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="1.5"/>
+    <circle cx="185" cy="70" r="16" fill="#10b981" opacity="0.2"/>
+    <circle cx="185" cy="70" r="5" fill="#10b981"/>
+    <circle cx="185" cy="130" r="16" fill="#10b981" opacity="0.2"/>
+    <circle cx="185" cy="130" r="5" fill="#10b981"/>
+    <text x="185" y="155" text-anchor="middle" font-family="Inter, sans-serif" font-size="8px" font-weight="700" fill="#10b981">ZONE 02 (ACTIVE)</text>
+
+    <!-- Zone 03 & 04 -->
+    <circle cx="285" cy="60" r="4" fill="#f59e0b"/>
+    <circle cx="285" cy="140" r="4" fill="#818cf8"/>
+  </g>
+
+  <!-- Zone Cards List -->
+  <g transform="translate(20, 280)">
+    <!-- Zone 01 Card -->
+    <rect x="0" y="0" width="360" height="52" class="card-bg"/>
+    <circle cx="20" cy="26" r="6" fill="#38bdf8"/>
+    <text x="36" y="25" class="title" font-size="12px">Zone 01 · Reception &amp; Lobby</text>
+    <text x="36" y="40" class="sub">2 Units Active · 450 m³/h · AQI 96</text>
+    <text x="340" y="30" text-anchor="end" font-family="Inter, sans-serif" font-size="11px" font-weight="700" fill="#10b981">GOOD</text>
+
+    <!-- Zone 02 Card (Selected) -->
+    <rect x="0" y="60" width="360" height="52" class="zone-active"/>
+    <circle cx="20" cy="86" r="6" fill="#10b981"/>
+    <text x="36" y="85" class="title" font-size="12px">Zone 02 · Open Workstations</text>
+    <text x="36" y="100" class="sub">4 Units Active · 820 m³/h · AQI 98</text>
+    <text x="340" y="90" text-anchor="end" font-family="Inter, sans-serif" font-size="11px" font-weight="700" fill="#10b981">OPTIMAL</text>
+
+    <!-- Zone 03 Card -->
+    <rect x="0" y="120" width="360" height="52" class="card-bg"/>
+    <circle cx="20" cy="146" r="6" fill="#f59e0b"/>
+    <text x="36" y="145" class="title" font-size="12px">Zone 03 · Executive Boardroom</text>
+    <text x="36" y="160" class="sub">1 Unit Active · CO2 Priority Purge</text>
+    <text x="340" y="150" text-anchor="end" font-family="Inter, sans-serif" font-size="11px" font-weight="700" fill="#f59e0b">SURGE</text>
+
+    <!-- Zone 04 Card -->
+    <rect x="0" y="180" width="360" height="52" class="card-bg"/>
+    <circle cx="20" cy="206" r="6" fill="#818cf8"/>
+    <text x="36" y="205" class="title" font-size="12px">Zone 04 · Collaboration Lounge</text>
+    <text x="36" y="220" class="sub">2 Units Active · Whisper Mode (28 dBA)</text>
+    <text x="340" y="210" text-anchor="end" font-family="Inter, sans-serif" font-size="11px" font-weight="700" fill="#10b981">GOOD</text>
+  </g>
+</svg>

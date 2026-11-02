@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+      .step-card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.2; rx: 4; }
+      .step-header { rx: 4 4 0 0; }
+      .flow-arrow { stroke: #0284c7; stroke-width: 2.5; fill: none; }
+      .branch-fail { stroke: #e11d48; stroke-width: 2; stroke-dasharray: 4 4; fill: none; }
+      .branch-pass { stroke: #10b981; stroke-width: 2; fill: none; }
+      .parallel-card { fill: #faf5ff; stroke: #c084fc; stroke-width: 1.2; rx: 4; }
+      .verified-badge { fill: #eff6ff; stroke: #3b82f6; stroke-width: 1; rx: 3; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="620" class="bg"/>
+
+  <!-- Top Title Banner -->
+  <rect x="40" y="20" width="1120" height="42" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="60" y="46" class="font-sans" font-size="14px" font-weight="700" fill="#0f172a">Section 06 · End-to-End Industrial Flow: How Systems Relate in a Factory</text>
+  <text x="690" y="46" class="font-sans" font-size="11px" fill="#64748b">Primary production pipeline, automated quality branch &amp; parallel facility operations</text>
+
+  <!-- Legend Bar -->
+  <g transform="translate(40, 72)">
+    <rect width="1120" height="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+    <g transform="translate(20, 8)">
+      <rect width="12" height="12" rx="2" fill="#0284c7"/>
+      <text x="20" y="10" class="font-sans" font-size="10.5px" font-weight="600" fill="#0f172a">MAIN PRODUCTION PIPELINE (Planning → Execution → Inspection)</text>
+    </g>
+    <g transform="translate(560, 8)">
+      <rect width="12" height="12" rx="2" fill="#e11d48"/>
+      <text x="20" y="10" class="font-sans" font-size="10.5px" font-weight="600" fill="#0f172a">QUALITY EXCEPTION BRANCH (Automated Non-Conformance)</text>
+    </g>
+    <g transform="translate(940, 8)">
+      <rect width="12" height="12" rx="2" fill="#7c3aed"/>
+      <text x="20" y="10" class="font-sans" font-size="10.5px" font-weight="600" fill="#0f172a">PARALLEL SITE OPERATION</text>
+    </g>
+  </g>
+
+  <!-- MAIN PRODUCTION FLOW TRACK (Top Row) -->
+  <g transform="translate(40, 115)">
+    
+    <!-- STEP 01: ERP (Plan the Work) -->
+    <g transform="translate(0, 0)">
+      <rect width="260" height="230" class="step-card"/>
+      <rect width="260" height="32" class="step-header" fill="#4f46e5"/>
+      <text x="14" y="21" class="font-sans" font-size="11px" font-weight="700" fill="#ffffff">01 / Plan the Work — ERP</text>
+      
+      <g transform="translate(14, 46)">
+        <text x="0" y="14" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">Enterprise Planning &amp; Ledger</text>
+        <text x="0" y="32" class="font-sans" font-size="9.5px" fill="#64748b">Business requirements, raw material allocation, and scheduling.</text>
+        
+        <rect y="44" width="232" height="48" fill="#f8fafc" stroke="#e2e8f0" rx="3"/>
+        <text x="10" y="62" class="font-sans" font-size="9px" font-weight="600" fill="#1e293b">Batch Lot B-881 (Ti-6Al-4V)</text>
+        <text x="10" y="78" class="font-sans" font-size="8.5px" fill="#4f46e5">Work Order #WO-8912 Generated</text>
+
+        <rect y="102" width="232" height="26" class="verified-badge"/>
+        <text x="10" y="118" class="font-sans" font-size="8.5px" font-weight="600" fill="#1e40af">✓ Handshake: ERP ↔ MES API</text>
+      </g>
+    </g>
+
+    <!-- Arrow 1 to 2 -->
+    <path d="M 265 115 L 295 115" class="flow-arrow"/>
+    <polygon points="295,115 287,110 287,120" fill="#0284c7"/>
+
+    <!-- STEP 02: MES (Execute the Work) -->
+    <g transform="translate(300, 0)">
+      <rect width="260" height="230" class="step-card"/>
+      <rect width="260" height="32" class="step-header" fill="#059669"/>
+      <text x="14" y="21" class="font-sans" font-size="11px" font-weight="700" fill="#ffffff">02 / Execute the Work — MES</text>
+      
+      <g transform="translate(14, 46)">
+        <text x="0" y="14" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">Manufacturing Execution</text>
+        <text x="0" y="32" class="font-sans" font-size="9.5px" fill="#64748b">Tracking active shop floor operations, CNC spindle speed &amp; cycle times.</text>
+        
+        <rect y="44" width="232" height="48" fill="#f8fafc" stroke="#e2e8f0" rx="3"/>
+        <text x="10" y="62" class="font-sans" font-size="9px" font-weight="600" fill="#1e293b">Line 03 CNC Station Active</text>
+        <text x="10" y="78" class="font-sans" font-size="8.5px" fill="#059669">412 / 500 Parts Machined</text>
+
+        <rect y="102" width="232" height="26" class="verified-badge"/>
+        <text x="10" y="118" class="font-sans" font-size="8.5px" font-weight="600" fill="#1e40af">✓ Part routed to Inspection Cell</text>
+      </g>
+    </g>
+
+    <!-- Arrow 2 to 3 -->
+    <path d="M 565 115 L 595 115" class="flow-arrow"/>
+    <polygon points="595,115 587,110 587,120" fill="#0284c7"/>
+
+    <!-- STEP 03: Nordic Vision (Inspect the Result) -->
+    <g transform="translate(600, 0)">
+      <rect width="260" height="230" class="step-card"/>
+      <rect width="260" height="32" class="step-header" fill="#0284c7"/>
+      <text x="14" y="21" class="font-sans" font-size="11px" font-weight="700" fill="#ffffff">03 / Inspect Result — Vision</text>
+      
+      <g transform="translate(14, 46)">
+        <text x="0" y="14" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">Machine Vision Inspection</text>
+        <text x="0" y="32" class="font-sans" font-size="9.5px" fill="#64748b">Automated 4K optical scan verifies dimensions and scans for fractures.</text>
+        
+        <rect y="44" width="232" height="48" fill="#090d16" stroke="#1e293b" rx="3"/>
+        <text x="10" y="62" class="font-sans" font-size="9px" font-weight="700" fill="#38bdf8">Optical Station 04</text>
+        <text x="10" y="78" class="font-sans" font-size="8.5px" fill="#f43f5e">Micro-Crack Flagged (98.4%)</text>
+
+        <!-- Two Branching Paths -->
+        <g transform="translate(0, 102)">
+          <text x="0" y="10" class="font-sans" font-size="8px" font-weight="700" fill="#10b981">IF PASS →</text>
+          <text x="50" y="10" class="font-sans" font-size="8px" fill="#475569">Release to ERP Dispatch</text>
+          <text x="0" y="24" class="font-sans" font-size="8px" font-weight="700" fill="#e11d48">IF DEFECT →</text>
+          <text x="60" y="24" class="font-sans" font-size="8px" fill="#e11d48">Route to EQMS Audit (Step 04)</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Defect Arrow branching to Step 04 (EQMS) -->
+    <path d="M 865 115 L 895 115" class="branch-fail"/>
+    <polygon points="895,115 887,110 887,120" fill="#e11d48"/>
+
+    <!-- STEP 04: Nordic EQMS (Address a Quality Issue) -->
+    <g transform="translate(900, 0)">
+      <rect width="220" height="230" class="step-card" stroke="#fca5a5" stroke-width="1.5"/>
+      <rect width="220" height="32" class="step-header" fill="#d97706"/>
+      <text x="14" y="21" class="font-sans" font-size="11px" font-weight="700" fill="#ffffff">04 / Quality Issue — EQMS</text>
+      
+      <g transform="translate(14, 46)">
+        <text x="0" y="14" class="font-sans" font-size="11.5px" font-weight="700" fill="#991b1b">Quality Management</text>
+        <text x="0" y="32" class="font-sans" font-size="9.5px" fill="#64748b">Documents non-conformance, triggers investigation, pauses line.</text>
+        
+        <rect y="44" width="192" height="48" fill="#fff1f2" stroke="#fecdd3" rx="3"/>
+        <text x="10" y="62" class="font-sans" font-size="9px" font-weight="700" fill="#9f1239">Report #NC-4402 Auto-Created</text>
+        <text x="10" y="78" class="font-sans" font-size="8.5px" fill="#be123c">CAPA Auditor Assigned</text>
+
+        <rect y="102" width="192" height="26" class="verified-badge" stroke="#f43f5e"/>
+        <text x="8" y="118" class="font-sans" font-size="8px" font-weight="700" fill="#e11d48">⚡ Interlock: MES Line Halted</text>
+      </g>
+    </g>
+
+    <!-- Return Interlock Loop Arrow (EQMS back to MES) -->
+    <path d="M 1010 235 L 1010 255 L 430 255 L 430 235" stroke="#e11d48" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+    <text x="720" y="250" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#e11d48">AUTOMATED SAFETY INTERLOCK: EQMS halts Line 03 CNC until quality sign-off</text>
+  </g>
+
+  <!-- PARALLEL FACILITY TRACK (Step 05: Visitor Management) -->
+  <g transform="translate(40, 395)">
+    <rect width="1120" height="185" class="parallel-card"/>
+    <rect width="1120" height="34" class="step-header" fill="#7c3aed"/>
+    <text x="20" y="22" class="font-sans" font-size="12px" font-weight="700" fill="#ffffff">05 / Parallel Facility Operation — Nordic Visitor Management</text>
+    <text x="820" y="22" class="font-sans" font-size="10.5px" font-weight="600" fill="#ede9fe">Facility Access &amp; Compliance (Runs Alongside Factory Flow)</text>
+
+    <g transform="translate(20, 48)">
+      <!-- Left Explanation -->
+      <g transform="translate(0, 0)">
+        <text x="0" y="16" class="font-sans" font-size="12px" font-weight="700" fill="#0f172a">Managing the People Entering the Industrial Site</text>
+        <text x="0" y="34" class="font-sans" font-size="10px" fill="#475569" width="380">Alongside physical component production, the plant must govern people entering restricted cleanrooms and machinery zones. Visitor Management operates as a dedicated facility service.</text>
+
+        <rect y="64" width="360" height="50" fill="#ffffff" stroke="#cbd5e1" rx="3"/>
+        <text x="12" y="82" class="font-sans" font-size="9.5px" font-weight="700" fill="#0f172a">Operational Role in this Scenario:</text>
+        <text x="12" y="98" class="font-sans" font-size="9px" fill="#581c87">External ISO auditor H. Larsson arrives to audit Non-Conformance #NC-4402. System issues Zone 02 Cleanroom escort pass.</text>
+      </g>
+
+      <!-- Right Step Cards for Visitor Kiosk -->
+      <g transform="translate(400, 0)">
+        <rect width="215" height="114" fill="#ffffff" stroke="#e2e8f0" rx="3"/>
+        <text x="12" y="22" class="font-sans" font-size="10px" font-weight="700" fill="#7c3aed">A. Gate 01 Self-Check-in</text>
+        <text x="12" y="38" class="font-sans" font-size="8.5px" fill="#64748b">Digital touch kiosk registers external contractors &amp; ISO auditors.</text>
+        <rect x="12" y="58" width="191" height="20" rx="2" fill="#faf5ff"/>
+        <text x="18" y="72" class="font-sans" font-size="8px" fill="#6b21a8">Badge: PAS-091 Printed</text>
+        <text x="12" y="98" class="font-sans" font-size="8px" fill="#10b981">✓ Digital NDA Signed</text>
+
+        <rect x="230" width="215" height="114" fill="#ffffff" stroke="#e2e8f0" rx="3"/>
+        <text x="12" y="22" class="font-sans" font-size="10px" font-weight="700" fill="#7c3aed">B. Zone Credentialing</text>
+        <text x="12" y="38" class="font-sans" font-size="8.5px" fill="#64748b">Restricts facility access based on required PPE and training certifications.</text>
+        <rect x="12" y="58" width="191" height="20" rx="2" fill="#faf5ff"/>
+        <text x="18" y="72" class="font-sans" font-size="8px" fill="#6b21a8">Zone 02: Cleanroom Authorized</text>
+        <text x="12" y="98" class="font-sans" font-size="8px" fill="#10b981">✓ Escort Protocol Active</text>
+
+        <rect x="460" width="220" height="114" fill="#ffffff" stroke="#e2e8f0" rx="3"/>
+        <text x="12" y="22" class="font-sans" font-size="10px" font-weight="700" fill="#7c3aed">C. Independent Service Context</text>
+        <text x="12" y="38" class="font-sans" font-size="8.5px" fill="#64748b">Runs independently of manufacturing lines, yet shares unified SSO and security directory.</text>
+        <rect x="12" y="58" width="196" height="20" rx="2" fill="#faf5ff"/>
+        <text x="18" y="72" class="font-sans" font-size="8px" fill="#6b21a8">Platform Directory Synced</text>
+        <text x="12" y="98" class="font-sans" font-size="8px" fill="#0369a1">✓ Zero factory downtime risk</text>
+      </g>
+    </g>
+  </g>
+</svg>

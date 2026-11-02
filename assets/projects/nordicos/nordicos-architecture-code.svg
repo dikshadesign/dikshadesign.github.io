@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #070d19; }
+      .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+      .code-font { font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; }
+      .card-dark { fill: #0f172a; stroke: #1e293b; stroke-width: 1.2; rx: 4; }
+      .card-sub { fill: #111e38; stroke: #38bdf8; stroke-width: 1; rx: 3; }
+      .bus-arrow { stroke: #38bdf8; stroke-width: 2; stroke-dasharray: 4 4; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="620" class="bg"/>
+
+  <!-- Top Title Banner -->
+  <rect x="40" y="20" width="1120" height="42" fill="#0f172a" stroke="#1e293b" stroke-width="1" rx="4"/>
+  <text x="60" y="46" class="font-sans" font-size="14px" font-weight="700" fill="#f8fafc">Section 07 &amp; 08 · End-to-End Product Architecture &amp; Full-Stack Implementation</text>
+  <text x="730" y="46" class="font-sans" font-size="11px" fill="#94a3b8">Sole Designer &amp; Developer: From Design System Tokens to Frontend &amp; Backend Implementation</text>
+
+  <!-- 3 COLUMNS: Frontend & Design System (Left) | API & Application Logic (Center) | Database Schema (Right) -->
+  <g transform="translate(40, 78)">
+    
+    <!-- COLUMN 1: Frontend & Design System (355px) -->
+    <g transform="translate(0, 0)">
+      <rect width="355" height="505" class="card-dark"/>
+      <rect width="355" height="36" fill="#1e293b" rx="4 4 0 0"/>
+      <text x="16" y="23" class="font-sans" font-size="12px" font-weight="700" fill="#38bdf8">01 / FRONTEND &amp; DESIGN SYSTEM</text>
+      
+      <g transform="translate(16, 50)">
+        <text x="0" y="14" class="font-sans" font-size="11px" font-weight="700" fill="#f8fafc">Design Token Foundation (0px Radius)</text>
+        <text x="0" y="30" class="font-sans" font-size="9.5px" fill="#94a3b8">Consistent CSS custom properties across typography, spacing, and industrial color semantics.</text>
+
+        <!-- Code Block 1: Design Tokens -->
+        <rect y="42" width="323" height="120" fill="#070d19" stroke="#1e293b" rx="3"/>
+        <g transform="translate(12, 16)">
+          <text x="0" y="12" class="code-font" font-size="8.5px" fill="#64748b">/* Nordic OS Design Tokens */</text>
+          <text x="0" y="28" class="code-font" font-size="8.5px" fill="#38bdf8">:root {</text>
+          <text x="14" y="44" class="code-font" font-size="8.5px" fill="#f1f5f9">--radius-card: <tspan fill="#f59e0b">0px</tspan>; /* Industrial aesthetic */</text>
+          <text x="14" y="60" class="code-font" font-size="8.5px" fill="#f1f5f9">--hit-target-touch: <tspan fill="#f59e0b">44px</tspan>; /* Gloved floor */</text>
+          <text x="14" y="76" class="code-font" font-size="8.5px" fill="#f1f5f9">--color-bom-active: <tspan fill="#38bdf8">#38bdf8</tspan>;</text>
+          <text x="14" y="92" class="code-font" font-size="8.5px" fill="#f1f5f9">--color-dap-verified: <tspan fill="#10b981">#10b981</tspan>;</text>
+          <text x="0" y="108" class="code-font" font-size="8.5px" fill="#38bdf8">}</text>
+        </g>
+
+        <!-- Reusable Component Hierarchy -->
+        <text x="0" y="185" class="font-sans" font-size="11px" font-weight="700" fill="#f8fafc">Reusable Component Architecture</text>
+        
+        <rect y="196" width="323" height="45" fill="#111827" stroke="#1e293b" rx="3"/>
+        <text x="12" y="216" class="font-sans" font-size="10px" font-weight="600" fill="#cbd5e1">&lt;BOMDataTable /&gt;</text>
+        <text x="12" y="232" class="font-sans" font-size="8.5px" fill="#64748b">Virtual scrolling, inline quantity edit, lead-time status chips</text>
+
+        <rect y="248" width="323" height="45" fill="#111827" stroke="#1e293b" rx="3"/>
+        <text x="12" y="268" class="font-sans" font-size="10px" font-weight="600" fill="#cbd5e1">&lt;AssemblyWorkcellHMI /&gt;</text>
+        <text x="12" y="284" class="font-sans" font-size="8.5px" fill="#64748b">Touch-optimized routing steps, torque entry, technician sign-off</text>
+
+        <rect y="300" width="323" height="45" fill="#111827" stroke="#1e293b" rx="3"/>
+        <text x="12" y="320" class="font-sans" font-size="10px" font-weight="600" fill="#cbd5e1">&lt;DAPApprovalTimeline /&gt;</text>
+        <text x="12" y="336" class="font-sans" font-size="8.5px" fill="#64748b">E-signature flow, engineering CAD attachment viewer</text>
+
+        <!-- Implementation note -->
+        <g transform="translate(0, 360)">
+          <rect width="323" height="75" class="card-sub"/>
+          <text x="12" y="22" class="font-sans" font-size="10px" font-weight="700" fill="#38bdf8">Frontend Execution Note:</text>
+          <text x="12" y="40" class="font-sans" font-size="9px" fill="#cbd5e1">Engineered single-page application (SPA) with optimistic client state updates. When a technician checks off an assembly step, the UI confirms immediately before network round-trips.</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- COLUMN 2: Application Logic & REST/WebSocket APIs (355px) -->
+    <g transform="translate(382, 0)">
+      <rect width="355" height="505" class="card-dark"/>
+      <rect width="355" height="36" fill="#1e293b" rx="4 4 0 0"/>
+      <text x="16" y="23" class="font-sans" font-size="12px" font-weight="700" fill="#10b981">02 / BACKEND APPLICATION LOGIC</text>
+
+      <g transform="translate(16, 50)">
+        <text x="0" y="14" class="font-sans" font-size="11px" font-weight="700" fill="#f8fafc">Node.js / Express API Service</text>
+        <text x="0" y="30" class="font-sans" font-size="9.5px" fill="#94a3b8">Business logic coordinating manufacturing states and inventory reconciliation.</text>
+
+        <!-- Code Block 2: API Route Logic -->
+        <rect y="42" width="323" height="145" fill="#070d19" stroke="#1e293b" rx="3"/>
+        <g transform="translate(12, 16)">
+          <text x="0" y="12" class="code-font" font-size="8.5px" fill="#64748b">// Assembly Step Sign-off Controller</text>
+          <text x="0" y="28" class="code-font" font-size="8.5px" fill="#10b981">app.post('/api/assembly/complete-step',</text>
+          <text x="14" y="44" class="code-font" font-size="8.5px" fill="#f1f5f9">async (req, res) =&gt; {</text>
+          <text x="24" y="60" class="code-font" font-size="8.5px" fill="#94a3b8">const { runId, stepNo, techId } = req.body;</text>
+          <text x="24" y="76" class="code-font" font-size="8.5px" fill="#f59e0b">await db.tx(async t =&gt; {</text>
+          <text x="34" y="92" class="code-font" font-size="8.5px" fill="#cbd5e1">await updateAssemblyStep(t, runId, stepNo);</text>
+          <text x="34" y="108" class="code-font" font-size="8.5px" fill="#cbd5e1">await updateProjectProgress(t, runId);</text>
+          <text x="34" y="124" class="code-font" font-size="8.5px" fill="#cbd5e1">broadcastWebSocket('STAGE_UPDATE', runId);</text>
+          <text x="24" y="138" class="code-font" font-size="8.5px" fill="#f59e0b">});</text>
+        </g>
+
+        <!-- Real-Time WebSocket Channel -->
+        <text x="0" y="210" class="font-sans" font-size="11px" font-weight="700" fill="#f8fafc">Real-Time WebSocket Synchronization</text>
+        
+        <rect y="222" width="323" height="70" fill="#111827" stroke="#1e293b" rx="3"/>
+        <text x="12" y="244" class="font-sans" font-size="10px" font-weight="600" fill="#10b981">● ws://nordic-os/live-feed</text>
+        <text x="12" y="262" class="font-sans" font-size="9px" fill="#cbd5e1">Instant event propagation between shop-floor tablets and office PM desktop monitors. Zero polling delay.</text>
+
+        <g transform="translate(0, 310)">
+          <rect width="323" height="125" class="card-sub" stroke="#10b981"/>
+          <text x="12" y="22" class="font-sans" font-size="10px" font-weight="700" fill="#10b981">Full-Stack Co-Design Advantage:</text>
+          <text x="12" y="42" class="font-sans" font-size="9px" fill="#cbd5e1">Because I built both frontend and backend, interface state models matched API payloads 1:1. Form validations, error handling, and authorization tokens were designed simultaneously without coordination lag or mismatched spec handoffs.</text>
+          <text x="12" y="108" class="font-sans" font-size="8.5px" font-weight="600" fill="#34d399">Zero Spec Handoff Waste · 100% Type-Safe Contracts</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- COLUMN 3: Relational PostgreSQL Schema (355px) -->
+    <g transform="translate(765, 0)">
+      <rect width="355" height="505" class="card-dark"/>
+      <rect width="355" height="36" fill="#1e293b" rx="4 4 0 0"/>
+      <text x="16" y="23" class="font-sans" font-size="12px" font-weight="700" fill="#f59e0b">03 / RELATIONAL DATA MODEL</text>
+
+      <g transform="translate(16, 50)">
+        <text x="0" y="14" class="font-sans" font-size="11px" font-weight="700" fill="#f8fafc">PostgreSQL Entity Relationships</text>
+        <text x="0" y="30" class="font-sans" font-size="9.5px" fill="#94a3b8">Strict foreign keys connecting the manufacturing lifecycle.</text>
+
+        <!-- Schema Block: Tables -->
+        <rect y="42" width="323" height="75" fill="#070d19" stroke="#1e293b" rx="3"/>
+        <text x="12" y="62" class="code-font" font-size="9.5px" font-weight="700" fill="#38bdf8">TABLE projects</text>
+        <text x="12" y="78" class="code-font" font-size="8px" fill="#64748b">id (PK) · name · client · target_date · status</text>
+        <text x="12" y="94" class="code-font" font-size="8px" fill="#10b981">Has many: dap_documents, bom_items, assembly_runs</text>
+
+        <rect y="125" width="323" height="75" fill="#070d19" stroke="#1e293b" rx="3"/>
+        <text x="12" y="145" class="code-font" font-size="9.5px" font-weight="700" fill="#4f46e5">TABLE bom_items</text>
+        <text x="12" y="161" class="code-font" font-size="8px" fill="#64748b">id (PK) · project_id (FK) · sku · description · qty</text>
+        <text x="12" y="177" class="code-font" font-size="8px" fill="#10b981">Relates to: purchase_orders (FK)</text>
+
+        <rect y="208" width="323" height="75" fill="#070d19" stroke="#1e293b" rx="3"/>
+        <text x="12" y="228" class="code-font" font-size="9.5px" font-weight="700" fill="#059669">TABLE assembly_runs</text>
+        <text x="12" y="244" class="code-font" font-size="8px" fill="#64748b">id (PK) · project_id (FK) · station_id · stage · signed_by</text>
+        <text x="12" y="260" class="code-font" font-size="8px" fill="#10b981">Relates to: technician_roster (FK)</text>
+
+        <!-- Schema Benefits -->
+        <g transform="translate(0, 300)">
+          <rect width="323" height="135" class="card-sub" stroke="#f59e0b"/>
+          <text x="12" y="22" class="font-sans" font-size="10px" font-weight="700" fill="#f59e0b">Data Integrity Guarantee:</text>
+          <text x="12" y="42" class="font-sans" font-size="9px" fill="#cbd5e1">Disconnected spreadsheets lead to phantom parts and mismatched revisions. With a relational schema, an assembly technician cannot sign off on an un-procured component, and an engineer cannot delete a BOM item under active production.</text>
+          <rect x="12" y="98" width="230" height="20" rx="3" fill="#1e293b"/>
+          <text x="20" y="112" class="font-sans" font-size="8px" font-weight="600" fill="#fde68a">Foreign Key Constraint Enforcement Active</text>
+        </g>
+      </g>
+    </g>
+
+  </g>
+</svg>

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .header-title { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 15px; font-weight: 700; fill: #0f172a; }
+      .header-sub { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 11px; fill: #64748b; }
+      .card-left { fill: #ffffff; stroke: #38bdf8; stroke-width: 1.5; rx: 4; }
+      .card-right { fill: #ffffff; stroke: #10b981; stroke-width: 1.5; rx: 4; }
+      .tag-left { fill: rgba(56, 189, 248, 0.12); stroke: #38bdf8; rx: 10; }
+      .tag-right { fill: rgba(16, 185, 129, 0.12); stroke: #10b981; rx: 10; }
+      .tag-text-left { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 9.5px; font-weight: 700; fill: #0284c7; letter-spacing: 0.08em; text-transform: uppercase; }
+      .tag-text-right { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 9.5px; font-weight: 700; fill: #059669; letter-spacing: 0.08em; text-transform: uppercase; }
+      .card-title { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 16px; font-weight: 700; fill: #0f172a; }
+      .item-title { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 11.5px; font-weight: 700; fill: #1e293b; }
+      .item-desc { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 11px; fill: #475569; line-height: 1.5; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="440" class="bg"/>
+
+  <!-- Top Title Banner -->
+  <rect x="40" y="25" width="1120" height="44" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+  <text x="64" y="52" class="header-title">Nordic ONE · Consistency at Platform Level vs. Flexibility at Application Level</text>
+  <text x="730" y="52" class="header-sub">Balancing coherent systemic identity with domain-specific operating realities</text>
+
+  <!-- Left Card: Platform Consistency -->
+  <g transform="translate(40, 85)">
+    <rect width="545" height="325" class="card-left"/>
+    <rect x="20" y="18" width="220" height="24" class="tag-left"/>
+    <text x="130" y="34" text-anchor="middle" class="tag-text-left">PLATFORM-LEVEL CONSISTENCY</text>
+    <text x="20" y="68" class="card-title">Shared Framework &amp; Identity</text>
+
+    <!-- Visual Box -->
+    <g transform="translate(20, 85)">
+      <rect width="505" height="95" fill="#f0f9ff" stroke="#bae6fd" rx="3"/>
+      <!-- Global App Header mini mockup -->
+      <rect x="20" y="15" width="465" height="26" fill="#0f172a" rx="3"/>
+      <circle cx="35" cy="28" r="3" fill="#38bdf8"/>
+      <text x="46" y="32" font-family="Inter, sans-serif" font-size="9px" font-weight="700" fill="#f8fafc">NORDIC ONE</text>
+      <rect x="180" y="19" width="140" height="18" fill="#1e293b" rx="2"/>
+      <text x="190" y="31" font-family="Inter, sans-serif" font-size="8px" fill="#94a3b8">Universal Search (⌘K)</text>
+      <!-- Pills -->
+      <rect x="20" y="52" width="90" height="22" rx="11" fill="#ffffff" stroke="#38bdf8"/>
+      <text x="65" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.5px" font-weight="700" fill="#0284c7">Shared Token System</text>
+      
+      <rect x="120" y="52" width="110" height="22" rx="11" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="175" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.5px" font-weight="600" fill="#475569">Single Sign-On SSO</text>
+
+      <rect x="240" y="52" width="115" height="22" rx="11" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="297" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.5px" font-weight="600" fill="#475569">0px Geometric Form</text>
+    </g>
+
+    <!-- Items -->
+    <g transform="translate(20, 205)">
+      <text x="0" y="14" class="item-title">• Universal Navigation Shell</text>
+      <text x="0" y="32" class="item-desc">Seamless jumping across any of the 5 applications without re-authenticating or losing context.</text>
+
+      <text x="0" y="64" class="item-title">• Common Data Typography &amp; Tokens</text>
+      <text x="0" y="82" class="item-desc">Standardized status pills (Optimal, Warning, Critical) and tabular layout rules across all screens.</text>
+    </g>
+  </g>
+
+  <!-- Right Card: Application Flexibility -->
+  <g transform="translate(615, 85)">
+    <rect width="545" height="325" class="card-right"/>
+    <rect x="20" y="18" width="230" height="24" class="tag-right"/>
+    <text x="135" y="34" text-anchor="middle" class="tag-text-right">APPLICATION-LEVEL FLEXIBILITY</text>
+    <text x="20" y="68" class="card-title">Specialized Domain Workflows</text>
+
+    <!-- Visual Box -->
+    <g transform="translate(20, 85)">
+      <rect width="505" height="95" fill="#f0fdf4" stroke="#bbf7d0" rx="3"/>
+      <!-- Custom inspection canvas / shop floor tiles -->
+      <g transform="translate(20, 15)">
+        <rect width="145" height="65" fill="#020617" stroke="#334155" rx="3"/>
+        <text x="12" y="22" font-family="monospace" font-size="8px" fill="#38bdf8">Vision Canvas</text>
+        <circle cx="72" cy="40" r="14" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="2 2"/>
+        <text x="72" y="43" text-anchor="middle" font-family="monospace" font-size="7px" fill="#10b981">99.8%</text>
+      </g>
+      <g transform="translate(180, 15)">
+        <rect width="145" height="65" fill="#064e3b" stroke="#059669" rx="3"/>
+        <text x="12" y="22" font-family="Inter, sans-serif" font-size="8.5px" font-weight="700" fill="#ecfdf5">MES Touch UI</text>
+        <rect x="12" y="32" width="120" height="22" fill="#10b981" rx="3"/>
+        <text x="72" y="47" text-anchor="middle" font-family="Inter, sans-serif" font-size="8px" font-weight="800" fill="#022c22">GLOVE TAP PASS</text>
+      </g>
+      <g transform="translate(340, 15)">
+        <rect width="145" height="65" fill="#1e1b4b" stroke="#6366f1" rx="3"/>
+        <text x="12" y="22" font-family="Inter, sans-serif" font-size="8.5px" font-weight="700" fill="#e0e7ff">ERP Multi-Ledger</text>
+        <text x="12" y="42" font-family="monospace" font-size="7.5px" fill="#c7d2fe">BOM Nested Tree</text>
+        <text x="12" y="55" font-family="monospace" font-size="7.5px" fill="#a5b4fc">Procurement Sync</text>
+      </g>
+    </g>
+
+    <!-- Items -->
+    <g transform="translate(20, 205)">
+      <text x="0" y="14" class="item-title">• High-Frame-Rate Optical Canvas</text>
+      <text x="0" y="32" class="item-desc">Nordic Vision requires full-screen dark canvas with millisecond controls for camera tuning.</text>
+
+      <text x="0" y="64" class="item-title">• High-Contrast Industrial Touch Targets</text>
+      <text x="0" y="82" class="item-desc">Nordic MES introduces 64px touch buttons designed for factory operators wearing heavy safety gloves.</text>
+    </g>
+  </g>
+</svg>

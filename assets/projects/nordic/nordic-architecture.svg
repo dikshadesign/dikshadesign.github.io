@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .header-title { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 15px; font-weight: 700; fill: #0f172a; }
+      .header-sub { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 11px; fill: #64748b; }
+      .shell-card { fill: #0f172a; stroke: #38bdf8; stroke-width: 1.5; rx: 6; }
+      .shared-card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.2; rx: 4; }
+      .app-card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.2; rx: 4; }
+      .title-white { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 13px; font-weight: 700; fill: #f8fafc; }
+      .text-title { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 12.5px; font-weight: 700; fill: #0f172a; }
+      .text-sub { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 10px; fill: #64748b; line-height: 1.45; }
+      .bus-line { stroke: #38bdf8; stroke-width: 2; stroke-dasharray: 4 4; fill: none; }
+      .solid-arrow { stroke: #64748b; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="520" class="bg"/>
+
+  <!-- Top Title Banner -->
+  <rect x="40" y="25" width="1120" height="42" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+  <text x="64" y="51" class="header-title">Nordic ONE · Platform Architecture &amp; Ecosystem Hierarchy</text>
+  <text x="730" y="51" class="header-sub">Overarching platform shell connecting specialised domain micro-applications</text>
+
+  <!-- Level 01: Nordic ONE Central Shell & Global Launcher -->
+  <g transform="translate(40, 85)">
+    <rect width="1120" height="85" class="shell-card"/>
+    <g transform="translate(24, 20)">
+      <rect width="28" height="28" rx="4" fill="#38bdf8"/>
+      <polygon points="14,6 21,22 7,22" fill="#0f172a"/>
+      <text x="40" y="20" class="title-white" font-size="16px">NORDIC <tspan fill="#38bdf8">ONE</tspan> · Unified Platform Shell</text>
+      <text x="40" y="38" font-family="Inter, sans-serif" font-size="11px" fill="#94a3b8">Shared Global Entrypoint · Universal Search (⌘K) · Role-Based Navigation · Cross-App Switcher</text>
+    </g>
+
+    <!-- Shell Core Features -->
+    <g transform="translate(680, 22)">
+      <rect x="0" y="0" width="130" height="40" rx="4" fill="#1e293b"/>
+      <text x="65" y="24" text-anchor="middle" font-family="Inter, sans-serif" font-size="10px" font-weight="600" fill="#f8fafc">Single Sign-On (SSO)</text>
+
+      <rect x="145" y="0" width="130" height="40" rx="4" fill="#1e293b"/>
+      <text x="210" y="24" text-anchor="middle" font-family="Inter, sans-serif" font-size="10px" font-weight="600" fill="#f8fafc">Global Audit Logging</text>
+
+      <rect x="290" y="0" width="130" height="40" rx="4" fill="#1e293b"/>
+      <text x="355" y="24" text-anchor="middle" font-family="Inter, sans-serif" font-size="10px" font-weight="600" fill="#f8fafc">Cross-App Event Bus</text>
+    </g>
+  </g>
+
+  <!-- Level 02: Shared Design System & Integration Foundation -->
+  <g transform="translate(40, 190)">
+    <!-- Shared Services Bar -->
+    <rect width="1120" height="55" class="shared-card" stroke="#5269b5" stroke-dasharray="3 3"/>
+    <text x="24" y="32" class="text-title" fill="#5269b5">Shared Foundation:</text>
+    <text x="170" y="32" font-family="Inter, sans-serif" font-size="11.5px" fill="#334155">Design System Tokens (Typography, 0px Radius, Colors) · Shared Data Table Components · Universal Toast &amp; Modal Modals · Role Privileges</text>
+  </g>
+
+  <!-- Distribution Bus Lines -->
+  <path d="M 152 245 L 152 285" class="bus-line"/>
+  <path d="M 380 245 L 380 285" class="bus-line"/>
+  <path d="M 600 245 L 600 285" class="bus-line"/>
+  <path d="M 820 245 L 820 285" class="bus-line"/>
+  <path d="M 1048 245 L 1048 285" class="bus-line"/>
+
+  <!-- Level 03: 5 Distinct Specialized Domain Micro-Applications -->
+  <g transform="translate(40, 285)">
+    <!-- App 1: Vision -->
+    <g transform="translate(0, 0)">
+      <rect width="210" height="200" class="app-card" stroke-top="#38bdf8"/>
+      <rect width="210" height="5" fill="#38bdf8" rx="2"/>
+      <text x="16" y="28" class="text-title">Nordic Vision</text>
+      <text x="16" y="44" class="text-sub" font-weight="600" fill="#0284c7">Machine Vision &amp; Inspection</text>
+      <line x1="16" y1="56" x2="194" y2="56" stroke="#f1f5f9"/>
+      <text x="16" y="78" class="text-sub">• Real-time gigabit camera streams</text>
+      <text x="16" y="98" class="text-sub">• Defect polygon canvas overlay</text>
+      <text x="16" y="118" class="text-sub">• AI confidence threshold tuning</text>
+      <text x="16" y="138" class="text-sub">• Millisecond latency telemetry</text>
+      <rect x="16" y="160" width="178" height="24" rx="3" fill="#f0f9ff" stroke="#bae6fd"/>
+      <text x="105" y="176" text-anchor="middle" font-family="monospace" font-size="9px" font-weight="700" fill="#0284c7">DOMAIN: OPTICAL QA</text>
+    </g>
+
+    <!-- App 2: ERP -->
+    <g transform="translate(228, 0)">
+      <rect width="210" height="200" class="app-card"/>
+      <rect width="210" height="5" fill="#818cf8" rx="2"/>
+      <text x="16" y="28" class="text-title">Nordic ERP</text>
+      <text x="16" y="44" class="text-sub" font-weight="600" fill="#4f46e5">Enterprise Resource Planning</text>
+      <line x1="16" y1="56" x2="194" y2="56" stroke="#f1f5f9"/>
+      <text x="16" y="78" class="text-sub">• Bill of Materials (BOM) management</text>
+      <text x="16" y="98" class="text-sub">• Procurement order routing</text>
+      <text x="16" y="118" class="text-sub">• Financial double-entry ledgers</text>
+      <text x="16" y="138" class="text-sub">• Warehouse inventory allocations</text>
+      <rect x="16" y="160" width="178" height="24" rx="3" fill="#eef2ff" stroke="#c7d2fe"/>
+      <text x="105" y="176" text-anchor="middle" font-family="monospace" font-size="9px" font-weight="700" fill="#4f46e5">DOMAIN: ENTERPRISE DATA</text>
+    </g>
+
+    <!-- App 3: MES -->
+    <g transform="translate(456, 0)">
+      <rect width="210" height="200" class="app-card"/>
+      <rect width="210" height="5" fill="#10b981" rx="2"/>
+      <text x="16" y="28" class="text-title">Nordic MES</text>
+      <text x="16" y="44" class="text-sub" font-weight="600" fill="#059669">Manufacturing Execution</text>
+      <line x1="16" y1="56" x2="194" y2="56" stroke="#f1f5f9"/>
+      <text x="16" y="78" class="text-sub">• Live shop floor line dispatch</text>
+      <text x="16" y="98" class="text-sub">• Operator touch terminal UI</text>
+      <text x="16" y="118" class="text-sub">• Machine PLC OEE metrics</text>
+      <text x="16" y="138" class="text-sub">• Shift cycle time optimization</text>
+      <rect x="16" y="160" width="178" height="24" rx="3" fill="#f0fdf4" stroke="#bbf7d0"/>
+      <text x="105" y="176" text-anchor="middle" font-family="monospace" font-size="9px" font-weight="700" fill="#059669">DOMAIN: SHOP FLOOR</text>
+    </g>
+
+    <!-- App 4: EQMS -->
+    <g transform="translate(684, 0)">
+      <rect width="210" height="200" class="app-card"/>
+      <rect width="210" height="5" fill="#f59e0b" rx="2"/>
+      <text x="16" y="28" class="text-title">Nordic EQMS</text>
+      <text x="16" y="44" class="text-sub" font-weight="600" fill="#d97706">Enterprise Quality Mgmt</text>
+      <line x1="16" y1="56" x2="194" y2="56" stroke="#f1f5f9"/>
+      <text x="16" y="78" class="text-sub">• ISO 9001 compliance trails</text>
+      <text x="16" y="98" class="text-sub">• Automated CAPA investigations</text>
+      <text x="16" y="118" class="text-sub">• Non-conformance defect logs</text>
+      <text x="16" y="138" class="text-sub">• Calibration certification logs</text>
+      <rect x="16" y="160" width="178" height="24" rx="3" fill="#fffbeb" stroke="#fde68a"/>
+      <text x="105" y="176" text-anchor="middle" font-family="monospace" font-size="9px" font-weight="700" fill="#d97706">DOMAIN: COMPLIANCE</text>
+    </g>
+
+    <!-- App 5: Visitor Management -->
+    <g transform="translate(912, 0)">
+      <rect width="208" height="200" class="app-card"/>
+      <rect width="208" height="5" fill="#a855f7" rx="2"/>
+      <text x="16" y="28" class="text-title">Nordic Visitor</text>
+      <text x="16" y="44" class="text-sub" font-weight="600" fill="#7e22ce">Access &amp; Security Gateway</text>
+      <line x1="16" y1="56" x2="192" y2="56" stroke="#f1f5f9"/>
+      <text x="16" y="78" class="text-sub">• Self-service kiosk check-in</text>
+      <text x="16" y="98" class="text-sub">• Contractor badge QR printing</text>
+      <text x="16" y="118" class="text-sub">• Safety induction &amp; NDA signing</text>
+      <text x="16" y="138" class="text-sub">• On-site personnel headcount</text>
+      <rect x="16" y="160" width="176" height="24" rx="3" fill="#faf5ff" stroke="#e9d5ff"/>
+      <text x="104" y="176" text-anchor="middle" font-family="monospace" font-size="9px" font-weight="700" fill="#7e22ce">DOMAIN: FACILITY ACCESS</text>
+    </g>
+  </g>
+</svg>

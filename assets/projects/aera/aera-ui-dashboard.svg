@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="100%" height="100%">
+  <defs>
+    <style>
+      .screen-bg { fill: #0f172a; rx: 8; }
+      .card-bg { fill: #1e293b; stroke: #334155; stroke-width: 1; rx: 6; }
+      .metric-title { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 11px; font-weight: 600; fill: #94a3b8; text-transform: uppercase; letter-spacing: 0.06em; }
+      .metric-val { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 20px; font-weight: 700; fill: #f8fafc; }
+      .metric-unit { font-size: 10px; font-weight: 500; fill: #64748b; }
+      .status-pill { fill: rgba(16, 185, 129, 0.15); stroke: #10b981; stroke-width: 1; rx: 10; }
+      .status-text { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 9px; font-weight: 700; fill: #10b981; letter-spacing: 0.06em; }
+    </style>
+  </defs>
+
+  <!-- Screen Frame -->
+  <rect width="400" height="520" class="screen-bg"/>
+  <rect x="0" y="0" width="400" height="520" fill="none" stroke="#334155" stroke-width="1.5" rx="8"/>
+
+  <!-- Top App Navigation Bar -->
+  <g transform="translate(20, 20)">
+    <text x="0" y="16" font-family="Inter, sans-serif" font-size="14px" font-weight="800" fill="#f8fafc" letter-spacing="-0.02em">AERA · AIR</text>
+    <rect x="270" y="2" width="90" height="20" class="status-pill"/>
+    <text x="315" y="15" text-anchor="middle" class="status-text">ZONE: ALL (12)</text>
+    <line x1="0" y1="32" x2="360" y2="32" stroke="#1e293b" stroke-width="1"/>
+  </g>
+
+  <!-- Large AQI Circle Dial -->
+  <g transform="translate(200, 150)">
+    <!-- Outer ring track -->
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#1e293b" stroke-width="8"/>
+    <!-- Active green progress arc (approx 95%) -->
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#10b981" stroke-width="8" stroke-dasharray="415 440" stroke-linecap="round" transform="rotate(-90)"/>
+    <text x="0" y="8" text-anchor="middle" font-family="Inter, sans-serif" font-size="44px" font-weight="800" fill="#f8fafc" letter-spacing="-0.03em">98</text>
+    <text x="0" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-size="10px" font-weight="700" fill="#10b981" letter-spacing="0.1em">EXCELLENT AIR</text>
+  </g>
+
+  <!-- 4 Environmental Metric Cards -->
+  <g transform="translate(20, 255)">
+    <!-- Card 1: PM2.5 -->
+    <rect x="0" y="0" width="172" height="72" class="card-bg"/>
+    <text x="14" y="24" class="metric-title">PM 2.5</text>
+    <text x="14" y="52" class="metric-val">4.2 <tspan class="metric-unit">μg/m³</tspan></text>
+    <circle cx="150" cy="22" r="4" fill="#10b981"/>
+
+    <!-- Card 2: CO2 -->
+    <rect x="188" y="0" width="172" height="72" class="card-bg"/>
+    <text x="202" y="24" class="metric-title">CO2 Level</text>
+    <text x="202" y="52" class="metric-val">485 <tspan class="metric-unit">ppm</tspan></text>
+    <circle cx="338" cy="22" r="4" fill="#10b981"/>
+
+    <!-- Card 3: VOC -->
+    <rect x="0" y="84" width="172" height="72" class="card-bg"/>
+    <text x="14" y="108" class="metric-title">TVOC</text>
+    <text x="14" y="136" class="metric-val">0.06 <tspan class="metric-unit">mg/m³</tspan></text>
+    <circle cx="150" cy="106" r="4" fill="#10b981"/>
+
+    <!-- Card 4: Temp & Humidity -->
+    <rect x="188" y="84" width="172" height="72" class="card-bg"/>
+    <text x="202" y="108" class="metric-title">Temp / RH</text>
+    <text x="202" y="136" class="metric-val">22°C <tspan class="metric-unit">45%</tspan></text>
+    <circle cx="338" cy="106" r="4" fill="#10b981"/>
+  </g>
+
+  <!-- Bottom Mini Trend Graph -->
+  <g transform="translate(20, 435)">
+    <rect width="360" height="65" class="card-bg"/>
+    <text x="14" y="20" font-family="Inter, sans-serif" font-size="9.5px" font-weight="600" fill="#94a3b8">24-HOUR AIR QUALITY TREND</text>
+    <!-- Wave line -->
+    <path d="M 14 48 Q 60 40 100 45 T 180 38 T 260 46 T 346 36" fill="none" stroke="#5269b5" stroke-width="2"/>
+    <circle cx="346" cy="36" r="3.5" fill="#38bdf8"/>
+  </g>
+</svg>

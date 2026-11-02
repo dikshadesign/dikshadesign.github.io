@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .grid { stroke: #e2e8f0; stroke-width: 1; stroke-dasharray: 4 4; }
+      .wall { stroke: #1e293b; stroke-width: 2.5; fill: none; }
+      .wall-thick { stroke: #0f172a; stroke-width: 4; fill: none; }
+      .door { stroke: #64748b; stroke-width: 1.5; fill: none; }
+      .zone-a { fill: rgba(82, 105, 181, 0.08); stroke: rgba(82, 105, 181, 0.3); stroke-dasharray: 6 6; stroke-width: 1.5; }
+      .zone-b { fill: rgba(16, 185, 129, 0.08); stroke: rgba(16, 185, 129, 0.35); stroke-dasharray: 6 6; stroke-width: 1.5; }
+      .zone-c { fill: rgba(245, 158, 11, 0.08); stroke: rgba(245, 158, 11, 0.35); stroke-dasharray: 6 6; stroke-width: 1.5; }
+      .zone-d { fill: rgba(99, 102, 241, 0.08); stroke: rgba(99, 102, 241, 0.35); stroke-dasharray: 6 6; stroke-width: 1.5; }
+      .flow-line { stroke: #5269b5; stroke-width: 1.5; stroke-dasharray: 4 4; fill: none; opacity: 0.7; }
+      .air-circle { fill: none; stroke: #5269b5; stroke-width: 1; opacity: 0.4; }
+      .unit { fill: #5269b5; stroke: #ffffff; stroke-width: 2; }
+      .unit-glow { fill: rgba(82, 105, 181, 0.2); }
+      .desk { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.2; rx: 2; }
+      .chair { fill: #e2e8f0; stroke: #94a3b8; stroke-width: 1; rx: 2; }
+      .title-text { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 15px; font-weight: 700; fill: #0f172a; letter-spacing: -0.02em; }
+      .label-text { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 11px; font-weight: 600; fill: #475569; letter-spacing: 0.04em; text-transform: uppercase; }
+      .sub-text { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 10px; font-weight: 500; fill: #64748b; }
+      .badge-bg { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1; rx: 4; }
+      .badge-text { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+    </style>
+    <radialGradient id="airGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#5269b5" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#5269b5" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#5269b5" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" class="bg"/>
+
+  <!-- Architectural 600x600 mm Ceiling Grid Reference -->
+  <g class="grid">
+    <line x1="80" y1="80" x2="1120" y2="80"/><line x1="80" y1="140" x2="1120" y2="140"/>
+    <line x1="80" y1="200" x2="1120" y2="200"/><line x1="80" y1="260" x2="1120" y2="260"/>
+    <line x1="80" y1="320" x2="1120" y2="320"/><line x1="80" y1="380" x2="1120" y2="380"/>
+    <line x1="80" y1="440" x2="1120" y2="440"/><line x1="80" y1="500" x2="1120" y2="500"/>
+    <line x1="140" y1="80" x2="140" y2="500"/><line x1="200" y1="80" x2="200" y2="500"/>
+    <line x1="260" y1="80" x2="260" y2="500"/><line x1="320" y1="80" x2="320" y2="500"/>
+    <line x1="380" y1="80" x2="380" y2="500"/><line x1="440" y1="80" x2="440" y2="500"/>
+    <line x1="500" y1="80" x2="500" y2="500"/><line x1="560" y1="80" x2="560" y2="500"/>
+    <line x1="620" y1="80" x2="620" y2="500"/><line x1="680" y1="80" x2="680" y2="500"/>
+    <line x1="740" y1="80" x2="740" y2="500"/><line x1="800" y1="80" x2="800" y2="500"/>
+    <line x1="860" y1="80" x2="860" y2="500"/><line x1="920" y1="80" x2="920" y2="500"/>
+    <line x1="980" y1="80" x2="980" y2="500"/><line x1="1040" y1="80" x2="1040" y2="500"/>
+  </g>
+
+  <!-- Zones Background Highlights -->
+  <!-- Zone 01: Reception & Main Circulation -->
+  <rect x="100" y="100" width="340" height="380" class="zone-a" rx="4"/>
+  <!-- Zone 02: Open Workstations (Long Dwell) -->
+  <rect x="460" y="100" width="380" height="380" class="zone-b" rx="4"/>
+  <!-- Zone 03: Meeting Rooms (Enclosed) -->
+  <rect x="860" y="100" width="240" height="180" class="zone-c" rx="4"/>
+  <!-- Zone 04: Breakout & Collaboration -->
+  <rect x="860" y="300" width="240" height="180" class="zone-d" rx="4"/>
+
+  <!-- Airflow Diffusion Radii (Glow around AERA Units) -->
+  <circle cx="270" cy="280" r="140" fill="url(#airGlow)"/>
+  <circle cx="270" cy="280" r="100" class="air-circle"/>
+  <circle cx="270" cy="280" r="60" class="air-circle"/>
+
+  <circle cx="650" cy="240" r="160" fill="url(#airGlow)"/>
+  <circle cx="650" cy="240" r="115" class="air-circle"/>
+  <circle cx="650" cy="240" r="70" class="air-circle"/>
+
+  <circle cx="980" cy="190" r="100" fill="url(#airGlow)"/>
+  <circle cx="980" cy="390" r="100" fill="url(#airGlow)"/>
+
+  <!-- Architectural Walls -->
+  <!-- Outer perimeter -->
+  <rect x="100" y="100" width="1000" height="380" class="wall-thick"/>
+  <!-- Interior dividers -->
+  <line x1="440" y1="100" x2="440" y2="480" class="wall"/>
+  <line x1="840" y1="100" x2="840" y2="480" class="wall"/>
+  <line x1="840" y1="280" x2="1100" y2="280" class="wall"/>
+
+  <!-- Doors & Openings -->
+  <path d="M 440 250 Q 470 250 470 280" class="door"/>
+  <path d="M 840 190 Q 870 190 870 220" class="door"/>
+  <path d="M 840 370 Q 870 370 870 400" class="door"/>
+
+  <!-- Furniture Context -->
+  <!-- Desks in Zone 02 -->
+  <g>
+    <!-- Desk clusters -->
+    <rect x="500" y="150" width="110" height="55" class="desk"/><rect x="500" y="215" width="110" height="55" class="desk"/>
+    <rect x="535" y="132" width="22" height="15" class="chair"/><rect x="575" y="132" width="22" height="15" class="chair"/>
+    <rect x="535" y="273" width="22" height="15" class="chair"/><rect x="575" y="273" width="22" height="15" class="chair"/>
+
+    <rect x="680" y="150" width="110" height="55" class="desk"/><rect x="680" y="215" width="110" height="55" class="desk"/>
+    <rect x="715" y="132" width="22" height="15" class="chair"/><rect x="755" y="132" width="22" height="15" class="chair"/>
+    <rect x="715" y="273" width="22" height="15" class="chair"/><rect x="755" y="273" width="22" height="15" class="chair"/>
+
+    <rect x="500" y="340" width="110" height="55" class="desk"/><rect x="500" y="405" width="110" height="55" class="desk"/>
+    <rect x="535" y="322" width="22" height="15" class="chair"/><rect x="575" y="322" width="22" height="15" class="chair"/>
+    <rect x="535" y="463" width="22" height="15" class="chair"/><rect x="575" y="463" width="22" height="15" class="chair"/>
+
+    <rect x="680" y="340" width="110" height="55" class="desk"/><rect x="680" y="405" width="110" height="55" class="desk"/>
+    <rect x="715" y="322" width="22" height="15" class="chair"/><rect x="755" y="322" width="22" height="15" class="chair"/>
+    <rect x="715" y="463" width="22" height="15" class="chair"/><rect x="755" y="463" width="22" height="15" class="chair"/>
+  </g>
+
+  <!-- Conference Table in Zone 03 -->
+  <rect x="910" y="160" width="140" height="60" rx="10" class="desk"/>
+  <rect x="940" y="142" width="20" height="14" class="chair"/><rect x="990" y="142" width="20" height="14" class="chair"/>
+  <rect x="940" y="224" width="20" height="14" class="chair"/><rect x="990" y="224" width="20" height="14" class="chair"/>
+
+  <!-- Reception Desk in Zone 01 -->
+  <path d="M 210 200 L 330 200 Q 350 200 350 220 L 350 300" class="wall" stroke-width="3"/>
+  <circle cx="280" cy="250" r="12" class="chair"/>
+
+  <!-- AERA Ceiling Units (Iconic Square with Radial Louvers) -->
+  <!-- Unit 01 -->
+  <g transform="translate(270, 280)">
+    <rect x="-24" y="-24" width="48" height="48" fill="#1e293b" stroke="#5269b5" stroke-width="2.5" rx="3"/>
+    <circle cx="0" cy="0" r="14" fill="#334155"/>
+    <circle cx="0" cy="0" r="6" fill="#60a5fa"/>
+    <line x1="-12" y1="0" x2="12" y2="0" stroke="#94a3b8" stroke-width="1.5"/>
+    <line x1="0" y1="-12" x2="0" y2="12" stroke="#94a3b8" stroke-width="1.5"/>
+  </g>
+  <rect x="235" y="315" width="70" height="20" class="badge-bg"/>
+  <text x="270" y="329" text-anchor="middle" fill="#5269b5" class="badge-text">UNIT 01</text>
+
+  <!-- Unit 02 -->
+  <g transform="translate(650, 240)">
+    <rect x="-24" y="-24" width="48" height="48" fill="#1e293b" stroke="#5269b5" stroke-width="2.5" rx="3"/>
+    <circle cx="0" cy="0" r="14" fill="#334155"/>
+    <circle cx="0" cy="0" r="6" fill="#10b981"/>
+    <line x1="-12" y1="0" x2="12" y2="0" stroke="#94a3b8" stroke-width="1.5"/>
+    <line x1="0" y1="-12" x2="0" y2="12" stroke="#94a3b8" stroke-width="1.5"/>
+  </g>
+  <rect x="615" y="275" width="70" height="20" class="badge-bg"/>
+  <text x="650" y="289" text-anchor="middle" fill="#10b981" class="badge-text">UNIT 02</text>
+
+  <!-- Unit 03 -->
+  <g transform="translate(980, 190)">
+    <rect x="-20" y="-20" width="40" height="40" fill="#1e293b" stroke="#5269b5" stroke-width="2" rx="3"/>
+    <circle cx="0" cy="0" r="11" fill="#334155"/>
+    <circle cx="0" cy="0" r="5" fill="#f59e0b"/>
+  </g>
+  <rect x="945" y="220" width="70" height="20" class="badge-bg"/>
+  <text x="980" y="234" text-anchor="middle" fill="#f59e0b" class="badge-text">UNIT 03</text>
+
+  <!-- Unit 04 -->
+  <g transform="translate(980, 390)">
+    <rect x="-20" y="-20" width="40" height="40" fill="#1e293b" stroke="#5269b5" stroke-width="2" rx="3"/>
+    <circle cx="0" cy="0" r="11" fill="#334155"/>
+    <circle cx="0" cy="0" r="5" fill="#6366f1"/>
+  </g>
+  <rect x="945" y="420" width="70" height="20" class="badge-bg"/>
+  <text x="980" y="434" text-anchor="middle" fill="#6366f1" class="badge-text">UNIT 04</text>
+
+  <!-- Flow Direction Arrows -->
+  <path d="M 270 210 Q 340 160 440 180" class="flow-line" marker-end="url(#arrow)"/>
+  <path d="M 650 140 Q 560 110 460 130" class="flow-line"/>
+  <path d="M 650 330 Q 750 420 840 390" class="flow-line"/>
+
+  <!-- Headers and Zone Labels -->
+  <!-- Top Legend & Status Bar -->
+  <rect x="100" y="35" width="1000" height="42" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+  <text x="120" y="61" class="title-text">AERA · Commercial Spatial Zoning &amp; Distributed Air Quality Map</text>
+  <text x="760" y="60" class="sub-text">Floor Grid: 600 × 600 mm Modules · Ceiling Height: 3.2m · Total Area: 720 m²</text>
+
+  <!-- Zone Badges -->
+  <text x="120" y="125" class="label-text" fill="#5269b5">Zone 01 · Reception &amp; High-Movement Area</text>
+  <text x="480" y="125" class="label-text" fill="#059669">Zone 02 · Workstations (Long Dwell Time)</text>
+  <text x="860" y="125" class="label-text" fill="#d97706">Zone 03 · Meeting Room</text>
+  <text x="860" y="325" class="label-text" fill="#4f46e5">Zone 04 · Collaboration</text>
+
+  <!-- Bottom Legend -->
+  <g transform="translate(100, 520)">
+    <rect x="0" y="0" width="1000" height="48" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+    <circle cx="30" cy="24" r="7" fill="#5269b5"/>
+    <text x="46" y="28" class="sub-text" font-weight="600">AERA Distributed Unit</text>
+
+    <line x1="220" y1="24" x2="260" y2="24" stroke="#5269b5" stroke-dasharray="4 4" stroke-width="2"/>
+    <text x="272" y="28" class="sub-text" font-weight="600">Clean Air Diffusion Vector</text>
+
+    <rect x="470" y="16" width="16" height="16" fill="rgba(82, 105, 181, 0.2)" stroke="#5269b5" stroke-width="1"/>
+    <text x="496" y="28" class="sub-text" font-weight="600">Active Purification Radius</text>
+
+    <rect x="700" y="16" width="16" height="16" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="726" y="28" class="sub-text" font-weight="600">600 × 600 mm Ceiling Grid Alignment</text>
+  </g>
+</svg>

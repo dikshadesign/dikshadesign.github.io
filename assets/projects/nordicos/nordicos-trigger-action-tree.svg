@@ -1,0 +1,316 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 940" width="100%" height="100%">
+  <defs>
+    <!-- Dot Grid Canvas Pattern -->
+    <pattern id="dot-grid-amber" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#382e25"/>
+    </pattern>
+
+    <!-- Sticky Dropshadow -->
+    <filter id="sticky-shadow-warm" x="-8%" y="-8%" width="120%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    <filter id="hub-shadow" x="-10%" y="-10%" width="120%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#f59e0b" flood-opacity="0.25"/>
+    </filter>
+
+    <style>
+      .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+      .font-mono { font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; }
+
+      /* Interrelated yarn lines */
+      .web-sales-eng { stroke: #f59e0b; stroke-width: 2.2; stroke-dasharray: 6 4; fill: none; }
+      .web-exec-gate { stroke: #ec4899; stroke-width: 2.2; stroke-dasharray: 6 4; fill: none; }
+      .web-eng-ops { stroke: #06b6d4; stroke-width: 2.2; stroke-dasharray: 6 4; fill: none; }
+      .web-finance-proc { stroke: #10b981; stroke-width: 2.2; stroke-dasharray: 6 4; fill: none; }
+      .web-hub-spoke { stroke: #6366f1; stroke-width: 2.8; fill: none; opacity: 0.75; }
+
+      /* Sticky note styling */
+      .sticky-yellow { fill: #fef08a; stroke: #fde047; stroke-width: 1; }
+      .sticky-orange { fill: #fed7aa; stroke: #fdba74; stroke-width: 1; }
+      .sticky-pink { fill: #fecdd3; stroke: #fda4af; stroke-width: 1; }
+      .sticky-blue { fill: #bae6fd; stroke: #7dd3fc; stroke-width: 1; }
+      .sticky-green { fill: #bbf7d0; stroke: #86efac; stroke-width: 1; }
+      .sticky-purple { fill: #e9d5ff; stroke: #d8b4fe; stroke-width: 1; }
+
+      .role-tag { font-family: ui-monospace, monospace; font-size: 10px; font-weight: 800; padding: 2px 6px; }
+      .tape-warm { fill: #fffbeb; opacity: 0.5; rx: 1; }
+    </style>
+  </defs>
+
+  <!-- Dark Warm FigJam Canvas Background -->
+  <rect width="1200" height="940" fill="#181512"/>
+  <rect width="1200" height="940" fill="url(#dot-grid-amber)"/>
+
+  <!-- Top FigJam Navigation / Research Header -->
+  <g transform="translate(36, 22)">
+    <rect width="1128" height="54" rx="8" fill="#241e19" stroke="#3d332a" stroke-width="1.2"/>
+    <rect x="0" y="0" width="8" height="54" rx="8 0 0 8" fill="#f59e0b"/>
+    
+    <text x="24" y="25" class="font-sans" font-size="13.5px" font-weight="700" fill="#fef3c7">The 11-Role Departmental Web &amp; Access Affinity Board</text>
+    <text x="24" y="42" class="font-sans" font-size="11px" fill="#a8a29e">Mapping operational personas, friction quotes, permission gates, and cross-department handshakes</text>
+    
+    <!-- Legend Chips -->
+    <g transform="translate(680, 16)">
+      <rect x="0" y="0" width="85" height="22" rx="4" fill="#fef08a" opacity="0.9"/>
+      <text x="42" y="15" class="font-sans" font-size="9.5px" font-weight="700" fill="#713f12" text-anchor="middle">Field Quotes</text>
+
+      <rect x="95" y="0" width="85" height="22" rx="4" fill="#bae6fd" opacity="0.9"/>
+      <text x="137" y="15" class="font-sans" font-size="9.5px" font-weight="700" fill="#075985" text-anchor="middle">Technical</text>
+
+      <rect x="190" y="0" width="85" height="22" rx="4" fill="#fed7aa" opacity="0.9"/>
+      <text x="232" y="15" class="font-sans" font-size="9.5px" font-weight="700" fill="#7c2d12" text-anchor="middle">Commercial</text>
+
+      <rect x="285" y="0" width="85" height="22" rx="4" fill="#e9d5ff" opacity="0.9"/>
+      <text x="327" y="15" class="font-sans" font-size="9.5px" font-weight="700" fill="#581c87" text-anchor="middle">Executive</text>
+
+      <rect x="380" y="0" width="55" height="22" rx="4" fill="#bbf7d0" opacity="0.9"/>
+      <text x="407" y="15" class="font-sans" font-size="9.5px" font-weight="700" fill="#14532d" text-anchor="middle">Ops &amp; SPM</text>
+    </g>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- INTERRELATED WEBS (CURVED CONNECTOR THREADS)             -->
+  <!-- ======================================================== -->
+  <g id="role-webs-layer">
+    <!-- Hub Spokes to 4 Quad Clusters -->
+    <path d="M 600 480 C 600 340, 400 240, 240 220" class="web-hub-spoke"/>
+    <path d="M 600 480 C 600 340, 800 240, 960 220" class="web-hub-spoke"/>
+    <path d="M 600 520 C 600 660, 400 750, 240 760" class="web-hub-spoke"/>
+    <path d="M 600 520 C 600 660, 800 750, 960 760" class="web-hub-spoke"/>
+
+    <!-- Cross-Department Interconnected Handshakes -->
+    <!-- Sales (Top Right) to Technical (Bottom Right) -->
+    <path d="M 880 280 C 840 380, 840 540, 880 640" class="web-sales-eng"/>
+    <!-- CFO (Top Right) to Procurement (Bottom Left) -->
+    <path d="M 980 320 C 1050 480, 450 780, 320 800" class="web-finance-proc"/>
+    <!-- Eng Head to Post-PO DAP CAD Freeze -->
+    <path d="M 850 720 C 700 820, 450 700, 350 670" class="web-eng-ops"/>
+    <!-- CEO Bird's Eye Web to All Leads -->
+    <path d="M 240 280 C 350 360, 500 280, 600 240" class="web-exec-gate"/>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- CENTRAL CORE: THE PROJECTS WORKSPACE HUB                 -->
+  <!-- ======================================================== -->
+  <g transform="translate(470, 415)" filter="url(#hub-shadow)">
+    <rect width="260" height="135" rx="12" fill="#24211d" stroke="#f59e0b" stroke-width="2.2"/>
+    <rect x="0" y="0" width="260" height="34" rx="12 12 0 0" fill="#2d261e"/>
+    
+    <circle cx="20" cy="17" r="4.5" fill="#ef4444"/>
+    <circle cx="34" cy="17" r="4.5" fill="#f59e0b"/>
+    <circle cx="48" cy="17" r="4.5" fill="#10b981"/>
+    
+    <text x="130" y="21" class="font-mono" font-size="10.5px" font-weight="700" fill="#fbbf24" text-anchor="middle">localhost:3002/daily-activity</text>
+
+    <text x="130" y="58" class="font-sans" font-size="14px" font-weight="800" fill="#f8fafc" text-anchor="middle">PROJECTS WORKSPACE</text>
+    <text x="130" y="76" class="font-sans" font-size="10px" fill="#fbbf24" text-anchor="middle">11 Tailored Roles · 1 Operational Hub</text>
+
+    <!-- Mini Project Pill -->
+    <rect x="25" y="90" width="210" height="28" rx="6" fill="#181512" stroke="#44392e"/>
+    <text x="35" y="108" class="font-mono" font-size="10px" font-weight="700" fill="#38bdf8">BD 28 0004 · tt</text>
+    <text x="185" y="108" class="font-sans" font-size="10px" font-weight="800" fill="#10b981">₹77.0 L</text>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- QUAD 1: EXECUTIVE HUB (TOP LEFT)                         -->
+  <!-- Roles: admin, ceo, cto                                   -->
+  <!-- ======================================================== -->
+  <g transform="translate(48, 95)">
+    <text x="10" y="16" class="font-sans" font-size="11px" font-weight="800" fill="#e9d5ff" letter-spacing="0.08em">QUAD 01 · EXECUTIVE STRATEGY &amp; GOVERNANCE</text>
+
+    <!-- Sticky 1: CEO Quote & Needs (Purple) -->
+    <g transform="translate(10, 30) rotate(-2)" filter="url(#sticky-shadow-warm)">
+      <rect width="210" height="120" rx="3" class="sticky-purple"/>
+      <rect x="85" y="-6" width="40" height="12" class="tape-warm"/>
+      <rect x="14" y="14" width="38" height="16" rx="3" fill="#581c87"/>
+      <text x="33" y="26" class="font-mono" font-size="9px" font-weight="800" fill="#f3e8ff" text-anchor="middle">ceo</text>
+      <text x="60" y="26" class="font-sans" font-size="11px" font-weight="700" fill="#3b0764">CEO Focus (/ceo)</text>
+      <text x="14" y="50" class="font-sans" font-size="10.5px" font-style="italic" fill="#3b0764">"I need the bird's eye view:</text>
+      <text x="14" y="66" class="font-sans" font-size="10.5px" font-style="italic" fill="#3b0764">total projects in flight, active</text>
+      <text x="14" y="82" class="font-sans" font-size="10.5px" font-style="italic" fill="#3b0764">capital at risk, and where</text>
+      <text x="14" y="98" class="font-sans" font-size="10.5px" font-style="italic" fill="#3b0764">engineering handoffs stall."</text>
+    </g>
+
+    <!-- Sticky 2: CTO Technical Standards (Blue) -->
+    <g transform="translate(240, 24) rotate(1.5)" filter="url(#sticky-shadow-warm)">
+      <rect width="180" height="120" rx="3" class="sticky-blue"/>
+      <rect x="70" y="-6" width="40" height="12" class="tape-warm"/>
+      <rect x="14" y="14" width="38" height="16" rx="3" fill="#0369a1"/>
+      <text x="33" y="26" class="font-mono" font-size="9px" font-weight="800" fill="#e0f2fe" text-anchor="middle">cto</text>
+      <text x="60" y="26" class="font-sans" font-size="11px" font-weight="700" fill="#075985">CTO Standards</text>
+      <text x="14" y="50" class="font-sans" font-size="10px" fill="#075985">• Technology architecture</text>
+      <text x="14" y="66" class="font-sans" font-size="10px" fill="#075985">• Cross-plant engineering specs</text>
+      <text x="14" y="82" class="font-sans" font-size="10px" fill="#075985">• Technical governance audit</text>
+      <text x="14" y="98" class="font-sans" font-size="10px" fill="#075985">• /department/engineering</text>
+    </g>
+
+    <!-- Sticky 3: Admin (Yellow) -->
+    <g transform="translate(10, 168) rotate(1)" filter="url(#sticky-shadow-warm)">
+      <rect width="190" height="100" rx="3" class="sticky-yellow"/>
+      <rect x="75" y="-6" width="40" height="12" class="tape-warm"/>
+      <rect x="14" y="14" width="44" height="16" rx="3" fill="#854d0e"/>
+      <text x="36" y="26" class="font-mono" font-size="9px" font-weight="800" fill="#fef9c3" text-anchor="middle">admin</text>
+      <text x="66" y="26" class="font-sans" font-size="11px" font-weight="700" fill="#713f12">Admin Platform</text>
+      <text x="14" y="48" class="font-sans" font-size="10px" fill="#713f12">• User &amp; role management</text>
+      <text x="14" y="64" class="font-sans" font-size="10px" fill="#713f12">• Security logs &amp; audits</text>
+      <text x="14" y="80" class="font-sans" font-size="10px" fill="#713f12">• Target route: /admin</text>
+    </g>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- QUAD 2: COMMERCIAL & FINANCIAL (TOP RIGHT)               -->
+  <!-- Roles: cfo, sales                                        -->
+  <!-- ======================================================== -->
+  <g transform="translate(710, 95)">
+    <text x="10" y="16" class="font-sans" font-size="11px" font-weight="800" fill="#fdba74" letter-spacing="0.08em">QUAD 02 · COMMERCIAL GATES &amp; BILLING</text>
+
+    <!-- Sticky 4: Sales Team (Orange) -->
+    <g transform="translate(10, 30) rotate(-1.5)" filter="url(#sticky-shadow-warm)">
+      <rect width="210" height="125" rx="3" class="sticky-orange"/>
+      <rect x="85" y="-6" width="40" height="12" class="tape-warm"/>
+      <rect x="14" y="14" width="42" height="16" rx="3" fill="#9a3412"/>
+      <text x="35" y="26" class="font-mono" font-size="9px" font-weight="800" fill="#ffedd5" text-anchor="middle">sales</text>
+      <text x="64" y="26" class="font-sans" font-size="11px" font-weight="700" fill="#7c2d12">Sales Team Needs</text>
+      <text x="14" y="50" class="font-sans" font-size="10.5px" font-style="italic" fill="#7c2d12">"I need an auto-generated</text>
+      <text x="14" y="66" class="font-sans" font-size="10.5px" font-style="italic" fill="#7c2d12">proforma commercial invoice</text>
+      <text x="14" y="82" class="font-sans" font-size="10.5px" font-style="italic" fill="#7c2d12">from confirmed engineering</text>
+      <text x="14" y="98" class="font-sans" font-size="10.5px" font-style="italic" fill="#7c2d12">costs with zero margin errors."</text>
+    </g>
+
+    <!-- Sticky 5: CFO Financial Gates (Pink) -->
+    <g transform="translate(235, 26) rotate(2)" filter="url(#sticky-shadow-warm)">
+      <rect width="200" height="125" rx="3" class="sticky-pink"/>
+      <rect x="80" y="-6" width="40" height="12" class="tape-warm"/>
+      <rect x="14" y="14" width="36" height="16" rx="3" fill="#9f1239"/>
+      <text x="32" y="26" class="font-mono" font-size="9px" font-weight="800" fill="#ffe4e6" text-anchor="middle">cfo</text>
+      <text x="58" y="26" class="font-sans" font-size="11px" font-weight="700" fill="#881337">CFO Guardrails</text>
+      <text x="14" y="48" class="font-sans" font-size="10px" fill="#881337">• Margin sign-off (&gt;32%)</text>
+      <text x="14" y="64" class="font-sans" font-size="10px" fill="#881337">• Pricing approvals &amp; billing</text>
+      <text x="14" y="80" class="font-sans" font-size="10px" fill="#881337">• 50% advance tracking</text>
+      <text x="14" y="96" class="font-sans" font-size="10px" fill="#881337">• /department/finance</text>
+    </g>
+
+    <!-- Handshake Pill: Nudge Engineering -->
+    <g transform="translate(10, 175) rotate(-1)">
+      <rect width="230" height="32" rx="16" fill="#451a03" stroke="#f59e0b" stroke-width="1.2"/>
+      <circle cx="16" cy="16" r="6" fill="#f59e0b"/>
+      <text x="32" y="20" class="font-sans" font-size="10.5px" font-weight="700" fill="#fef3c7">Nudge Engineering Lead ➔</text>
+      <text x="180" y="20" class="font-mono" font-size="9px" fill="#d97706">(Active Action)</text>
+    </g>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- QUAD 3: EXECUTION & ROBOTICS (BOTTOM LEFT)               -->
+  <!-- Roles: proj_head, robotics_head, procurement, projects   -->
+  <!-- ======================================================== -->
+  <g transform="translate(48, 620)">
+    <text x="10" y="16" class="font-sans" font-size="11px" font-weight="800" fill="#86efac" letter-spacing="0.08em">QUAD 03 · EXECUTION, ROBOTICS &amp; SOURCING</text>
+
+    <!-- Sticky 6: Head of Projects (Green) -->
+    <g transform="translate(10, 30) rotate(-1.5)" filter="url(#sticky-shadow-warm)">
+      <rect width="210" height="115" rx="3" class="sticky-green"/>
+      <rect x="85" y="-6" width="40" height="12" class="tape-warm"/>
+      <rect x="14" y="14" width="62" height="16" rx="3" fill="#166534"/>
+      <text x="45" y="26" class="font-mono" font-size="9px" font-weight="800" fill="#dcfce7" text-anchor="middle">proj_head</text>
+      <text x="14" y="48" class="font-sans" font-size="10.5px" font-weight="700" fill="#14532d">Head of Projects</text>
+      <text x="14" y="66" class="font-sans" font-size="10px" fill="#14532d">• Common project pipeline</text>
+      <text x="14" y="82" class="font-sans" font-size="10px" fill="#14532d">• Trial sign-offs &amp; handovers</text>
+      <text x="14" y="98" class="font-sans" font-size="10px" fill="#14532d">• FAT / SAT delivery sign-off</text>
+    </g>
+
+    <!-- Sticky 7: Head of Robotics & SPM (Yellow) -->
+    <g transform="translate(235, 24) rotate(1)" filter="url(#sticky-shadow-warm)">
+      <rect width="210" height="115" rx="3" class="sticky-yellow"/>
+      <rect x="85" y="-6" width="40" height="12" class="tape-warm"/>
+      <rect x="14" y="14" width="82" height="16" rx="3" fill="#854d0e"/>
+      <text x="55" y="26" class="font-mono" font-size="8.5px" font-weight="800" fill="#fef9c3" text-anchor="middle">robotics_head</text>
+      <text x="14" y="48" class="font-sans" font-size="10.5px" font-weight="700" fill="#713f12">Head of Robotics &amp; SPM</text>
+      <text x="14" y="66" class="font-sans" font-size="10px" fill="#713f12">• Robotics pipeline &amp; motions</text>
+      <text x="14" y="82" class="font-sans" font-size="10px" fill="#713f12">• SPM automation team mgmt</text>
+      <text x="14" y="98" class="font-sans" font-size="10px" fill="#713f12">• /department/manufacturing</text>
+    </g>
+
+    <!-- Sticky 8: Procurement Team (Blue) -->
+    <g transform="translate(10, 160) rotate(1.5)" filter="url(#sticky-shadow-warm)">
+      <rect width="210" height="115" rx="3" class="sticky-blue"/>
+      <rect x="85" y="-6" width="40" height="12" class="tape-warm"/>
+      <rect x="14" y="14" width="78" height="16" rx="3" fill="#0369a1"/>
+      <text x="53" y="26" class="font-mono" font-size="8.5px" font-weight="800" fill="#e0f2fe" text-anchor="middle">procurement</text>
+      <text x="14" y="48" class="font-sans" font-size="10.5px" font-weight="700" fill="#075985">Procurement Team</text>
+      <text x="14" y="66" class="font-sans" font-size="10px" fill="#075985">• Purchase requisitions &amp; BOM</text>
+      <text x="14" y="82" class="font-sans" font-size="10px" fill="#075985">• Supplier PO tracking</text>
+      <text x="14" y="98" class="font-sans" font-size="10px" fill="#075985">• Only buys on approved CAD</text>
+    </g>
+
+    <!-- Sticky 9: Projects Execution (Green) -->
+    <g transform="translate(235, 156) rotate(-1)" filter="url(#sticky-shadow-warm)">
+      <rect width="200" height="115" rx="3" class="sticky-green"/>
+      <rect x="80" y="-6" width="40" height="12" class="tape-warm"/>
+      <rect x="14" y="14" width="56" height="16" rx="3" fill="#166534"/>
+      <text x="42" y="26" class="font-mono" font-size="9px" font-weight="800" fill="#dcfce7" text-anchor="middle">projects</text>
+      <text x="14" y="48" class="font-sans" font-size="10.5px" font-weight="700" fill="#14532d">Project Execution Team</text>
+      <text x="14" y="66" class="font-sans" font-size="10px" fill="#14532d">• Daily activity logging</text>
+      <text x="14" y="82" class="font-sans" font-size="10px" fill="#14532d">• Common project pipeline</text>
+      <text x="14" y="98" class="font-sans" font-size="10px" fill="#14532d">• Stage 2 of 9 tracking</text>
+    </g>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- QUAD 4: ENGINEERING & TECHNICAL LAB (BOTTOM RIGHT)       -->
+  <!-- Roles: eng_head, technical                               -->
+  <!-- ======================================================== -->
+  <g transform="translate(710, 620)">
+    <text x="10" y="16" class="font-sans" font-size="11px" font-weight="800" fill="#38bdf8" letter-spacing="0.08em">QUAD 04 · ENGINEERING &amp; OPTICAL DISCOVERY</text>
+
+    <!-- Sticky 10: Head of Engineering (Blue) -->
+    <g transform="translate(10, 30) rotate(-1)" filter="url(#sticky-shadow-warm)">
+      <rect width="215" height="120" rx="3" class="sticky-blue"/>
+      <rect x="88" y="-6" width="40" height="12" class="tape-warm"/>
+      <rect x="14" y="14" width="62" height="16" rx="3" fill="#0369a1"/>
+      <text x="45" y="26" class="font-mono" font-size="9px" font-weight="800" fill="#e0f2fe" text-anchor="middle">eng_head</text>
+      <text x="14" y="48" class="font-sans" font-size="10.5px" font-weight="700" fill="#075985">Head of Engineering</text>
+      <text x="14" y="66" class="font-sans" font-size="10px" fill="#075985">• Technical pipeline sign-offs</text>
+      <text x="14" y="82" class="font-sans" font-size="10px" fill="#075985">• Internal DAP mechanical layout</text>
+      <text x="14" y="98" class="font-sans" font-size="10px" fill="#075985">• Authorizes 3D CAD freezes</text>
+    </g>
+
+    <!-- Sticky 11: Technical Team (Pink) -->
+    <g transform="translate(240, 24) rotate(2)" filter="url(#sticky-shadow-warm)">
+      <rect width="200" height="120" rx="3" class="sticky-pink"/>
+      <rect x="80" y="-6" width="40" height="12" class="tape-warm"/>
+      <rect x="14" y="14" width="58" height="16" rx="3" fill="#9f1239"/>
+      <text x="43" y="26" class="font-mono" font-size="9px" font-weight="800" fill="#ffe4e6" text-anchor="middle">technical</text>
+      <text x="14" y="48" class="font-sans" font-size="10.5px" font-weight="700" fill="#881337">Technical Lab Team</text>
+      <text x="14" y="66" class="font-sans" font-size="10px" fill="#881337">• Part specs &amp; reflectivity</text>
+      <text x="14" y="82" class="font-sans" font-size="10px" fill="#881337">• Optical POC trial captures</text>
+      <text x="14" y="98" class="font-sans" font-size="10px" fill="#881337">• Feasibility report emission</text>
+    </g>
+
+    <!-- Designer Note (Yellow) -->
+    <g transform="translate(10, 165) rotate(-0.5)" filter="url(#sticky-shadow-warm)">
+      <rect width="420" height="85" rx="3" class="sticky-yellow"/>
+      <rect x="190" y="-6" width="40" height="12" class="tape-warm"/>
+      <text x="14" y="22" class="font-sans" font-size="10.5px" font-weight="800" fill="#854d0e">INDUSTRIAL DESIGNER'S VIBE CODING REFLECTION</text>
+      <text x="14" y="40" class="font-sans" font-size="10.5px" fill="#713f12">"11 distinct roles shouldn't feel like 11 disconnected tools. By mapping</text>
+      <text x="14" y="56" class="font-sans" font-size="10.5px" fill="#713f12">their exact permissions in Figma and vibe coding the route guards directly,</text>
+      <text x="14" y="72" class="font-sans" font-size="10.5px" fill="#713f12">we created one cohesive operating cockpit where everyone stays in sync."</text>
+    </g>
+  </g>
+
+  <!-- Pushpins -->
+  <g fill="#f59e0b" stroke="#78350f" stroke-width="1">
+    <circle cx="160" cy="115" r="4.5"/>
+    <circle cx="380" cy="110" r="4.5"/>
+    <circle cx="830" cy="115" r="4.5"/>
+    <circle cx="1060" cy="110" r="4.5"/>
+    <circle cx="160" cy="640" r="4.5"/>
+    <circle cx="390" cy="635" r="4.5"/>
+    <circle cx="830" cy="640" r="4.5"/>
+    <circle cx="1060" cy="635" r="4.5"/>
+  </g>
+
+  <!-- Footer Watermark / Signature -->
+  <g transform="translate(48, 905)">
+    <text x="0" y="14" class="font-mono" font-size="10px" fill="#78716c">11-ROLE ACCESS ECOSYSTEM BOARD · SYNTHESIZING STAKEHOLDER FRICTION INTO TAILORED WORKSPACES</text>
+  </g>
+</svg>

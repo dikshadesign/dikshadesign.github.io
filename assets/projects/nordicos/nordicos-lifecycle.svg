@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+      .step-box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.2; rx: 4; }
+      .step-header { rx: 4 4 0 0; }
+      .code-font { font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; }
+      .arrow-line { stroke: #0284c7; stroke-width: 2.2; fill: none; }
+      .loop-back { stroke: #059669; stroke-width: 2; stroke-dasharray: 4 4; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="500" class="bg"/>
+
+  <!-- Top Title Banner -->
+  <rect x="40" y="20" width="1120" height="42" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="60" y="46" class="font-sans" font-size="14px" font-weight="700" fill="#0f172a">Section 05 · The Manufacturing Project Lifecycle in Nordic OS</text>
+  <text x="710" y="46" class="font-sans" font-size="11px" fill="#64748b">Project Context → DAP Approvals → BOM Structure → Procurement Sourcing → Shop Floor Assembly</text>
+
+  <!-- 5 PIPELINE STEPS -->
+  <g transform="translate(40, 80)">
+    
+    <!-- STEP 01: Project Central Context -->
+    <g transform="translate(0, 0)">
+      <rect width="210" height="240" class="step-box"/>
+      <rect width="210" height="32" class="step-header" fill="#0f172a"/>
+      <text x="14" y="21" class="font-sans" font-size="11px" font-weight="700" fill="#ffffff">01 / Project Context</text>
+      
+      <g transform="translate(14, 46)">
+        <text x="0" y="14" class="font-sans" font-size="12px" font-weight="700" fill="#0f172a">Central Work Scope</text>
+        <text x="0" y="32" class="font-sans" font-size="9.5px" fill="#64748b">Provides the central context, client deliverables, and delivery milestones.</text>
+
+        <rect y="46" width="182" height="50" fill="#f8fafc" stroke="#e2e8f0" rx="3"/>
+        <text x="10" y="64" class="font-sans" font-size="9.5px" font-weight="600" fill="#1e293b">PRJ-204 · Actuator</text>
+        <text x="10" y="80" class="font-sans" font-size="8.5px" fill="#0284c7">Deadline: Q4 Delivery</text>
+
+        <rect y="106" width="182" height="42" fill="#eff6ff" stroke="#bfdbfe" rx="3"/>
+        <text x="8" y="122" class="code-font" font-size="8px" font-weight="600" fill="#1e40af">DB: projects table</text>
+        <text x="8" y="136" class="font-sans" font-size="8px" fill="#3b82f6">Defines primary foreign key ID</text>
+      </g>
+    </g>
+
+    <!-- Arrow 1 to 2 -->
+    <path d="M 215 120 L 235 120" class="arrow-line"/>
+    <polygon points="235,120 227,115 227,125" fill="#0284c7"/>
+
+    <!-- STEP 02: Requirements & DAP Documentation -->
+    <g transform="translate(240, 0)">
+      <rect width="210" height="240" class="step-box"/>
+      <rect width="210" height="32" class="step-header" fill="#4f46e5"/>
+      <text x="14" y="21" class="font-sans" font-size="11px" font-weight="700" fill="#ffffff">02 / DAP &amp; Documentation</text>
+      
+      <g transform="translate(14, 46)">
+        <text x="0" y="14" class="font-sans" font-size="12px" font-weight="700" fill="#0f172a">Design Approval Process</text>
+        <text x="0" y="32" class="font-sans" font-size="9.5px" fill="#64748b">Technical specs, CAD drawings, customer sign-offs, and revision logs.</text>
+
+        <rect y="46" width="182" height="50" fill="#f8fafc" stroke="#e2e8f0" rx="3"/>
+        <text x="10" y="64" class="font-sans" font-size="9.5px" font-weight="600" fill="#1e293b">DAP Rev 3.2 Approved</text>
+        <text x="10" y="80" class="font-sans" font-size="8.5px" fill="#10b981">✓ 4 of 5 Signatures Verified</text>
+
+        <rect y="106" width="182" height="42" fill="#eef2ff" stroke="#c7d2fe" rx="3"/>
+        <text x="8" y="122" class="code-font" font-size="8px" font-weight="600" fill="#4338ca">DB: dap_documents</text>
+        <text x="8" y="136" class="font-sans" font-size="8px" fill="#6366f1">Unlocks BOM revision freeze</text>
+      </g>
+    </g>
+
+    <!-- Arrow 2 to 3 -->
+    <path d="M 455 120 L 475 120" class="arrow-line"/>
+    <polygon points="475,120 467,115 467,125" fill="#0284c7"/>
+
+    <!-- STEP 03: Bill of Materials (BOM) -->
+    <g transform="translate(480, 0)">
+      <rect width="210" height="240" class="step-box"/>
+      <rect width="210" height="32" class="step-header" fill="#0284c7"/>
+      <text x="14" y="21" class="font-sans" font-size="11px" font-weight="700" fill="#ffffff">03 / Bill of Materials (BOM)</text>
+      
+      <g transform="translate(14, 46)">
+        <text x="0" y="14" class="font-sans" font-size="12px" font-weight="700" fill="#0f172a">Assembly Hierarchy</text>
+        <text x="0" y="32" class="font-sans" font-size="9.5px" fill="#64748b">Hierarchical tree of raw materials, components, and sub-assemblies.</text>
+
+        <rect y="46" width="182" height="50" fill="#f8fafc" stroke="#e2e8f0" rx="3"/>
+        <text x="10" y="64" class="font-sans" font-size="9.5px" font-weight="600" fill="#1e293b">45 Components Total</text>
+        <text x="10" y="80" class="font-sans" font-size="8.5px" fill="#0284c7">Sub-assemblies A, B, C</text>
+
+        <rect y="106" width="182" height="42" fill="#f0f9ff" stroke="#bae6fd" rx="3"/>
+        <text x="8" y="122" class="code-font" font-size="8px" font-weight="600" fill="#0369a1">DB: bom_line_items</text>
+        <text x="8" y="136" class="font-sans" font-size="8px" fill="#0284c7">Auto-generates purchase requisitions</text>
+      </g>
+    </g>
+
+    <!-- Arrow 3 to 4 -->
+    <path d="M 695 120 L 715 120" class="arrow-line"/>
+    <polygon points="715,120 707,115 707,125" fill="#0284c7"/>
+
+    <!-- STEP 04: Procurement -->
+    <g transform="translate(720, 0)">
+      <rect width="210" height="240" class="step-box"/>
+      <rect width="210" height="32" class="step-header" fill="#d97706"/>
+      <text x="14" y="21" class="font-sans" font-size="11px" font-weight="700" fill="#ffffff">04 / Procurement</text>
+      
+      <g transform="translate(14, 46)">
+        <text x="0" y="14" class="font-sans" font-size="12px" font-weight="700" fill="#0f172a">Purchasing &amp; Sourcing</text>
+        <text x="0" y="32" class="font-sans" font-size="9.5px" fill="#64748b">Supplier orders, lead-time tracking, dock receipt, and inventory staging.</text>
+
+        <rect y="46" width="182" height="50" fill="#f8fafc" stroke="#e2e8f0" rx="3"/>
+        <text x="10" y="64" class="font-sans" font-size="9.5px" font-weight="600" fill="#1e293b">42 Parts Received</text>
+        <text x="10" y="80" class="font-sans" font-size="8.5px" fill="#d97706">3 Valve units in transit</text>
+
+        <rect y="106" width="182" height="42" fill="#fffbeb" stroke="#fde68a" rx="3"/>
+        <text x="8" y="122" class="code-font" font-size="8px" font-weight="600" fill="#b45309">DB: purchase_orders</text>
+        <text x="8" y="136" class="font-sans" font-size="8px" fill="#d97706">Reconciles stock to assembly cell</text>
+      </g>
+    </g>
+
+    <!-- Arrow 4 to 5 -->
+    <path d="M 935 120 L 955 120" class="arrow-line"/>
+    <polygon points="955,120 947,115 947,125" fill="#0284c7"/>
+
+    <!-- STEP 05: Manufacturing & Assembly -->
+    <g transform="translate(960, 0)">
+      <rect width="200" height="240" class="step-box"/>
+      <rect width="200" height="32" class="step-header" fill="#059669"/>
+      <text x="14" y="21" class="font-sans" font-size="11px" font-weight="700" fill="#ffffff">05 / Assembly Routing</text>
+      
+      <g transform="translate(14, 46)">
+        <text x="0" y="14" class="font-sans" font-size="12px" font-weight="700" fill="#0f172a">Shop Floor Execution</text>
+        <text x="0" y="32" class="font-sans" font-size="9.5px" fill="#64748b">Work instructions, stage routing, torque sign-offs, and quality gates.</text>
+
+        <rect y="46" width="172" height="50" fill="#f8fafc" stroke="#e2e8f0" rx="3"/>
+        <text x="10" y="64" class="font-sans" font-size="9.5px" font-weight="600" fill="#1e293b">Cell 02 Active</text>
+        <text x="10" y="80" class="font-sans" font-size="8.5px" fill="#059669">Step 2: Piston In Progress</text>
+
+        <rect y="106" width="172" height="42" fill="#f0fdf4" stroke="#bbf7d0" rx="3"/>
+        <text x="8" y="122" class="code-font" font-size="8px" font-weight="600" fill="#15803d">DB: assembly_runs</text>
+        <text x="8" y="136" class="font-sans" font-size="8px" fill="#059669">Pushes live progress back to Step 01</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- FEEDBACK LOOP BACK TO STEP 01 (Project Progress) -->
+  <path d="M 1060 325 L 1060 370 L 140 370 L 140 325" class="loop-back"/>
+  <polygon points="140,325 135,333 145,333" fill="#059669"/>
+  <text x="600" y="362" text-anchor="middle" class="font-sans" font-size="10.5px" font-weight="700" fill="#059669">AUTOMATED RECONCILIATION LOOP: Completed shop floor steps feed real-time project progress back to dashboard</text>
+
+  <!-- PEOPLE OPERATIONS CO-ORDINATION STRIP (Bottom) -->
+  <g transform="translate(40, 395)">
+    <rect width="1120" height="75" fill="#ffffff" stroke="#c084fc" stroke-width="1.2" rx="4"/>
+    <g transform="translate(20, 16)">
+      <rect width="24" height="24" rx="3" fill="#7c3aed"/>
+      <text x="12" y="16" text-anchor="middle" class="font-sans" font-size="11px" font-weight="800" fill="#fff">HR</text>
+      <text x="36" y="14" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">HR &amp; Internal People Operations (Cross-Cutting Coordination Layer)</text>
+      <text x="36" y="32" class="font-sans" font-size="10px" fill="#64748b">Extends beyond production to match verified technician skill certifications and shift capacity directly to active assembly cells without disconnected spreadsheets.</text>
+      <rect x="910" y="2" width="170" height="24" rx="3" fill="#faf5ff" stroke="#e9d5ff"/>
+      <text x="995" y="18" text-anchor="middle" class="font-sans" font-size="9px" font-weight="700" fill="#7c3aed">Technician Shift Capacity: 94%</text>
+    </g>
+  </g>
+</svg>

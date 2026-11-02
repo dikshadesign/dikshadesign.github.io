@@ -1,72 +1,31 @@
 # AERA Project Asset Manifest & Replacement Guide
 
 > **Directory**: `d:/framer portfolio/assets/projects/aera/`  
-> **How to replace any image**: Whenever you want to swap or add an image, you can simply tell me:  
-> *"Replace Image 01 with `filename.png`"* or *"Replace AERA-IMG-03 with `filename.png`"* or *"Replace placeholder AERA-PH-08 with `my_cad.png`"*.
+> **How to replace any image**: Every single section now has a reference visual demonstrating what should be placed there. Whenever you have your personal CAD renders, Figma screens, or diagrams ready, simply tell me:  
+> *"Replace Image 01 with `my_render.png`"* or *"Replace AERA-PH-14 with `my_ui.png`"* or *"Replace AERA-PH-01 with `floorplan.svg`"*.
 
 ---
 
-## 1. Active Render Images (Currently Extracted & Displayed)
+## 1. Active Visual Assets (Installed & Displayed in Page)
 
-| Slot ID | Short Reference | Location in Page | Current Filename | Dimensions | Description / Purpose |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **`AERA-IMG-01`** | **Image 01 / Hero** | Hero Section (Top) | `aera-hero.png` | 1497 × 883 px | Main hero visual showing ceiling-integrated air purifier unit in commercial interior |
-| **`AERA-IMG-02`** | **Image 02** | Section 03: Challenge (Tile 1) | `aera-commercial-interior.png` | 1497 × 883 px | Context shot: Commercial interior with occupant movement areas |
-| **`AERA-IMG-03`** | **Image 03** | Section 03: Challenge (Tile 2) | `aera-outlet-detail.png` | 1920 × 1080 px | Close-up: Underside airflow vents and ceiling integration detail |
-| **`AERA-IMG-04`** | **Image 04** | Section 06: Product Design (Tile 1) | `aera-form-detail.png` | 1694 × 994 px | Form & proportion detail shot of the housing |
-| **`AERA-IMG-05`** | **Image 05** | Section 06: Product Design (Tile 2) | `aera-finish-exploration.png` | 1920 × 1080 px | Material, surface texture, and finish exploration |
-| **`AERA-IMG-06`** | **Image 06 / Outcome**| Section 09: Outcome & Learnings | `aera-concept-render.png` | 1497 × 883 px | Final concept render showcasing the completed AERA system |
-
----
-
-## 2. Diagram & Placeholder Slots (`.ph`) Available for Future Assets
-
-Tell me which slot ID to swap whenever you have your sketches, CAD models, diagrams, or screen recordings ready:
-
-### Section 03: The Challenge
-- **`AERA-PH-01`**: Commercial-space circulation & zoning analysis diagram (Large, 1200px wide).
-
-### Section 04: Research & Insights
-- **`AERA-PH-02`**: Research synthesis board / annotated spatial studies (Large).
-- **`AERA-PH-03`**: Ceiling infrastructure reference analysis / 600 × 600 mm ceiling-grid study.
-- **`AERA-PH-04`**: Occupancy and movement observation patterns.
-- **`AERA-PH-05`**: Serviceability study & distributed maintenance implications.
-- **`AERA-PH-06`**: Spatial zoning & system journey map (Wide format).
-
-### Section 05: Design Opportunity
-- **`AERA-PH-07`**: Four-part opportunity diagram connecting spatial planning to digital management.
-
-### Section 06: Physical Product Design
-- **`AERA-PH-08`**: CAD Assembly / Primary Render (Dark backdrop, large).
-- **`AERA-PH-09`**: Form progression sketches & ideation sketches.
-- **`AERA-PH-10`**: CAD dimensional drawing & ceiling mounting brackets.
-- **`AERA-PH-11`**: Exploded isometric view showing airflow path, motor, and HEPA filter assembly (Large).
-- **`AERA-PH-12`**: Underside air outlet detail crop.
-- **`AERA-PH-13`**: Maintenance access & filter replacement mechanism.
-
-### Section 07: Digital Interface & App
-- **`AERA-PH-14`**: UI Screen 1 — Air Quality Dashboard (Dedicated IA monitoring).
-- **`AERA-PH-15`**: UI Screen 2 — Spatial Zones Floorplan & Zone Status.
-- **`AERA-PH-16`**: UI Screen 3 — Maintenance, Filter Health & System Upkeep.
-- **`AERA-PH-17`**: Digital Interface Walkthrough (GIF / WebM animation of screen flow).
-
-### Section 08: System Integration
-- **`AERA-PH-18`**: Hardware-to-Cloud System Architecture Diagram.
-- **`AERA-PH-19`**: Wide System Map (Hardware → Spatial Zones → Cloud → Facility Ops).
-- **`AERA-PH-20`**: Paired Physical Product + Matching Digital App State.
-- **`AERA-PH-21`**: Facility Manager User Scenario Journey.
-
-### Section 09: Outcome & Before/After
-- **`AERA-PH-22`**: Starting Point — Standalone Conventional Appliance.
-- **`AERA-PH-23`**: Response Composition — Product + Spatial Zones + Interface.
-
-### Next Projects (Selected Work)
-- **`AERA-PH-24`**: GLIDE — Urban mobility concept preview thumbnail.
-- **`AERA-PH-25`**: Nordic OS — Connected work platform preview thumbnail.
-
----
-
-## 3. Recommended Asset Formats & Optimization
-- **Renders & Photographs**: WebP or PNG, 72–144 DPI, 1600px–2000px wide.
-- **Diagrams & Schematics**: SVG (sharp lines, scales infinitely) or high-res transparent PNG.
-- **Interface Walkthroughs**: WebP, MP4, or optimized GIF.
+| Slot ID | Section / Location in Page | Current Filename | Type | Description / Guidance |
+| :--- | :--- | :--- | :--- | :--- |
+| **`AERA-IMG-01`** | **Hero Section (Top)** | `aera-hero.png` | Photographic Render | Main hero visual showing ceiling-integrated air purifier in commercial interior |
+| **`AERA-IMG-02`** | **Section 03: Challenge (Tile 1)** | `aera-commercial-interior.png` | Photographic Render | Context shot: Commercial interior with occupant movement areas |
+| **`AERA-IMG-03`** | **Section 03: Challenge (Tile 2)** | `aera-outlet-detail.png` | Detail Render | Close-up: Underside airflow louvers and ceiling integration detail |
+| **`AERA-PH-01`** | **Section 03: Challenge (Wide)** | `aera-spatial-analysis.svg` | Vector Diagram | Architectural floorplan showing circulation areas, waiting zones & 600×600 mm ceiling grid |
+| **`AERA-PH-02`** | **Section 04: Research (Board)** | `aera-research-synthesis.svg` | Vector Board | Design research synthesis: ceiling infrastructure, CO2 spikes, service reach & coverage metrics |
+| **`AERA-PH-06`** | **Section 04: Research (Journey)**| `aera-journey-map.svg` | Vector Blueprint | 5-phase system journey: baseline IAQ → occupancy surge → cross-zone purge → maintenance alert |
+| **`AERA-PH-07`** | **Section 05: Opportunity (Framework)** | `aera-opportunity-map.svg` | Vector Framework | 4-part matrix mapping observed commercial frictions directly to architectural design responses |
+| **`AERA-PH-08`** | **Section 06: Product Design (Hero)** | `aera-concept-render.png` | Photographic Render | Large packaging & form concept render of ceiling unit in architectural context |
+| **`AERA-IMG-04`** | **Section 06: Product Design (Tile 1)**| `aera-form-detail.png` | Detail Render | Form & proportion detail shot of the housing and ceiling transition |
+| **`AERA-IMG-05`** | **Section 06: Product Design (Tile 2)**| `aera-finish-exploration.png` | Material Study | Anodized aluminum and matte polymer surface texture exploration |
+| **`AERA-PH-11`** | **Section 06: Product Design (Exploded)**| `aera-exploded-view.svg` | Technical Blueprint | Exploded assembly: chassis, centrifugal motor, True HEPA H13 filter, magnetic release latch |
+| **`AERA-PH-12`** | **Section 06: Product Design (Louver)** | `aera-outlet-detail.png` | Detail Render | Underside radial louver geometry for draft-free air diffusion |
+| **`AERA-PH-13`** | **Section 06: Product Design (Service)** | `aera-commercial-interior.png` | Context Render | Maintenance technician service reach and installation context |
+| **`AERA-PH-14`** | **Section 07: Digital UI (Air Screen)** | `aera-ui-dashboard.svg` | UI Screen Mockup | 01 / Air: AQI 98 circular gauge, PM2.5, CO2, TVOC real-time telemetry & 24h trend |
+| **`AERA-PH-15`** | **Section 07: Digital UI (Zones Screen)**| `aera-ui-zones.svg` | UI Screen Mockup | 02 / Zones: Interactive floorplan map showing zone-by-zone clean air statuses |
+| **`AERA-PH-16`** | **Section 07: Digital UI (Maintain)** | `aera-ui-maintain.svg` | UI Screen Mockup | 03 / Maintain: Filter health bars (82% / 78% / 12%), technician dispatch & reordering |
+| **`AERA-PH-19`** | **Section 08: System Integration** | `aera-system-architecture.svg`| Technical Infographic| Hardware tier → Spatial mesh network → Cloud analytics → Operational touchpoints |
+| **`AERA-PH-22/23`**| **Section 09: Outcome (Comparison)** | `aera-comparison.svg` | Vector Comparison | Side-by-side: Standalone Floor Appliance (Dead zones) vs AERA Distributed Ceiling System |
+| **`AERA-IMG-06`** | **Section 09: Outcome (Final Concept)**| `aera-concept-render.png` | Photographic Render | Completed system concept payoff render |

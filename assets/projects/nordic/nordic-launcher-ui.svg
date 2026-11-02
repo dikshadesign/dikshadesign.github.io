@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #0b1120; }
+      .chrome-bar { fill: #0f172a; stroke: #1e293b; stroke-width: 1; }
+      .panel-card { fill: #1e293b; stroke: #334155; stroke-width: 1; rx: 4; }
+      .dropdown-bg { fill: #0f172a; stroke: #38bdf8; stroke-width: 1.5; filter: drop-shadow(0 20px 25px rgba(0,0,0,0.5)); }
+      .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+      .app-hover { fill: #1e293b; rx: 4; }
+      .app-active { fill: rgba(56, 189, 248, 0.12); stroke: #38bdf8; stroke-width: 1; rx: 4; }
+      .badge-vision { fill: #0284c7; }
+      .badge-erp { fill: #4f46e5; }
+      .badge-mes { fill: #059669; }
+      .badge-eqms { fill: #d97706; }
+      .badge-visitor { fill: #7c3aed; }
+      .callout-box { fill: #1e293b; stroke: #38bdf8; stroke-width: 1.2; rx: 4; }
+      .callout-title { font-family: Inter, sans-serif; font-size: 11px; font-weight: 700; fill: #38bdf8; }
+      .callout-text { font-family: Inter, sans-serif; font-size: 9.5px; fill: #cbd5e1; line-height: 1.4; }
+    </style>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="680" class="bg"/>
+
+  <!-- Top Title Banner -->
+  <rect x="40" y="24" width="1120" height="40" fill="#0f172a" stroke="#1e293b" stroke-width="1" rx="4"/>
+  <text x="60" y="49" class="font-sans" font-size="14px" font-weight="700" fill="#f8fafc">Nordic ONE · Global Application Launcher &amp; Shared Navigation Interface</text>
+  <text x="800" y="49" class="font-sans" font-size="11px" fill="#94a3b8">Cross-domain context switching with persistent plant, user &amp; tenant state</text>
+
+  <!-- Main Platform Chrome Shell -->
+  <g transform="translate(40, 80)">
+    <!-- Global Header Topbar (56px) -->
+    <rect width="1120" height="56" class="chrome-bar" rx="4"/>
+
+    <!-- Left Brand & App Switcher Button -->
+    <g transform="translate(20, 12)">
+      <!-- 9-dot Grid Icon inside Switcher Trigger -->
+      <rect width="180" height="32" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+      <g transform="translate(10, 8)">
+        <circle cx="3" cy="3" r="2" fill="#38bdf8"/>
+        <circle cx="9" cy="3" r="2" fill="#38bdf8"/>
+        <circle cx="15" cy="3" r="2" fill="#38bdf8"/>
+        <circle cx="3" cy="9" r="2" fill="#38bdf8"/>
+        <circle cx="9" cy="9" r="2" fill="#38bdf8"/>
+        <circle cx="15" cy="9" r="2" fill="#38bdf8"/>
+        <circle cx="3" cy="15" r="2" fill="#38bdf8"/>
+        <circle cx="9" cy="15" r="2" fill="#38bdf8"/>
+        <circle cx="15" cy="15" r="2" fill="#38bdf8"/>
+      </g>
+      <text x="36" y="21" class="font-sans" font-size="12px" font-weight="700" fill="#f8fafc">Nordic <tspan fill="#38bdf8">ONE</tspan></text>
+      <!-- Down caret -->
+      <path d="M 160 14 L 165 19 L 170 14" stroke="#94a3b8" stroke-width="1.5" fill="none"/>
+    </g>
+
+    <!-- Center Search Bar (⌘K Global Search) -->
+    <g transform="translate(230, 12)">
+      <rect width="480" height="32" rx="4" fill="#0b1120" stroke="#334155" stroke-width="1"/>
+      <circle cx="18" cy="16" r="6" stroke="#64748b" stroke-width="1.5" fill="none"/>
+      <line x1="22" y1="20" x2="27" y2="25" stroke="#64748b" stroke-width="1.5"/>
+      <text x="36" y="20" class="font-sans" font-size="11.5px" fill="#64748b">Search across Vision, MES, ERP, EQMS (e.g., Lot B-881, Work Order #402)...</text>
+      <rect x="428" y="6" width="42" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="449" y="19" text-anchor="middle" class="font-sans" font-size="10px" font-weight="600" fill="#94a3b8">⌘ K</text>
+    </g>
+
+    <!-- Right Controls: Plant Selector, Notifications, User -->
+    <g transform="translate(740, 12)">
+      <!-- Plant / Facility Badge -->
+      <rect width="180" height="32" rx="4" fill="#0b1120" stroke="#334155" stroke-width="1"/>
+      <circle cx="14" cy="16" r="4" fill="#10b981"/>
+      <text x="26" y="20" class="font-sans" font-size="11px" font-weight="600" fill="#f1f5f9">Gothenburg · Plant 04</text>
+      <path d="M 164 14 L 168 18 L 172 14" stroke="#64748b" stroke-width="1.5" fill="none"/>
+
+      <!-- Notification Bell with Indicator -->
+      <g transform="translate(195, 0)">
+        <rect width="32" height="32" rx="4" fill="#0b1120" stroke="#334155" stroke-width="1"/>
+        <path d="M 12 10 C 12 7.8 13.8 6 16 6 C 18.2 6 20 7.8 20 10 L 20 16 L 22 18 L 10 18 L 12 16 Z" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+        <circle cx="21" cy="7" r="3" fill="#f43f5e"/>
+      </g>
+
+      <!-- User Profile Avatar & Name -->
+      <g transform="translate(240, 0)">
+        <rect width="120" height="32" rx="4" fill="#0b1120" stroke="#334155" stroke-width="1"/>
+        <circle cx="16" cy="16" r="10" fill="#38bdf8"/>
+        <text x="16" y="20" text-anchor="middle" class="font-sans" font-size="10px" font-weight="700" fill="#0f172a">DS</text>
+        <text x="34" y="20" class="font-sans" font-size="11px" font-weight="600" fill="#f1f5f9">D. Sharma</text>
+      </g>
+    </g>
+
+    <!-- Background Mock App Canvas (Behind Launcher) -->
+    <g transform="translate(0, 68)">
+      <rect width="1120" height="500" fill="#090d16" stroke="#1e293b" stroke-width="1" rx="4"/>
+      
+      <!-- Sub-navigation for current app (Nordic MES) -->
+      <rect width="1120" height="42" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+      <text x="24" y="26" class="font-sans" font-size="12px" font-weight="700" fill="#38bdf8">NORDIC MES</text>
+      <text x="120" y="26" class="font-sans" font-size="12px" fill="#64748b">|</text>
+      <text x="140" y="26" class="font-sans" font-size="12px" font-weight="600" fill="#f8fafc">Shop Floor Telemetry</text>
+      <text x="290" y="26" class="font-sans" font-size="12px" fill="#94a3b8">Active Work Orders</text>
+      <text x="430" y="26" class="font-sans" font-size="12px" fill="#94a3b8">Machine OEE Logs</text>
+      <text x="560" y="26" class="font-sans" font-size="12px" fill="#94a3b8">Maintenance Schedules</text>
+
+      <!-- Dimmed Background Content -->
+      <g opacity="0.3" transform="translate(24, 60)">
+        <rect width="340" height="400" fill="#1e293b" stroke="#334155" stroke-width="1" rx="4"/>
+        <rect width="710" height="400" x="360" fill="#1e293b" stroke="#334155" stroke-width="1" rx="4"/>
+      </g>
+    </g>
+
+    <!-- OPEN LAUNCHER DROPDOWN POPOVER (The Star of this visual) -->
+    <g transform="translate(20, 62)">
+      <!-- Dropdown Frame -->
+      <rect width="560" height="470" rx="6" class="dropdown-bg"/>
+
+      <!-- Header inside popover -->
+      <g transform="translate(24, 20)">
+        <text x="0" y="14" class="font-sans" font-size="13px" font-weight="700" fill="#f8fafc">Connected Ecosystem</text>
+        <text x="0" y="30" class="font-sans" font-size="10.5px" fill="#94a3b8">Select an industrial application to switch workspaces or view recent sessions</text>
+      </g>
+
+      <!-- Application Grid (5 Apps) -->
+      <g transform="translate(24, 68)">
+        
+        <!-- App 1: Nordic Vision -->
+        <g transform="translate(0, 0)">
+          <rect width="248" height="68" class="app-hover"/>
+          <rect x="12" y="14" width="40" height="40" rx="4" class="badge-vision"/>
+          <text x="32" y="38" text-anchor="middle" class="font-sans" font-size="13px" font-weight="800" fill="#ffffff">VIS</text>
+          <text x="62" y="30" class="font-sans" font-size="12.5px" font-weight="700" fill="#f8fafc">Nordic Vision</text>
+          <text x="62" y="46" class="font-sans" font-size="10px" fill="#94a3b8">Machine Vision &amp; AI QA</text>
+          <!-- Status pill -->
+          <circle cx="230" cy="22" r="3.5" fill="#10b981"/>
+          <!-- Recent session link -->
+          <text x="62" y="60" class="font-sans" font-size="9px" fill="#38bdf8">↗ Line 02 Defect Feed</text>
+        </g>
+
+        <!-- App 2: Nordic ERP -->
+        <g transform="translate(264, 0)">
+          <rect width="248" height="68" class="app-hover"/>
+          <rect x="12" y="14" width="40" height="40" rx="4" class="badge-erp"/>
+          <text x="32" y="38" text-anchor="middle" class="font-sans" font-size="13px" font-weight="800" fill="#ffffff">ERP</text>
+          <text x="62" y="30" class="font-sans" font-size="12.5px" font-weight="700" fill="#f8fafc">Nordic ERP</text>
+          <text x="62" y="46" class="font-sans" font-size="10px" fill="#94a3b8">Supply Chain &amp; Planning</text>
+          <circle cx="230" cy="22" r="3.5" fill="#10b981"/>
+          <text x="62" y="60" class="font-sans" font-size="9px" fill="#818cf8">↗ Inventory Ledger B-881</text>
+        </g>
+
+        <!-- App 3: Nordic MES (Currently Active App) -->
+        <g transform="translate(0, 80)">
+          <rect width="248" height="68" class="app-active"/>
+          <rect x="12" y="14" width="40" height="40" rx="4" class="badge-mes"/>
+          <text x="32" y="38" text-anchor="middle" class="font-sans" font-size="13px" font-weight="800" fill="#ffffff">MES</text>
+          <text x="62" y="30" class="font-sans" font-size="12.5px" font-weight="700" fill="#38bdf8">Nordic MES</text>
+          <text x="62" y="46" class="font-sans" font-size="10px" fill="#94a3b8">Manufacturing Execution</text>
+          <rect x="195" y="14" width="45" height="18" rx="3" fill="#059669"/>
+          <text x="217" y="26" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#ffffff">CURRENT</text>
+          <text x="62" y="60" class="font-sans" font-size="9px" fill="#34d399">● Shop Floor Telemetry</text>
+        </g>
+
+        <!-- App 4: Nordic EQMS -->
+        <g transform="translate(264, 80)">
+          <rect width="248" height="68" class="app-hover"/>
+          <rect x="12" y="14" width="40" height="40" rx="4" class="badge-eqms"/>
+          <text x="32" y="38" text-anchor="middle" class="font-sans" font-size="13px" font-weight="800" fill="#ffffff">QMS</text>
+          <text x="62" y="30" class="font-sans" font-size="12.5px" font-weight="700" fill="#f8fafc">Nordic EQMS</text>
+          <text x="62" y="46" class="font-sans" font-size="10px" fill="#94a3b8">Quality Compliance &amp; Audits</text>
+          <circle cx="230" cy="22" r="3.5" fill="#10b981"/>
+          <text x="62" y="60" class="font-sans" font-size="9px" fill="#fbbf24">↗ Non-conformance #4402</text>
+        </g>
+
+        <!-- App 5: Nordic Visitor Management -->
+        <g transform="translate(0, 160)">
+          <rect width="248" height="68" class="app-hover"/>
+          <rect x="12" y="14" width="40" height="40" rx="4" class="badge-visitor"/>
+          <text x="32" y="38" text-anchor="middle" class="font-sans" font-size="13px" font-weight="800" fill="#ffffff">VIS</text>
+          <text x="62" y="30" class="font-sans" font-size="12.5px" font-weight="700" fill="#f8fafc">Visitor Access</text>
+          <text x="62" y="46" class="font-sans" font-size="10px" fill="#94a3b8">Facility Badging &amp; NDA Kiosk</text>
+          <circle cx="230" cy="22" r="3.5" fill="#10b981"/>
+          <text x="62" y="60" class="font-sans" font-size="9px" fill="#c084fc">↗ Gate 01 Contractor Roster</text>
+        </g>
+
+        <!-- Ecosystem Settings / Admin Launcher Tile -->
+        <g transform="translate(264, 160)">
+          <rect width="248" height="68" fill="#111827" stroke="#334155" stroke-dasharray="3 3" rx="4"/>
+          <rect x="12" y="14" width="40" height="40" rx="4" fill="#1e293b"/>
+          <text x="32" y="38" text-anchor="middle" class="font-sans" font-size="16px" fill="#94a3b8">⚙</text>
+          <text x="62" y="32" class="font-sans" font-size="12px" font-weight="600" fill="#cbd5e1">Platform Admin</text>
+          <text x="62" y="48" class="font-sans" font-size="10px" fill="#64748b">SSO, API Gateway &amp; Roles</text>
+        </g>
+      </g>
+
+      <!-- Bottom Platform Quick Actions Bar -->
+      <g transform="translate(24, 320)">
+        <line x1="0" y1="0" x2="512" y2="0" stroke="#334155" stroke-width="1"/>
+        <text x="0" y="24" class="font-sans" font-size="10.5px" font-weight="700" fill="#94a3b8">RECENT WORKFLOW ENTITIES</text>
+
+        <!-- Entity Chips -->
+        <g transform="translate(0, 36)">
+          <rect width="160" height="26" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+          <text x="10" y="17" class="font-sans" font-size="9.5px" fill="#cbd5e1"># Batch B-881 (Alloy)</text>
+
+          <rect x="170" width="160" height="26" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+          <text x="180" y="17" class="font-sans" font-size="9.5px" fill="#cbd5e1"># Workstation 03 Alert</text>
+
+          <rect x="340" width="160" height="26" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+          <text x="350" y="17" class="font-sans" font-size="9.5px" fill="#cbd5e1"># Audit ISO-9001 (QMS)</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Design Decision Annotation Cards (Right Side) -->
+    <!-- Annotation 01: Universal Navigation Shell -->
+    <g transform="translate(610, 140)">
+      <rect width="480" height="100" class="callout-box"/>
+      <rect x="16" y="14" width="22" height="22" rx="3" fill="#38bdf8"/>
+      <text x="27" y="29" text-anchor="middle" class="font-sans" font-size="11px" font-weight="800" fill="#0f172a">01</text>
+      <text x="48" y="29" class="callout-title">GLOBAL PERSISTENT SHELL</text>
+      <text x="16" y="52" class="callout-text">The 56px top chrome stays anchored across every application, providing a permanent mental anchor. Users never wonder "which platform am I in?" while navigating highly technical industrial tools.</text>
+      <text x="16" y="86" class="font-sans" font-size="9.5px" font-weight="600" fill="#38bdf8">Persists: Tenant · Plant Location · Active Operator · Global Search (⌘K)</text>
+    </g>
+
+    <!-- Annotation 02: Zero-Reload Launcher -->
+    <g transform="translate(610, 260)">
+      <rect width="480" height="105" class="callout-box"/>
+      <rect x="16" y="14" width="22" height="22" rx="3" fill="#38bdf8"/>
+      <text x="27" y="29" text-anchor="middle" class="font-sans" font-size="11px" font-weight="800" fill="#0f172a">02</text>
+      <text x="48" y="29" class="callout-title">MICRO-FRONTEND APPLICATION LAUNCHER</text>
+      <text x="16" y="52" class="callout-text">Opening the launcher surfaces all 5 core industrial domains with live health indicators. Rather than forcing users back to an empty home screen, the launcher lets them deep-link directly into active work orders or audit tickets.</text>
+      <text x="16" y="88" class="font-sans" font-size="9.5px" font-weight="600" fill="#38bdf8">Preserves: Contextual Lot IDs · Tab State · User Permissions</text>
+    </g>
+
+    <!-- Annotation 03: Universal ⌘K Search -->
+    <g transform="translate(610, 385)">
+      <rect width="480" height="100" class="callout-box"/>
+      <rect x="16" y="14" width="22" height="22" rx="3" fill="#38bdf8"/>
+      <text x="27" y="29" text-anchor="middle" class="font-sans" font-size="11px" font-weight="800" fill="#0f172a">03</text>
+      <text x="48" y="29" class="callout-title">CROSS-ECOSYSTEM FEDERATED SEARCH</text>
+      <text x="16" y="52" class="callout-text">Industrial operators frequently search by physical entity (e.g. batch serial number). Universal search queries all connected databases in parallel—locating the Vision inspection frame, MES run-sheet, and ERP dispatch record in one keystroke.</text>
+      <text x="16" y="86" class="font-sans" font-size="9.5px" font-weight="600" fill="#38bdf8">Query Results: Machine ID · Defect Case · Visitor Pass · Supplier SKU</text>
+    </g>
+  </g>
+</svg>

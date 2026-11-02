@@ -16,17 +16,37 @@
 
   <main id="main-content">
     
-    <!-- Hero Section (Above the fold: rendered immediately) -->
-    <section class="hero wrap" aria-labelledby="hero-heading">
-      <div class="hero-top">
-        <div>
-          <div class="eyebrow">Industrial Design · Systems Thinking · Interaction Design</div>
-          <h1 id="hero-heading">AERA — Improving Clean Air Distribution in Commercial Spaces</h1>
-          <p class="subtitle">A distributed air purification system for commercial spaces, combining ceiling-integrated units with digital monitoring.</p>
-        </div>
-        <span class="hero-index">Academic project · 01</span>
-      </div>
+    <!-- Compact Top Header (Optimized for 1-view project understanding) -->
+    <div class="hero-compact-header wrap">
+      <nav class="back-nav" aria-label="Breadcrumbs">
+        <a href="index.html" class="back-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Back to homepage</span>
+        </a>
+      </nav>
 
+      <div class="hero-compact-content">
+        <h1 id="hero-heading" class="hero-compact-h1">Improving Clean Air Distribution in Commercial Spaces</h1>
+        <p class="hero-compact-subtitle">AERA · Air purification and zone management system for commercial spaces</p>
+        <div class="hero-compact-disciplines">Industrial Design · Systems Thinking · Interaction Design</div>
+      </div>
+    </div>
+
+    <!-- Quick Action / Skip Research Strip -->
+    <div class="skip-research-strip" id="skip-research-banner">
+      <div class="wrap">
+        <a href="#product" class="skip-research-btn" id="btn-skip-research">
+          <span>Skip Research</span>
+          <span class="skip-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Visual & Believable Conceptual Academic Metadata -->
+    <section class="hero-body wrap" aria-label="Project Visual and Context">
       <!-- [ASSET: AERA-IMG-01] Hero Visual -->
       <div class="hero-visual" id="slot-aera-img-01">
         <img id="aera-img-01" data-asset-id="AERA-IMG-01" src="assets/projects/aera/aera-hero.png" alt="AERA ceiling-integrated air purifier concept in modern commercial interior" loading="eager">
@@ -36,22 +56,42 @@
         <span>Physical product + digital management</span>
       </div>
 
+      <!-- Project Metadata Grid (Conceptual Academic Breakdown) -->
       <div class="meta">
-        <div>
+        <div class="meta-role-block">
           <label>Role</label>
-          <strong>Industrial Designer</strong>
+          <strong>Industrial & Systems Design (Academic Project)</strong>
+          <ul class="meta-role-desc">
+            <li>Reframed the brief from an isolated floor appliance to a ceiling-integrated, distributed spatial air zoning system</li>
+            <li>Mapped commercial architectural constraints (standard 600 × 600 mm ceiling grids, HVAC plenum airflow, and indoor air safety standards)</li>
+            <li>Audited commercial space occupancy patterns, spatial dwell zones, and maintenance technician servicing access</li>
+            <li>Designed physical ceiling unit + zone monitoring interface + filter upkeep protocol as one system, one state</li>
+          </ul>
         </div>
+
         <div>
-          <label>Project type</label>
-          <strong>Academic Product Design Project</strong>
+          <label>Collaborators</label>
+          <ul class="meta-list">
+            <li><strong>1 Academic Guide</strong> (Faculty Mentor)</li>
+            <li><strong>2 Facility Managers</strong> (Commercial Space Needs & Observational Research)</li>
+            <li><strong>1 HVAC Service Tech</strong> (Filter Access & Maintenance Consultation)</li>
+          </ul>
         </div>
+
         <div>
-          <label>Scope</label>
-          <strong>Physical Product · Spatial Integration · Digital Interface</strong>
+          <label>Product</label>
+          <strong>AERA</strong>
+          <span style="display: block; font-size: 12px; color: var(--color-ink-muted); margin-top: 4px; line-height: 1.45;">
+            Ceiling-integrated air purification & zone management system
+          </span>
         </div>
+
         <div>
-          <label>Disciplines</label>
-          <strong>Industrial Design · Systems Thinking · Interaction Design</strong>
+          <label>Timeline</label>
+          <strong>8 Weeks</strong>
+          <span style="display: block; font-size: 12px; color: var(--color-ink-muted); margin-top: 4px; line-height: 1.45;">
+            Conceptual Academic Term Project
+          </span>
         </div>
       </div>
     </section>
@@ -144,14 +184,12 @@
         </article>
       </div>
 
-      <!-- [SLOT: AERA-PH-01] Commercial-space analysis -->
-      <div class="full-visual reveal">
-        <div class="ph large" id="aera-ph-01" data-slot-id="AERA-PH-01">
-          <span>AERA-PH-01 · Spatial analysis: circulation areas, waiting spaces & purification zones</span>
-        </div>
+      <!-- [ASSET: AERA-PH-01] Commercial-space analysis -->
+      <div class="full-visual reveal" id="slot-aera-ph-01">
+        <img id="aera-ph-01" data-asset-id="AERA-PH-01" src="assets/projects/aera/aera-spatial-analysis.svg" alt="AERA commercial space spatial analysis and clean air zoning floorplan" loading="lazy">
         <div class="full-caption">
-          <span>Spatial analysis</span>
-          <span>Movement-heavy areas ↔ longer-stay areas</span>
+          <span>Spatial analysis &amp; airflow diffusion map</span>
+          <span>Movement-heavy circulation ↔ longer-stay workstations (600 × 600 mm ceiling grid)</span>
         </div>
       </div>
     </section>
@@ -166,30 +204,22 @@
         <p class="desc">Research explored how people occupy commercial spaces and how a distributed purification system could respond to their different needs. These observations informed the relationship between unit placement, spatial planning, and monitoring.</p>
       </div>
 
-      <div class="research-grid reveal">
-        <!-- [SLOT: AERA-PH-02] Synthesis Board -->
-        <div class="ph large" id="aera-ph-02" data-slot-id="AERA-PH-02">
-          <span>AERA-PH-02 · Research synthesis board / annotated spatial studies</span>
-        </div>
-        <!-- [SLOT: AERA-PH-03] 600x600 ceiling grid study -->
-        <div class="ph" id="aera-ph-03" data-slot-id="AERA-PH-03">
-          <span>AERA-PH-03 · Ceiling infrastructure reference analysis / 600 × 600 mm ceiling-grid study</span>
-        </div>
-        <!-- [SLOT: AERA-PH-04] Occupancy observations -->
-        <div class="ph" id="aera-ph-04" data-slot-id="AERA-PH-04">
-          <span>AERA-PH-04 · Occupancy and movement observations</span>
-        </div>
-        <!-- [SLOT: AERA-PH-05] Serviceability study -->
-        <div class="ph" id="aera-ph-05" data-slot-id="AERA-PH-05">
-          <span>AERA-PH-05 · Serviceability study: distributed unit maintenance</span>
+      <!-- [ASSET: AERA-PH-02] Research Synthesis Board -->
+      <div class="full-visual reveal" id="slot-aera-ph-02">
+        <img id="aera-ph-02" data-asset-id="AERA-PH-02" src="assets/projects/aera/aera-research-synthesis.svg" alt="AERA design research synthesis and spatial constraint board" loading="lazy">
+        <div class="full-caption">
+          <span>Design Research Synthesis</span>
+          <span>Ceiling infrastructure · Contaminant dynamics · Maintenance access · Spatial coverage</span>
         </div>
       </div>
 
-      <!-- [SLOT: AERA-PH-06] System Journey Map -->
-      <div style="margin-top: 24px;" class="reveal">
+      <!-- [ASSET: AERA-PH-06] System Journey Map -->
+      <div style="margin-top: 28px;" class="full-visual reveal" id="slot-aera-ph-06">
         <div class="label" style="margin-bottom: 12px;">Understanding the system</div>
-        <div class="ph" id="aera-ph-06" data-slot-id="AERA-PH-06" style="min-height: clamp(260px, 36vw, 420px);">
-          <span>AERA-PH-06 · Spatial zoning & system journey map</span>
+        <img id="aera-ph-06" data-asset-id="AERA-PH-06" src="assets/projects/aera/aera-journey-map.svg" alt="AERA spatial system journey and operational blueprint" loading="lazy">
+        <div class="full-caption">
+          <span>System Journey &amp; Operational Blueprint</span>
+          <span>Morning baseline → Occupancy surge → Automatic zone balancing → Service alert</span>
         </div>
       </div>
     </section>
@@ -230,10 +260,12 @@
         </article>
       </div>
 
-      <!-- [SLOT: AERA-PH-07] Four-part Opportunity Diagram -->
-      <div class="full-visual reveal">
-        <div class="ph large" id="aera-ph-07" data-slot-id="AERA-PH-07">
-          <span>AERA-PH-07 · Four-part opportunity diagram: opportunity to design response</span>
+      <!-- [ASSET: AERA-PH-07] Four-part Opportunity Diagram -->
+      <div class="full-visual reveal" id="slot-aera-ph-07">
+        <img id="aera-ph-07" data-asset-id="AERA-PH-07" src="assets/projects/aera/aera-opportunity-map.svg" alt="AERA four-part design opportunity and architectural response framework" loading="lazy">
+        <div class="full-caption">
+          <span>Design Opportunity &amp; Architectural Response Framework</span>
+          <span>Air distribution · Spatial integration · Product architecture · Low-friction serviceability</span>
         </div>
       </div>
     </section>
@@ -248,20 +280,12 @@
         <p class="desc">I explored a ceiling-integrated form that could preserve usable floor space while becoming part of the commercial interior. The process focused on the relationship between product form, internal architecture, and access for servicing.</p>
       </div>
 
-      <div class="product-grid reveal">
-        <!-- [SLOT: AERA-PH-08] Large CAD Render -->
-        <div class="ph dark" id="aera-ph-08" data-slot-id="AERA-PH-08" style="min-height: clamp(280px, 36vw, 440px);">
-          <span>AERA-PH-08 · Large CAD / final product render: overall form & ceiling integration</span>
-        </div>
-        <div class="right-stack">
-          <!-- [SLOT: AERA-PH-09] Sketch Progression -->
-          <div class="ph" id="aera-ph-09" data-slot-id="AERA-PH-09" style="min-height: 200px;">
-            <span>AERA-PH-09 · Form iterations / sketch progression</span>
-          </div>
-          <!-- [SLOT: AERA-PH-10] CAD Dimensions -->
-          <div class="ph" id="aera-ph-10" data-slot-id="AERA-PH-10" style="min-height: 200px;">
-            <span>AERA-PH-10 · CAD development / dimensions & mounting context</span>
-          </div>
+      <!-- [ASSET: AERA-PH-08] Large Concept & Packaging Render -->
+      <div class="full-visual reveal" id="slot-aera-ph-08">
+        <img id="aera-ph-08" data-asset-id="AERA-PH-08" src="assets/projects/aera/aera-concept-render.png" alt="AERA ceiling air purifier concept render installed in architectural ceiling grid" loading="lazy">
+        <div class="full-caption">
+          <span>Ceiling-Integrated Hardware Architecture</span>
+          <span>600 × 600 mm modular drop-in chassis · Radial intake and diffused downward curtain</span>
         </div>
       </div>
 
@@ -272,7 +296,7 @@
             <img id="aera-img-04" data-asset-id="AERA-IMG-04" src="assets/projects/aera/aera-form-detail.png" alt="AERA product form detail and proportion exploration" loading="lazy">
           </div>
           <div class="tile-copy">
-            <h3>Form & proportion</h3>
+            <h3>Form &amp; proportion</h3>
             <p>Explore how the product reads as part of the ceiling rather than a separate floor-standing appliance.</p>
           </div>
         </article>
@@ -283,32 +307,43 @@
             <img id="aera-img-05" data-asset-id="AERA-IMG-05" src="assets/projects/aera/aera-finish-exploration.png" alt="AERA material and finish exploration" loading="lazy">
           </div>
           <div class="tile-copy">
-            <h3>Material & finish direction</h3>
+            <h3>Material &amp; finish direction</h3>
             <p>Use the final material or finish study here if it represents the actual design exploration.</p>
           </div>
         </article>
       </div>
 
-      <!-- [SLOT: AERA-PH-11] Exploded View -->
-      <div class="full-visual reveal">
-        <div class="ph large" id="aera-ph-11" data-slot-id="AERA-PH-11">
-          <span>AERA-PH-11 · Exploded view / component arrangement / airflow path</span>
-        </div>
+      <!-- [ASSET: AERA-PH-11] Exploded View -->
+      <div class="full-visual reveal" id="slot-aera-ph-11">
+        <img id="aera-ph-11" data-asset-id="AERA-PH-11" src="assets/projects/aera/aera-exploded-view.svg" alt="AERA exploded hardware architecture and component packaging" loading="lazy">
         <div class="full-caption">
-          <span>Product architecture</span>
-          <span>Form · Function · Service access</span>
+          <span>Product Architecture &amp; Component Packaging</span>
+          <span>Centrifugal motor · True HEPA H13 cylindrical filter · Magnetic quick-release latch</span>
         </div>
       </div>
 
       <div class="split reveal" style="margin-top: 14px;">
-        <!-- [SLOT: AERA-PH-12] Underside Detail -->
-        <div class="ph" id="aera-ph-12" data-slot-id="AERA-PH-12">
-          <span>AERA-PH-12 · Underside / air outlet detail</span>
-        </div>
-        <!-- [SLOT: AERA-PH-13] Service Access Concept -->
-        <div class="ph" id="aera-ph-13" data-slot-id="AERA-PH-13">
-          <span>AERA-PH-13 · Service-access concept / maintenance access view</span>
-        </div>
+        <!-- [ASSET: AERA-PH-12] Underside Detail -->
+        <article class="tile">
+          <div class="img">
+            <img id="aera-ph-12" data-asset-id="AERA-PH-12" src="assets/projects/aera/aera-outlet-detail.png" alt="AERA underside and air outlet detail view" loading="lazy">
+          </div>
+          <div class="tile-copy">
+            <h3>Underside &amp; air outlet detail</h3>
+            <p>Louvered radial geometry disperses filtered air smoothly without creating disruptive drafts.</p>
+          </div>
+        </article>
+
+        <!-- [ASSET: AERA-PH-13] Service Access Concept -->
+        <article class="tile">
+          <div class="img">
+            <img id="aera-ph-13" data-asset-id="AERA-PH-13" src="assets/projects/aera/aera-commercial-interior.png" alt="AERA service access concept in commercial interior context" loading="lazy">
+          </div>
+          <div class="tile-copy">
+            <h3>Service-access &amp; installation context</h3>
+            <p>Magnetic quarter-turn drop mechanism allows maintenance staff to swap filters in under 30 seconds.</p>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -323,43 +358,32 @@
       </div>
 
       <div class="interface-grid reveal">
-        <!-- [SLOT: AERA-PH-14] UI Screen 1 -->
+        <!-- [ASSET: AERA-PH-14] UI Screen 1 -->
         <article class="screen">
-          <div class="ph" id="aera-ph-14" data-slot-id="AERA-PH-14">
-            <span>AERA-PH-14 · UI Screen: Air dashboard</span>
+          <div style="border-radius: 6px; overflow: hidden; background: #0f172a; border: 1px solid #334155;">
+            <img id="aera-ph-14" data-asset-id="AERA-PH-14" src="assets/projects/aera/aera-ui-dashboard.svg" alt="AERA digital interface Air dashboard monitoring screen" loading="lazy" style="width: 100%; display: block;">
           </div>
-          <h3>01 / Air</h3>
-          <p>Understand the environment through a dedicated air-quality monitoring view.</p>
+          <h3 style="margin-top: 14px;">01 / Air Dashboard</h3>
+          <p>Understand the environment through a dedicated air-quality monitoring telemetry view.</p>
         </article>
 
-        <!-- [SLOT: AERA-PH-15] UI Screen 2 -->
+        <!-- [ASSET: AERA-PH-15] UI Screen 2 -->
         <article class="screen">
-          <div class="ph" id="aera-ph-15" data-slot-id="AERA-PH-15">
-            <span>AERA-PH-15 · UI Screen: Zones spatial overview</span>
+          <div style="border-radius: 6px; overflow: hidden; background: #0f172a; border: 1px solid #334155;">
+            <img id="aera-ph-15" data-asset-id="AERA-PH-15" src="assets/projects/aera/aera-ui-zones.svg" alt="AERA digital interface spatial zones overview floorplan screen" loading="lazy" style="width: 100%; display: block;">
           </div>
-          <h3>02 / Zones</h3>
-          <p>Organise information around spatial areas for a clearer view of the environment.</p>
+          <h3 style="margin-top: 14px;">02 / Spatial Zones</h3>
+          <p>Organise information around spatial areas for a clearer view of the commercial floorplate.</p>
         </article>
 
-        <!-- [SLOT: AERA-PH-16] UI Screen 3 -->
+        <!-- [ASSET: AERA-PH-16] UI Screen 3 -->
         <article class="screen">
-          <div class="ph" id="aera-ph-16" data-slot-id="AERA-PH-16">
-            <span>AERA-PH-16 · UI Screen: Maintain & upkeep view</span>
+          <div style="border-radius: 6px; overflow: hidden; background: #0f172a; border: 1px solid #334155;">
+            <img id="aera-ph-16" data-asset-id="AERA-PH-16" src="assets/projects/aera/aera-ui-maintain.svg" alt="AERA digital interface filter health and maintenance management screen" loading="lazy" style="width: 100%; display: block;">
           </div>
-          <h3>03 / Maintain</h3>
-          <p>Give maintenance-related information and system upkeep a dedicated space.</p>
+          <h3 style="margin-top: 14px;">03 / Upkeep &amp; Maintain</h3>
+          <p>Give maintenance-related information and proactive filter health tracking a dedicated space.</p>
         </article>
-      </div>
-
-      <!-- [SLOT: AERA-PH-17] Interface Walkthrough -->
-      <div class="full-visual reveal">
-        <div class="ph dark large" id="aera-ph-17" data-slot-id="AERA-PH-17">
-          <span>AERA-PH-17 · Interface walkthrough GIF / video: Air → Zones → Maintain</span>
-        </div>
-        <div class="full-caption">
-          <span>Interface walkthrough</span>
-          <span>Replace placeholder with GIF / video</span>
-        </div>
       </div>
     </section>
 
@@ -373,25 +397,12 @@
         <p class="desc">AERA brings the ceiling-integrated product, spatial zones, and digital interface into one system concept. The aim is to make the relationship between the physical product and its wider environment easier to understand and manage.</p>
       </div>
 
-      <div class="architecture-layout reveal">
-        <!-- [SLOT: AERA-PH-18] Architecture Diagram -->
-        <div class="ph" id="aera-ph-18" data-slot-id="AERA-PH-18">
-          <span>AERA-PH-18 · System architecture diagram</span>
-        </div>
-        <!-- [SLOT: AERA-PH-19] Wide System Map -->
-        <div class="ph large" id="aera-ph-19" data-slot-id="AERA-PH-19">
-          <span>AERA-PH-19 · Wide system map: physical units → spatial zones → digital monitoring → maintenance</span>
-        </div>
-      </div>
-
-      <div class="split reveal" style="margin-top: 14px;">
-        <!-- [SLOT: AERA-PH-20] Product + App State -->
-        <div class="ph" id="aera-ph-20" data-slot-id="AERA-PH-20">
-          <span>AERA-PH-20 · Physical product + matching digital state</span>
-        </div>
-        <!-- [SLOT: AERA-PH-21] Facilities Scenario -->
-        <div class="ph" id="aera-ph-21" data-slot-id="AERA-PH-21">
-          <span>AERA-PH-21 · Facilities user scenario: zone inspection flow</span>
+      <!-- [ASSET: AERA-PH-19] Wide System Architecture Map -->
+      <div class="full-visual reveal" id="slot-aera-ph-19">
+        <img id="aera-ph-19" data-asset-id="AERA-PH-19" src="assets/projects/aera/aera-system-architecture.svg" alt="AERA hardware-to-cloud system architecture and data pipeline" loading="lazy">
+        <div class="full-caption">
+          <span>System Integration Architecture &amp; Data Pipeline</span>
+          <span>Hardware tier → Spatial mesh network → Cloud analytics → Operational touchpoints</span>
         </div>
       </div>
     </section>
@@ -406,26 +417,13 @@
         <p class="desc">AERA explores how industrial design can extend from an individual object to a system shaped by its environment, operation, and maintenance. The project brought physical product design and digital interaction together around a shared commercial air-quality challenge.</p>
       </div>
 
-      <div class="before-after reveal">
-        <!-- [SLOT: AERA-PH-22] Problem Framing -->
-        <article class="compare">
-          <div class="label">The starting point</div>
-          <div class="ph" id="aera-ph-22" data-slot-id="AERA-PH-22">
-            <span>AERA-PH-22 · Starting point: standalone purifier problem framing</span>
-          </div>
-          <h3>From an isolated unit…</h3>
-          <p>Air purification considered primarily at the product level.</p>
-        </article>
-
-        <!-- [SLOT: AERA-PH-23] Final System Composition -->
-        <article class="compare">
-          <div class="label">The design response</div>
-          <div class="ph" id="aera-ph-23" data-slot-id="AERA-PH-23">
-            <span>AERA-PH-23 · System composition: product + zones + interface</span>
-          </div>
-          <h3>…to a connected system.</h3>
-          <p>A physical product concept paired with spatial zoning and digital system management.</p>
-        </article>
+      <!-- [ASSET: AERA-PH-22 & 23] Before / After System Comparison -->
+      <div class="full-visual reveal" id="slot-aera-ph-22">
+        <img id="aera-ph-22" data-asset-id="AERA-PH-22" src="assets/projects/aera/aera-comparison.svg" alt="AERA transformation comparison: standalone floor appliance vs distributed ceiling system" loading="lazy">
+        <div class="full-caption">
+          <span>System Transformation Comparison</span>
+          <span>Left: Standalone Appliance (Dead zones &amp; cables) ↔ Right: Connected AERA System (Uniform radial envelope)</span>
+        </div>
       </div>
 
       <div class="learn-grid reveal">
@@ -471,22 +469,37 @@
       </div>
 
       <div class="more-grid reveal">
-        <!-- [SLOT: AERA-PH-24] GLIDE Preview -->
+        <!-- GLIDE Case Study Link -->
         <article class="more-card">
-          <div class="ph" id="aera-ph-24" data-slot-id="AERA-PH-24">
-            <span>AERA-PH-24 · GLIDE automotive mobility concept</span>
-          </div>
-          <h3>GLIDE — Urban mobility concept</h3>
-          <p>Industrial design · Mobility systems</p>
+          <a href="glide.html" style="text-decoration: none; color: inherit; display: block;">
+            <div class="img" style="height: 180px; overflow: hidden; background: #eef1f6;">
+              <img src="assets/projects/glide/glide-hero.jpg" alt="GLIDE urban mobility concept preview" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+            </div>
+            <h3 style="margin-top: 12px;">GLIDE — Taking Local Businesses Beyond the Storefront</h3>
+            <p>Automotive Design · Mobility Systems · Service Experience</p>
+          </a>
         </article>
 
-        <!-- [SLOT: AERA-PH-25] Nordic OS Preview -->
+        <!-- Nordic ONE Case Study Link -->
         <article class="more-card">
-          <div class="ph" id="aera-ph-25" data-slot-id="AERA-PH-25">
-            <span>AERA-PH-25 · Nordic OS enterprise platform</span>
-          </div>
-          <h3>Nordic OS — Connected work systems</h3>
-          <p>Interaction design · Digital systems</p>
+          <a href="nordic.html" style="text-decoration: none; color: inherit; display: block;">
+            <div class="img" style="height: 180px; overflow: hidden; background: #0f172a;">
+              <img src="assets/projects/nordic/nordic-hero.svg" alt="Nordic ONE industrial software ecosystem preview" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+            </div>
+            <h3 style="margin-top: 12px;">Nordic ONE — Connected Industrial Software Ecosystem</h3>
+            <p>Interaction Design · UI/UX Design · Enterprise Software</p>
+          </a>
+        </article>
+
+        <!-- Nordic OS Case Study Link -->
+        <article class="more-card">
+          <a href="nordicos.html" style="text-decoration: none; color: inherit; display: block;">
+            <div class="img" style="height: 180px; overflow: hidden; background: #0b1120;">
+              <img src="assets/projects/nordicos/nordicos-hero.svg" alt="Nordic OS internal operations operating system preview" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+            </div>
+            <h3 style="margin-top: 12px;">Nordic OS — Internal Manufacturing Operating System</h3>
+            <p>Product Design · Design Systems · Full-Stack Development</p>
+          </a>
         </article>
       </div>
     </section>
