@@ -33,7 +33,7 @@
 
   <!-- Top Title Banner -->
   <text x="60" y="55" class="header-title">AERA · Exploded Hardware Architecture &amp; Component Packaging</text>
-  <text x="60" y="75" class="header-sub">Axial-intake centrifugal radial diffusion assembly · Standard 600 × 600 mm architectural ceiling module</text>
+  <text x="60" y="75" class="header-sub">Axial-intake centrifugal radial diffusion assembly · Compact Ø200 mm ceiling module (600 × 600 mm grid fit)</text>
 
   <!-- Central Exploded Assembly Axis Line -->
   <line x1="600" y1="100" x2="600" y2="540" stroke="#334155" stroke-dasharray="4 4" stroke-width="1.5"/>
@@ -94,9 +94,9 @@
   </g>
   <!-- Callout 04 (Right) -->
   <line x1="720" y1="350" x2="900" y2="350" class="callout-line"/>
-  <rect x="910" y="328" width="230" height="48" class="badge"/>
-  <text x="925" y="348" class="callout-title">04 / 360° Cylindrical Filter</text>
-  <text x="925" y="364" class="callout-desc">99.97% particulate capture to 0.3μm</text>
+  <rect x="910" y="328" width="245" height="48" class="badge"/>
+  <text x="925" y="348" class="callout-title">04 / Filter Cartridge (Ø180 × 250 mm)</text>
+  <text x="925" y="364" class="callout-desc">True HEPA H13 · 175 m³/h target CADR</text>
 
   <!-- Component 05: Quarter-Turn Magnetic Quick-Release Mechanism -->
   <g transform="translate(600, 440)">

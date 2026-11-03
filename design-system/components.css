@@ -883,7 +883,189 @@
 }
 
 /* ==========================================================================
-   10. SCROLL REVEAL ANIMATIONS (IntersectionObserver Safe Mode)
+   11. SCENARIO & SPECIFICATION CARDS (STRICT 0px RADIUS)
+   Grounding spatial engineering parameters & architectural baselines
+   ========================================================================== */
+
+.scenario-spec-block {
+  margin-top: var(--space-5);
+  margin-bottom: var(--space-5);
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-none);
+  padding: clamp(20px, 3vw, 32px);
+  position: relative;
+  overflow: hidden;
+}
+
+.scenario-spec-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: var(--space-4);
+  max-width: 760px;
+}
+
+.scenario-spec-head .spec-badge {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 6px;
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-primary);
+  font-size: var(--font-size-eyebrow);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.scenario-spec-head h3 {
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
+  color: var(--color-ink-primary);
+  margin: 0;
+}
+
+.scenario-spec-head p {
+  font-size: 13.5px;
+  color: var(--color-ink-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.scenario-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .scenario-spec-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.scenario-card-sub {
+  background-color: var(--color-canvas-subtle);
+  border: 1px solid var(--color-border-hairline);
+  border-radius: var(--radius-none);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.scenario-card-sub-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border-hairline);
+}
+
+.scenario-card-sub-header .card-tag {
+  font-size: var(--font-size-eyebrow);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-accent-primary);
+}
+
+.scenario-card-sub-header .card-title {
+  font-size: 13px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-ink-primary);
+}
+
+.scenario-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.scenario-table tr {
+  border-bottom: 1px solid var(--color-border-hairline);
+}
+
+.scenario-table tr:last-child {
+  border-bottom: none;
+}
+
+.scenario-table td {
+  padding: 8px 0;
+  vertical-align: middle;
+}
+
+.scenario-table td.param-name {
+  color: var(--color-ink-muted);
+  font-size: 12px;
+  width: 52%;
+}
+
+.scenario-table td.param-val {
+  color: var(--color-ink-primary);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-align: right;
+}
+
+.scenario-table td.param-val strong {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent-primary);
+  font-size: 12.5px;
+}
+
+.scenario-engineering-note {
+  background-color: var(--color-canvas-wash);
+  border-left: 3px solid var(--color-accent-primary);
+  border-top: 1px solid var(--color-border-hairline);
+  border-right: 1px solid var(--color-border-hairline);
+  border-bottom: 1px solid var(--color-border-hairline);
+  padding: 14px 18px;
+  border-radius: var(--radius-none);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.scenario-engineering-note .note-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--color-accent-primary);
+  margin-top: 2px;
+}
+
+.scenario-engineering-note .note-content {
+  flex: 1;
+}
+
+.scenario-engineering-note .note-label {
+  font-size: 10.5px;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent-primary);
+  margin-bottom: 3px;
+  display: block;
+}
+
+.scenario-engineering-note p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--color-ink-secondary);
+  margin: 0;
+}
+
+/* ==========================================================================
+   12. SCROLL REVEAL ANIMATIONS (IntersectionObserver Safe Mode)
    Above the fold is ALWAYS 100% visible on initial load.
    Pages will NEVER render as a blank white screen.
    ========================================================================== */

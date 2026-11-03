@@ -183,7 +183,7 @@
           <div class="label">03 / The challenge</div>
           <h2 id="challenge-title">Air purification is designed around the unit. The problem exists across the space.</h2>
         </div>
-        <p class="desc">Commercial environments contain different occupancy patterns, spatial constraints, and air-quality needs. The challenge was to explore how purification could work across these conditions rather than treating each unit as an isolated product.</p>
+        <p class="desc">Commercial environments contain different occupancy patterns, spatial constraints, and air-quality needs. Using a standard 5 × 5 × 2.8 m commercial office (70 m³) as our primary design scenario, the challenge was to explore how purification could be distributed across space rather than relying on an oversized standalone floor unit.</p>
       </div>
 
       <div class="split reveal">
@@ -264,7 +264,7 @@
         <article class="opp">
           <div class="num">01 / Air distribution</div>
           <h3>Think across zones</h3>
-          <p>Explore purification across different commercial areas rather than one isolated point.</p>
+          <p>Explore distributed coverage—deploying compact ceiling modules in multiples tailored to room volume and layout, rather than relying on one isolated unit.</p>
         </article>
 
         <article class="opp">
@@ -303,7 +303,7 @@
           <div class="label">06 / Physical product design</div>
           <h2 id="product-title">Bringing purification into the ceiling.</h2>
         </div>
-        <p class="desc">I explored a ceiling-integrated form that could preserve usable floor space while becoming part of the commercial interior. The process focused on the relationship between product form, internal architecture, and access for servicing.</p>
+        <p class="desc">I explored a compact 200 mm-diameter ceiling module deployed in multiples according to the volume and layout of each space. The process focused on packaging internal components around a standardized filter cartridge, preserving usable floor space, and designing for straightforward maintenance access.</p>
       </div>
 
       <!-- [ASSET: AERA-PH-08] Large Concept & Packaging Render -->
@@ -311,7 +311,7 @@
         <img id="aera-ph-08" data-asset-id="AERA-PH-08" src="assets/projects/aera/aera-concept-render.png" alt="AERA ceiling air purifier concept render installed in architectural ceiling grid" loading="lazy">
         <div class="full-caption">
           <span>Ceiling-Integrated Hardware Architecture</span>
-          <span>600 × 600 mm modular drop-in chassis · Radial intake and diffused downward curtain</span>
+          <span>Compact Ø200 mm module · Radial intake and diffused downward curtain</span>
         </div>
       </div>
 
@@ -344,7 +344,87 @@
         <img id="aera-ph-11" data-asset-id="AERA-PH-11" src="assets/projects/aera/aera-exploded-view.svg" alt="AERA exploded hardware architecture and component packaging" loading="lazy">
         <div class="full-caption">
           <span>Product Architecture &amp; Component Packaging</span>
-          <span>Centrifugal motor · True HEPA H13 cylindrical filter · Magnetic quick-release latch</span>
+          <span>Centrifugal impeller · Ø180 × 250 mm HEPA cartridge · Compact Ø200 mm ceiling enclosure · Magnetic quick-release</span>
+        </div>
+      </div>
+
+      <!-- Primary Design Scenario & System Specification -->
+      <div class="scenario-spec-block reveal">
+        <div class="scenario-spec-head">
+          <div class="spec-badge">Baseline Scenario &amp; Sizing</div>
+          <h3>Grounding the module in real commercial space</h3>
+          <p>Rather than designing for an abstract volume, AERA's form and airflow targets are sized around a standard 5 × 5 × 2.8 m commercial office (70 m³), establishing a coherent baseline for modular deployment.</p>
+        </div>
+
+        <div class="scenario-spec-grid">
+          <!-- Column 1: Spatial Archetype Scenario -->
+          <div class="scenario-card-sub">
+            <div class="scenario-card-sub-header">
+              <span class="card-tag">Primary Design Scenario</span>
+              <span class="card-title">5 × 5 × 2.8 m Office</span>
+            </div>
+            <table class="scenario-table">
+              <tbody>
+                <tr>
+                  <td class="param-name">Room volume served</td>
+                  <td class="param-val">70 m³</td>
+                </tr>
+                <tr>
+                  <td class="param-name">Units per standard office</td>
+                  <td class="param-val"><strong>2 modules</strong></td>
+                </tr>
+                <tr>
+                  <td class="param-name">Combined CADR target</td>
+                  <td class="param-val"><strong>350 m³/h</strong></td>
+                </tr>
+                <tr>
+                  <td class="param-name">Equivalent air changes</td>
+                  <td class="param-val">5 eACH</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Column 2: Modular Hardware Target -->
+          <div class="scenario-card-sub">
+            <div class="scenario-card-sub-header">
+              <span class="card-tag">System Specification</span>
+              <span class="card-title">Modular Ceiling Unit</span>
+            </div>
+            <table class="scenario-table">
+              <tbody>
+                <tr>
+                  <td class="param-name">Ceiling module footprint</td>
+                  <td class="param-val"><strong>Ø200 mm</strong></td>
+                </tr>
+                <tr>
+                  <td class="param-name">Individual filter cartridge</td>
+                  <td class="param-val">Ø180 × 250 mm</td>
+                </tr>
+                <tr>
+                  <td class="param-name">Individual unit CADR</td>
+                  <td class="param-val">175 m³/h <span style="font-size: 10px; color: var(--color-ink-muted);">(target to validate)</span></td>
+                </tr>
+                <tr>
+                  <td class="param-name">Deployment logic</td>
+                  <td class="param-val">Modular multiples</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Subtle Engineering Reality-Check Callout -->
+        <div class="scenario-engineering-note">
+          <svg class="note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <div class="note-content">
+            <span class="note-label">Airflow &amp; Mixing Caveat</span>
+            <p>Two units with 175 m³/h CADR each do not automatically achieve 350 m³/h in a real room. Filter media resistance, fan performance curves, boundary air distribution, ceiling placement, and turbulent mixing must be empirically tested in physical space rather than assumed through simple addition.</p>
+          </div>
         </div>
       </div>
 
@@ -470,7 +550,7 @@
 
         <article class="learn">
           <h3>Think beyond the object</h3>
-          <p>Consider how multiple units and user touchpoints work together.</p>
+          <p>Consider how multiple units work together. Sizing for real spaces requires testing filter resistance, fan curves, and air mixing rather than assuming simple arithmetic additions.</p>
         </article>
       </div>
 
