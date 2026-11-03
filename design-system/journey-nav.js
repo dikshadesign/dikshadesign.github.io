@@ -11,7 +11,7 @@
   document.addEventListener('DOMContentLoaded', initJourneyNav);
 
   function initJourneyNav() {
-    const journeyNav = document.querySelector('.journey-nav');
+    const journeyNav = document.querySelector('.journey-top-bar, .journey-nav');
     const progressBar = document.querySelector('.journey-progress-bar');
     const pills = document.querySelectorAll('.journey-pill');
     const sideDockItems = document.querySelectorAll('.side-dock-item');

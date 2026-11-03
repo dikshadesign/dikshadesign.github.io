@@ -225,73 +225,58 @@
   <!-- Global Reading Progress Bar -->
   <div class="journey-progress-bar" id="journey-progress" aria-hidden="true"></div>
 
-  <!-- Universal Header Placeholder -->
-  <header id="global-header" class="universal-header-slot" aria-label="Universal Site Header"></header>
+  <!-- Pinned Top Journey Navigation Bar -->
+  <header class="journey-top-bar" id="top-nav" aria-label="Project Journey Navigation">
+    <div class="wrap journey-top-inner">
+      
+      <!-- Left: Back to Home & Project Tag -->
+      <div class="journey-top-brand">
+        <a href="index.html" class="journey-back-btn" title="Return to portfolio homepage">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Home</span>
+        </a>
+        <span class="journey-project-tag">NORDIC ONE // 02</span>
+      </div>
+
+      <!-- Center: Horizontal Scrollable Chapter Track -->
+      <nav class="journey-track-wrapper" aria-label="Project Chapters">
+        <div class="journey-track">
+          <a href="#overview" class="journey-pill active"><span class="pill-num">01</span> Overview</a>
+          <a href="#role" class="journey-pill"><span class="pill-num">02</span> Role &amp; Team</a>
+          <a href="#why-this-matters" class="journey-pill"><span class="pill-num">03</span> Context</a>
+          <a href="#understanding-ecosystem" class="journey-pill"><span class="pill-num">04</span> Ecosystem</a>
+          <a href="#challenge" class="journey-pill"><span class="pill-num">05</span> Challenge</a>
+          <a href="#factory-flow" class="journey-pill"><span class="pill-num">06</span> Factory Flow</a>
+          <a href="#opportunity" class="journey-pill"><span class="pill-num">07</span> Architecture</a>
+          <a href="#platform-design" class="journey-pill"><span class="pill-num">08</span> Design System</a>
+          <a href="#outcome" class="journey-pill"><span class="pill-num">09</span> Outcome</a>
+        </div>
+      </nav>
+
+      <!-- Right: Quick Jump / Skip to Outcome -->
+      <div class="journey-top-actions">
+        <a href="#outcome" class="journey-skip-btn">
+          <span class="skip-text-full">Outcome</span>
+          <span class="arrow">↘</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
 
   <main id="main-content">
 
     <!-- Compact Top Header (Established Portfolio Standard) -->
     <div class="hero-compact-header wrap">
-      <nav class="back-nav" aria-label="Breadcrumbs">
-        <a href="index.html" class="back-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-          </svg>
-          <span>Back to homepage</span>
-        </a>
-      </nav>
-
       <div class="hero-compact-content">
         <h1 id="hero-heading" class="hero-compact-h1">Federated Platform Architecture for Industrial Manufacturing Systems</h1>
         <p class="hero-compact-subtitle">Nordic ONE · Architecting a unified enterprise platform uniting machine vision inspection, MES floor telemetry, ERP resource planning, EQMS quality compliance, and facility security into a synchronized operational ecosystem.</p>
         <div class="hero-compact-disciplines">Systems Design · UI/UX Architecture · Role-Based Access Control (RBAC) · Industrial Ecosystems</div>
       </div>
     </div>
-
-    <!-- Project Journey Navigation (Sticky Chapter Rail & Section Skipping) -->
-    <nav class="journey-nav" aria-label="Project Journey Navigation">
-      <div class="wrap journey-nav-inner">
-        <div class="journey-lead-meta">
-          <span class="journey-tag"><span class="journey-dot"></span> Project Journey</span>
-        </div>
-        <div class="journey-track-wrapper">
-          <div class="journey-track">
-            <a href="#overview" class="journey-pill active"><span class="pill-num">01</span> Overview</a>
-            <a href="#role" class="journey-pill"><span class="pill-num">02</span> Role &amp; Team</a>
-            <a href="#why-this-matters" class="journey-pill"><span class="pill-num">03</span> Context</a>
-            <a href="#understanding-ecosystem" class="journey-pill"><span class="pill-num">04</span> Ecosystem</a>
-            <a href="#challenge" class="journey-pill"><span class="pill-num">05</span> Challenge</a>
-            <a href="#factory-flow" class="journey-pill"><span class="pill-num">06</span> Factory Flow</a>
-            <a href="#opportunity" class="journey-pill"><span class="pill-num">07</span> Architecture</a>
-            <a href="#platform-design" class="journey-pill"><span class="pill-num">08</span> Design System</a>
-            <a href="#outcome" class="journey-pill"><span class="pill-num">09</span> Outcome</a>
-          </div>
-        </div>
-        <div class="journey-actions">
-          <a href="#outcome" class="journey-skip-btn">
-            <span class="skip-text-full">Skip to Outcome</span>
-            <span class="arrow">↘</span>
-          </a>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Widescreen Floating Side Rail (Visible on >= 1440px displays) -->
-    <aside class="journey-side-dock" aria-label="Desktop Chapter Outline">
-      <div class="side-dock-label">Project Chapters</div>
-      <ul class="side-dock-list">
-        <li class="side-dock-item active"><span class="side-dock-dot"></span><a href="#overview" class="side-dock-link">01 Overview</a></li>
-        <li class="side-dock-item"><span class="side-dock-dot"></span><a href="#role" class="side-dock-link">02 Role &amp; Team</a></li>
-        <li class="side-dock-item"><span class="side-dock-dot"></span><a href="#why-this-matters" class="side-dock-link">03 Context</a></li>
-        <li class="side-dock-item"><span class="side-dock-dot"></span><a href="#understanding-ecosystem" class="side-dock-link">04 Ecosystem</a></li>
-        <li class="side-dock-item"><span class="side-dock-dot"></span><a href="#challenge" class="side-dock-link">05 Challenge</a></li>
-        <li class="side-dock-item"><span class="side-dock-dot"></span><a href="#factory-flow" class="side-dock-link">06 Factory Flow</a></li>
-        <li class="side-dock-item"><span class="side-dock-dot"></span><a href="#opportunity" class="side-dock-link">07 Architecture</a></li>
-        <li class="side-dock-item"><span class="side-dock-dot"></span><a href="#platform-design" class="side-dock-link">08 Design System</a></li>
-        <li class="side-dock-item"><span class="side-dock-dot"></span><a href="#outcome" class="side-dock-link">09 Outcome</a></li>
-      </ul>
-    </aside>
 
     <!-- Hero Visual & Believable Enterprise Metadata -->
     <section class="hero-body wrap" aria-label="Nordic ONE Hero Presentation">
