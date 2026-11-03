@@ -10,6 +10,8 @@
   <script src="design-system/gate.js"></script>
   <!-- Portfolio Design System -->
   <link rel="stylesheet" href="design-system/design-system.css">
+  <!-- Project Journey Navigator -->
+  <script src="design-system/journey-nav.js" defer></script>
 
   <style>
     /* ==========================================================================
@@ -392,6 +394,9 @@
 </head>
 <body>
 
+  <!-- Global Reading Progress Bar -->
+  <div class="journey-progress-bar" id="journey-progress" aria-hidden="true"></div>
+
   <!-- Site Access Header Navigation -->
   <header class="hero-compact-header wrap extra-hero-header">
     <nav class="extra-back-nav" aria-label="Breadcrumbs">
@@ -416,12 +421,8 @@
       </p>
 
       <div class="extra-meta-bar">
-        <div class="extra-filter-pills">
-          <a href="#console" class="filter-pill">#01 Hardware Console</a>
-          <a href="#vision" class="filter-pill">#02 Vision Tool</a>
-          <a href="#ergo" class="filter-pill">#03 Ergonomics &amp; Foam</a>
-          <a href="#telemetry" class="filter-pill">#04 Sensor Telemetry</a>
-          <a href="#kiosk" class="filter-pill">#05 Spatial Kiosk</a>
+        <div>
+          <span>5 Active Prototypes &amp; Lab Notes</span>
         </div>
         <div>
           <span>Role: Sole Designer &amp; Prototyper</span>
@@ -429,6 +430,42 @@
       </div>
     </div>
   </header>
+
+  <!-- Project Journey Navigation (Sticky Chapter Rail & Section Skipping) -->
+  <nav class="journey-nav" aria-label="Project Journey Navigation">
+    <div class="wrap journey-nav-inner">
+      <div class="journey-lead-meta">
+        <span class="journey-tag"><span class="journey-dot"></span> Lab Projects</span>
+      </div>
+      <div class="journey-track-wrapper">
+        <div class="journey-track">
+          <a href="#console" class="journey-pill active"><span class="pill-num">01</span> Console Rig</a>
+          <a href="#vision" class="journey-pill"><span class="pill-num">02</span> Vision Canvas</a>
+          <a href="#ergo" class="journey-pill"><span class="pill-num">03</span> 3D Grip &amp; Foam</a>
+          <a href="#telemetry" class="journey-pill"><span class="pill-num">04</span> Telemetry Dashboard</a>
+          <a href="#kiosk" class="journey-pill"><span class="pill-num">05</span> Spatial Kiosk</a>
+        </div>
+      </div>
+      <div class="journey-actions">
+        <a href="#kiosk" class="journey-skip-btn">
+          <span class="skip-text-full">Skip to Kiosk</span>
+          <span class="arrow">↘</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Widescreen Floating Side Rail (Visible on >= 1440px displays) -->
+  <aside class="journey-side-dock" aria-label="Desktop Chapter Outline">
+    <div class="side-dock-label">Lab Projects</div>
+    <ul class="side-dock-list">
+      <li class="side-dock-item active"><span class="side-dock-dot"></span><a href="#console" class="side-dock-link">01 Console Rig</a></li>
+      <li class="side-dock-item"><span class="side-dock-dot"></span><a href="#vision" class="side-dock-link">02 Vision Canvas</a></li>
+      <li class="side-dock-item"><span class="side-dock-dot"></span><a href="#ergo" class="side-dock-link">03 3D Grip &amp; Foam</a></li>
+      <li class="side-dock-item"><span class="side-dock-dot"></span><a href="#telemetry" class="side-dock-link">04 Telemetry</a></li>
+      <li class="side-dock-item"><span class="side-dock-dot"></span><a href="#kiosk" class="side-dock-link">05 Spatial Kiosk</a></li>
+    </ul>
+  </aside>
 
   <!-- Main Content Wrap -->
   <main class="wrap" id="main-content">
