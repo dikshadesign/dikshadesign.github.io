@@ -293,47 +293,6 @@
   <!-- Global Reading Progress Bar -->
   <div class="journey-progress-bar" id="journey-progress" aria-hidden="true"></div>
 
-  <!-- Pinned Top Journey Navigation Bar -->
-  <header class="journey-top-bar" id="top-nav" aria-label="Project Journey Navigation">
-    <div class="wrap journey-top-inner">
-      
-      <!-- Left: Back to Home & Project Tag -->
-      <div class="journey-top-brand">
-        <a href="index.html" class="journey-back-btn" title="Return to portfolio homepage">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-          </svg>
-          <span>Home</span>
-        </a>
-        <span class="journey-project-tag">NORDIC OS // 01</span>
-      </div>
-
-      <!-- Center: Horizontal Scrollable Chapter Track -->
-      <nav class="journey-track-wrapper" aria-label="Project Chapters">
-        <div class="journey-track">
-          <a href="#overview" class="journey-pill active"><span class="pill-num">01</span> Overview</a>
-          <a href="#role" class="journey-pill"><span class="pill-num">02</span> Role &amp; Team</a>
-          <a href="#problem" class="journey-pill"><span class="pill-num">03</span> Problem</a>
-          <a href="#understanding-system" class="journey-pill"><span class="pill-num">04</span> Discovery</a>
-          <a href="#how-it-works" class="journey-pill"><span class="pill-num">05</span> Architecture</a>
-          <a href="#product-architecture" class="journey-pill"><span class="pill-num">06</span> 11 Roles &amp; RBAC</a>
-          <a href="#building-product" class="journey-pill"><span class="pill-num">07</span> Vibe Coding</a>
-          <a href="#outcome" class="journey-pill"><span class="pill-num">08</span> Outcome</a>
-        </div>
-      </nav>
-
-      <!-- Right: Quick Jump / Skip to Outcome -->
-      <div class="journey-top-actions">
-        <a href="#outcome" class="journey-skip-btn">
-          <span class="skip-text-full">Outcome</span>
-          <span class="arrow">↘</span>
-        </a>
-      </div>
-
-    </div>
-  </header>
-
   <main id="main-content">
 
     <!-- Compact Top Header (Established Portfolio Standard) -->
@@ -395,6 +354,47 @@
         </div>
       </div>
     </section>
+
+    <!-- Sticky Project Journey Navigation Bar (Introduced after Role Section) -->
+    <nav class="journey-top-bar" id="top-nav" aria-label="Project Journey Navigation">
+      <div class="wrap journey-top-inner">
+        
+        <!-- Left: Back to Home & Project Tag -->
+        <div class="journey-top-brand">
+          <a href="index.html" class="journey-back-btn" title="Return to portfolio homepage">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Home</span>
+          </a>
+          <span class="journey-project-tag">NORDIC OS // 01</span>
+        </div>
+
+        <!-- Center: Horizontal Scrollable Chapter Track -->
+        <div class="journey-track-wrapper" aria-label="Project Chapters">
+          <div class="journey-track">
+            <a href="#overview" class="journey-pill active"><span class="pill-num">01</span> Overview</a>
+            <a href="#role" class="journey-pill"><span class="pill-num">02</span> Role &amp; Team</a>
+            <a href="#problem" class="journey-pill"><span class="pill-num">03</span> Problem</a>
+            <a href="#understanding-system" class="journey-pill"><span class="pill-num">04</span> Discovery</a>
+            <a href="#how-it-works" class="journey-pill"><span class="pill-num">05</span> Architecture</a>
+            <a href="#product-architecture" class="journey-pill"><span class="pill-num">06</span> 11 Roles &amp; RBAC</a>
+            <a href="#building-product" class="journey-pill"><span class="pill-num">07</span> Vibe Coding</a>
+            <a href="#outcome" class="journey-pill"><span class="pill-num">08</span> Outcome</a>
+          </div>
+        </div>
+
+        <!-- Right: Quick Jump / Skip to Outcome -->
+        <div class="journey-top-actions">
+          <a href="#outcome" class="journey-skip-btn">
+            <span class="skip-text-full">Outcome</span>
+            <span class="arrow">↘</span>
+          </a>
+        </div>
+
+      </div>
+    </nav>
 
     <!-- SECTION 01: Operational Overview -->
     <section class="section wrap" id="overview">

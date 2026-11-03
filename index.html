@@ -3,495 +3,88 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Diksha Shinde — Industrial &amp; Interaction Designer | Portfolio</title>
-  <meta name="description" content="Portfolio of Diksha Shinde — Industrial & Interaction Designer (NID MP). Designing physical machines, shop-floor hardware, and the enterprise digital platforms that connect them.">
+  <title>Portfolio | Interaction &amp; Industrial Design</title>
+  <meta name="description" content="Interaction and Industrial Design Portfolio. Clean, systems-focused IxD case studies.">
   
   <!-- Site Access Gate (Password: 8962) -->
   <script src="design-system/gate.js"></script>
-  <!-- Base Design System -->
+  <!-- Portfolio Design System -->
   <link rel="stylesheet" href="design-system/design-system.css">
-  <!-- Brutalist Archive Layout Stylesheet -->
-  <link rel="stylesheet" href="design-system/brutal-home.css">
+  <style>
+    /* Home canvas styling (Clean empty canvas state with project names only) */
+    .blank-canvas {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: clamp(48px, 10vw, 120px);
+      padding-bottom: clamp(48px, 10vw, 120px);
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background-color: var(--color-canvas-subtle);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      color: var(--color-ink-muted);
+      margin-bottom: var(--space-4);
+    }
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--color-accent-primary);
+    }
+    .quick-nav {
+      margin-top: var(--space-6);
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+  </style>
 </head>
-<body class="brutal-theme">
+<body>
 
-  <!-- Brutalist Universal Header -->
-  <header class="brutal-header" id="top">
-    <div class="wrap brutal-header-inner">
-      <a href="index.html" class="brutal-brand">
-        <div class="brutal-monogram">DS</div>
-        <div>
-          <div class="brutal-brand-title">Diksha Shinde</div>
-          <div class="brutal-brand-sub">Industrial &amp; Interaction Designer · NID MP</div>
-        </div>
+  <!-- Blank Home Canvas (Kept clean with projects only) -->
+  <main class="wrap blank-canvas" id="main-content">
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      <span>Home Page · Clean State</span>
+    </div>
+    
+    <h1 style="font-size: var(--font-size-display); max-width: 800px; color: var(--color-ink-primary);">
+      Portfolio
+    </h1>
+    
+    <p class="subtitle" style="margin-top: 14px; max-width: 580px;">
+      Home page kept clean. Case studies and design system library are active and linked below.
+    </p>
+
+    <div class="quick-nav">
+      <a href="aera.html" class="btn btn-accent btn-md">
+        Case Study 01: AERA <span class="arrow">↗</span>
       </a>
-
-      <nav class="brutal-nav-links" aria-label="Main Navigation">
-        <a href="#work" class="brutal-nav-link">[01] WORK</a>
-        <a href="extra-work.html" class="brutal-nav-link">[02] LAB</a>
-        <a href="#approach" class="brutal-nav-link">[03] MANIFESTO</a>
-        <a href="#about" class="brutal-nav-link">[04] CAPABILITIES</a>
-        <a href="#contact" class="brutal-nav-link">[05] CONTACT</a>
-        <span class="brutal-status-tag">
-          <span class="brutal-status-dot"></span> AVAILABLE Q4 2026
-        </span>
-      </nav>
+      <a href="glide.html" class="btn btn-accent btn-md">
+        Case Study 02: GLIDE <span class="arrow">↗</span>
+      </a>
+      <a href="nordic.html" class="btn btn-accent btn-md">
+        Case Study 03: Nordic ONE <span class="arrow">↗</span>
+      </a>
+      <a href="nordicos.html" class="btn btn-accent btn-md">
+        Case Study 04: Nordic OS <span class="arrow">↗</span>
+      </a>
+      <a href="extra-work.html" class="btn btn-accent btn-md">
+        Case Study 05: Extra Work &amp; Lab <span class="arrow">↗</span>
+      </a>
+      <a href="design-system/index.html" class="btn btn-secondary btn-md">
+        Design System Specimen <span class="arrow">↗</span>
+      </a>
     </div>
-  </header>
-
-  <main id="main-content">
-
-    <!-- Brutalist Hero Section -->
-    <section class="wrap brutal-hero" aria-label="Introduction & Profile">
-      <div class="brutal-hero-grid">
-        
-        <!-- Left: Statement & Metrics -->
-        <div class="brutal-hero-left">
-          <div>
-            <div class="brutal-meta-tagline">
-              ARCHIVE // 2026 · NATIONAL INSTITUTE OF DESIGN (NID MP) · HARDWARE WORKSPACES + ENTERPRISE PLATFORMS
-            </div>
-
-            <h1 class="brutal-hero-h1">
-              Designing physical machines, complex shop-floor workflows, and the digital systems that connect them.
-            </h1>
-
-            <p class="brutal-hero-bio">
-              I am an Industrial and Interaction Designer operating at the intersection of shop-floor hardware, machine-vision inspection, and enterprise systems. I design ergonomic physical tools, architect multi-tenant operational platforms, and build functional prototypes through rapid vibe coding.
-            </p>
-
-            <div class="brutal-hero-btns">
-              <a href="#work" class="brutal-btn-primary">
-                Explore Matrix Archive <span class="arrow">↓</span>
-              </a>
-              <a href="mailto:dikshashinde1104@gmail.com" class="brutal-btn-outline">
-                dikshashinde1104@gmail.com ↗
-              </a>
-              <button type="button" class="brutal-btn-outline" onclick="copyEmail()">
-                Copy Email
-              </button>
-            </div>
-          </div>
-
-          <!-- Brutalist Spec Metrics Strip -->
-          <div class="brutal-spec-strip" aria-label="Fast Portfolio Metrics">
-            <div class="brutal-spec-cell">
-              <span class="brutal-spec-val">05</span>
-              <span class="brutal-spec-lbl">Studies &amp; Lab</span>
-            </div>
-            <div class="brutal-spec-cell">
-              <span class="brutal-spec-val">NID MP</span>
-              <span class="brutal-spec-lbl">Design Foundation</span>
-            </div>
-            <div class="brutal-spec-cell">
-              <span class="brutal-spec-val">11 Roles</span>
-              <span class="brutal-spec-lbl">Access Governance</span>
-            </div>
-            <div class="brutal-spec-cell">
-              <span class="brutal-spec-val">100%</span>
-              <span class="brutal-spec-lbl">Functional Code</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Brutalist Profile Specimen Card -->
-        <div class="brutal-profile-card" id="designer-profile">
-          <div class="brutal-profile-header">
-            <span>SPECIMEN // DIKSHA SHINDE</span>
-            <span>ID: DS-NID-2026</span>
-          </div>
-
-          <!-- 1:1 Square Photo Container -->
-          <div class="brutal-profile-photo-wrap">
-            <img 
-              src="assets/images/profile-placeholder.svg" 
-              alt="Diksha Shinde — Industrial &amp; Interaction Designer" 
-              id="profile-photo"
-              onerror="this.src='assets/images/profile-placeholder.svg'"
-            >
-            <div class="brutal-profile-reticle">NID · MP // IXD</div>
-          </div>
-
-          <div class="brutal-profile-data">
-            <div class="brutal-data-row">
-              <span class="brutal-data-k">Discipline</span>
-              <span class="brutal-data-v">Industrial + Interaction Design</span>
-            </div>
-            <div class="brutal-data-row">
-              <span class="brutal-data-k">Alma Mater</span>
-              <span class="brutal-data-v">National Institute of Design (NID MP)</span>
-            </div>
-            <div class="brutal-data-row">
-              <span class="brutal-data-k">Focus</span>
-              <span class="brutal-data-v">Shop-Floor Ergonomics &amp; Workspaces</span>
-            </div>
-            <div class="brutal-data-row">
-              <span class="brutal-data-k">Tooling</span>
-              <span class="brutal-data-v">Figma · 3D CAD · Node.js · Vibe Coding</span>
-            </div>
-            <div class="brutal-data-row">
-              <span class="brutal-data-k">Status</span>
-              <span class="brutal-data-v" style="color: #10b981;">● Open to Select Roles &amp; Contracts</span>
-            </div>
-
-            <div class="brutal-photo-swap-hint">
-              [PHOTO AREA] Drop portrait as <code>assets/images/diksha.jpg</code> to display your picture.
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         THE SQUARE BRUTAL PROJECT MATRIX
-         Inspired by Garuda SS & Avant-Garde Specimen Layout
-         ========================================================================== -->
-    <section class="wrap" id="work" aria-labelledby="work-title">
-      
-      <!-- Section Bar -->
-      <div class="brutal-section-title-bar">
-        <div>
-          <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; color: var(--brutal-muted);">
-            [01 / ARCHIVE]
-          </div>
-          <h2 id="work-title">Selected Case Studies</h2>
-        </div>
-        <div class="section-counter">
-          CATALOG MATRIX // 08 SPECIMENS
-        </div>
-      </div>
-
-      <!-- The Square Brutalist Matrix (4 Columns Desktop · 2 Tablet · 1 Mobile) -->
-      <div class="brutal-matrix">
-
-        <!-- Specimen 01: Nordic OS -->
-        <a href="nordicos.html" class="brutal-card" aria-label="View Nordic OS Case Study">
-          <div class="brutal-card-tag">INTERNAL PLATFORM</div>
-          <div class="brutal-card-square">
-            <img src="assets/projects/nordicos/nordicos-hero.svg" alt="Nordic OS Machine Vision Workspace" class="brutal-card-img" loading="eager">
-          </div>
-          <div class="brutal-card-meta">
-            <div class="brutal-card-title">
-              <span>NORDIC OS</span>
-              <span class="brutal-card-arrow">01 ↗</span>
-            </div>
-            <div class="brutal-card-sub">
-              Machine Vision &amp; Hardware Operations Workspace
-            </div>
-          </div>
-        </a>
-
-        <!-- Specimen 02: Nordic ONE -->
-        <a href="nordic.html" class="brutal-card" aria-label="View Nordic ONE Case Study">
-          <div class="brutal-card-tag">FEDERATED SHELL</div>
-          <div class="brutal-card-square">
-            <img src="assets/projects/nordic/nordic-hero.svg" alt="Nordic ONE Industrial Ecosystem" class="brutal-card-img" loading="eager">
-          </div>
-          <div class="brutal-card-meta">
-            <div class="brutal-card-title">
-              <span>NORDIC ONE</span>
-              <span class="brutal-card-arrow">02 ↗</span>
-            </div>
-            <div class="brutal-card-sub">
-              Connected Industrial Micro-Frontend Shell
-            </div>
-          </div>
-        </a>
-
-        <!-- Specimen 03: GLIDE -->
-        <a href="glide.html" class="brutal-card" aria-label="View GLIDE Case Study">
-          <div class="brutal-card-tag">NID GRAD THESIS</div>
-          <div class="brutal-card-square">
-            <img src="assets/projects/glide/glide-hero.jpg" alt="GLIDE Urban Mobility Concept" class="brutal-card-img" loading="eager">
-          </div>
-          <div class="brutal-card-meta">
-            <div class="brutal-card-title">
-              <span>GLIDE</span>
-              <span class="brutal-card-arrow">03 ↗</span>
-            </div>
-            <div class="brutal-card-sub">
-              Transformable Urban Mobility · NID MP
-            </div>
-          </div>
-        </a>
-
-        <!-- Specimen 04: AERA -->
-        <a href="aera.html" class="brutal-card" aria-label="View AERA Case Study">
-          <div class="brutal-card-tag">HARDWARE + IOT</div>
-          <div class="brutal-card-square">
-            <img src="assets/projects/aera/aera-hero.png" alt="AERA Ceiling-Integrated Air Purification" class="brutal-card-img" loading="eager">
-          </div>
-          <div class="brutal-card-meta">
-            <div class="brutal-card-title">
-              <span>AERA</span>
-              <span class="brutal-card-arrow">04 ↗</span>
-            </div>
-            <div class="brutal-card-sub">
-              Modular Clean Air Distribution &amp; IoT
-            </div>
-          </div>
-        </a>
-
-        <!-- Specimen 05: Extra Work & Lab -->
-        <a href="extra-work.html" class="brutal-card" aria-label="View Extra Work and Explorations">
-          <div class="brutal-card-tag">DESIGN LAB &amp; RIGS</div>
-          <div class="brutal-card-square">
-            <img src="assets/projects/extra/extra-01-console.svg" alt="Extra Work Physical Consoles and Tooling" class="brutal-card-img" loading="lazy">
-          </div>
-          <div class="brutal-card-meta">
-            <div class="brutal-card-title">
-              <span>EXTRA WORK &amp; LAB</span>
-              <span class="brutal-card-arrow">05 ↗</span>
-            </div>
-            <div class="brutal-card-sub">
-              Physical Rigs, Foam Studies &amp; Vibe Coding
-            </div>
-          </div>
-        </a>
-
-        <!-- Specimen 06: Design Manifesto (Editorial Companion) -->
-        <a href="#approach" class="brutal-card brutal-card-editorial" aria-label="Jump to Design Philosophy">
-          <div class="brutal-card-tag">MANIFESTO</div>
-          <div class="brutal-card-square">
-            <img src="assets/projects/extra/manifesto-schematic.svg" alt="Design Manifesto Schematic" class="brutal-card-img" loading="lazy">
-          </div>
-          <div class="brutal-card-meta">
-            <div class="brutal-card-title">
-              <span>PHILOSOPHY</span>
-              <span class="brutal-card-arrow">06 ↓</span>
-            </div>
-            <div class="brutal-card-sub">
-              Physical Reality First · Systems Over Silos
-            </div>
-          </div>
-        </a>
-
-        <!-- Specimen 07: Capabilities Matrix (Editorial Companion) -->
-        <a href="#about" class="brutal-card brutal-card-editorial" aria-label="Jump to Capabilities Stack">
-          <div class="brutal-card-tag">CREDENTIALS</div>
-          <div class="brutal-card-square">
-            <img src="assets/projects/extra/capabilities-schematic.svg" alt="Capabilities Matrix Schematic" class="brutal-card-img" loading="lazy">
-          </div>
-          <div class="brutal-card-meta">
-            <div class="brutal-card-title">
-              <span>CAPABILITIES</span>
-              <span class="brutal-card-arrow">07 ↓</span>
-            </div>
-            <div class="brutal-card-sub">
-              3D CAD · DFM · Enterprise Micro-Frontends
-            </div>
-          </div>
-        </a>
-
-        <!-- Specimen 08: Direct Dispatch (Communication Channel) -->
-        <a href="mailto:dikshashinde1104@gmail.com" class="brutal-card brutal-card-editorial" aria-label="Direct Email Dispatch">
-          <div class="brutal-card-tag" style="background: #000; color: #10b981;">STATUS: OPEN</div>
-          <div class="brutal-card-square">
-            <img src="assets/projects/extra/dispatch-schematic.svg" alt="Dispatch Communication Radar" class="brutal-card-img" loading="lazy">
-          </div>
-          <div class="brutal-card-meta">
-            <div class="brutal-card-title">
-              <span>INITIATE DISPATCH</span>
-              <span class="brutal-card-arrow">08 ↗</span>
-            </div>
-            <div class="brutal-card-sub">
-              dikshashinde1104@gmail.com
-            </div>
-          </div>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         BRUTALIST APPROACH & MANIFESTO
-         ========================================================================== -->
-    <section class="wrap" id="approach" aria-labelledby="approach-title">
-      <div class="brutal-section-title-bar">
-        <div>
-          <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; color: var(--brutal-muted);">
-            [02 / MANIFESTO]
-          </div>
-          <h2 id="approach-title">Design Philosophy</h2>
-        </div>
-        <div class="section-counter">
-          03 OPERATIONAL PRINCIPLES
-        </div>
-      </div>
-
-      <div class="brutal-triad-matrix">
-        <div class="brutal-triad-cell">
-          <div>
-            <div class="brutal-triad-num">[PRINCIPLE 01]</div>
-            <h3 class="brutal-triad-title">Physical Reality First</h3>
-          </div>
-          <p class="brutal-triad-body">
-            Software on the factory floor must survive oily gloves, ambient glare, high-vibration gantry mounts, and emergency stops. My industrial design background guarantees that screen layouts respect spatial ergonomics and immediate tactile affordances.
-          </p>
-        </div>
-
-        <div class="brutal-triad-cell">
-          <div>
-            <div class="brutal-triad-num">[PRINCIPLE 02]</div>
-            <h3 class="brutal-triad-title">Systems Over Silos</h3>
-          </div>
-          <p class="brutal-triad-body">
-            A 3D CAD model, an optical inspection rig, a procurement bill of materials, and an assembly technician’s shift are not disconnected tasks. I design the end-to-end operational pipeline connecting all four into one coherent digital thread.
-          </p>
-        </div>
-
-        <div class="brutal-triad-cell">
-          <div>
-            <div class="brutal-triad-num">[PRINCIPLE 03]</div>
-            <h3 class="brutal-triad-title">Vibe Coding &amp; Working Prototypes</h3>
-          </div>
-          <p class="brutal-triad-body">
-            Why debate in static slide decks what can be tested in functional code? I prototype working tools with real data, state transitions, and keyboard shortcuts—validating latency, information density, and user ergonomics before engineering commits sprint cycles.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         BRUTALIST CAPABILITIES MATRIX
-         ========================================================================== -->
-    <section class="wrap" id="about" aria-labelledby="about-title">
-      <div class="brutal-section-title-bar">
-        <div>
-          <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; color: var(--brutal-muted);">
-            [03 / CAPABILITIES]
-          </div>
-          <h2 id="about-title">Capabilities Matrix</h2>
-        </div>
-        <div class="section-counter">
-          TRIPLE-STACK DISCIPLINE
-        </div>
-      </div>
-
-      <div class="brutal-cap-matrix">
-        <!-- Pillar 01 -->
-        <div class="brutal-cap-cell">
-          <div class="brutal-cap-header">
-            <div class="brutal-cap-num">[PILLAR 01]</div>
-            <h3 class="brutal-cap-title">Industrial Design</h3>
-          </div>
-          <ul class="brutal-cap-list">
-            <li class="brutal-cap-item">Ergonomics &amp; Anthropometric User Studies</li>
-            <li class="brutal-cap-item">3D CAD Modeling (SolidWorks, Rhino, Fusion 360)</li>
-            <li class="brutal-cap-item">DFM: Sheet Metal &amp; Injection Molding Constraints</li>
-            <li class="brutal-cap-item">CMF (Colors, Materials, Finishes) Exploration</li>
-            <li class="brutal-cap-item">Rapid Foam Mockups &amp; Physical Rig Testing</li>
-          </ul>
-        </div>
-
-        <!-- Pillar 02 -->
-        <div class="brutal-cap-cell">
-          <div class="brutal-cap-header">
-            <div class="brutal-cap-num">[PILLAR 02]</div>
-            <h3 class="brutal-cap-title">Interaction &amp; Software</h3>
-          </div>
-          <ul class="brutal-cap-list">
-            <li class="brutal-cap-item">Multi-Tenant Platform &amp; Micro-Frontend Architecture</li>
-            <li class="brutal-cap-item">11-Role Access Governance &amp; Permission Hierarchies</li>
-            <li class="brutal-cap-item">Machine Vision Inspection &amp; Camera Telemetry</li>
-            <li class="brutal-cap-item">High-Density Industrial Design Systems (0px Tokens)</li>
-            <li class="brutal-cap-item">Factory-Floor Usability &amp; Ergonomic Validation</li>
-          </ul>
-        </div>
-
-        <!-- Pillar 03 -->
-        <div class="brutal-cap-cell">
-          <div class="brutal-cap-header">
-            <div class="brutal-cap-num">[PILLAR 03]</div>
-            <h3 class="brutal-cap-title">Vibe Coding &amp; Systems</h3>
-          </div>
-          <ul class="brutal-cap-list">
-            <li class="brutal-cap-item">Rapid Full-Stack Prototyping (Node.js, Express, HTML/CSS)</li>
-            <li class="brutal-cap-item">Interactive Hardware-Software Event Emulators</li>
-            <li class="brutal-cap-item">WebSocket Live Machine Telemetry Feeds</li>
-            <li class="brutal-cap-item">Git Version Control &amp; Continuous Deployment</li>
-            <li class="brutal-cap-item">Production Spec Hand-off to Engineering Teams</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         BRUTALIST CONTACT & DISPATCH
-         ========================================================================== -->
-    <section class="wrap" id="contact" aria-label="Direct Dispatch Contact">
-      <div class="brutal-contact-box">
-        <div class="brutal-contact-tag">
-          [STATUS: OPEN TO SELECT ROLES &amp; CONTRACTS]
-        </div>
-        <h2 class="brutal-contact-h2">
-          Let’s build hardware workspaces, enterprise platforms &amp; tactile systems.
-        </h2>
-        <p class="brutal-contact-p">
-          Available for full-time roles, design consultancies, and high-stakes systems contracts starting Q4 2026. Let's discuss your next physical machine or enterprise platform.
-        </p>
-        <div class="brutal-contact-btns">
-          <a href="mailto:dikshashinde1104@gmail.com" class="brutal-contact-btn-white">
-            Send Email: dikshashinde1104@gmail.com ↗
-          </a>
-          <button type="button" class="brutal-contact-btn-ghost" onclick="copyEmail()">
-            Copy Email Address
-          </button>
-        </div>
-      </div>
-    </section>
-
   </main>
-
-  <!-- Brutalist Footer -->
-  <footer class="brutal-footer">
-    <div class="wrap brutal-footer-inner">
-      <div>
-        <strong>DIKSHA SHINDE</strong> // INDUSTRIAL &amp; INTERACTION DESIGNER · NID MP
-      </div>
-      <div class="brutal-footer-links">
-        <a href="#top">Back to Top ↑</a>
-        <a href="nordicos.html">Nordic OS</a>
-        <a href="nordic.html">Nordic ONE</a>
-        <a href="glide.html">GLIDE</a>
-        <a href="aera.html">AERA</a>
-        <a href="extra-work.html">Lab</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Toast Notification for Clipboard Copy -->
-  <div class="toast-pill" id="toast">
-    <span>[✓]</span> EMAIL COPIED: DIKSHASHINDE1104@GMAIL.COM
-  </div>
-
-  <script>
-    function copyEmail() {
-      const email = 'dikshashinde1104@gmail.com';
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(email).then(showToast);
-      } else {
-        const temp = document.createElement('textarea');
-        temp.value = email;
-        document.body.appendChild(temp);
-        temp.select();
-        document.execCommand('copy');
-        document.body.removeChild(temp);
-        showToast();
-      }
-    }
-
-    function showToast() {
-      const toast = document.getElementById('toast');
-      if (toast) {
-        toast.classList.add('show');
-        setTimeout(() => {
-          toast.classList.remove('show');
-        }, 3200);
-      }
-    }
-  </script>
 
 </body>
 </html>

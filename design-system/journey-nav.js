@@ -42,7 +42,8 @@
       }
 
       if (journeyNav) {
-        if (scrollTop > 40) {
+        const navRect = journeyNav.getBoundingClientRect();
+        if (navRect.top <= 1) {
           journeyNav.classList.add('is-stuck');
         } else {
           journeyNav.classList.remove('is-stuck');

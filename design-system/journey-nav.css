@@ -25,9 +25,10 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--color-border-hairline, #e6ebf2);
   border-bottom: 1px solid var(--color-border-hairline, #e6ebf2);
   transition: box-shadow var(--duration-fast, 0.18s) ease, background-color var(--duration-fast, 0.18s) ease;
 }
