@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="waveBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(56, 189, 248, 0.2)"/>
+      <stop offset="100%" stop-color="rgba(56, 189, 248, 0)"/>
+    </linearGradient>
+    <pattern id="teleGrid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M 25 0 L 0 0 0 25" fill="none" stroke="#1e293b" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="#0d1117"/>
+  <rect width="800" height="500" fill="url(#teleGrid)"/>
+
+  <!-- Telemetry Dashboard Container -->
+  <rect x="40" y="30" width="720" height="440" fill="#131924" stroke="#253043" stroke-width="1.5"/>
+
+  <!-- Top Bar -->
+  <rect x="40" y="30" width="720" height="42" fill="#182232" stroke="#253043" stroke-width="1"/>
+  <circle cx="64" cy="51" r="5" fill="#38bdf8"/>
+  <text x="80" y="55" font-family="'SF Mono', monospace" font-size="11" fill="#f8fafc" font-weight="700">WS://GANTRY-TELEMETRY.LOCAL:8080/STREAM</text>
+  <rect x="580" y="42" width="160" height="20" rx="3" fill="#1e293b"/>
+  <text x="660" y="56" font-family="'SF Mono', monospace" font-size="10" fill="#10b981" text-anchor="middle">LIVE · 1,000 SAMPLES/SEC</text>
+
+  <!-- Big Metric Tiles -->
+  <g transform="translate(60, 90)">
+    <!-- Tile 1 -->
+    <rect x="0" y="0" width="210" height="85" fill="#1a2334" stroke="#2a374d" stroke-width="1"/>
+    <text x="18" y="24" font-family="'Inter', sans-serif" font-size="11" fill="#94a3b8" font-weight="600">OPTICAL TEMPERATURE</text>
+    <text x="18" y="58" font-family="'SF Mono', monospace" font-size="26" fill="#f8fafc" font-weight="700">41.8°C</text>
+    <text x="120" y="58" font-family="'Inter', sans-serif" font-size="11" fill="#10b981">NORMAL</text>
+    <text x="18" y="74" font-family="'SF Mono', monospace" font-size="9.5" fill="#64748b">Threshold: &lt; 55.0°C</text>
+
+    <!-- Tile 2 -->
+    <rect x="235" y="0" width="210" height="85" fill="#1a2334" stroke="#2a374d" stroke-width="1"/>
+    <text x="18" y="24" font-family="'Inter', sans-serif" font-size="11" fill="#94a3b8" font-weight="600">AXIS-Z VIBRATION (RMS)</text>
+    <text x="18" y="58" font-family="'SF Mono', monospace" font-size="26" fill="#38bdf8" font-weight="700">0.014g</text>
+    <text x="120" y="58" font-family="'Inter', sans-serif" font-size="11" fill="#38bdf8">DAMPED</text>
+    <text x="18" y="74" font-family="'SF Mono', monospace" font-size="9.5" fill="#64748b">Sensor: ADXL345 SPI</text>
+
+    <!-- Tile 3 -->
+    <rect x="470" y="0" width="210" height="85" fill="#1a2334" stroke="#2a374d" stroke-width="1"/>
+    <text x="18" y="24" font-family="'Inter', sans-serif" font-size="11" fill="#94a3b8" font-weight="600">STROBE LUX INTENSITY</text>
+    <text x="18" y="58" font-family="'SF Mono', monospace" font-size="26" fill="#f59e0b" font-weight="700">12,450</text>
+    <text x="135" y="58" font-family="'Inter', sans-serif" font-size="11" fill="#f59e0b">LUX</text>
+    <text x="18" y="74" font-family="'SF Mono', monospace" font-size="9.5" fill="#64748b">Calibration: Target ±5%</text>
+  </g>
+
+  <!-- Oscilloscope Real-Time Wave Graph -->
+  <g transform="translate(60, 200)">
+    <rect width="680" height="240" fill="#0c1017" stroke="#222b3b" stroke-width="1"/>
+    
+    <!-- Coordinate Grid & Horizon -->
+    <line x1="0" y1="120" x2="680" y2="120" stroke="#1f2937" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <line x1="170" y1="0" x2="170" y2="240" stroke="#1f2937" stroke-width="1"/>
+    <line x1="340" y1="0" x2="340" y2="240" stroke="#1f2937" stroke-width="1"/>
+    <line x1="510" y1="0" x2="510" y2="240" stroke="#1f2937" stroke-width="1"/>
+
+    <!-- Waveform Area Fill -->
+    <path d="M 0 120 Q 40 70, 80 120 T 160 120 T 240 60 T 320 120 T 400 170 T 480 120 T 560 40 T 640 120 L 680 120 L 680 240 L 0 240 Z" fill="url(#waveBg)"/>
+
+    <!-- Waveform Curve -->
+    <path d="M 0 120 Q 40 70, 80 120 T 160 120 T 240 60 T 320 120 T 400 170 T 480 120 T 560 40 T 640 120 L 680 120" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+
+    <!-- Secondary Waveform (Noise floor) -->
+    <path d="M 0 120 Q 30 115, 60 120 T 120 120 T 180 110 T 240 120 T 300 125 T 360 120 T 420 112 T 480 120 T 540 126 T 600 120 L 680 120" fill="none" stroke="#455ea9" stroke-width="1.5" stroke-dasharray="2,2"/>
+
+    <!-- Peak Annotation Marker -->
+    <circle cx="560" cy="40" r="5" fill="#ef4444"/>
+    <line x1="560" y1="40" x2="560" y2="10" stroke="#ef4444" stroke-width="1"/>
+    <rect x="510" y="-12" width="100" height="20" fill="#7f1d1d" stroke="#ef4444" stroke-width="1"/>
+    <text x="560" y="2" font-family="'SF Mono', monospace" font-size="9" fill="#fecaca" text-anchor="middle">PEAK: +0.038g</text>
+
+    <!-- Graph Axis Labels -->
+    <text x="14" y="24" font-family="'SF Mono', monospace" font-size="10" fill="#94a3b8">SPECTRUM: 0.1Hz - 2500Hz (FFT Real-Time)</text>
+    <text x="660" y="228" font-family="'SF Mono', monospace" font-size="9.5" fill="#64748b" text-anchor="end">WINDOW: 10 SEC</text>
+  </g>
+</svg>

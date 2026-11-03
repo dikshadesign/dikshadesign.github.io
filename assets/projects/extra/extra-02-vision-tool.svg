@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="toolBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141923"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+    <pattern id="feedGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1f2937" stroke-width="0.75"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#toolBg)"/>
+
+  <!-- Application Window Chrome -->
+  <rect x="40" y="30" width="720" height="440" fill="#0f141c" stroke="#252f40" stroke-width="1.5"/>
+
+  <!-- Window Header -->
+  <rect x="40" y="30" width="720" height="38" fill="#18202d" stroke="#252f40" stroke-width="1"/>
+  <circle cx="62" cy="49" r="5" fill="#ef4444"/>
+  <circle cx="78" cy="49" r="5" fill="#f59e0b"/>
+  <circle cx="94" cy="49" r="5" fill="#10b981"/>
+  <text x="120" y="53" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#cbd5e1" font-weight="600">vibe-vision-canvas // live-feed: cam-04-optical-gantry.raw [60 FPS]</text>
+  <text x="640" y="53" font-family="'SF Mono', monospace" font-size="11" fill="#38bdf8">LATENCY: 8ms</text>
+
+  <!-- Left Toolbar -->
+  <rect x="40" y="68" width="56" height="402" fill="#131924" stroke="#222b3b" stroke-width="1"/>
+  <!-- Tool Icons -->
+  <rect x="52" y="86" width="32" height="32" rx="4" fill="#455ea9"/>
+  <rect x="62" y="96" width="12" height="12" stroke="#ffffff" stroke-width="1.8" fill="none"/>
+  
+  <rect x="52" y="130" width="32" height="32" rx="4" fill="#1b2433"/>
+  <circle cx="68" cy="146" r="6" stroke="#94a3b8" stroke-width="1.8" fill="none"/>
+  
+  <rect x="52" y="174" width="32" height="32" rx="4" fill="#1b2433"/>
+  <line x1="60" y1="190" x2="76" y2="190" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="68" y1="182" x2="68" y2="198" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- Main Canvas / Camera Viewport -->
+  <g transform="translate(96, 68)">
+    <rect width="480" height="402" fill="#0b0e14"/>
+    <rect width="480" height="402" fill="url(#feedGrid)"/>
+
+    <!-- Simulated PCB / Manufactured Part Under Inspection -->
+    <rect x="80" y="50" width="320" height="280" fill="#13271e" stroke="#1d4d38" stroke-width="2"/>
+    <rect x="110" y="80" width="100" height="80" fill="#0d1b15" stroke="#1b3d2b" stroke-width="1"/>
+    <circle cx="160" cy="120" r="24" fill="#233e31" stroke="#34d399" stroke-width="1"/>
+    
+    <!-- Optical Trace Lines -->
+    <path d="M 230 100 L 360 100 L 360 260 L 280 260" stroke="#10b981" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <circle cx="280" cy="260" r="4" fill="#10b981"/>
+
+    <!-- Bounding Box Annotation 1 (Defect Found) -->
+    <rect x="130" y="95" width="85" height="70" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,2"/>
+    <!-- Bounding Box Tag -->
+    <rect x="130" y="73" width="130" height="20" fill="#ef4444"/>
+    <text x="136" y="87" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#ffffff">DEFECT: SOLDER_BRIDGE (98.4%)</text>
+    
+    <!-- Crosshair on defect -->
+    <line x1="172" y1="120" x2="172" y2="140" stroke="#ef4444" stroke-width="1.5"/>
+    <line x1="162" y1="130" x2="182" y2="130" stroke="#ef4444" stroke-width="1.5"/>
+
+    <!-- Bounding Box Annotation 2 (Passed Component) -->
+    <rect x="250" y="160" width="120" height="130" fill="rgba(16, 185, 129, 0.1)" stroke="#10b981" stroke-width="1.5"/>
+    <rect x="250" y="142" width="115" height="18" fill="#10b981"/>
+    <text x="256" y="155" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#064e3b">PASS: IC-CHIP-48P</text>
+
+    <!-- Bottom Canvas HUD -->
+    <rect x="20" y="360" width="440" height="28" fill="rgba(15, 23, 42, 0.85)" stroke="#1e293b" stroke-width="1"/>
+    <text x="34" y="378" font-family="'SF Mono', monospace" font-size="10" fill="#94a3b8">POS: X:412 Y:288 | ZOOM: 100% | EXPOSURE: 1/2500s | KEY: [SPACE] TO FREEZE</text>
+  </g>
+
+  <!-- Right Inspection Sidebar -->
+  <g transform="translate(576, 68)">
+    <rect width="184" height="402" fill="#131924" stroke="#222b3b" stroke-width="1"/>
+    
+    <text x="16" y="28" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#f8fafc" letter-spacing="0.05em">ANNOTATION LOG</text>
+    
+    <!-- Entry 1 -->
+    <rect x="14" y="44" width="156" height="64" fill="#192231" stroke="#ef4444" stroke-width="1"/>
+    <text x="24" y="62" font-family="'SF Mono', monospace" font-size="10" fill="#ef4444" font-weight="700">#01 SOLDER_BRIDGE</text>
+    <text x="24" y="78" font-family="'Inter', sans-serif" font-size="9.5" fill="#94a3b8">Coords: [130, 95, 215, 165]</text>
+    <text x="24" y="94" font-family="'Inter', sans-serif" font-size="9.5" fill="#fca5a5">Conf: 98.4% · Operator Review</text>
+
+    <!-- Entry 2 -->
+    <rect x="14" y="120" width="156" height="64" fill="#192231" stroke="#334155" stroke-width="1"/>
+    <text x="24" y="138" font-family="'SF Mono', monospace" font-size="10" fill="#10b981" font-weight="700">#02 IC_ALIGNMENT</text>
+    <text x="24" y="154" font-family="'Inter', sans-serif" font-size="9.5" fill="#94a3b8">Coords: [250, 160, 370, 290]</text>
+    <text x="24" y="170" font-family="'Inter', sans-serif" font-size="9.5" fill="#6ee7b7">Conf: 99.8% · Auto Pass</text>
+
+    <!-- Quick Stats -->
+    <rect x="14" y="200" width="156" height="90" fill="#161c28" stroke="#252e3d" stroke-width="1"/>
+    <text x="24" y="222" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#cbd5e1">INSPECTION BATCH</text>
+    <text x="24" y="244" font-family="'SF Mono', monospace" font-size="18" fill="#ffffff" font-weight="700">1,420</text>
+    <text x="80" y="244" font-family="'SF Mono', monospace" font-size="11" fill="#10b981">+99.2%</text>
+    <text x="24" y="268" font-family="'Inter', sans-serif" font-size="9.5" fill="#64748b">Defect Rate: 0.8% (12 units)</text>
+
+    <!-- Export Action -->
+    <rect x="14" y="320" width="156" height="34" rx="4" fill="#455ea9"/>
+    <text x="92" y="342" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">PUSH TO NORDIC OS →</text>
+  </g>
+</svg>

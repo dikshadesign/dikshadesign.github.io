@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="kioskGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e2530"/>
+      <stop offset="100%" stop-color="#11161d"/>
+    </linearGradient>
+    <pattern id="archGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#2d3748" opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="#0f131a"/>
+  <rect width="800" height="500" fill="url(#archGrid)"/>
+
+  <!-- Technical Border -->
+  <rect x="30" y="30" width="740" height="440" fill="none" stroke="#253043" stroke-width="1.5"/>
+
+  <!-- Left: Isometric Wireframe of the Kiosk Structure -->
+  <g transform="translate(60, 60)">
+    <!-- Floor Footprint Polygon -->
+    <polygon points="180,360 360,280 200,200 20,280" fill="#141a24" stroke="#334155" stroke-width="1.5"/>
+    
+    <!-- 4 Aluminum Extrusion Vertical Posts (40x40 Profile) -->
+    <!-- Post Front-Left -->
+    <line x1="20" y1="280" x2="20" y2="100" stroke="#94a3b8" stroke-width="3"/>
+    <!-- Post Front-Right -->
+    <line x1="180" y1="360" x2="180" y2="180" stroke="#94a3b8" stroke-width="3"/>
+    <!-- Post Back-Right -->
+    <line x1="360" y1="280" x2="360" y2="100" stroke="#64748b" stroke-width="2.5"/>
+    <!-- Post Back-Left -->
+    <line x1="200" y1="200" x2="200" y2="20" stroke="#64748b" stroke-width="2.5"/>
+
+    <!-- Top Canopy Frame -->
+    <polygon points="180,180 360,100 200,20 20,100" fill="none" stroke="#38bdf8" stroke-width="2"/>
+    <polygon points="180,180 360,100 200,20 20,100" fill="rgba(56, 189, 248, 0.08)"/>
+
+    <!-- Display Counter Surface -->
+    <polygon points="180,270 300,215 190,165 70,220" fill="#1e293b" stroke="#455ea9" stroke-width="2"/>
+    
+    <!-- Interactive Tablet Stand Mounted on Counter -->
+    <polygon points="140,215 170,200 160,180 130,195" fill="#38bdf8" stroke="#ffffff" stroke-width="1"/>
+    
+    <!-- Acoustic Fabric Infill Baffle Wall -->
+    <polygon points="200,200 360,280 360,100 200,20" fill="rgba(71, 85, 105, 0.25)" stroke="#64748b" stroke-width="1" stroke-dasharray="4,2"/>
+
+    <!-- Spatial Dimension Annotations -->
+    <line x1="10" y1="280" x2="10" y2="100" stroke="#38bdf8" stroke-width="1"/>
+    <text x="-5" y="195" font-family="'SF Mono', monospace" font-size="10" fill="#38bdf8" text-anchor="end">H: 2400mm</text>
+
+    <line x1="20" y1="290" x2="180" y2="370" stroke="#38bdf8" stroke-width="1"/>
+    <text x="100" y="350" font-family="'SF Mono', monospace" font-size="10" fill="#38bdf8">W: 2000mm</text>
+  </g>
+
+  <!-- Right: Modular Hardware & Joint Breakdown -->
+  <g transform="translate(450, 70)">
+    <text x="0" y="20" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#f8fafc">MODULAR HARDWARE &amp; BRACKET SYSTEM</text>
+
+    <!-- Component 1: T-Slot Extrusion -->
+    <rect x="0" y="38" width="290" height="85" fill="#141923" stroke="#253043" stroke-width="1"/>
+    <rect x="14" y="52" width="56" height="56" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
+    <path d="M 28 66 L 56 66 M 42 52 L 42 80 M 34 58 L 50 74" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="82" y="66" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">40x40 T-Slot Anodized Aluminum</text>
+    <text x="82" y="84" font-family="'Inter', sans-serif" font-size="10" fill="#64748b">Tool-free quick-lock cam fasteners enable</text>
+    <text x="82" y="98" font-family="'Inter', sans-serif" font-size="10" fill="#64748b">1-person setup in under 20 minutes.</text>
+
+    <!-- Component 2: Sound Dampening Acoustic Felt -->
+    <rect x="0" y="135" width="290" height="85" fill="#141923" stroke="#253043" stroke-width="1"/>
+    <rect x="14" y="149" width="56" height="56" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
+    <circle cx="42" cy="177" r="18" fill="#334155"/>
+    <text x="82" y="163" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">Recycled PET Acoustic Panels</text>
+    <text x="82" y="181" font-family="'Inter', sans-serif" font-size="10" fill="#64748b">Magnetic snap-fit backing absorbs ambient</text>
+    <text x="82" y="195" font-family="'Inter', sans-serif" font-size="10" fill="#64748b">convention hall chatter for product demos.</text>
+
+    <!-- Component 3: Flat-Pack Crate Transport Specs -->
+    <rect x="0" y="232" width="290" height="85" fill="#141923" stroke="#10b981" stroke-width="1"/>
+    <rect x="14" y="246" width="56" height="56" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+    <text x="42" y="278" font-family="'SF Mono', monospace" font-size="12" fill="#34d399" text-anchor="middle">PKG</text>
+    <text x="82" y="260" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#34d399">Flat-Pack Logistics Compliance</text>
+    <text x="82" y="278" font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8">Packed in 1 flight case (1200 x 450 x 300mm).</text>
+    <text x="82" y="292" font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8">Weight: 32kg total (airline checked friendly).</text>
+  </g>
+</svg>

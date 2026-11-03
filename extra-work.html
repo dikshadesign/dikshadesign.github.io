@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Extra Work &amp; Explorations — Physical Rigs, Tooling &amp; Prototypes | Diksha Shinde</title>
+  <meta name="description" content="A curated archive of side experiments, physical computing rigs, vibe-coded operational utilities, and workshop form studies by Diksha Shinde (NID MP).">
+
+  <!-- Site Access Gate (Password: 8962) -->
+  <script src="design-system/gate.js"></script>
+  <!-- Portfolio Design System -->
+  <link rel="stylesheet" href="design-system/design-system.css">
+
+  <style>
+    /* ==========================================================================
+       EXTRA WORK CASE STUDY CUSTOM STYLES
+       Aligned with Design System: 1200px max width, 0px radius, pill controls
+       ========================================================================== */
+
+    .extra-hero-header {
+      padding-top: clamp(24px, 4vw, 44px);
+      padding-bottom: clamp(24px, 4vw, 40px);
+      border-bottom: 1px solid var(--color-border-hairline);
+    }
+    .extra-back-nav {
+      margin-bottom: var(--space-4);
+    }
+    .extra-title-group {
+      max-width: 860px;
+    }
+    .extra-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent-primary);
+      margin-bottom: 12px;
+    }
+    .extra-hero-h1 {
+      font-size: clamp(30px, 4.2vw, 50px);
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+      font-weight: 700;
+      color: var(--color-ink-primary);
+      margin: 0 0 14px 0;
+    }
+    .extra-hero-subtitle {
+      font-size: clamp(15px, 1.3vw, 18px);
+      line-height: 1.6;
+      color: var(--color-ink-secondary);
+      margin: 0 0 20px 0;
+    }
+    .extra-meta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-top: 18px;
+      border-top: 1px solid var(--color-border-hairline);
+      font-size: 12.5px;
+      color: var(--color-ink-muted);
+    }
+    .extra-filter-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      background: var(--color-canvas-wash);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-ink-secondary);
+      text-decoration: none;
+      transition: all var(--duration-fast) ease;
+    }
+    .filter-pill:hover, .filter-pill.active {
+      background: var(--color-ink-primary);
+      color: var(--color-white);
+      border-color: var(--color-ink-primary);
+    }
+
+    /* Project List Container */
+    .extra-projects-stream {
+      padding-top: clamp(36px, 6vw, 64px);
+      padding-bottom: clamp(48px, 8vw, 84px);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(48px, 7vw, 80px);
+    }
+
+    /* Individual Extra Project Card */
+    .extra-item-card {
+      background: var(--color-canvas);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-none);
+      padding: clamp(24px, 4vw, 40px);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(24px, 4vw, 48px);
+      align-items: start;
+      transition: border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+      scroll-margin-top: 90px;
+    }
+    .extra-item-card:hover {
+      border-color: var(--color-accent-primary);
+      box-shadow: 0 6px 28px rgba(69, 94, 169, 0.08);
+    }
+    .extra-item-card.reverse {
+      grid-template-columns: 0.85fr 1.15fr;
+    }
+    .extra-item-card.reverse .extra-visual-slot {
+      order: 2;
+    }
+    .extra-item-card.reverse .extra-content-slot {
+      order: 1;
+    }
+
+    /* Visual Media Slot & Gallery */
+    .extra-visual-slot {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .extra-primary-frame {
+      position: relative;
+      background: var(--color-canvas-wash);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-none);
+      aspect-ratio: 16 / 10.5;
+      overflow: hidden;
+      cursor: zoom-in;
+    }
+    .extra-primary-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--duration-slow) var(--ease-framer);
+    }
+    .extra-primary-frame:hover .extra-primary-img {
+      transform: scale(1.025);
+    }
+    .extra-frame-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 4px 10px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(4px);
+      color: #94a3b8;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      letter-spacing: 0.04em;
+    }
+
+    /* Thumbnail strip for multi-image projects */
+    .extra-gallery-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .extra-thumb-frame {
+      aspect-ratio: 4 / 3;
+      background: var(--color-canvas-wash);
+      border: 1px solid var(--color-border-hairline);
+      overflow: hidden;
+      cursor: zoom-in;
+      position: relative;
+    }
+    .extra-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--duration-fast) ease;
+    }
+    .extra-thumb-frame:hover .extra-thumb-img {
+      transform: scale(1.05);
+    }
+    .extra-thumb-caption {
+      position: absolute;
+      bottom: 4px;
+      left: 6px;
+      font-size: 9px;
+      font-family: var(--font-mono);
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2px 5px;
+    }
+
+    /* Content Slot */
+    .extra-content-slot {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .extra-item-index {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent-primary);
+      margin-bottom: 6px;
+    }
+    .extra-item-title {
+      font-size: clamp(20px, 2.4vw, 27px);
+      line-height: 1.22;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+      color: var(--color-ink-primary);
+      margin: 0 0 12px 0;
+    }
+    .extra-item-desc {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--color-ink-secondary);
+      margin: 0 0 18px 0;
+    }
+    
+    /* Bullet points / Highlights */
+    .extra-specs-box {
+      width: 100%;
+      background: var(--color-canvas-wash);
+      border: 1px solid var(--color-border-hairline);
+      padding: 16px 18px;
+      margin-bottom: 20px;
+    }
+    .extra-specs-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-ink-muted);
+      margin-bottom: 8px;
+    }
+    .extra-specs-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .extra-specs-item {
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--color-ink-secondary);
+      position: relative;
+      padding-left: 14px;
+    }
+    .extra-specs-item::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent-primary);
+      font-size: 13px;
+    }
+
+    /* Tag Chips */
+    .extra-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .extra-chip {
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 3px 9px;
+      background: var(--color-canvas);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-pill);
+      color: var(--color-ink-secondary);
+    }
+
+    /* Image Replace Helper Badge */
+    .image-replace-helper {
+      font-size: 11px;
+      color: var(--color-ink-muted);
+      background: var(--color-canvas-subtle);
+      border: 1px dashed var(--color-border-subtle);
+      padding: 8px 12px;
+      width: 100%;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Template Copy-Paste Section (For adding more work) */
+    .template-box {
+      margin-top: clamp(48px, 7vw, 72px);
+      background: #fdfdfd;
+      border: 2px dashed var(--color-border-strong);
+      padding: clamp(28px, 4vw, 44px);
+      border-radius: var(--radius-none);
+    }
+    .template-header {
+      margin-bottom: 16px;
+    }
+    .template-header h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-ink-primary);
+      margin: 0 0 6px 0;
+    }
+    .template-header p {
+      font-size: 13px;
+      color: var(--color-ink-secondary);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .code-snippet-box {
+      background: #0f141c;
+      color: #cbd5e1;
+      padding: 18px 20px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      line-height: 1.6;
+      overflow-x: auto;
+      border: 1px solid #252f40;
+      border-radius: var(--radius-none);
+      margin-top: 14px;
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(10, 14, 22, 0.94);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      cursor: zoom-out;
+    }
+    .lightbox-modal.active {
+      display: flex;
+    }
+    .lightbox-content {
+      max-width: 90vw;
+      max-height: 88vh;
+      object-fit: contain;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      border: 1px solid #334155;
+    }
+    .lightbox-close-btn {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: #1e293b;
+      color: #ffffff;
+      border: 1px solid #475569;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .extra-item-card, .extra-item-card.reverse {
+        grid-template-columns: 1fr;
+      }
+      .extra-item-card.reverse .extra-visual-slot {
+        order: 1;
+      }
+      .extra-item-card.reverse .extra-content-slot {
+        order: 2;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Site Access Header Navigation -->
+  <header class="hero-compact-header wrap extra-hero-header">
+    <nav class="extra-back-nav" aria-label="Breadcrumbs">
+      <a href="index.html" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Back to Portfolio Home</span>
+      </a>
+    </nav>
+
+    <div class="extra-title-group">
+      <div class="extra-hero-eyebrow">
+        <span>Case Study 05</span>
+        <span>•</span>
+        <span>Design Lab &amp; Explorations</span>
+      </div>
+      <h1 class="extra-hero-h1">Physical Rigs, Tooling &amp; Extra Work</h1>
+      <p class="extra-hero-subtitle">
+        A curated archive of side experiments, tactile hardware consoles, vibe-coded operational utilities, and workshop form studies built alongside my flagship systems.
+      </p>
+
+      <div class="extra-meta-bar">
+        <div class="extra-filter-pills">
+          <a href="#console" class="filter-pill">#01 Hardware Console</a>
+          <a href="#vision" class="filter-pill">#02 Vision Tool</a>
+          <a href="#ergo" class="filter-pill">#03 Ergonomics &amp; Foam</a>
+          <a href="#telemetry" class="filter-pill">#04 Sensor Telemetry</a>
+          <a href="#kiosk" class="filter-pill">#05 Spatial Kiosk</a>
+        </div>
+        <div>
+          <span>Role: Sole Designer &amp; Prototyper</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrap -->
+  <main class="wrap" id="main-content">
+    <section class="extra-projects-stream" aria-label="Extra Work Showcase">
+
+      <!-- ============================================================== -->
+      <!-- PROJECT 01: Physical Control Console & Rotary Input Rig        -->
+      <!-- ============================================================== -->
+      <article class="extra-item-card" id="console">
+        <!-- Visual Media Slot -->
+        <div class="extra-visual-slot">
+          <!-- Main Hero Image for Project 01 -->
+          <!-- TO REPLACE: Change src="assets/projects/extra/extra-01-console.svg" to your own image path -->
+          <div class="extra-primary-frame" onclick="openLightbox(this)">
+            <img 
+              src="assets/projects/extra/extra-01-console.svg" 
+              alt="Physical Control Console and Rotary Rig" 
+              class="extra-primary-img"
+              loading="lazy"
+            >
+            <span class="extra-frame-badge">RIG-01 // TACTILE SURFACE</span>
+          </div>
+
+          <div class="image-replace-helper">
+            <span>📷</span>
+            <span><strong>Image Slot:</strong> Edit <code>assets/projects/extra/extra-01-console.svg</code> or link your photo (e.g. <code>assets/projects/extra/console.jpg</code>). Click to view full-screen.</span>
+          </div>
+        </div>
+
+        <!-- Content Slot -->
+        <div class="extra-content-slot">
+          <span class="extra-item-index">Extra 01 · Physical Computing · 2026</span>
+          <h2 class="extra-item-title">Physical Control Console &amp; Rotary Input Rig</h2>
+          <p class="extra-item-desc">
+            A bespoke shop-floor tactile control console built to replace delicate touchscreens in oily manufacturing environments. Integrates stepped rotary encoders for instant exposure adjustments, toggle switches for camera triggers, and an emergency hardware interrupt button with sub-millisecond response.
+          </p>
+
+          <div class="extra-specs-box">
+            <div class="extra-specs-label">Key Specifications &amp; Build</div>
+            <ul class="extra-specs-list">
+              <li class="extra-specs-item"><strong>Hardware Interface:</strong> Arduino Pro Micro configured as custom USB HID game controller / serial bridge.</li>
+              <li class="extra-specs-item"><strong>Tactile Affordance:</strong> Knurled 25mm aluminum dials with 24-step detents for blind adjustment while wearing safety gloves.</li>
+              <li class="extra-specs-item"><strong>Casing Fabrication:</strong> Laser-cut 5mm matte black acrylic chassis with countersunk hex fasteners.</li>
+            </ul>
+          </div>
+
+          <div class="extra-chips">
+            <span class="extra-chip">Physical Computing</span>
+            <span class="extra-chip">Arduino / HID</span>
+            <span class="extra-chip">Rotary Encoders</span>
+            <span class="extra-chip">Shop-Floor Ergonomics</span>
+            <span class="extra-chip">Hardware Prototyping</span>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- ============================================================== -->
+      <!-- PROJECT 02: Real-Time Machine Vision Annotation Tool          -->
+      <!-- ============================================================== -->
+      <article class="extra-item-card reverse" id="vision">
+        <!-- Visual Media Slot -->
+        <div class="extra-visual-slot">
+          <!-- Main Hero Image for Project 02 -->
+          <!-- TO REPLACE: Change src="assets/projects/extra/extra-02-vision-tool.svg" to your own image path -->
+          <div class="extra-primary-frame" onclick="openLightbox(this)">
+            <img 
+              src="assets/projects/extra/extra-02-vision-tool.svg" 
+              alt="Real-Time Machine Vision Canvas Annotation Tool" 
+              class="extra-primary-img"
+              loading="lazy"
+            >
+            <span class="extra-frame-badge">TOOL-02 // VIBE CODING</span>
+          </div>
+
+          <div class="image-replace-helper">
+            <span>📷</span>
+            <span><strong>Image Slot:</strong> Edit <code>assets/projects/extra/extra-02-vision-tool.svg</code> or link your screenshot. Click to view full-screen.</span>
+          </div>
+        </div>
+
+        <!-- Content Slot -->
+        <div class="extra-content-slot">
+          <span class="extra-item-index">Extra 02 · Web Tool &amp; Vibe Coding · 2025</span>
+          <h2 class="extra-item-title">Real-Time Machine Vision Annotation Canvas</h2>
+          <p class="extra-item-desc">
+            A lightweight, zero-dependency browser tool vibe-coded over a weekend for plant quality inspectors. Enables technicians to stream high-resolution 60 FPS optical camera frames, drag tight defect bounding boxes, tag anomalies, and push labeled training data directly into Nordic OS without software bloat.
+          </p>
+
+          <div class="extra-specs-box">
+            <div class="extra-specs-label">Key Specifications &amp; Build</div>
+            <ul class="extra-specs-list">
+              <li class="extra-specs-item"><strong>Zero Latency:</strong> HTML5 Canvas 2D context optimized with requestAnimationFrame for 60fps rendering at 4K resolution.</li>
+              <li class="extra-specs-item"><strong>Keyboard Workflow:</strong> Full single-hand keyboard shortcuts (Space to freeze, numbers 1-9 to tag defect classifications).</li>
+              <li class="extra-specs-item"><strong>Direct Integration:</strong> Outputs standardized JSON coordinate matrices directly consumable by Python PyTorch models.</li>
+            </ul>
+          </div>
+
+          <div class="extra-chips">
+            <span class="extra-chip">Vibe Coding</span>
+            <span class="extra-chip">HTML5 Canvas</span>
+            <span class="extra-chip">Machine Vision UI</span>
+            <span class="extra-chip">60 FPS Inspection</span>
+            <span class="extra-chip">Vanilla JavaScript</span>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- ============================================================== -->
+      <!-- PROJECT 03: 3D Form Explorations & Ergonomic Grip Studies      -->
+      <!-- ============================================================== -->
+      <article class="extra-item-card" id="ergo">
+        <!-- Visual Media Slot -->
+        <div class="extra-visual-slot">
+          <!-- Main Hero Image for Project 03 -->
+          <!-- TO REPLACE: Change src="assets/projects/extra/extra-03-ergonomics.svg" to your own image path -->
+          <div class="extra-primary-frame" onclick="openLightbox(this)">
+            <img 
+              src="assets/projects/extra/extra-03-ergonomics.svg" 
+              alt="Ergonomic Handheld Grip 3D Form Study" 
+              class="extra-primary-img"
+              loading="lazy"
+            >
+            <span class="extra-frame-badge">STUDY-03 // NID WORKSHOP</span>
+          </div>
+
+          <div class="image-replace-helper">
+            <span>📷</span>
+            <span><strong>Image Slot:</strong> Edit <code>assets/projects/extra/extra-03-ergonomics.svg</code> or link workshop photos. Click to view full-screen.</span>
+          </div>
+        </div>
+
+        <!-- Content Slot -->
+        <div class="extra-content-slot">
+          <span class="extra-item-index">Extra 03 · Industrial Design &amp; Workshop · 2024</span>
+          <h2 class="extra-item-title">Handheld Scanner Grip &amp; Reach Study</h2>
+          <p class="extra-item-desc">
+            An anthropometric physical exploration designed to eliminate wrist fatigue during repetitive 8-hour scanning shifts. Tested multiple iterations—starting from hand-shaped high-density polyurethane styling foam, progressing to weighted FDM 3D prints, and finalizing with a dual-shot SLA resin body with knurled TPU overmold.
+          </p>
+
+          <div class="extra-specs-box">
+            <div class="extra-specs-label">Key Specifications &amp; Build</div>
+            <ul class="extra-specs-list">
+              <li class="extra-specs-item"><strong>Anthropometrics:</strong> Accommodates 5th percentile female to 95th percentile male Indian hand dimensions.</li>
+              <li class="extra-specs-item"><strong>Center of Gravity:</strong> Internal ballast cavities arranged to place the CG directly through the palm line, reducing muscle load.</li>
+              <li class="extra-specs-item"><strong>Materials:</strong> Tough 2000 Resin with Shore 65A TPU grip inserts for drop and oil resistance.</li>
+            </ul>
+          </div>
+
+          <div class="extra-chips">
+            <span class="extra-chip">NID MP Workshop</span>
+            <span class="extra-chip">Anthropometry</span>
+            <span class="extra-chip">Foam Prototyping</span>
+            <span class="extra-chip">3D Printing (FDM &amp; SLA)</span>
+            <span class="extra-chip">CMF Exploration</span>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- ============================================================== -->
+      <!-- PROJECT 04: Industrial Sensor Telemetry Mini-Dashboard         -->
+      <!-- ============================================================== -->
+      <article class="extra-item-card reverse" id="telemetry">
+        <!-- Visual Media Slot -->
+        <div class="extra-visual-slot">
+          <!-- Main Hero Image for Project 04 -->
+          <!-- TO REPLACE: Change src="assets/projects/extra/extra-04-telemetry.svg" to your own image path -->
+          <div class="extra-primary-frame" onclick="openLightbox(this)">
+            <img 
+              src="assets/projects/extra/extra-04-telemetry.svg" 
+              alt="Industrial Sensor Telemetry Dashboard" 
+              class="extra-primary-img"
+              loading="lazy"
+            >
+            <span class="extra-frame-badge">TELEMETRY-04 // WEBSOCKET STREAM</span>
+          </div>
+
+          <div class="image-replace-helper">
+            <span>📷</span>
+            <span><strong>Image Slot:</strong> Edit <code>assets/projects/extra/extra-04-telemetry.svg</code> or link your dashboard screenshot. Click to view full-screen.</span>
+          </div>
+        </div>
+
+        <!-- Content Slot -->
+        <div class="extra-content-slot">
+          <span class="extra-item-index">Extra 04 · IoT Interface &amp; Telemetry · 2025</span>
+          <h2 class="extra-item-title">Industrial Sensor Telemetry Mini-Dashboard</h2>
+          <p class="extra-item-desc">
+            A high-density oscilloscope and sensor monitor built for hardware technicians calibrating gantry rigs. Streams optical housing temperatures, 3-axis vibration levels, and strobe lux intensity over high-frequency WebSockets with real-time Fast Fourier Transform (FFT) harmonics visualizer.
+          </p>
+
+          <div class="extra-specs-box">
+            <div class="extra-specs-label">Key Specifications &amp; Build</div>
+            <ul class="extra-specs-list">
+              <li class="extra-specs-item"><strong>High Sampling Rate:</strong> Ingests 1,000 samples per second with zero UI stutter via Web Workers.</li>
+              <li class="extra-specs-item"><strong>Shop-Floor High Contrast:</strong> Dark-mode palette designed for dim optical chambers with emergency yellow and red threshold indicators.</li>
+              <li class="extra-specs-item"><strong>Sensor Telemetry:</strong> Tested with ADXL345 digital accelerometers and TSL2591 optical lux sensors.</li>
+            </ul>
+          </div>
+
+          <div class="extra-chips">
+            <span class="extra-chip">IoT Interface</span>
+            <span class="extra-chip">WebSocket Stream</span>
+            <span class="extra-chip">Telemetry Oscillation</span>
+            <span class="extra-chip">Hardware Sensor Hooks</span>
+            <span class="extra-chip">Dark-Mode Systems</span>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- ============================================================== -->
+      <!-- PROJECT 05: Modular Exhibition Display & Spatial Kiosk        -->
+      <!-- ============================================================== -->
+      <article class="extra-item-card" id="kiosk">
+        <!-- Visual Media Slot -->
+        <div class="extra-visual-slot">
+          <!-- Main Hero Image for Project 05 -->
+          <!-- TO REPLACE: Change src="assets/projects/extra/extra-05-kiosk.svg" to your own image path -->
+          <div class="extra-primary-frame" onclick="openLightbox(this)">
+            <img 
+              src="assets/projects/extra/extra-05-kiosk.svg" 
+              alt="Modular Exhibition Spatial Kiosk" 
+              class="extra-primary-img"
+              loading="lazy"
+            >
+            <span class="extra-frame-badge">SPATIAL-05 // EXHIBITION ARCHITECTURE</span>
+          </div>
+
+          <div class="image-replace-helper">
+            <span>📷</span>
+            <span><strong>Image Slot:</strong> Edit <code>assets/projects/extra/extra-05-kiosk.svg</code> or link your CAD renders / photos. Click to view full-screen.</span>
+          </div>
+        </div>
+
+        <!-- Content Slot -->
+        <div class="extra-content-slot">
+          <span class="extra-item-index">Extra 05 · Spatial Design &amp; Modular Hardware · 2024</span>
+          <h2 class="extra-item-title">Modular Exhibition Display &amp; Pop-up Kiosk</h2>
+          <p class="extra-item-desc">
+            A modular architectural demonstration booth designed for rapid deployment at industrial technology expos. Built using standard 40x40 anodized aluminum extrusions, tool-free quick-lock cam fasteners, and recycled PET acoustic felt baffles that absorb convention hall chatter.
+          </p>
+
+          <div class="extra-specs-box">
+            <div class="extra-specs-label">Key Specifications &amp; Build</div>
+            <ul class="extra-specs-list">
+              <li class="extra-specs-item"><strong>Tool-Free Setup:</strong> Engineered for rapid 1-person assembly in under 20 minutes without specialized tools.</li>
+              <li class="extra-specs-item"><strong>Flat-Pack Logistics:</strong> Packs into a single airline-compliant flight case (1200 x 450 x 300 mm, 32 kg total).</li>
+              <li class="extra-specs-item"><strong>Integrated Tech:</strong> Concealed internal cable routing for interactive tablet kiosk and downlight LED illumination.</li>
+            </ul>
+          </div>
+
+          <div class="extra-chips">
+            <span class="extra-chip">Spatial Design</span>
+            <span class="extra-chip">Aluminum Extrusion</span>
+            <span class="extra-chip">Acoustic Baffles</span>
+            <span class="extra-chip">Flat-Pack DFM</span>
+            <span class="extra-chip">Exhibition Architecture</span>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- TEMPLATE SECTION: HOW TO ADD MORE EXTRA WORK                   -->
+    <!-- ============================================================== -->
+    <section class="template-box" aria-label="Template for adding new work">
+      <div class="template-header">
+        <span class="badge" style="margin-bottom: 8px;">
+          <span class="status-dot"></span> Easy Copy-Paste Template
+        </span>
+        <h3>Want to add another project or swap images?</h3>
+        <p>
+          Simply duplicate the HTML snippet below, paste it into <code>extra-work.html</code>, and replace the image path and description. Each card automatically inherits the design system styling.
+        </p>
+      </div>
+
+      <pre class="code-snippet-box"><code>&lt;!-- ============================================================== --&gt;
+&lt;!-- NEW EXTRA PROJECT TEMPLATE (Copy &amp; paste this block)           --&gt;
+&lt;!-- ============================================================== --&gt;
+&lt;article class="extra-item-card" id="project-slug"&gt;
+  &lt;div class="extra-visual-slot"&gt;
+    &lt;div class="extra-primary-frame" onclick="openLightbox(this)"&gt;
+      &lt;img src="assets/projects/extra/your-photo.jpg" alt="Project Name" class="extra-primary-img"&gt;
+      &lt;span class="extra-frame-badge"&gt;PROJECT // 06&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="extra-content-slot"&gt;
+    &lt;span class="extra-item-index"&gt;Extra 06 · Discipline · 2026&lt;/span&gt;
+    &lt;h2 class="extra-item-title"&gt;Project Title Here&lt;/h2&gt;
+    &lt;p class="extra-item-desc"&gt;Short 2-3 sentence overview of what you built, the physical or digital problem, and the final outcome.&lt;/p&gt;
+    &lt;div class="extra-specs-box"&gt;
+      &lt;div class="extra-specs-label"&gt;Key Details&lt;/div&gt;
+      &lt;ul class="extra-specs-list"&gt;
+        &lt;li class="extra-specs-item"&gt;&lt;strong&gt;Fabrication / Code:&lt;/strong&gt; Tools, materials, or stack used.&lt;/li&gt;
+        &lt;li class="extra-specs-item"&gt;&lt;strong&gt;Ergonomic / Interaction:&lt;/strong&gt; Key user insight solved.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class="extra-chips"&gt;
+      &lt;span class="extra-chip"&gt;Tag 1&lt;/span&gt;
+      &lt;span class="extra-chip"&gt;Tag 2&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+    </section>
+
+    <!-- Next Case Study & Cross Navigation -->
+    <section class="section" style="padding-top: var(--space-8); padding-bottom: var(--space-8);">
+      <div class="label" style="margin-bottom: 8px;">Explore Flagship Case Studies</div>
+      <h2 style="font-size: 24px; margin-bottom: 24px; color: var(--color-ink-primary);">Continue to Flagship Projects</h2>
+
+      <div class="split" style="grid-template-columns: repeat(4, 1fr); gap: 16px;">
+        
+        <a href="nordicos.html" style="text-decoration: none; color: inherit; display: block; border: 1px solid var(--color-border-hairline); background: var(--color-canvas-wash); padding: 18px;">
+          <div style="font-size: 10px; font-weight: 700; color: var(--color-accent-primary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">Case Study 01</div>
+          <h3 style="font-size: 15px; margin: 0 0 6px; color: var(--color-ink-primary);">Nordic OS</h3>
+          <p style="font-size: 12px; color: var(--color-ink-secondary); margin: 0 0 12px; line-height: 1.5;">
+            Machine vision &amp; hardware operations workspace replacing 14 spreadsheets.
+          </p>
+          <span style="font-size: 12px; font-weight: 600; color: var(--color-ink-primary);">View case study →</span>
+        </a>
+
+        <a href="nordic.html" style="text-decoration: none; color: inherit; display: block; border: 1px solid var(--color-border-hairline); background: var(--color-canvas-wash); padding: 18px;">
+          <div style="font-size: 10px; font-weight: 700; color: var(--color-accent-primary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">Case Study 02</div>
+          <h3 style="font-size: 15px; margin: 0 0 6px; color: var(--color-ink-primary);">Nordic ONE</h3>
+          <p style="font-size: 12px; color: var(--color-ink-secondary); margin: 0 0 12px; line-height: 1.5;">
+            Federated micro-frontend shell unifying Vision, ERP, MES, and EQMS.
+          </p>
+          <span style="font-size: 12px; font-weight: 600; color: var(--color-ink-primary);">View case study →</span>
+        </a>
+
+        <a href="glide.html" style="text-decoration: none; color: inherit; display: block; border: 1px solid var(--color-border-hairline); background: var(--color-canvas-wash); padding: 18px;">
+          <div style="font-size: 10px; font-weight: 700; color: var(--color-accent-primary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">Case Study 03</div>
+          <h3 style="font-size: 15px; margin: 0 0 6px; color: var(--color-ink-primary);">GLIDE</h3>
+          <p style="font-size: 12px; color: var(--color-ink-secondary); margin: 0 0 12px; line-height: 1.5;">
+            Transformable urban electric vehicle &amp; pop-up micro-retail platform.
+          </p>
+          <span style="font-size: 12px; font-weight: 600; color: var(--color-ink-primary);">View case study →</span>
+        </a>
+
+        <a href="aera.html" style="text-decoration: none; color: inherit; display: block; border: 1px solid var(--color-border-hairline); background: var(--color-canvas-wash); padding: 18px;">
+          <div style="font-size: 10px; font-weight: 700; color: var(--color-accent-primary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">Case Study 04</div>
+          <h3 style="font-size: 15px; margin: 0 0 6px; color: var(--color-ink-primary);">AERA</h3>
+          <p style="font-size: 12px; color: var(--color-ink-secondary); margin: 0 0 12px; line-height: 1.5;">
+            Modular architectural air distribution &amp; digital monitoring dashboard.
+          </p>
+          <span style="font-size: 12px; font-weight: 600; color: var(--color-ink-primary);">View case study →</span>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" style="margin-top: 48px;">
+    <div class="wrap footer-inner">
+      <div>
+        <strong>Diksha Shinde</strong> · Industrial &amp; Interaction Designer · NID MP
+      </div>
+      <div class="footer-meta">
+        <a href="index.html#work">All Case Studies</a>
+        <a href="index.html">Portfolio Home</a>
+        <a href="mailto:dikshashinde1104@gmail.com">dikshashinde1104@gmail.com</a>
+        <a href="https://github.com/dikshadesign" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <div>
+        <span>Protected via Gate (8962)</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for Image Zooming -->
+  <div class="lightbox-modal" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close-btn" aria-label="Close image zoom" onclick="closeLightbox()">✕</button>
+    <img src="" alt="Enlarged view" class="lightbox-content" id="lightbox-img">
+  </div>
+
+  <script>
+    function openLightbox(frame) {
+      const img = frame.querySelector('img');
+      if (img) {
+        const modal = document.getElementById('lightbox');
+        const modalImg = document.getElementById('lightbox-img');
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        modal.classList.add('active');
+      }
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightbox');
+      modal.classList.remove('active');
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
+</body>
+</html>
