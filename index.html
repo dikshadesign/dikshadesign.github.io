@@ -4,884 +4,138 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Diksha Shinde — Industrial &amp; Interaction Designer | Portfolio</title>
-  <meta name="description" content="Portfolio of Diksha Shinde — Industrial & Interaction Designer (NID MP). Designing physical machines, complex operational workflows, and the digital systems that connect them.">
+  <meta name="description" content="Portfolio of Diksha Shinde — Industrial & Interaction Designer (NID MP). Designing physical machines, shop-floor hardware, and the enterprise digital platforms that connect them.">
   
   <!-- Site Access Gate (Password: 8962) -->
   <script src="design-system/gate.js"></script>
-  <!-- Portfolio Design System -->
+  <!-- Base Design System -->
   <link rel="stylesheet" href="design-system/design-system.css">
-
-  <style>
-    /* ==========================================================================
-       HOMEPAGE CUSTOM COMPONENT STYLES
-       Following Design System Tokens: 1200px max width, 0px radius, pill controls
-       ========================================================================== */
-
-    /* Universal Navigation Bar */
-    .site-nav-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--color-border-hairline);
-    }
-    .site-nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 0;
-    }
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--color-ink-primary);
-    }
-    .brand-monogram {
-      width: 32px;
-      height: 32px;
-      background: var(--color-ink-primary);
-      color: var(--color-white);
-      font-weight: 700;
-      font-size: 13px;
-      letter-spacing: -0.02em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: var(--radius-none);
-    }
-    .brand-meta {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.15;
-    }
-    .brand-name {
-      font-size: 13.5px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      color: var(--color-ink-primary);
-    }
-    .brand-role {
-      font-size: 10.5px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--color-ink-muted);
-    }
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    .nav-link {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--color-ink-secondary);
-      text-decoration: none;
-      transition: color var(--duration-fast) ease;
-    }
-    .nav-link:hover {
-      color: var(--color-accent-primary);
-    }
-    .nav-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 12px;
-      background: var(--color-canvas-wash);
-      border: 1px solid var(--color-border-hairline);
-      border-radius: var(--radius-pill);
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--color-ink-secondary);
-    }
-
-    /* Hero Section */
-    .hero-section {
-      padding-top: clamp(40px, 6vw, 72px);
-      padding-bottom: clamp(48px, 7vw, 80px);
-      border-bottom: 1px solid var(--color-border-hairline);
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 0.85fr;
-      gap: clamp(32px, 5vw, 64px);
-      align-items: start;
-    }
-    .hero-narrative {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .hero-badge-strip {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: var(--space-4);
-    }
-    .hero-headline {
-      font-size: clamp(32px, 4.2vw, 54px);
-      line-height: 1.1;
-      letter-spacing: -0.035em;
-      font-weight: 700;
-      color: var(--color-ink-primary);
-      margin: 0 0 18px 0;
-    }
-    .hero-headline em {
-      font-style: normal;
-      color: var(--color-accent-primary);
-    }
-    .hero-lead {
-      font-size: clamp(15px, 1.4vw, 17.5px);
-      line-height: 1.6;
-      color: var(--color-ink-secondary);
-      margin: 0 0 28px 0;
-      max-width: 640px;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: clamp(32px, 4vw, 48px);
-    }
-    .hero-metrics-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      width: 100%;
-      padding-top: 24px;
-      border-top: 1px solid var(--color-border-hairline);
-    }
-    .metric-card {
-      display: flex;
-      flex-direction: column;
-    }
-    .metric-value {
-      font-size: clamp(20px, 2.2vw, 26px);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--color-ink-primary);
-      line-height: 1.1;
-    }
-    .metric-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--color-ink-muted);
-      margin-top: 4px;
-      font-weight: 600;
-    }
-
-    /* Profile Photo Card (Small & Refined Area) */
-    .profile-card {
-      background: var(--color-canvas);
-      border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-none);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-      overflow: hidden;
-      position: relative;
-    }
-    .profile-card-topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 16px;
-      background: var(--color-canvas-wash);
-      border-bottom: 1px solid var(--color-border-hairline);
-      font-size: 11px;
-      font-family: var(--font-mono);
-      color: var(--color-ink-muted);
-    }
-    .profile-card-topbar-tag {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 600;
-      color: var(--color-ink-primary);
-    }
-    .profile-card-topbar-tag::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      background: var(--color-accent-primary);
-      display: inline-block;
-    }
-    .profile-photo-frame {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 4 / 4.4;
-      background: #11151c;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .profile-photo-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform var(--duration-slow) ease;
-    }
-    .profile-card:hover .profile-photo-img {
-      transform: scale(1.02);
-    }
-    .photo-reticle {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      padding: 4px 8px;
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #94a3b8;
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.05em;
-    }
-    .profile-meta-body {
-      padding: 18px 20px;
-      background: var(--color-canvas);
-    }
-    .profile-name-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 6px;
-    }
-    .profile-name {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--color-ink-primary);
-      margin: 0;
-    }
-    .profile-tag-nid {
-      font-size: 10.5px;
-      font-weight: 700;
-      color: var(--color-accent-primary);
-      background: var(--color-accent-soft);
-      padding: 2px 8px;
-      border-radius: var(--radius-pill);
-      letter-spacing: 0.04em;
-    }
-    .profile-spec {
-      font-size: 12.5px;
-      color: var(--color-ink-secondary);
-      line-height: 1.5;
-      margin: 0 0 12px 0;
-    }
-    .profile-detail-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 16px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      border-top: 1px solid var(--color-border-hairline);
-      padding-top: 12px;
-    }
-    .profile-detail-item {
-      display: flex;
-      justify-content: space-between;
-      font-size: 11.5px;
-      line-height: 1.4;
-    }
-    .profile-detail-key {
-      color: var(--color-ink-muted);
-      font-weight: 500;
-    }
-    .profile-detail-val {
-      color: var(--color-ink-primary);
-      font-weight: 600;
-    }
-    .profile-swap-hint {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 10.5px;
-      color: var(--color-ink-muted);
-      background: var(--color-canvas-subtle);
-      border: 1px dashed var(--color-border-subtle);
-      padding: 6px 10px;
-    }
-
-    /* Section Styling */
-    .section-wrap {
-      padding-top: clamp(48px, 8vw, 84px);
-      padding-bottom: clamp(48px, 8vw, 84px);
-      border-bottom: 1px solid var(--color-border-hairline);
-    }
-    .section-header {
-      margin-bottom: clamp(32px, 5vw, 56px);
-      max-width: 780px;
-    }
-    .section-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-accent-primary);
-      margin-bottom: 8px;
-    }
-    .section-title {
-      font-size: clamp(24px, 3.2vw, 38px);
-      line-height: 1.15;
-      letter-spacing: -0.025em;
-      font-weight: 700;
-      color: var(--color-ink-primary);
-      margin: 0 0 12px 0;
-    }
-    .section-subtitle {
-      font-size: clamp(14px, 1.2vw, 16px);
-      line-height: 1.6;
-      color: var(--color-ink-secondary);
-      margin: 0;
-    }
-
-    /* Case Studies Grid (Editorial Layout) */
-    .case-studies-grid {
-      display: flex;
-      flex-direction: column;
-      gap: clamp(32px, 5vw, 56px);
-    }
-    .case-card {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(24px, 4vw, 48px);
-      align-items: center;
-      background: var(--color-canvas);
-      border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-none);
-      padding: clamp(24px, 3.5vw, 40px);
-      transition: border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease, transform var(--duration-fast) ease;
-      text-decoration: none;
-      color: inherit;
-    }
-    .case-card:hover {
-      border-color: var(--color-accent-primary);
-      box-shadow: 0 8px 30px rgba(69, 94, 169, 0.08);
-      transform: translateY(-2px);
-    }
-    .case-card.reverse {
-      grid-template-columns: 1fr 1fr;
-    }
-    .case-card.reverse .case-card-visual {
-      order: 2;
-    }
-    .case-card.reverse .case-card-body {
-      order: 1;
-    }
-    .case-card-visual {
-      position: relative;
-      background: var(--color-canvas-wash);
-      border: 1px solid var(--color-border-hairline);
-      border-radius: var(--radius-none);
-      aspect-ratio: 16 / 10.5;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .case-card-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform var(--duration-slow) var(--ease-framer);
-    }
-    .case-card:hover .case-card-img {
-      transform: scale(1.03);
-    }
-    .case-badge-pill {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      padding: 5px 12px;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(8px);
-      border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-pill);
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--color-ink-primary);
-    }
-    .case-card-body {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .case-eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--color-accent-primary);
-      margin-bottom: 8px;
-    }
-    .case-title {
-      font-size: clamp(20px, 2.3vw, 28px);
-      line-height: 1.2;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--color-ink-primary);
-      margin: 0 0 12px 0;
-    }
-    .case-desc {
-      font-size: 14px;
-      line-height: 1.6;
-      color: var(--color-ink-secondary);
-      margin: 0 0 18px 0;
-    }
-    .case-tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 22px;
-    }
-    .case-tag-chip {
-      font-size: 11px;
-      font-weight: 500;
-      padding: 4px 10px;
-      background: var(--color-canvas-wash);
-      border: 1px solid var(--color-border-hairline);
-      border-radius: var(--radius-pill);
-      color: var(--color-ink-secondary);
-    }
-    .case-link-btn {
-      margin-top: auto;
-    }
-
-    /* Approach / Philosophy Grid */
-    .triad-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .triad-card {
-      background: var(--color-canvas);
-      border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-none);
-      padding: clamp(24px, 3vw, 36px);
-      display: flex;
-      flex-direction: column;
-      transition: border-color var(--duration-fast) ease;
-    }
-    .triad-card:hover {
-      border-color: var(--color-accent-primary);
-    }
-    .triad-num {
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-accent-primary);
-      margin-bottom: 12px;
-    }
-    .triad-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--color-ink-primary);
-      margin: 0 0 10px 0;
-      line-height: 1.25;
-    }
-    .triad-body {
-      font-size: 13.5px;
-      line-height: 1.65;
-      color: var(--color-ink-secondary);
-      margin: 0;
-    }
-
-    /* Capabilities Matrix */
-    .capabilities-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .cap-card {
-      background: var(--color-canvas-wash);
-      border: 1px solid var(--color-border-hairline);
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-    }
-    .cap-header {
-      border-bottom: 1px solid var(--color-border-hairline);
-      padding-bottom: 14px;
-      margin-bottom: 16px;
-    }
-    .cap-num {
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-accent-primary);
-      margin-bottom: 4px;
-    }
-    .cap-title {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--color-ink-primary);
-      margin: 0;
-    }
-    .cap-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .cap-item {
-      font-size: 12.5px;
-      line-height: 1.5;
-      color: var(--color-ink-secondary);
-      position: relative;
-      padding-left: 14px;
-    }
-    .cap-item::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--color-accent-primary);
-      font-size: 14px;
-      line-height: 1.3;
-    }
-
-    /* Education & Background Banner */
-    .background-banner {
-      margin-top: 32px;
-      background: var(--color-canvas);
-      border: 1px solid var(--color-border-subtle);
-      border-left: 4px solid var(--color-accent-primary);
-      padding: 24px 28px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-    .background-banner-content h4 {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--color-ink-primary);
-      margin: 0 0 6px 0;
-    }
-    .background-banner-content p {
-      font-size: 13px;
-      color: var(--color-ink-secondary);
-      margin: 0;
-      line-height: 1.5;
-    }
-
-    /* Contact & Footer Section */
-    .contact-card {
-      background: var(--color-ink-primary);
-      color: var(--color-white);
-      border-radius: var(--radius-none);
-      padding: clamp(36px, 6vw, 64px);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin-top: clamp(48px, 8vw, 84px);
-      margin-bottom: clamp(48px, 8vw, 84px);
-      position: relative;
-      overflow: hidden;
-    }
-    .contact-card::after {
-      content: "";
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(69, 94, 169, 0.28) 0%, rgba(21, 26, 36, 0) 70%);
-      pointer-events: none;
-    }
-    .contact-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 12px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: var(--radius-pill);
-      font-size: 11px;
-      font-weight: 600;
-      color: #93c5fd;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .contact-title {
-      font-size: clamp(24px, 3.6vw, 44px);
-      line-height: 1.15;
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      margin: 0 0 14px 0;
-      max-width: 720px;
-    }
-    .contact-sub {
-      font-size: clamp(14px, 1.3vw, 17px);
-      line-height: 1.6;
-      color: #cbd5e1;
-      margin: 0 0 32px 0;
-      max-width: 600px;
-    }
-    .contact-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      z-index: 2;
-    }
-    .site-footer {
-      border-top: 1px solid var(--color-border-hairline);
-      padding: 32px 0 48px 0;
-      background: var(--color-canvas);
-    }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      font-size: 12px;
-      color: var(--color-ink-muted);
-    }
-    .footer-meta {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .footer-meta a {
-      color: var(--color-ink-secondary);
-      text-decoration: none;
-    }
-    .footer-meta a:hover {
-      color: var(--color-accent-primary);
-    }
-
-    /* Toast Notification for Clipboard Copy */
-    .toast-pill {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: var(--color-ink-primary);
-      color: var(--color-white);
-      padding: 10px 18px;
-      border-radius: var(--radius-pill);
-      font-size: 12px;
-      font-weight: 600;
-      display: none;
-      align-items: center;
-      gap: 8px;
-      z-index: 1000;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    }
-    .toast-pill.show {
-      display: flex;
-      animation: fadeInToast 0.25s ease forwards;
-    }
-    @keyframes fadeInToast {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Responsive Adjustments */
-    @media (max-width: 960px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-      .profile-card {
-        max-width: 440px;
-        margin: 0 auto;
-      }
-      .case-card, .case-card.reverse {
-        grid-template-columns: 1fr;
-      }
-      .case-card.reverse .case-card-visual {
-        order: 1;
-      }
-      .case-card.reverse .case-card-body {
-        order: 2;
-      }
-      .triad-grid, .capabilities-grid {
-        grid-template-columns: 1fr;
-      }
-      .hero-metrics-strip {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .background-banner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-    @media (max-width: 600px) {
-      .site-nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-      .nav-menu {
-        width: 100%;
-        justify-content: space-between;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-      .hero-actions {
-        flex-direction: column;
-        width: 100%;
-      }
-      .hero-actions .btn {
-        width: 100%;
-      }
-    }
-  </style>
+  <!-- Brutalist Archive Layout Stylesheet -->
+  <link rel="stylesheet" href="design-system/brutal-home.css">
 </head>
-<body>
+<body class="brutal-theme">
 
-  <!-- Site Navigation -->
-  <header class="site-nav-header" id="top">
-    <div class="wrap site-nav-inner">
-      <a href="index.html" class="nav-brand">
-        <div class="brand-monogram">DS</div>
-        <div class="brand-meta">
-          <span class="brand-name">Diksha Shinde</span>
-          <span class="brand-role">Industrial &amp; Interaction Designer</span>
+  <!-- Brutalist Universal Header -->
+  <header class="brutal-header" id="top">
+    <div class="wrap brutal-header-inner">
+      <a href="index.html" class="brutal-brand">
+        <div class="brutal-monogram">DS</div>
+        <div>
+          <div class="brutal-brand-title">Diksha Shinde</div>
+          <div class="brutal-brand-sub">Industrial &amp; Interaction Designer · NID MP</div>
         </div>
       </a>
 
-      <nav class="nav-menu">
-        <a href="#work" class="nav-link">Selected Work</a>
-        <a href="extra-work.html" class="nav-link">Extra Work &amp; Lab</a>
-        <a href="#approach" class="nav-link">Approach</a>
-        <a href="#about" class="nav-link">About &amp; Capabilities</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <span class="nav-status">
-          <span class="status-dot"></span> Available Q4 2026
+      <nav class="brutal-nav-links" aria-label="Main Navigation">
+        <a href="#work" class="brutal-nav-link">[01] WORK</a>
+        <a href="extra-work.html" class="brutal-nav-link">[02] LAB</a>
+        <a href="#approach" class="brutal-nav-link">[03] MANIFESTO</a>
+        <a href="#about" class="brutal-nav-link">[04] CAPABILITIES</a>
+        <a href="#contact" class="brutal-nav-link">[05] CONTACT</a>
+        <span class="brutal-status-tag">
+          <span class="brutal-status-dot"></span> AVAILABLE Q4 2026
         </span>
       </nav>
     </div>
   </header>
 
-  <!-- Main Content Wrap -->
   <main id="main-content">
 
-    <!-- Hero Section -->
-    <section class="wrap hero-section">
-      <div class="hero-grid">
+    <!-- Brutalist Hero Section -->
+    <section class="wrap brutal-hero" aria-label="Introduction & Profile">
+      <div class="brutal-hero-grid">
         
-        <!-- Left Column: Headline & Value Proposition -->
-        <div class="hero-narrative">
-          <div class="hero-badge-strip">
-            <span class="badge">
-              <span class="status-dot"></span> Industrial &amp; Interaction Design
-            </span>
-            <span class="badge">NID MP Alumni</span>
-            <span class="badge">Systems &amp; Vibe Coding</span>
+        <!-- Left: Statement & Metrics -->
+        <div class="brutal-hero-left">
+          <div>
+            <div class="brutal-meta-tagline">
+              ARCHIVE // 2026 · NATIONAL INSTITUTE OF DESIGN (NID MP) · HARDWARE WORKSPACES + ENTERPRISE PLATFORMS
+            </div>
+
+            <h1 class="brutal-hero-h1">
+              Designing physical machines, complex shop-floor workflows, and the digital systems that connect them.
+            </h1>
+
+            <p class="brutal-hero-bio">
+              I am an Industrial and Interaction Designer operating at the intersection of shop-floor hardware, machine-vision inspection, and enterprise systems. I design ergonomic physical tools, architect multi-tenant operational platforms, and build functional prototypes through rapid vibe coding.
+            </p>
+
+            <div class="brutal-hero-btns">
+              <a href="#work" class="brutal-btn-primary">
+                Explore Matrix Archive <span class="arrow">↓</span>
+              </a>
+              <a href="mailto:dikshashinde1104@gmail.com" class="brutal-btn-outline">
+                dikshashinde1104@gmail.com ↗
+              </a>
+              <button type="button" class="brutal-btn-outline" onclick="copyEmail()">
+                Copy Email
+              </button>
+            </div>
           </div>
 
-          <h1 class="hero-headline">
-            Designing <em>physical machines</em>, complex operational workflows, and the digital systems that connect them.
-          </h1>
-
-          <p class="hero-lead">
-            I am an Industrial and Interaction Designer (National Institute of Design, MP) operating at the intersection of shop-floor hardware, machine-vision workspaces, and enterprise software. I design ergonomic physical tools, architect multi-tenant operational systems, and build functional prototypes through rapid vibe coding.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#work" class="btn btn-primary btn-md">
-              Explore Case Studies <span class="arrow">↓</span>
-            </a>
-            <a href="mailto:dikshashinde1104@gmail.com" class="btn btn-secondary btn-md">
-              dikshashinde1104@gmail.com <span class="arrow">↗</span>
-            </a>
-            <button type="button" class="btn btn-outline btn-md" onclick="copyEmail()">
-              Copy Email
-            </button>
-          </div>
-
-          <!-- Fast Metrics Strip -->
-          <div class="hero-metrics-strip">
-            <div class="metric-card">
-              <span class="metric-value">05</span>
-              <span class="metric-label">Studies &amp; Lab</span>
+          <!-- Brutalist Spec Metrics Strip -->
+          <div class="brutal-spec-strip" aria-label="Fast Portfolio Metrics">
+            <div class="brutal-spec-cell">
+              <span class="brutal-spec-val">05</span>
+              <span class="brutal-spec-lbl">Studies &amp; Lab</span>
             </div>
-            <div class="metric-card">
-              <span class="metric-value">NID MP</span>
-              <span class="metric-label">Design Foundation</span>
+            <div class="brutal-spec-cell">
+              <span class="brutal-spec-val">NID MP</span>
+              <span class="brutal-spec-lbl">Design Foundation</span>
             </div>
-            <div class="metric-card">
-              <span class="metric-value">11 Roles</span>
-              <span class="metric-label">Industrial Access</span>
+            <div class="brutal-spec-cell">
+              <span class="brutal-spec-val">11 Roles</span>
+              <span class="brutal-spec-lbl">Access Governance</span>
             </div>
-            <div class="metric-card">
-              <span class="metric-value">Full-Stack</span>
-              <span class="metric-label">Working Prototypes</span>
+            <div class="brutal-spec-cell">
+              <span class="brutal-spec-val">100%</span>
+              <span class="brutal-spec-lbl">Functional Code</span>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Dedicated Photo Card Area -->
-        <div class="profile-card" id="designer-profile">
-          <div class="profile-card-topbar">
-            <span class="profile-card-topbar-tag">PROFILE // DIKSHA SHINDE</span>
+        <!-- Right: Brutalist Profile Specimen Card -->
+        <div class="brutal-profile-card" id="designer-profile">
+          <div class="brutal-profile-header">
+            <span>SPECIMEN // DIKSHA SHINDE</span>
             <span>ID: DS-NID-2026</span>
           </div>
-          
-          <!-- Photo Container (Default: Stylized Designer Portrait SVG; Ready to swap with diksha.jpg) -->
-          <div class="profile-photo-frame">
+
+          <!-- 1:1 Square Photo Container -->
+          <div class="brutal-profile-photo-wrap">
             <img 
               src="assets/images/profile-placeholder.svg" 
               alt="Diksha Shinde — Industrial &amp; Interaction Designer" 
-              class="profile-photo-img" 
               id="profile-photo"
               onerror="this.src='assets/images/profile-placeholder.svg'"
             >
-            <div class="photo-reticle">NID · MP // IXD</div>
+            <div class="brutal-profile-reticle">NID · MP // IXD</div>
           </div>
 
-          <div class="profile-meta-body">
-            <div class="profile-name-row">
-              <h2 class="profile-name">Diksha Shinde</h2>
-              <span class="profile-tag-nid">NID Graduate</span>
+          <div class="brutal-profile-data">
+            <div class="brutal-data-row">
+              <span class="brutal-data-k">Discipline</span>
+              <span class="brutal-data-v">Industrial + Interaction Design</span>
             </div>
-            <p class="profile-spec">
-              Industrial Designer &amp; Systems Prototyper specializing in physical ergonomics, machine-vision hardware workspaces, and production-grade interaction design.
-            </p>
+            <div class="brutal-data-row">
+              <span class="brutal-data-k">Alma Mater</span>
+              <span class="brutal-data-v">National Institute of Design (NID MP)</span>
+            </div>
+            <div class="brutal-data-row">
+              <span class="brutal-data-k">Focus</span>
+              <span class="brutal-data-v">Shop-Floor Ergonomics &amp; Workspaces</span>
+            </div>
+            <div class="brutal-data-row">
+              <span class="brutal-data-k">Tooling</span>
+              <span class="brutal-data-v">Figma · 3D CAD · Node.js · Vibe Coding</span>
+            </div>
+            <div class="brutal-data-row">
+              <span class="brutal-data-k">Status</span>
+              <span class="brutal-data-v" style="color: #10b981;">● Open to Select Roles &amp; Contracts</span>
+            </div>
 
-            <ul class="profile-detail-list">
-              <li class="profile-detail-item">
-                <span class="profile-detail-key">Discipline:</span>
-                <span class="profile-detail-val">Industrial + Interaction Design</span>
-              </li>
-              <li class="profile-detail-item">
-                <span class="profile-detail-key">Education:</span>
-                <span class="profile-detail-val">National Institute of Design (NID MP)</span>
-              </li>
-              <li class="profile-detail-item">
-                <span class="profile-detail-key">Specialization:</span>
-                <span class="profile-detail-val">Shop-Floor Systems &amp; Hardware Ergonomics</span>
-              </li>
-              <li class="profile-detail-item">
-                <span class="profile-detail-key">Prototyping:</span>
-                <span class="profile-detail-val">Figma · 3D CAD · Node.js · Vibe Coding</span>
-              </li>
-              <li class="profile-detail-item">
-                <span class="profile-detail-key">Status:</span>
-                <span class="profile-detail-val" style="color: #10b981;">● Open to Select Roles &amp; Contracts</span>
-              </li>
-            </ul>
-
-            <div class="profile-swap-hint">
-              <span>📷</span>
-              <span><strong>Photo Area:</strong> Drop your portrait photo as <code>assets/images/diksha.jpg</code> to display your picture here.</span>
+            <div class="brutal-photo-swap-hint">
+              [PHOTO AREA] Drop portrait as <code>assets/images/diksha.jpg</code> to display your picture.
             </div>
           </div>
         </div>
@@ -889,319 +143,327 @@
       </div>
     </section>
 
-    <!-- Selected Work Section -->
-    <section class="wrap section-wrap" id="work">
-      <div class="section-header">
-        <div class="section-eyebrow">
-          <span>01</span>
-          <span>Selected Case Studies</span>
+    <!-- ==========================================================================
+         THE SQUARE BRUTAL PROJECT MATRIX
+         Inspired by Garuda SS & Avant-Garde Specimen Layout
+         ========================================================================== -->
+    <section class="wrap" id="work" aria-labelledby="work-title">
+      
+      <!-- Section Bar -->
+      <div class="brutal-section-title-bar">
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; color: var(--brutal-muted);">
+            [01 / ARCHIVE]
+          </div>
+          <h2 id="work-title">Selected Case Studies</h2>
         </div>
-        <h2 class="section-title">End-to-end systems from physical shop floor to enterprise platform.</h2>
-        <p class="section-subtitle">
-          Four deep-dive case studies spanning machine vision inspection, multi-tenant enterprise architecture, transformable urban mobility, and architectural air purification.
-        </p>
+        <div class="section-counter">
+          CATALOG MATRIX // 08 SPECIMENS
+        </div>
       </div>
 
-      <div class="case-studies-grid">
+      <!-- The Square Brutalist Matrix (4 Columns Desktop · 2 Tablet · 1 Mobile) -->
+      <div class="brutal-matrix">
 
-        <!-- Case Study 01: Nordic OS -->
-        <article class="case-card">
-          <div class="case-card-visual">
-            <img src="assets/projects/nordicos/nordicos-hero.svg" alt="Nordic OS Case Study Preview" class="case-card-img">
-            <span class="case-badge-pill">Internal Enterprise Platform</span>
+        <!-- Specimen 01: Nordic OS -->
+        <a href="nordicos.html" class="brutal-card" aria-label="View Nordic OS Case Study">
+          <div class="brutal-card-tag">INTERNAL PLATFORM</div>
+          <div class="brutal-card-square">
+            <img src="assets/projects/nordicos/nordicos-hero.svg" alt="Nordic OS Machine Vision Workspace" class="brutal-card-img" loading="eager">
           </div>
-          <div class="case-card-body">
-            <span class="case-eyebrow">Project 01 · Sole Designer &amp; Developer</span>
-            <h3 class="case-title">Nordic OS — Machine Vision &amp; Hardware Operations Workspace</h3>
-            <p class="case-desc">
-              An internal operations platform built to unify physical optical camera testing, 3D CAD design approval stages, 11-role access control, and live machine vision inspection—replacing 14 disconnected spreadsheets and manual camera configurations.
-            </p>
-            <div class="case-tag-list">
-              <span class="case-tag-chip">Machine Vision</span>
-              <span class="case-tag-chip">11-Role RBAC</span>
-              <span class="case-tag-chip">Hardware Trigger Trees</span>
-              <span class="case-tag-chip">Shop-Floor Ergonomics</span>
-              <span class="case-tag-chip">Full-Stack Prototyping</span>
+          <div class="brutal-card-meta">
+            <div class="brutal-card-title">
+              <span>NORDIC OS</span>
+              <span class="brutal-card-arrow">01 ↗</span>
             </div>
-            <a href="nordicos.html" class="btn btn-primary btn-sm case-link-btn">
-              Read Nordic OS Case Study <span class="arrow">→</span>
-            </a>
+            <div class="brutal-card-sub">
+              Machine Vision &amp; Hardware Operations Workspace
+            </div>
           </div>
-        </article>
+        </a>
 
-        <!-- Case Study 02: Nordic ONE -->
-        <article class="case-card reverse">
-          <div class="case-card-visual">
-            <img src="assets/projects/nordic/nordic-hero.svg" alt="Nordic ONE Case Study Preview" class="case-card-img">
-            <span class="case-badge-pill">Federated Industrial Platform</span>
+        <!-- Specimen 02: Nordic ONE -->
+        <a href="nordic.html" class="brutal-card" aria-label="View Nordic ONE Case Study">
+          <div class="brutal-card-tag">FEDERATED SHELL</div>
+          <div class="brutal-card-square">
+            <img src="assets/projects/nordic/nordic-hero.svg" alt="Nordic ONE Industrial Ecosystem" class="brutal-card-img" loading="eager">
           </div>
-          <div class="case-card-body">
-            <span class="case-eyebrow">Project 02 · Systems &amp; Platform Design</span>
-            <h3 class="case-title">Nordic ONE — Unified Industrial Micro-Frontend Shell</h3>
-            <p class="case-desc">
-              Architecting a federated micro-frontend platform connecting Nordic Vision, MES, ERP, and EQMS. Delivered design tokens, cross-application navigation, shared state synchronization, and enterprise access governance across 6 manufacturing plants.
-            </p>
-            <div class="case-tag-list">
-              <span class="case-tag-chip">Platform Experience</span>
-              <span class="case-tag-chip">Micro-Frontend Shell</span>
-              <span class="case-tag-chip">Design Tokens</span>
-              <span class="case-tag-chip">Factory Floor Validation</span>
-              <span class="case-tag-chip">Multi-Domain Architecture</span>
+          <div class="brutal-card-meta">
+            <div class="brutal-card-title">
+              <span>NORDIC ONE</span>
+              <span class="brutal-card-arrow">02 ↗</span>
             </div>
-            <a href="nordic.html" class="btn btn-primary btn-sm case-link-btn">
-              Read Nordic ONE Case Study <span class="arrow">→</span>
-            </a>
+            <div class="brutal-card-sub">
+              Connected Industrial Micro-Frontend Shell
+            </div>
           </div>
-        </article>
+        </a>
 
-        <!-- Case Study 03: GLIDE -->
-        <article class="case-card">
-          <div class="case-card-visual">
-            <img src="assets/projects/glide/glide-hero.jpg" alt="GLIDE Urban Mobility Case Study Preview" class="case-card-img">
-            <span class="case-badge-pill">NID Graduation Project</span>
+        <!-- Specimen 03: GLIDE -->
+        <a href="glide.html" class="brutal-card" aria-label="View GLIDE Case Study">
+          <div class="brutal-card-tag">NID GRAD THESIS</div>
+          <div class="brutal-card-square">
+            <img src="assets/projects/glide/glide-hero.jpg" alt="GLIDE Urban Mobility Concept" class="brutal-card-img" loading="eager">
           </div>
-          <div class="case-card-body">
-            <span class="case-eyebrow">Project 03 · Industrial &amp; Mobility Design</span>
-            <h3 class="case-title">GLIDE — Transformable Urban Mobility &amp; Pop-up Retail</h3>
-            <p class="case-desc">
-              National Institute of Design graduation project: a multi-modal electric platform engineered for dense urban streets that shifts seamlessly between daily commuter transit and flexible pop-up micro-retail infrastructure.
-            </p>
-            <div class="case-tag-list">
-              <span class="case-tag-chip">Mobility Design</span>
-              <span class="case-tag-chip">Kinematic Transformation</span>
-              <span class="case-tag-chip">Sheet Metal Fabrication</span>
-              <span class="case-tag-chip">Ergonomic Spatial Analysis</span>
-              <span class="case-tag-chip">NID MP Thesis</span>
+          <div class="brutal-card-meta">
+            <div class="brutal-card-title">
+              <span>GLIDE</span>
+              <span class="brutal-card-arrow">03 ↗</span>
             </div>
-            <a href="glide.html" class="btn btn-primary btn-sm case-link-btn">
-              Read GLIDE Case Study <span class="arrow">→</span>
-            </a>
+            <div class="brutal-card-sub">
+              Transformable Urban Mobility · NID MP
+            </div>
           </div>
-        </article>
+        </a>
 
-        <!-- Case Study 04: AERA -->
-        <article class="case-card reverse">
-          <div class="case-card-visual">
-            <img src="assets/projects/aera/aera-hero.png" alt="AERA Air Purification Case Study Preview" class="case-card-img">
-            <span class="case-badge-pill">Industrial Product &amp; IoT</span>
+        <!-- Specimen 04: AERA -->
+        <a href="aera.html" class="brutal-card" aria-label="View AERA Case Study">
+          <div class="brutal-card-tag">HARDWARE + IOT</div>
+          <div class="brutal-card-square">
+            <img src="assets/projects/aera/aera-hero.png" alt="AERA Ceiling-Integrated Air Purification" class="brutal-card-img" loading="eager">
           </div>
-          <div class="case-card-body">
-            <span class="case-eyebrow">Project 04 · Product Design &amp; Digital Companion</span>
-            <h3 class="case-title">AERA — Architectural Modular Clean Air Distribution</h3>
-            <p class="case-desc">
-              A modular air purification system blending ceiling-integrated air delivery with acoustic baffles, embedded air-quality sensors, and an industrial IoT dashboard for commercial architectural environments.
-            </p>
-            <div class="case-tag-list">
-              <span class="case-tag-chip">Industrial Design</span>
-              <span class="case-tag-chip">Modular Extrusion</span>
-              <span class="case-tag-chip">IoT Dashboard</span>
-              <span class="case-tag-chip">Acoustic Baffles</span>
-              <span class="case-tag-chip">CMF Development</span>
+          <div class="brutal-card-meta">
+            <div class="brutal-card-title">
+              <span>AERA</span>
+              <span class="brutal-card-arrow">04 ↗</span>
             </div>
-            <a href="aera.html" class="btn btn-primary btn-sm case-link-btn">
-              Read AERA Case Study <span class="arrow">→</span>
-            </a>
+            <div class="brutal-card-sub">
+              Modular Clean Air Distribution &amp; IoT
+            </div>
           </div>
-        </article>
+        </a>
 
-        <!-- Case Study 05: Extra Work & Explorations -->
-        <article class="case-card">
-          <div class="case-card-visual">
-            <img src="assets/projects/extra/extra-01-console.svg" alt="Extra Work and Explorations Preview" class="case-card-img">
-            <span class="case-badge-pill">Design Lab &amp; Explorations</span>
+        <!-- Specimen 05: Extra Work & Lab -->
+        <a href="extra-work.html" class="brutal-card" aria-label="View Extra Work and Explorations">
+          <div class="brutal-card-tag">DESIGN LAB &amp; RIGS</div>
+          <div class="brutal-card-square">
+            <img src="assets/projects/extra/extra-01-console.svg" alt="Extra Work Physical Consoles and Tooling" class="brutal-card-img" loading="lazy">
           </div>
-          <div class="case-card-body">
-            <span class="case-eyebrow">Project 05 · Physical Prototypes &amp; Vibe Coding</span>
-            <h3 class="case-title">Physical Rigs, Tooling &amp; Extra Work</h3>
-            <p class="case-desc">
-              A curated collection of side experiments, tactile hardware consoles, real-time machine vision canvas utilities, anthropometric foam grip studies, and high-frequency WebSocket sensor telemetry dashboards.
-            </p>
-            <div class="case-tag-list">
-              <span class="case-tag-chip">Physical Computing</span>
-              <span class="case-tag-chip">Rotary Encoders</span>
-              <span class="case-tag-chip">Vibe Coding</span>
-              <span class="case-tag-chip">Ergonomic Foam Studies</span>
-              <span class="case-tag-chip">IoT Telemetry</span>
+          <div class="brutal-card-meta">
+            <div class="brutal-card-title">
+              <span>EXTRA WORK &amp; LAB</span>
+              <span class="brutal-card-arrow">05 ↗</span>
             </div>
-            <a href="extra-work.html" class="btn btn-primary btn-sm case-link-btn">
-              Explore Extra Work &amp; Lab <span class="arrow">→</span>
-            </a>
+            <div class="brutal-card-sub">
+              Physical Rigs, Foam Studies &amp; Vibe Coding
+            </div>
           </div>
-        </article>
+        </a>
+
+        <!-- Specimen 06: Design Manifesto (Editorial Companion) -->
+        <a href="#approach" class="brutal-card brutal-card-editorial" aria-label="Jump to Design Philosophy">
+          <div class="brutal-card-tag">MANIFESTO</div>
+          <div class="brutal-card-square">
+            <img src="assets/projects/extra/manifesto-schematic.svg" alt="Design Manifesto Schematic" class="brutal-card-img" loading="lazy">
+          </div>
+          <div class="brutal-card-meta">
+            <div class="brutal-card-title">
+              <span>PHILOSOPHY</span>
+              <span class="brutal-card-arrow">06 ↓</span>
+            </div>
+            <div class="brutal-card-sub">
+              Physical Reality First · Systems Over Silos
+            </div>
+          </div>
+        </a>
+
+        <!-- Specimen 07: Capabilities Matrix (Editorial Companion) -->
+        <a href="#about" class="brutal-card brutal-card-editorial" aria-label="Jump to Capabilities Stack">
+          <div class="brutal-card-tag">CREDENTIALS</div>
+          <div class="brutal-card-square">
+            <img src="assets/projects/extra/capabilities-schematic.svg" alt="Capabilities Matrix Schematic" class="brutal-card-img" loading="lazy">
+          </div>
+          <div class="brutal-card-meta">
+            <div class="brutal-card-title">
+              <span>CAPABILITIES</span>
+              <span class="brutal-card-arrow">07 ↓</span>
+            </div>
+            <div class="brutal-card-sub">
+              3D CAD · DFM · Enterprise Micro-Frontends
+            </div>
+          </div>
+        </a>
+
+        <!-- Specimen 08: Direct Dispatch (Communication Channel) -->
+        <a href="mailto:dikshashinde1104@gmail.com" class="brutal-card brutal-card-editorial" aria-label="Direct Email Dispatch">
+          <div class="brutal-card-tag" style="background: #000; color: #10b981;">STATUS: OPEN</div>
+          <div class="brutal-card-square">
+            <img src="assets/projects/extra/dispatch-schematic.svg" alt="Dispatch Communication Radar" class="brutal-card-img" loading="lazy">
+          </div>
+          <div class="brutal-card-meta">
+            <div class="brutal-card-title">
+              <span>INITIATE DISPATCH</span>
+              <span class="brutal-card-arrow">08 ↗</span>
+            </div>
+            <div class="brutal-card-sub">
+              dikshashinde1104@gmail.com
+            </div>
+          </div>
+        </a>
 
       </div>
     </section>
 
-    <!-- Approach / Philosophy Section -->
-    <section class="wrap section-wrap" id="approach">
-      <div class="section-header">
-        <div class="section-eyebrow">
-          <span>02</span>
-          <span>Design Philosophy</span>
+    <!-- ==========================================================================
+         BRUTALIST APPROACH & MANIFESTO
+         ========================================================================== -->
+    <section class="wrap" id="approach" aria-labelledby="approach-title">
+      <div class="brutal-section-title-bar">
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; color: var(--brutal-muted);">
+            [02 / MANIFESTO]
+          </div>
+          <h2 id="approach-title">Design Philosophy</h2>
         </div>
-        <h2 class="section-title">Why industrial training transforms software architecture.</h2>
-        <p class="section-subtitle">
-          Digital systems designed without respecting physical hardware realities fail in high-stakes environments. Here is how I approach complex operational problems.
-        </p>
+        <div class="section-counter">
+          03 OPERATIONAL PRINCIPLES
+        </div>
       </div>
 
-      <div class="triad-grid">
-        <div class="triad-card">
-          <span class="triad-num">Principle 01</span>
-          <h3 class="triad-title">Physical Reality First</h3>
-          <p class="triad-body">
+      <div class="brutal-triad-matrix">
+        <div class="brutal-triad-cell">
+          <div>
+            <div class="brutal-triad-num">[PRINCIPLE 01]</div>
+            <h3 class="brutal-triad-title">Physical Reality First</h3>
+          </div>
+          <p class="brutal-triad-body">
             Software on the factory floor must survive oily gloves, ambient glare, high-vibration gantry mounts, and emergency stops. My industrial design background guarantees that screen layouts respect spatial ergonomics and immediate tactile affordances.
           </p>
         </div>
 
-        <div class="triad-card">
-          <span class="triad-num">Principle 02</span>
-          <h3 class="triad-title">Systems Over Silos</h3>
-          <p class="triad-body">
+        <div class="brutal-triad-cell">
+          <div>
+            <div class="brutal-triad-num">[PRINCIPLE 02]</div>
+            <h3 class="brutal-triad-title">Systems Over Silos</h3>
+          </div>
+          <p class="brutal-triad-body">
             A 3D CAD model, an optical inspection rig, a procurement bill of materials, and an assembly technician’s shift are not disconnected tasks. I design the end-to-end operational pipeline connecting all four into one coherent digital thread.
           </p>
         </div>
 
-        <div class="triad-card">
-          <span class="triad-num">Principle 03</span>
-          <h3 class="triad-title">Vibe Coding &amp; Working Prototypes</h3>
-          <p class="triad-body">
+        <div class="brutal-triad-cell">
+          <div>
+            <div class="brutal-triad-num">[PRINCIPLE 03]</div>
+            <h3 class="brutal-triad-title">Vibe Coding &amp; Working Prototypes</h3>
+          </div>
+          <p class="brutal-triad-body">
             Why debate in static slide decks what can be tested in functional code? I prototype working tools with real data, state transitions, and keyboard shortcuts—validating latency, information density, and user ergonomics before engineering commits sprint cycles.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- About & Capabilities Matrix -->
-    <section class="wrap section-wrap" id="about">
-      <div class="section-header">
-        <div class="section-eyebrow">
-          <span>03</span>
-          <span>About &amp; Capabilities</span>
+    <!-- ==========================================================================
+         BRUTALIST CAPABILITIES MATRIX
+         ========================================================================== -->
+    <section class="wrap" id="about" aria-labelledby="about-title">
+      <div class="brutal-section-title-bar">
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; color: var(--brutal-muted);">
+            [03 / CAPABILITIES]
+          </div>
+          <h2 id="about-title">Capabilities Matrix</h2>
         </div>
-        <h2 class="section-title">Bridging physical form, interaction logic, and working code.</h2>
-        <p class="section-subtitle">
-          Trained at India's premier design institute with hands-on enterprise shipping experience across hardware and software teams.
-        </p>
+        <div class="section-counter">
+          TRIPLE-STACK DISCIPLINE
+        </div>
       </div>
 
-      <div class="capabilities-grid">
-        
-        <!-- Pillar 1: Industrial Design -->
-        <div class="cap-card">
-          <div class="cap-header">
-            <span class="cap-num">Pillar 01</span>
-            <h3 class="cap-title">Industrial Design</h3>
+      <div class="brutal-cap-matrix">
+        <!-- Pillar 01 -->
+        <div class="brutal-cap-cell">
+          <div class="brutal-cap-header">
+            <div class="brutal-cap-num">[PILLAR 01]</div>
+            <h3 class="brutal-cap-title">Industrial Design</h3>
           </div>
-          <ul class="cap-list">
-            <li class="cap-item">Ergonomics &amp; Anthropometric User Studies</li>
-            <li class="cap-item">3D CAD Modeling (SolidWorks, Rhino, Fusion 360)</li>
-            <li class="cap-item">DFM: Sheet Metal &amp; Injection Molding Constraints</li>
-            <li class="cap-item">CMF (Colors, Materials, Finishes) Exploration</li>
-            <li class="cap-item">Physical Workshop Prototyping &amp; Mockups</li>
-            <li class="cap-item">Kinematic Joint &amp; Mechanical Rig Design</li>
+          <ul class="brutal-cap-list">
+            <li class="brutal-cap-item">Ergonomics &amp; Anthropometric User Studies</li>
+            <li class="brutal-cap-item">3D CAD Modeling (SolidWorks, Rhino, Fusion 360)</li>
+            <li class="brutal-cap-item">DFM: Sheet Metal &amp; Injection Molding Constraints</li>
+            <li class="brutal-cap-item">CMF (Colors, Materials, Finishes) Exploration</li>
+            <li class="brutal-cap-item">Rapid Foam Mockups &amp; Physical Rig Testing</li>
           </ul>
         </div>
 
-        <!-- Pillar 2: Interaction & Systems Design -->
-        <div class="cap-card">
-          <div class="cap-header">
-            <span class="cap-num">Pillar 02</span>
-            <h3 class="cap-title">Interaction &amp; Systems</h3>
+        <!-- Pillar 02 -->
+        <div class="brutal-cap-cell">
+          <div class="brutal-cap-header">
+            <div class="brutal-cap-num">[PILLAR 02]</div>
+            <h3 class="brutal-cap-title">Interaction &amp; Software</h3>
           </div>
-          <ul class="cap-list">
-            <li class="cap-item">Complex Information Architecture &amp; Mental Models</li>
-            <li class="cap-item">High-Density Industrial Workspaces &amp; Dashboards</li>
-            <li class="cap-item">Role-Based Access Control (11 Factory Roles)</li>
-            <li class="cap-item">Trigger-Action Logic &amp; Machine Vision Trees</li>
-            <li class="cap-item">Design Systems &amp; Strict Token Architecture</li>
-            <li class="cap-item">Micro-Frontend Shell &amp; Cross-App Navigation</li>
+          <ul class="brutal-cap-list">
+            <li class="brutal-cap-item">Multi-Tenant Platform &amp; Micro-Frontend Architecture</li>
+            <li class="brutal-cap-item">11-Role Access Governance &amp; Permission Hierarchies</li>
+            <li class="brutal-cap-item">Machine Vision Inspection &amp; Camera Telemetry</li>
+            <li class="brutal-cap-item">High-Density Industrial Design Systems (0px Tokens)</li>
+            <li class="brutal-cap-item">Factory-Floor Usability &amp; Ergonomic Validation</li>
           </ul>
         </div>
 
-        <!-- Pillar 3: Code & Prototyping -->
-        <div class="cap-card">
-          <div class="cap-header">
-            <span class="cap-num">Pillar 03</span>
-            <h3 class="cap-title">Code &amp; Prototyping</h3>
+        <!-- Pillar 03 -->
+        <div class="brutal-cap-cell">
+          <div class="brutal-cap-header">
+            <div class="brutal-cap-num">[PILLAR 03]</div>
+            <h3 class="brutal-cap-title">Vibe Coding &amp; Systems</h3>
           </div>
-          <ul class="cap-list">
-            <li class="cap-item">Rapid Vibe Coding &amp; Functional Tool Building</li>
-            <li class="cap-item">HTML5, Vanilla Modern CSS, JavaScript (ESNext)</li>
-            <li class="cap-item">Node.js Server Scripts &amp; RESTful APIs</li>
-            <li class="cap-item">Hardware Telemetry, Serial &amp; WebSocket Hooks</li>
-            <li class="cap-item">Figma Component Architecture &amp; Interactive Variants</li>
-            <li class="cap-item">Git Workflow, CI/CD &amp; Production Deployment</li>
+          <ul class="brutal-cap-list">
+            <li class="brutal-cap-item">Rapid Full-Stack Prototyping (Node.js, Express, HTML/CSS)</li>
+            <li class="brutal-cap-item">Interactive Hardware-Software Event Emulators</li>
+            <li class="brutal-cap-item">WebSocket Live Machine Telemetry Feeds</li>
+            <li class="brutal-cap-item">Git Version Control &amp; Continuous Deployment</li>
+            <li class="brutal-cap-item">Production Spec Hand-off to Engineering Teams</li>
           </ul>
         </div>
-
-      </div>
-
-      <!-- Education Banner -->
-      <div class="background-banner">
-        <div class="background-banner-content">
-          <h4>Academic Foundation: National Institute of Design (NID MP)</h4>
-          <p>
-            Bachelor of Design (B.Des) in Industrial Design. Rigorous four-year curriculum spanning ethnographic field research, physical material fabrication, mechanical prototyping, and systems thinking.
-          </p>
-        </div>
-        <a href="design-system/index.html" class="btn btn-secondary btn-sm" style="white-space: nowrap;">
-          View Design System Specimen <span class="arrow">↗</span>
-        </a>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="wrap" id="contact">
-      <div class="contact-card">
-        <span class="contact-badge">
-          <span class="status-dot"></span> Open to Collaboration &amp; Select Roles
-        </span>
-        <h2 class="contact-title">
-          Let’s build tools that solve genuine physical and operational complexity.
+    <!-- ==========================================================================
+         BRUTALIST CONTACT & DISPATCH
+         ========================================================================== -->
+    <section class="wrap" id="contact" aria-label="Direct Dispatch Contact">
+      <div class="brutal-contact-box">
+        <div class="brutal-contact-tag">
+          [STATUS: OPEN TO SELECT ROLES &amp; CONTRACTS]
+        </div>
+        <h2 class="brutal-contact-h2">
+          Let’s build hardware workspaces, enterprise platforms &amp; tactile systems.
         </h2>
-        <p class="contact-sub">
-          Whether you're developing hardware-connected software, redesigning complex enterprise workflows, or need an Industrial Interaction Designer who codes working tools—let's talk.
+        <p class="brutal-contact-p">
+          Available for full-time roles, design consultancies, and high-stakes systems contracts starting Q4 2026. Let's discuss your next physical machine or enterprise platform.
         </p>
-
-        <div class="contact-actions">
-          <a href="mailto:dikshashinde1104@gmail.com" class="btn btn-accent btn-lg">
-            dikshashinde1104@gmail.com <span class="arrow">↗</span>
+        <div class="brutal-contact-btns">
+          <a href="mailto:dikshashinde1104@gmail.com" class="brutal-contact-btn-white">
+            Send Email: dikshashinde1104@gmail.com ↗
           </a>
-          <button type="button" class="btn btn-secondary btn-lg" onclick="copyEmail()">
+          <button type="button" class="brutal-contact-btn-ghost" onclick="copyEmail()">
             Copy Email Address
           </button>
-          <a href="#top" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: rgba(255,255,255,0.3);">
-            Back to Top ↑
-          </a>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
+  <!-- Brutalist Footer -->
+  <footer class="brutal-footer">
+    <div class="wrap brutal-footer-inner">
       <div>
-        <strong>Diksha Shinde</strong> · Industrial &amp; Interaction Designer · NID MP
+        <strong>DIKSHA SHINDE</strong> // INDUSTRIAL &amp; INTERACTION DESIGNER · NID MP
       </div>
-      <div class="footer-meta">
-        <a href="#work">Flagship Case Studies</a>
-        <a href="extra-work.html">Extra Work &amp; Lab</a>
-        <a href="design-system/index.html">Design Tokens</a>
-        <a href="mailto:dikshashinde1104@gmail.com">dikshashinde1104@gmail.com</a>
-        <a href="https://github.com/dikshadesign" target="_blank" rel="noopener">GitHub ↗</a>
-      </div>
-      <div>
-        <span>Protected via Gate (8962)</span>
+      <div class="brutal-footer-links">
+        <a href="#top">Back to Top ↑</a>
+        <a href="nordicos.html">Nordic OS</a>
+        <a href="nordic.html">Nordic ONE</a>
+        <a href="glide.html">GLIDE</a>
+        <a href="aera.html">AERA</a>
+        <a href="extra-work.html">Lab</a>
       </div>
     </div>
   </footer>
 
-  <!-- Toast notification for copy email -->
+  <!-- Toast Notification for Clipboard Copy -->
   <div class="toast-pill" id="toast">
-    <span>✓</span> Email copied to clipboard: dikshashinde1104@gmail.com
+    <span>[✓]</span> EMAIL COPIED: DIKSHASHINDE1104@GMAIL.COM
   </div>
 
   <script>
