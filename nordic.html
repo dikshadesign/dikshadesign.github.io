@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nordic ONE — Designing a Connected Industrial Experience | Industrial IxD Case Study</title>
+  <title>Nordic ONE — Cutting Machine Vision Setup from Hours to 15 Minutes | Industrial IxD Case Study</title>
   <meta name="description"
     content="Industrial Interaction Design case study for Nordic ONE: transforming complex machine vision, production, planning, and quality engineering prototypes into clear, connected workflows.">
 
@@ -3185,10 +3185,8 @@
         </a>
       </nav>
       <div class="hero-compact-content">
-        <h1 id="hero-heading" class="hero-compact-h1">Designing a Connected Industrial Experience</h1>
-        <p class="hero-compact-subtitle">Nordic ONE · Bringing four standalone manufacturing applications together
-          through a consistent, intuitive experience—leading interaction design and hands-on product implementation for
-          its flagship machine vision platform.</p>
+        <h1 id="hero-heading" class="hero-compact-h1">Cutting Machine Vision Setup from Hours to 15 Minutes</h1>
+        <p class="hero-compact-subtitle">I led interaction design and built core workflows for Nordic Vision, the machine-vision application in a four-product manufacturing suite. I turned scattered calibration controls into an eight-step setup, designed a metrology workspace that keeps the process visible while engineers measure parts, and aligned navigation across Vision, ERP, MES, and EQMS.</p>
         <div class="hero-compact-disciplines">Industrial Interaction Design · Enterprise UX · Systems Thinking ·
           Prototyping &amp; Implementation</div>
       </div>
@@ -3234,14 +3232,14 @@
               <div class="spec-scope-item"
                 style="font-size: 13px; line-height: 1.5; color: var(--color-ink-secondary);">
                 <strong style="color: var(--color-ink-primary); font-weight: 600;">Nordic Vision (Flagship · 6
-                  Months):</strong> End-to-end interaction design, self-led usability testing, and working
-                frontend/backend implementation.
+                  Months · Shipped in Code):</strong> End-to-end interaction design, self-timed task walkthroughs, and working
+                frontend/backend calibration implementation.
               </div>
               <div class="spec-scope-item"
                 style="font-size: 13px; line-height: 1.5; color: var(--color-ink-secondary);">
                 <strong style="color: var(--color-ink-primary); font-weight: 600;">Nordic ERP, MES &amp; EQMS (~1
-                  Month):</strong> Unified navigation, table hierarchy, and shared interaction patterns across developer
-                prototypes.
+                  Month · Aligned Shell):</strong> Unified top navigation, table hierarchy, and shared interaction patterns across developer
+                prototypes (cross-suite defect continuity illustrates target platform architecture).
               </div>
               <div class="spec-scope-item"
                 style="font-size: 13px; line-height: 1.5; color: var(--color-ink-secondary);">
@@ -3317,9 +3315,9 @@
           <h3 class="impact-heading">Predictable Setup &amp; Protected Shifts</h3>
           <div class="impact-body">
             <ul class="impact-list">
-              <li><strong>15-Minute Setup:</strong> Cut part onboarding from hours to 15 minutes with gated step validation.</li>
-              <li><strong>Protected Shifts:</strong> Approved calibration profiles lock automatically during live runs.</li>
-              <li><strong>Unified Suite:</strong> One shared navigation, search, and design foundation across all 4 apps.</li>
+              <li><strong>15-Minute Part Calibration:</strong> Cut new part onboarding from 3.5+ hours of developer-assisted trial-and-error down to 15 minutes (measured in end-to-end calibration walkthroughs alongside engineering).</li>
+              <li><strong>Approved Tolerances Locked:</strong> Validated part profiles freeze automatically so floor operators cannot alter calibration specs during live runs.</li>
+              <li><strong>Unified Suite Navigation:</strong> One consistent top shell, persistent breadcrumbs, and search foundation across Vision, ERP, MES, and EQMS.</li>
             </ul>
           </div>
         </div>
@@ -3938,8 +3936,7 @@
             <button type="button" class="decision-item" data-decision="02">
               <div class="decision-item-num"><span class="decision-dot" aria-hidden="true"></span>Decision 02</div>
               <h4>8-Step Linear Wizard</h4>
-              <p>Broke scattered parameters into a fail-safe sequence gated by <strong>≥3 Golden
-                  Captures</strong>—cutting setup to <strong>15 minutes</strong>.</p>
+              <p>Replaced 3.5+ hours of developer-assisted trial-and-error with a guided 15-minute calibration flow, gated by <strong>≥3 Golden Captures</strong>.</p>
             </button>
             <button type="button" class="decision-item" data-decision="03">
               <div class="decision-item-num"><span class="decision-dot" aria-hidden="true"></span>Decision 03</div>
@@ -3952,7 +3949,7 @@
             <button type="button" class="decision-item" data-decision="04">
               <div class="decision-item-num"><span class="decision-dot" aria-hidden="true"></span>Decision 04</div>
               <h4>Locking the Golden Profile</h4>
-              <p>Why operators can’t accidentally tweak camera calibrations during a live run—approved profiles lock automatically.</p>
+              <p>Approved tolerances are locked during live runs—freezing camera calibration inputs so operators cannot alter specs mid-shift.</p>
             </button>
           </div>
 
@@ -4283,10 +4280,24 @@
             alt="Large process diagram showing manufacturing flow from planning to production to inspection, quality branch, and parallel facility operation"
             loading="lazy">
           <figcaption class="fig-cap">
-            <span>End-to-End Operational Flow</span>
-            <span>Planning (ERP) → Execution (MES) → Inspection (Vision) → Quality Containment (EQMS).</span>
+            <span>End-to-End Operational Flow · Implementation Reality</span>
+            <span>Vision optical defect classification and local line-stop interlock were shipped in code. The downstream cross-suite handoffs (automated EQMS ticketing, MES multi-line pause, and ERP inventory quarantine) illustrate the target platform architecture demonstrated in prototype.</span>
           </figcaption>
         </figure>
+
+        <!-- Architecture Reality: Shipped Code vs Target Ecosystem Workflow -->
+        <div class="challenge-dual-grid" style="margin-top: var(--space-4); margin-bottom: var(--space-5);">
+          <div class="challenge-panel">
+            <div class="principle-num" style="color: #0284c7; margin-bottom: 6px;">Working Code (Shipped)</div>
+            <h3>Optical Detection &amp; Local Station Halt</h3>
+            <p>Directly coded alongside engineering: Nordic Vision analyzes live camera feeds, classifies defects against calibrated golden profiles, and triggers a local hardware interlock to pause the physical inspection line.</p>
+          </div>
+          <div class="challenge-panel">
+            <div class="principle-num" style="color: #6366f1; margin-bottom: 6px;">Target Architecture (Illustrated)</div>
+            <h3>Cross-Suite Handoffs &amp; Enterprise Continuity</h3>
+            <p>The downstream handoffs—automatically dispatching an EQMS non-conformance ticket (#NC-4402), cascading line pauses across MES work orders, and freezing inventory in ERP—represent the target event-bus architecture demonstrated in our connected platform prototype.</p>
+          </div>
+        </div>
 
         <!-- [CALLOUT: WHAT FAILED ALONG THE WAY · FIELD RETROSPECTIVE] -->
         <div class="what-failed-panel">

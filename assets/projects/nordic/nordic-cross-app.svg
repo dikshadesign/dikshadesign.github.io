@@ -205,8 +205,8 @@
     <rect width="1120" height="100" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2" rx="4"/>
     
     <!-- Flow Title -->
-    <text x="24" y="25" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">Cross-Application Data Continuity Pipeline (Zero Data Silo)</text>
-    <text x="800" y="25" class="font-sans" font-size="10.5px" fill="#64748b">All 5 applications communicate via shared Event Bus</text>
+    <text x="24" y="25" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">Cross-Application Data Continuity Pipeline (Target Architecture)</text>
+    <text x="740" y="25" class="font-sans" font-size="10.5px" fill="#64748b">4 manufacturing suites connected via shared Event Bus</text>
 
     <!-- Step 1 -->
     <g transform="translate(24, 38)">
