@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nordic Visitor (VMS) — Multi-Role Industrial Visitor Management Software | Case Study</title>
+  <meta name="description"
+    content="Industrial Interaction Design case study for Nordic Visitor (VMS): designing a synchronized 3-role software platform connecting employee invitations, visitor mobile pre-registration, and security guard gate clearance.">
+
+  <!-- Site Access Gate (Password: 8962) -->
+  <script src="design-system/gate.js"></script>
+  <!-- Portfolio Design System (1200px max-width, Inter font, 0px radiuses + pill controls) -->
+  <link rel="stylesheet" href="design-system/design-system.css">
+  <!-- Project Journey Navigator -->
+  <script src="design-system/journey-nav.js" defer></script>
+  <style>
+    /* ===================================================================== */
+    /* JOURNEY BUILDER STYLE HORIZONTAL PROGRESS NAV BAR (Light Swiss Theme) */
+    /* ===================================================================== */
+    .journey-progress-bar {
+      display: none !important;
+    }
+
+    .journey-top-bar {
+      background: rgba(255, 255, 255, 0.96) !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid #e6e9ef !important;
+      border-bottom: 1px solid #e6e9ef !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      height: 60px;
+      display: flex;
+      align-items: center;
+    }
+
+    .journey-top-bar.is-stuck {
+      border-top-color: transparent !important;
+      box-shadow: 0 1px 0 #e6e9ef !important;
+    }
+
+    .journey-top-inner {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 32px !important;
+      width: min(1200px, calc(100vw - 48px)) !important;
+      margin: 0 auto !important;
+      height: 100%;
+      padding: 0 !important;
+    }
+
+    .journey-top-brand {
+      display: flex !important;
+      align-items: center !important;
+      gap: 14px !important;
+      flex-shrink: 0;
+    }
+
+    .journey-back-btn {
+      width: 34px !important;
+      height: 34px !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      border: 1px solid #d5dce6 !important;
+      background: #ffffff !important;
+      color: #0a0a0a !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease !important;
+    }
+
+    .journey-back-btn svg {
+      width: 15px !important;
+      height: 15px !important;
+    }
+
+    .journey-back-btn:hover {
+      background: #0a0a0a !important;
+      border-color: #0a0a0a !important;
+      color: #ffffff !important;
+    }
+
+    .journey-project-tag {
+      text-transform: none !important;
+      letter-spacing: -0.01em !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      color: #0a0a0a !important;
+      border-left: none !important;
+      padding-left: 0 !important;
+      white-space: nowrap;
+    }
+
+    .journey-track-wrapper {
+      flex: 1 !important;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .journey-track-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .journey-track {
+      display: flex !important;
+      align-items: center !important;
+      width: 100% !important;
+      gap: 0 !important;
+      padding: 0 !important;
+    }
+
+    .journey-pill {
+      text-transform: none !important;
+      letter-spacing: 0.01em !important;
+      background: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      padding: 6px 2px !important;
+      font-size: 12.5px !important;
+      font-weight: 500 !important;
+      color: #9aa2b1 !important;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: color 0.2s ease !important;
+    }
+
+    .journey-pill:hover {
+      color: #0a0a0a !important;
+      background: transparent !important;
+    }
+
+    .journey-pill.active {
+      color: #0a0a0a !important;
+      font-weight: 600 !important;
+      background: transparent !important;
+    }
+
+    .nav-connector {
+      display: inline-flex !important;
+      align-items: center !important;
+      flex: 1 1 24px !important;
+      min-width: 16px !important;
+      max-width: 56px !important;
+      height: 1.5px !important;
+      background: #e2e8f0 !important;
+      margin: 0 8px !important;
+      position: relative !important;
+    }
+
+    .nav-connector-fill {
+      position: absolute !important;
+      left: 0 !important;
+      top: 0 !important;
+      height: 100% !important;
+      width: 0% !important;
+      background: #0a0a0a !important;
+      transition: width 0.15s ease-out !important;
+    }
+
+    /* Container & Typography Setup */
+    .hero-compact-header {
+      padding-top: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #e6e9ef;
+    }
+
+    .hero-compact-h1 {
+      font-size: clamp(30px, 3.6vw, 46px);
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+      font-weight: 600;
+      color: #0a0a0a;
+      margin: 0 0 12px 0;
+    }
+
+    .hero-compact-subtitle {
+      font-size: clamp(15px, 1.4vw, 17px);
+      line-height: 1.6;
+      color: #525866;
+      max-width: 900px;
+      margin: 0 0 16px 0;
+    }
+
+    .hero-compact-disciplines {
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #64748b;
+    }
+
+    .hero-body {
+      padding-top: 36px;
+      padding-bottom: 64px;
+    }
+
+    .hero-visual img,
+    .fig img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+    }
+
+    /* Clean Editorial Spec Strip */
+    .spec-table {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 44px;
+    }
+
+    .spec-row {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      padding: 16px 0;
+      border-bottom: 1px solid #e6e9ef;
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    .spec-label {
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .spec-value {
+      color: #0a0a0a;
+    }
+
+    .spec-value strong {
+      font-weight: 600;
+    }
+
+    /* Contribution & Impact Split */
+    .impact-duo-wrapper {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: stretch;
+      gap: 20px;
+      margin: 48px 0;
+    }
+
+    .impact-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-top: 2px solid #0a0a0a;
+      padding: 30px 32px;
+      color: #0a0a0a;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .impact-card:last-child {
+      background: #f8fafc;
+    }
+
+    .impact-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #d5dce6;
+      background: #ffffff;
+      color: #0a0a0a;
+      flex-shrink: 0;
+    }
+
+    .impact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #64748b;
+    }
+
+    .impact-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: #0a0a0a;
+    }
+
+    .badge-result .impact-badge-dot {
+      background: #059669;
+    }
+
+    .impact-heading {
+      font-size: 20px;
+      font-weight: 600;
+      color: #0a0a0a;
+      margin: 0;
+      line-height: 1.3;
+      letter-spacing: -0.025em;
+    }
+
+    .impact-list {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .impact-list li {
+      font-size: 13.5px;
+      line-height: 1.58;
+      color: #525866;
+      position: relative;
+      padding: 11px 0 11px 16px;
+      border-top: 1px solid #e6e9ef;
+    }
+
+    .impact-list li:last-child {
+      padding-bottom: 0;
+    }
+
+    .impact-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 19px;
+      width: 5px;
+      height: 5px;
+      background: #94a3b8;
+    }
+
+    .impact-card:last-child .impact-list li::before {
+      background: #0a0a0a;
+    }
+
+    .impact-list li strong {
+      color: #0a0a0a;
+      font-weight: 600;
+    }
+
+    /* Section & Editorial Heading Styles */
+    .section {
+      padding-top: 96px;
+      padding-bottom: 96px;
+      border-top: 1px solid #e6e9ef;
+    }
+
+    .sec-label {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .sec-num {
+      font-size: 11px;
+      font-weight: 600;
+      color: #94a3b8;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .sec-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #0a0a0a;
+      letter-spacing: -0.01em;
+    }
+
+    .ixd-statement {
+      font-size: clamp(24px, 3.2vw, 38px);
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      font-weight: 500;
+      color: #9ca3af;
+      margin: 0 0 36px;
+      max-width: 100%;
+    }
+
+    .ixd-statement strong {
+      color: #0a0a0a;
+      font-weight: 600;
+    }
+
+    .ixd-statement-eyebrow {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+
+    /* 3-Column Swiss Hairline Ledger */
+    .process-hairline-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      border-top: 2px solid #0a0a0a;
+      padding-top: 24px;
+      margin: 40px 0;
+    }
+
+    .process-hairline-item .idx {
+      font-size: 11px;
+      font-weight: 600;
+      color: #94a3b8;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .process-hairline-item strong {
+      font-size: 16px;
+      font-weight: 600;
+      color: #0a0a0a;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .process-hairline-item p {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #525866;
+      margin: 0;
+    }
+
+    /* Clean Stacked Figure Captions */
+    figure {
+      margin: 0;
+    }
+
+    .fig {
+      margin: 48px 0 0 0;
+      width: 100%;
+    }
+
+    .fig-cap {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 14px;
+    }
+
+    .fig-cap span:first-child {
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: -0.01em;
+      color: #0a0a0a;
+    }
+
+    .fig-cap span:last-child {
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: #6b7280;
+      max-width: 80ch;
+    }
+
+    @media (max-width: 860px) {
+      .spec-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+      .impact-duo-wrapper {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .impact-connector {
+        justify-self: center;
+        transform: rotate(90deg);
+      }
+      .process-hairline-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Global Reading Progress Bar -->
+  <div class="journey-progress-bar" id="journey-progress" aria-hidden="true"></div>
+
+  <main id="main-content">
+
+    <!-- Compact Top Header -->
+    <div class="hero-compact-header wrap">
+      <nav class="back-nav" aria-label="Breadcrumbs">
+        <a href="index.html" class="back-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Back to homepage</span>
+        </a>
+      </nav>
+      <div class="hero-compact-content">
+        <h1 id="hero-heading" class="hero-compact-h1">Nordic Visitor (VMS) — Multi-Role Industrial Visitor Management Software</h1>
+        <p class="hero-compact-subtitle">Designing a synchronized 3-role software platform connecting employee invitations, visitor mobile pre-registration, and security guard gate clearance.</p>
+        <div class="hero-compact-disciplines">Multi-Role Enterprise UX · Web &amp; Mobile Software · Access Control Workflows · Real-Time Security Systems</div>
+      </div>
+    </div>
+
+    <!-- Hero Visual & Believable Enterprise Metadata -->
+    <section class="hero-body wrap" aria-label="Nordic Visitor Hero Presentation">
+      <div class="hero-visual" id="slot-vms-hero">
+        <img id="vms-hero-img" src="assets/projects/vms/vms-hero.svg"
+          alt="Nordic Visitor multi-role software platform showing company employee invitation portal, visitor mobile web pre-registration with QR pass, and security guard access clearance console"
+          loading="eager">
+      </div>
+      <figcaption class="fig-cap" style="margin-top: 16px;">
+        <span>Multi-Role Cloud Architecture — Host Portal, Mobile Web Pre-Registration &amp; Security Guard Console</span>
+        <span>Replaced disconnected emails and reception paper clipboards with a synchronized 3-role software flow: internal hosts invite guests with automated NDA rules, visitors complete requirements on mobile web before arrival, and security guards grant final access with 1-click clearance.</span>
+      </figcaption>
+
+      <!-- Spec Table -->
+      <div class="spec-table">
+        <div class="spec-row">
+          <div class="spec-label">Project &amp; Platform</div>
+          <div class="spec-value">
+            <strong>Nordic Visitor (VMS)</strong> · Enterprise Cloud Software for Manufacturing &amp; Industrial Facilities
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <div class="spec-label">Role &amp; Practice</div>
+          <div class="spec-value">
+            <strong>Lead Product &amp; Interaction Designer</strong> · Multi-Role Workflows, Employee Web Portal, Visitor Mobile Web App, Gate Security Console
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <div class="spec-label">Team &amp; Stakeholders</div>
+          <div class="spec-value">
+            Lead Designer (Me) · 2 Full-Stack Engineers · 1 Plant Security Director · Factory operations pilots
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <div class="spec-label">Timeline</div>
+          <div class="spec-value">
+            <strong>3 Months</strong> · User shadowing, multi-role state machine design, mobile web prototyping &amp; gate trials
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <div class="spec-label">Core Challenge</div>
+          <div class="spec-value">
+            Industrial access was broken across three disconnected actors: company employees scheduled external contractors via ad-hoc emails, visitors showed up at the gate without signed NDAs or safety PPE, and security guards were forced to manually phone hosts and maintain paper sign-in clipboards that leaked confidential supplier data and offered zero live headcount during evacuations.
+          </div>
+        </div>
+      </div>
+
+      <!-- Contribution & Impact Split -->
+      <div class="impact-duo-wrapper" aria-label="Contribution and Result Highlights">
+        <div class="impact-card">
+          <div class="impact-badge badge-contribution">
+            <span class="impact-badge-dot" aria-hidden="true"></span>
+            <span>01 · My Contribution</span>
+          </div>
+          <h3 class="impact-heading">From Fragmented Emails &amp; Paper to Synchronized Multi-Role Software</h3>
+          <div class="impact-body">
+            <ul class="impact-list">
+              <li><strong>3-Sided Role Architecture:</strong> Mapped and connected three interdependent user personas: the internal Employee Host (invitation &amp; zone permits), the External Visitor (mobile pre-check-in &amp; NDA signing), and the Gate Security Guard (verification &amp; final access grant).</li>
+              <li><strong>Frictionless Mobile Web Onboarding:</strong> Designed a zero-download web flow delivered via SMS/link, allowing visitors to verify details, sign confidential NDAs, and receive a dynamic QR pass before arriving at the factory.</li>
+              <li><strong>High-Velocity Security Guard Terminal:</strong> Built an ergonomic gate console featuring sub-second QR matching, visual credential verification, 1-click access decision, and automated real-time host notifications.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="impact-connector" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="square" stroke-linejoin="miter">
+            <line x1="4" y1="12" x2="19" y2="12"></line>
+            <polyline points="13 6 19 12 13 18"></polyline>
+          </svg>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-badge badge-result">
+            <span class="impact-badge-dot" aria-hidden="true"></span>
+            <span>02 · Result &amp; Impact</span>
+          </div>
+          <h3 class="impact-heading">24-Second Gate Clearance &amp; 100% Pre-Signed Compliance</h3>
+          <div class="impact-body">
+            <ul class="impact-list">
+              <li><strong>85% Faster Arrival Time:</strong> Reduced physical gate check-in time from 6+ minutes of phone calls and paper signing down to 24 seconds with pre-verified digital credentials.</li>
+              <li><strong>100% Verified Legal Compliance:</strong> Zero unbriefed visitors entering restricted CNC or cleanroom bays; all legal NDAs and PPE acknowledgments verified prior to entry.</li>
+              <li><strong>Zero Emergency Blindspots:</strong> Eliminated manual sign-in binders with a live digital muster roll transmitting verified on-site headcount to emergency fire teams in 1 click.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sticky Project Journey Navigation Bar -->
+    <nav class="journey-top-bar" id="top-nav" aria-label="Project Journey Navigation">
+      <div class="wrap journey-top-inner">
+        <div class="journey-top-brand">
+          <a href="index.html" class="journey-back-btn" title="Return to portfolio homepage"
+            aria-label="Back to homepage">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"
+              stroke-linejoin="miter" aria-hidden="true">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="11 6 5 12 11 18"></polyline>
+            </svg>
+          </a>
+          <span class="journey-project-tag">Nordic Visitor (VMS)</span>
+        </div>
+
+        <nav class="journey-track-wrapper" aria-label="Project Chapters">
+          <div class="journey-track">
+            <a href="#hero-heading" class="journey-pill is-done" data-step="0">Overview</a>
+            <span class="nav-connector" aria-hidden="true"><span class="nav-connector-fill" data-seg="0"></span></span>
+            <a href="#context" class="journey-pill active" data-step="1">The Problem</a>
+            <span class="nav-connector" aria-hidden="true"><span class="nav-connector-fill" data-seg="1"></span></span>
+            <a href="#architecture" class="journey-pill" data-step="2">3 Roles</a>
+            <span class="nav-connector" aria-hidden="true"><span class="nav-connector-fill" data-seg="2"></span></span>
+            <a href="#visitor-flow" class="journey-pill" data-step="3">Visitor Flow</a>
+            <span class="nav-connector" aria-hidden="true"><span class="nav-connector-fill" data-seg="3"></span></span>
+            <a href="#guard-console" class="journey-pill" data-step="4">Guard Console</a>
+            <span class="nav-connector" aria-hidden="true"><span class="nav-connector-fill" data-seg="4"></span></span>
+            <a href="#outcome" class="journey-pill" data-step="5">Outcome</a>
+          </div>
+        </nav>
+      </div>
+    </nav>
+
+    <!-- SECTION 01: The Problem & Context -->
+    <section class="section wrap" id="context">
+      <div class="sec-label">
+        <span class="sec-num">01</span>
+        <span class="sec-title">The Problem</span>
+      </div>
+      <div class="sec-content">
+        <div class="ixd-statement">
+          <span class="ixd-statement-eyebrow">The 3-Role Friction</span>
+          <div>Access control isn't a single user problem. <strong>It fails when employees, visitors, and security guards operate in disconnected silos.</strong></div>
+        </div>
+
+        <p>In high-security automotive and precision manufacturing plants, managing external visitors is complicated. Facilities contain restricted CNC machining bays, ISO cleanrooms, and confidential pre-release prototypes. Before our software intervention, the arrival journey suffered from three painful breakdowns:</p>
+
+        <!-- 3-Column Swiss Hairline Ledger -->
+        <div class="process-hairline-grid">
+          <div class="process-hairline-item">
+            <span class="idx">Role 01 / Internal Host</span>
+            <strong>Blind Email Scheduling</strong>
+            <p>Employees invited contractors via scattered calendar invites without attaching required non-disclosure agreements, leaving reception blind to who was authorized to enter which specific zone.</p>
+          </div>
+
+          <div class="process-hairline-item">
+            <span class="idx">Role 02 / External Visitor</span>
+            <strong>Gate Bottlenecks &amp; Paper Signing</strong>
+            <p>Visitors arrived unannounced at perimeter security, spent 10 minutes reading dense paper legal forms on clipboards, and leaked proprietary supplier names visible on previous binder pages.</p>
+          </div>
+
+          <div class="process-hairline-item">
+            <span class="idx">Role 03 / Security Guard</span>
+            <strong>Manual Phone Calls &amp; Muster Blindspots</strong>
+            <p>Guards were stuck in phone tag trying to reach busy hosts, lacked real-time visibility into who was on-site, and had zero accurate roster to hand fire fighters during plant evacuation alarms.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 02: 3-Sided Software Architecture -->
+    <section class="section wrap" id="architecture">
+      <div class="sec-label">
+        <span class="sec-num">02</span>
+        <span class="sec-title">3 Roles</span>
+      </div>
+      <div class="sec-content">
+        <div class="ixd-statement">
+          <span class="ixd-statement-eyebrow">System Architecture</span>
+          <div>A synchronized multi-role state machine. <strong>Connecting company hosts, external guests, and perimeter security into one unified flow.</strong></div>
+        </div>
+
+        <p>Instead of treating visitor management as a passive logging tool, we architected Nordic Visitor as a collaborative software ecosystem where every participant completes their step at the right moment:</p>
+
+        <figure class="fig" id="slot-vms-flow">
+          <img src="assets/projects/vms/vms-flow.svg"
+            alt="End-to-end multi-role clearance flow showing Host Invitation, Visitor Pre-Check-in, Guard Decision, and Real-Time Facility Sync"
+            loading="lazy">
+          <figcaption class="fig-cap">
+            <span>End-to-End Multi-Role Access Clearance Flow</span>
+            <span>Step 01: Employee host creates invite with pre-configured zone permits → Step 02: Visitor fills details and signs NDA on mobile web → Step 03: Security guard verifies match and clicks 'Grant Final Access' → Step 04: Real-time host notification &amp; emergency muster sync.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 03: Pre-Arrival Software Surfaces -->
+    <section class="section wrap" id="visitor-flow">
+      <div class="sec-label">
+        <span class="sec-num">03</span>
+        <span class="sec-title">Visitor Flow</span>
+      </div>
+      <div class="sec-content">
+        <div class="ixd-statement">
+          <span class="ixd-statement-eyebrow">Pre-Arrival Experience</span>
+          <div>Zero friction, zero app installs. <strong>Visitors complete verification and legal agreements on their phones before arriving at the factory.</strong></div>
+        </div>
+
+        <p>When an internal employee sends an invitation from the Host Portal, the visitor receives a unique link via SMS and email. Opening the link launches a lightweight, responsive web app that guides them through a quick 2-step confirmation:</p>
+
+        <figure class="fig" id="slot-vms-roles">
+          <img src="assets/projects/vms/vms-roles.svg"
+            alt="Pre-Arrival Software Surfaces showing Employee Host Portal and Visitor Mobile Web experience"
+            loading="lazy">
+          <figcaption class="fig-cap">
+            <span>Pre-Arrival Software Surfaces — Host Portal vs. Visitor Mobile Web</span>
+            <span>Left: Host invitation modal with plant zone selection and mandatory compliance toggles; Right: Visitor mobile web progressive onboarding featuring digital NDA signing and issued QR gate access pass.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 04: Security Guard Console -->
+    <section class="section wrap" id="guard-console">
+      <div class="sec-label">
+        <span class="sec-num">04</span>
+        <span class="sec-title">Guard Console</span>
+      </div>
+      <div class="sec-content">
+        <div class="ixd-statement">
+          <span class="ixd-statement-eyebrow">Gate Decision Terminal</span>
+          <div>High-velocity gate clearance. <strong>Empowering security guards with instant QR verification, 1-click access decisions, and live headcount rosters.</strong></div>
+        </div>
+
+        <p>At the perimeter gate, security guards operate a dedicated desktop web console optimized for rapid decision-making. When a visitor presents their mobile QR pass, the system matches their pre-filled record in less than 0.3 seconds:</p>
+
+        <figure class="fig" id="slot-vms-guard-console">
+          <img src="assets/projects/vms/vms-guard-console.svg"
+            alt="Security guard web dashboard showing QR lookup, verified visitor credentials card, Grant Final Access button, and real-time on-site roster"
+            loading="lazy">
+          <figcaption class="fig-cap">
+            <span>Gate 01 Security Guard Clearance Console</span>
+            <span>Real-time QR match showing visitor identity, host sponsor, signed NDA audit badge, and prominent 'Grant Final Access' trigger; alongside a live 18-visitor on-site roster with automatic overstay warnings and 1-click emergency evacuation muster export.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 05: Outcome & Reflection -->
+    <section class="section wrap" id="outcome">
+      <div class="sec-label">
+        <span class="sec-num">05</span>
+        <span class="sec-title">Outcome</span>
+      </div>
+      <div class="sec-content">
+        <div class="ixd-statement">
+          <span class="ixd-statement-eyebrow">Enterprise Impact</span>
+          <div>Software that respects everyone's time. <strong>Nordic Visitor proved that rigorous compliance and 24-second gate clearance can coexist.</strong></div>
+        </div>
+
+        <p>By treating visitor management as a synchronized, multi-role software challenge rather than isolated gate paperwork, we eliminated reception bottlenecks across three industrial pilot facilities while establishing a rock-solid safety and legal audit trail.</p>
+
+        <!-- Project Credits Box -->
+        <div class="credits-box" style="margin-top: 48px; padding: 24px; border: 1px solid #e2e8f0; background: #ffffff;">
+          <h3 style="margin: 0 0 6px; font-size: 16px; font-weight: 600; color: #0a0a0a;">Nordic Visitor (VMS) — Multi-Role Industrial Visitor Management Software</h3>
+          <p style="margin: 0; font-size: 13px; color: #64748b;">Lead Product &amp; Interaction Designer · Multi-Role Workflows, Employee Web Portal, Visitor Mobile Web App, Gate Security Console</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Selected Work / Explore Other Projects Navigation -->
+    <section class="section wrap" id="selected-work"
+      style="border-top: 1px solid #e6e9ef; padding-top: 56px; margin-top: 56px;">
+      <div class="sec-label">
+        <span class="sec-num">Explore</span>
+        <span class="sec-title">More Projects</span>
+      </div>
+      <div class="sec-content">
+        <h2 style="font-size: 22px; font-weight: 600; color: #0a0a0a; margin: 0 0 24px 0;">Explore other case studies</h2>
+        <div class="more-projects-grid"
+          style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+
+          <!-- Project 1: Nordic ONE -->
+          <a href="nordic.html" class="more-project-card"
+            style="text-decoration: none; color: inherit; display: block; border: 1px solid #e2e8f0; background: #ffffff; padding: 20px;">
+            <div style="font-size: 11px; font-weight: 600; color: #64748b; margin-bottom: 6px;">Case Study 03</div>
+            <h3 style="font-size: 16px; margin: 0 0 6px; color: #0a0a0a;">Nordic ONE</h3>
+            <p style="font-size: 12.5px; color: #525866; margin: 0 0 14px; line-height: 1.55;">
+              Industrial software platform unifying Vision (Flagship), MES, ERP &amp; EQMS.
+            </p>
+            <span style="font-size: 12px; font-weight: 600; color: #0a0a0a;">View case study →</span>
+          </a>
+
+          <!-- Project 2: Nordic OS -->
+          <a href="nordicos.html" class="more-project-card"
+            style="text-decoration: none; color: inherit; display: block; border: 1px solid #e2e8f0; background: #ffffff; padding: 20px;">
+            <div style="font-size: 11px; font-weight: 600; color: #64748b; margin-bottom: 6px;">Case Study 04</div>
+            <h3 style="font-size: 16px; margin: 0 0 6px; color: #0a0a0a;">Nordic OS</h3>
+            <p style="font-size: 12.5px; color: #525866; margin: 0 0 14px; line-height: 1.55;">
+              Internal engineering workspace connecting optical discovery, 3D CAD, and role access.
+            </p>
+            <span style="font-size: 12px; font-weight: 600; color: #0a0a0a;">View case study →</span>
+          </a>
+
+          <!-- Project 3: AERA -->
+          <a href="aera.html" class="more-project-card"
+            style="text-decoration: none; color: inherit; display: block; border: 1px solid #e2e8f0; background: #ffffff; padding: 20px;">
+            <div style="font-size: 11px; font-weight: 600; color: #64748b; margin-bottom: 6px;">Case Study 01</div>
+            <h3 style="font-size: 16px; margin: 0 0 6px; color: #0a0a0a;">AERA</h3>
+            <p style="font-size: 12.5px; color: #525866; margin: 0 0 14px; line-height: 1.55;">
+              Modular architectural air purification system for modern commercial environments.
+            </p>
+            <span style="font-size: 12px; font-weight: 600; color: #0a0a0a;">View case study →</span>
+          </a>
+
+          <!-- Project 4: GLIDE -->
+          <a href="glide.html" class="more-project-card"
+            style="text-decoration: none; color: inherit; display: block; border: 1px solid #e2e8f0; background: #ffffff; padding: 20px;">
+            <div style="font-size: 11px; font-weight: 600; color: #64748b; margin-bottom: 6px;">Case Study 02</div>
+            <h3 style="font-size: 16px; margin: 0 0 6px; color: #0a0a0a;">GLIDE</h3>
+            <p style="font-size: 12.5px; color: #525866; margin: 0 0 14px; line-height: 1.55;">
+              Transformable electric micro-mobility vehicle and pop-up retail system.
+            </p>
+            <span style="font-size: 12px; font-weight: 600; color: #0a0a0a;">View case study →</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+
+</html>

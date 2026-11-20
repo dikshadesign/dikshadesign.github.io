@@ -74,7 +74,7 @@ function serveFile(filePath, pathname, res) {
   res.writeHead(200, {
     'Content-Type': contentType,
     'Access-Control-Allow-Origin': '*',
-    'Cache-Control': 'no-cache',
+    'Cache-Control': 'no-store, no-cache, must-revalidate',
     'Connection': 'keep-alive'
   });
 

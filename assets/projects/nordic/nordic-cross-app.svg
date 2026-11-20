@@ -31,12 +31,12 @@
     
     <g transform="translate(20, 9)">
       <rect width="12" height="12" rx="2" fill="#3b82f6"/>
-      <text x="20" y="10" class="font-sans" font-size="10.5px" font-weight="600" fill="#1e293b">SHARED PLATFORM ELEMENTS: Unified 56px Shell · 0px Card Radii · Inter Type Hierarchy · Single Sign-On Context</text>
+      <text x="20" y="10" class="font-sans" font-size="10.5px" font-weight="600" fill="#1e293b">Shared Platform Elements: Unified 56px Shell · 0px Card Radii · Inter Type Hierarchy · Single Sign-On Context</text>
     </g>
 
     <g transform="translate(740, 9)">
       <rect width="12" height="12" rx="2" fill="#d97706"/>
-      <text x="20" y="10" class="font-sans" font-size="10.5px" font-weight="600" fill="#1e293b">DOMAIN-SPECIFIC FLEXIBILITY: Sensor Feeds vs Process Telemetry vs Form Audits</text>
+      <text x="20" y="10" class="font-sans" font-size="10.5px" font-weight="600" fill="#1e293b">Domain-Specific Flexibility: Sensor Feeds vs Process Telemetry vs Form Audits</text>
     </g>
   </g>
 
@@ -47,7 +47,7 @@
     <!-- Chrome Header -->
     <rect width="545" height="38" class="window-header" rx="4 4 0 0"/>
     <rect x="14" y="9" width="20" height="20" rx="3" fill="#0284c7"/>
-    <text x="24" y="23" text-anchor="middle" class="font-sans" font-size="9px" font-weight="800" fill="#ffffff">VIS</text>
+    <text x="24" y="23" text-anchor="middle" class="font-sans" font-size="9px" font-weight="800" fill="#ffffff">Vis</text>
     <text x="42" y="23" class="font-sans" font-size="11.5px" font-weight="700" fill="#f8fafc">Nordic Vision <tspan fill="#38bdf8">· Camera Station 04</tspan></text>
     <rect x="420" y="9" width="110" height="20" rx="3" fill="#1e293b"/>
     <text x="475" y="22" text-anchor="middle" class="font-sans" font-size="9.5px" fill="#94a3b8">Active: Lot B-881</text>
@@ -73,11 +73,11 @@
       <!-- Defect Bounding Box -->
       <rect x="135" y="110" width="55" height="42" fill="rgba(244, 63, 94, 0.2)" stroke="#f43f5e" stroke-width="1.8" rx="2"/>
       <rect x="135" y="94" width="90" height="16" fill="#f43f5e" rx="2"/>
-      <text x="140" y="105" class="font-sans" font-size="8.5px" font-weight="700" fill="#ffffff">MICRO-CRACK 98.4%</text>
+      <text x="140" y="105" class="font-sans" font-size="8.5px" font-weight="700" fill="#ffffff">Micro-Crack 98.4%</text>
 
       <!-- Camera HUD overlay -->
       <rect x="10" y="10" width="90" height="18" fill="#1e293b" opacity="0.8" rx="2"/>
-      <text x="18" y="22" class="font-sans" font-size="9px" fill="#10b981">● OPTICAL FEED OK</text>
+      <text x="18" y="22" class="font-sans" font-size="9px" fill="#10b981">● Optical Feed OK</text>
       <text x="10" y="218" class="font-sans" font-size="8.5px" fill="#64748b">Resolution: 3840x2160 · ISO 400</text>
 
       <!-- Right Inspection Telemetry Side-Panel -->
@@ -89,7 +89,7 @@
         <text x="20" y="48" class="font-sans" font-size="9px" fill="#64748b">Defect Type</text>
         <text x="20" y="63" class="font-sans" font-size="11px" font-weight="700" fill="#e11d48">Surface Fracture</text>
         <rect x="105" y="45" width="50" height="18" rx="2" fill="#fee2e2"/>
-        <text x="130" y="57" text-anchor="middle" class="font-sans" font-size="8px" font-weight="700" fill="#b91c1c">SEV 1 HIGH</text>
+        <text x="130" y="57" text-anchor="middle" class="font-sans" font-size="8px" font-weight="700" fill="#b91c1c">Sev 1 High</text>
 
         <rect x="12" y="88" width="151" height="42" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" rx="3"/>
         <text x="20" y="103" class="font-sans" font-size="9px" fill="#64748b">Confidence Score</text>
@@ -143,7 +143,7 @@
         <!-- INCOMING ALERT CARD FROM VISION EVENT -->
         <rect x="12" y="48" width="231" height="88" fill="#fff1f2" stroke="#f43f5e" stroke-width="1.2" rx="3"/>
         <circle cx="26" cy="64" r="5" fill="#f43f5e"/>
-        <text x="36" y="67" class="font-sans" font-size="10px" font-weight="700" fill="#9f1239">WORK ORDER PAUSED (EQMS #NC-4402)</text>
+        <text x="36" y="67" class="font-sans" font-size="10px" font-weight="700" fill="#9f1239">Work Order Paused (EQMS #NC-4402)</text>
         <text x="16" y="86" class="font-sans" font-size="8.8px" fill="#4c0519">Trigger: Station 04 Vision flagged crack on Batch B-881.</text>
         <text x="16" y="100" class="font-sans" font-size="8.8px" fill="#4c0519">Operator Action: Inspect part, quarantine serial #402-A.</text>
         
@@ -167,17 +167,17 @@
       <!-- Right: Workstation Machine Status & Sensor Gauges -->
       <g transform="translate(268, 0)">
         <rect width="250" height="230" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" rx="3"/>
-        <text x="12" y="22" class="font-sans" font-size="10.5px" font-weight="700" fill="#0f172a">Line 03 CNC Telemetry</text>
+        <text x="12" y="22" class="font-sans" font-size="10.5px" font-weight="700" fill="#0f172a">Line 03 Cnc Telemetry</text>
 
         <rect x="12" y="32" width="226" height="42" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="3"/>
         <text x="20" y="48" class="font-sans" font-size="9px" fill="#64748b">Spindle Speed</text>
-        <text x="20" y="63" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">12,450 RPM</text>
-        <text x="150" y="56" class="font-sans" font-size="9px" fill="#10b981">● NOMINAL</text>
+        <text x="20" y="63" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">12,450 Rpm</text>
+        <text x="150" y="56" class="font-sans" font-size="9px" fill="#10b981">● Nominal</text>
 
         <rect x="12" y="82" width="226" height="42" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="3"/>
         <text x="20" y="98" class="font-sans" font-size="9px" fill="#64748b">Coolant Pressure</text>
         <text x="20" y="113" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">4.8 Bar</text>
-        <text x="150" y="106" class="font-sans" font-size="9px" fill="#10b981">● NOMINAL</text>
+        <text x="150" y="106" class="font-sans" font-size="9px" fill="#10b981">● Nominal</text>
 
         <rect x="12" y="132" width="226" height="85" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="3"/>
         <text x="20" y="148" class="font-sans" font-size="9px" font-weight="700" fill="#0f172a">Digital Travel Sheet (B-881)</text>
@@ -196,7 +196,7 @@
       <text x="28" y="13" class="font-sans" font-size="10.5px" font-weight="700" fill="#0f172a">MES Interface Specifics</text>
       <text x="0" y="32" class="font-sans" font-size="9.5px" fill="#475569">Touch-friendly 44px hit-targets, high-visibility warning banners, and real-time physical workstation telemetry designed for gloved factory operators standing on concrete floors.</text>
       <rect x="0" y="52" width="230" height="20" class="diff-badge"/>
-      <text x="8" y="65" class="font-sans" font-size="9px" font-weight="600" fill="#92400e">Specialization: High-Contrast Shop Floor HMI</text>
+      <text x="8" y="65" class="font-sans" font-size="9px" font-weight="600" fill="#92400e">Specialization: High-Contrast Shop Floor Hmi</text>
     </g>
   </g>
 
@@ -205,7 +205,7 @@
     <rect width="1120" height="100" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2" rx="4"/>
     
     <!-- Flow Title -->
-    <text x="24" y="25" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">CROSS-APPLICATION DATA CONTINUITY PIPELINE (ZERO DATA SILO)</text>
+    <text x="24" y="25" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">Cross-Application Data Continuity Pipeline (Zero Data Silo)</text>
     <text x="800" y="25" class="font-sans" font-size="10.5px" fill="#64748b">All 5 applications communicate via shared Event Bus</text>
 
     <!-- Step 1 -->
@@ -238,7 +238,7 @@
       <circle cx="16" cy="16" r="8" fill="#059669"/>
       <text x="16" y="19" text-anchor="middle" class="font-sans" font-size="9px" font-weight="800" fill="#ffffff">3</text>
       <text x="32" y="18" class="font-sans" font-size="10.5px" font-weight="700" fill="#0f172a">Nordic MES Line Interlock</text>
-      <text x="12" y="36" class="font-sans" font-size="8.8px" fill="#64748b">Pauses CNC Station 03 Work Order</text>
+      <text x="12" y="36" class="font-sans" font-size="8.8px" fill="#64748b">Pauses Cnc Station 03 Work Order</text>
     </g>
 
     <!-- Arrow 3 to 4 -->

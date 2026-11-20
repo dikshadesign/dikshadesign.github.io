@@ -1,224 +1,292 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="100%" height="100%">
   <defs>
     <style>
       .bg { fill: #f8fafc; }
       .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
-      .matrix-card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.2; rx: 4; }
-      .role-row { fill: #f8fafc; stroke: #e2e8f0; stroke-width: 1; rx: 3; }
-      .perm-full { fill: #dcfce7; stroke: #16a34a; stroke-width: 1; rx: 3; }
-      .perm-read { fill: #e0f2fe; stroke: #0284c7; stroke-width: 1; rx: 3; }
-      .perm-none { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1; rx: 3; }
-      .perm-exec { fill: #fef3c7; stroke: #d97706; stroke-width: 1; rx: 3; }
-      .callout { fill: #0f172a; rx: 4; }
+      .font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.2; }
+      .screen-frame { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1; }
+      .screen-dark { fill: #0f172a; }
+      .pill-tag { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1; }
     </style>
   </defs>
 
-  <rect width="1200" height="580" class="bg"/>
+  <!-- Canvas Background -->
+  <rect width="1200" height="620" class="bg"/>
 
-  <!-- Top Title Banner -->
-  <rect x="40" y="20" width="1120" height="42" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="4"/>
-  <text x="60" y="46" class="font-sans" font-size="14px" font-weight="700" fill="#0f172a">Section 02 · Systems Design &amp; Role-Based Access Control (RBAC) Governance</text>
-  <text x="680" y="46" class="font-sans" font-size="11px" fill="#64748b">Designing multi-tenant authorization, industrial privilege tiers, and contextual UI adaptation</text>
+  <!-- Top Editorial Header -->
+  <rect x="32" y="20" width="1136" height="54" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="32" y="20" width="4" height="54" fill="#0f172a"/>
+  <text x="52" y="43" class="font-sans" font-size="14px" font-weight="700" fill="#0f172a">Role-Adaptive Interface Architecture</text>
+  <text x="52" y="61" class="font-sans" font-size="11px" fill="#64748b">One platform, three tailored interaction models — stripping irrelevant controls instead of showing disabled buttons</text>
 
-  <!-- RBAC MATRIX CONTAINER -->
-  <g transform="translate(40, 76)">
-    <rect width="1120" height="340" class="matrix-card"/>
+  <!-- IxD Contrast Pill on Right of Header -->
+  <rect x="758" y="31" width="184" height="30" fill="#fef2f2" stroke="#fecaca" stroke-width="1"/>
+  <text x="850" y="50" text-anchor="middle" class="font-sans" font-size="10px" font-weight="600" fill="#b91c1c">✕  Cluttered Greyed-Out UI</text>
 
-    <!-- Matrix Header Row -->
-    <rect width="1120" height="42" fill="#0f172a" rx="4 4 0 0"/>
-    <text x="24" y="26" class="font-sans" font-size="11px" font-weight="700" fill="#f8fafc">OPERATIONAL ROLE / CREDENTIAL</text>
-    
-    <!-- 5 App Columns -->
-    <text x="320" y="26" class="font-sans" font-size="10.5px" font-weight="700" fill="#38bdf8">NORDIC VISION</text>
-    <text x="480" y="26" class="font-sans" font-size="10.5px" font-weight="700" fill="#818cf8">NORDIC ERP</text>
-    <text x="640" y="26" class="font-sans" font-size="10.5px" font-weight="700" fill="#34d399">NORDIC MES</text>
-    <text x="800" y="26" class="font-sans" font-size="10.5px" font-weight="700" fill="#fbbf24">NORDIC EQMS</text>
-    <text x="960" y="26" class="font-sans" font-size="10.5px" font-weight="700" fill="#c084fc">VISITOR ACCESS</text>
+  <rect x="954" y="31" width="198" height="30" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+  <text x="1053" y="50" text-anchor="middle" class="font-sans" font-size="10px" font-weight="700" fill="#047857">✓  Context-Adaptive Controls</text>
 
-    <!-- ROW 1: Plant General Manager -->
-    <g transform="translate(16, 52)">
-      <rect width="1088" height="50" class="role-row"/>
-      <circle cx="20" cy="25" r="10" fill="#38bdf8"/>
-      <text x="20" y="29" text-anchor="middle" class="font-sans" font-size="9px" font-weight="800" fill="#0f172a">GM</text>
-      <text x="40" y="22" class="font-sans" font-size="11px" font-weight="700" fill="#0f172a">Plant General Manager</text>
-      <text x="40" y="38" class="font-sans" font-size="9px" fill="#64748b">Cross-domain operational authority · Plant #04</text>
+  <!-- ========================================================= -->
+  <!-- CARD 1: SHOP-FLOOR OPERATOR (High-Speed Execution)        -->
+  <!-- ========================================================= -->
+  <g transform="translate(32, 92)">
+    <rect width="364" height="394" class="card"/>
+    <rect width="364" height="4" fill="#059669"/>
 
-      <!-- Perms -->
-      <g transform="translate(295, 12)">
-        <rect width="135" height="26" class="perm-full"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#166534">FULL ADMIN / TELEMETRY</text>
-      </g>
-      <g transform="translate(455, 12)">
-        <rect width="135" height="26" class="perm-full"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#166534">FINANCIAL / INVENTORY</text>
-      </g>
-      <g transform="translate(615, 12)">
-        <rect width="135" height="26" class="perm-full"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#166534">SHOP OEE OVERSIGHT</text>
-      </g>
-      <g transform="translate(775, 12)">
-        <rect width="135" height="26" class="perm-full"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#166534">FINAL CAPA SIGNOFF</text>
-      </g>
-      <g transform="translate(935, 12)">
-        <rect width="135" height="26" class="perm-read"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#0369a1">HEADCOUNT ROSTER</text>
-      </g>
+    <!-- Persona Header -->
+    <rect x="18" y="18" width="32" height="32" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1"/>
+    <text x="34" y="38" text-anchor="middle" class="font-mono" font-size="11px" font-weight="700" fill="#047857">Op</text>
+    <text x="60" y="31" class="font-sans" font-size="13px" font-weight="700" fill="#0f172a">Shop-Floor Operator</text>
+    <text x="60" y="46" class="font-sans" font-size="10px" fill="#64748b">Gloved hands · Standing at high-speed line</text>
+
+    <!-- Mini Adaptive UI Mockup -->
+    <g transform="translate(18, 66)">
+      <rect width="328" height="206" class="screen-frame"/>
+      <!-- App Top Chrome -->
+      <rect width="328" height="28" fill="#0f172a"/>
+      <text x="10" y="18" class="font-mono" font-size="9px" font-weight="700" fill="#f8fafc">Live Run · Line 04</text>
+      <rect x="196" y="6" width="122" height="16" fill="#064e3b" stroke="#10b981" stroke-width="0.8"/>
+      <text x="257" y="17" text-anchor="middle" class="font-mono" font-size="8px" font-weight="700" fill="#6ee7b7">🔒 Spec Locked</text>
+
+      <!-- Big Glanceable Pass Banner -->
+      <rect x="10" y="36" width="308" height="34" fill="#16a34a"/>
+      <circle cx="24" cy="53" r="4" fill="#ffffff"/>
+      <text x="35" y="57" class="font-sans" font-size="12px" font-weight="800" fill="#ffffff">Pass · 420 parts/min</text>
+      <text x="308" y="57" text-anchor="end" class="font-mono" font-size="10px" font-weight="700" fill="#dcfce7">99.8%</text>
+
+      <!-- Clean Dual Camera Preview -->
+      <rect x="10" y="78" width="150" height="46" fill="#1e293b"/>
+      <rect x="64" y="90" width="42" height="22" fill="none" stroke="#34d399" stroke-width="1.2" stroke-dasharray="3,2"/>
+      <text x="16" y="90" class="font-mono" font-size="7.5px" fill="#94a3b8">Cam 01 · OK</text>
+
+      <rect x="168" y="78" width="150" height="46" fill="#1e293b"/>
+      <circle cx="243" cy="101" r="12" fill="none" stroke="#34d399" stroke-width="1.2"/>
+      <text x="174" y="90" class="font-mono" font-size="7.5px" fill="#94a3b8">Cam 02 · OK</text>
+
+      <!-- Oversized 48px Tactile Buttons -->
+      <rect x="10" y="132" width="150" height="32" fill="#0f172a"/>
+      <text x="85" y="152" text-anchor="middle" class="font-sans" font-size="10px" font-weight="700" fill="#ffffff">Pause Line</text>
+      <rect x="168" y="132" width="150" height="32" fill="#ffffff" stroke="#0f172a" stroke-width="1.2"/>
+      <text x="243" y="152" text-anchor="middle" class="font-sans" font-size="10px" font-weight="700" fill="#0f172a">Flag Defect</text>
+
+      <!-- Redacted Ghost Zone -->
+      <rect x="10" y="172" width="308" height="24" fill="#f8fafc" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="164" y="187" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#64748b">Calibration &amp; tolerances hidden — zero accidental taps</text>
     </g>
 
-    <!-- ROW 2: Optical QA Engineer -->
-    <g transform="translate(16, 108)">
-      <rect width="1088" height="50" class="role-row"/>
-      <circle cx="20" cy="25" r="10" fill="#0284c7"/>
-      <text x="20" y="29" text-anchor="middle" class="font-sans" font-size="9px" font-weight="800" fill="#ffffff">QA</text>
-      <text x="40" y="22" class="font-sans" font-size="11px" font-weight="700" fill="#0f172a">Optical QA Engineer</text>
-      <text x="40" y="38" class="font-sans" font-size="9px" fill="#64748b">Cleanroom camera calibration &amp; defect classification</text>
+    <!-- IxD Explanation -->
+    <text x="18" y="294" class="font-sans" font-size="10.5px" font-weight="700" fill="#0f172a">Interaction Priority: Speed &amp; Error Prevention</text>
+    <text x="18" y="312" class="font-sans" font-size="10px" fill="#475569">
+      <tspan x="18" dy="0">Strips away 20+ setup parameters so gloved operators</tspan>
+      <tspan x="18" dy="15">focus strictly on live status and oversized controls.</tspan>
+      <tspan x="18" dy="15">Approved part tolerances cannot be edited mid-shift.</tspan>
+    </text>
 
-      <g transform="translate(295, 12)">
-        <rect width="135" height="26" class="perm-full"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#166534">CAMERA &amp; AI CALIBRATION</text>
-      </g>
-      <g transform="translate(455, 12)">
-        <rect width="135" height="26" class="perm-read"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#0369a1">BATCH BOM READ-ONLY</text>
-      </g>
-      <g transform="translate(615, 12)">
-        <rect width="135" height="26" class="perm-read"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#0369a1">ACTIVE RUN VIEW</text>
-      </g>
-      <g transform="translate(775, 12)">
-        <rect width="135" height="26" class="perm-exec"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#b45309">AUTO-EMIT NC TICKET</text>
-      </g>
-      <g transform="translate(935, 12)">
-        <rect width="135" height="26" class="perm-none"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" fill="#94a3b8">RESTRICTED</text>
-      </g>
-    </g>
+    <!-- Bottom Chips -->
+    <rect x="18" y="358" width="106" height="22" class="pill-tag"/>
+    <text x="71" y="372" text-anchor="middle" class="font-mono" font-size="8.5px" font-weight="600" fill="#047857">48px Touch Targets</text>
 
-    <!-- ROW 3: CNC Machine Operator -->
-    <g transform="translate(16, 164)">
-      <rect width="1088" height="50" class="role-row"/>
-      <circle cx="20" cy="25" r="10" fill="#059669"/>
-      <text x="20" y="29" text-anchor="middle" class="font-sans" font-size="9px" font-weight="800" fill="#ffffff">OP</text>
-      <text x="40" y="22" class="font-sans" font-size="11px" font-weight="700" fill="#0f172a">CNC Machine Operator</text>
-      <text x="40" y="38" class="font-sans" font-size="9px" fill="#64748b">Shop floor milling station · Touch terminal (gloves)</text>
+    <rect x="132" y="358" width="102" height="22" class="pill-tag"/>
+    <text x="183" y="372" text-anchor="middle" class="font-mono" font-size="8.5px" font-weight="600" fill="#047857">Locked Spec Freeze</text>
 
-      <g transform="translate(295, 12)">
-        <rect width="135" height="26" class="perm-read"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#0369a1">INSPECTION STATUS</text>
-      </g>
-      <g transform="translate(455, 12)">
-        <rect width="135" height="26" class="perm-none"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" fill="#94a3b8">RESTRICTED</text>
-      </g>
-      <g transform="translate(615, 12)">
-        <rect width="135" height="26" class="perm-full"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#166534">START/HALT WORK ORDER</text>
-      </g>
-      <g transform="translate(775, 12)">
-        <rect width="135" height="26" class="perm-read"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#0369a1">INTERLOCK ALERTS</text>
-      </g>
-      <g transform="translate(935, 12)">
-        <rect width="135" height="26" class="perm-none"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" fill="#94a3b8">RESTRICTED</text>
-      </g>
-    </g>
-
-    <!-- ROW 4: ISO Compliance Auditor -->
-    <g transform="translate(16, 220)">
-      <rect width="1088" height="50" class="role-row"/>
-      <circle cx="20" cy="25" r="10" fill="#d97706"/>
-      <text x="20" y="29" text-anchor="middle" class="font-sans" font-size="9px" font-weight="800" fill="#ffffff">AU</text>
-      <text x="40" y="22" class="font-sans" font-size="11px" font-weight="700" fill="#0f172a">Compliance Auditor (ISO 9001)</text>
-      <text x="40" y="38" class="font-sans" font-size="9px" fill="#64748b">External Bureau Veritas auditor · Read audit trail</text>
-
-      <g transform="translate(295, 12)">
-        <rect width="135" height="26" class="perm-read"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#0369a1">DEFECT LOG EVIDENCE</text>
-      </g>
-      <g transform="translate(455, 12)">
-        <rect width="135" height="26" class="perm-read"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#0369a1">LOT PROVENANCE</text>
-      </g>
-      <g transform="translate(615, 12)">
-        <rect width="135" height="26" class="perm-read"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#0369a1">LINE CALIBRATION LOG</text>
-      </g>
-      <g transform="translate(775, 12)">
-        <rect width="135" height="26" class="perm-full"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#166534">AUDIT CAPA INVESTIGATION</text>
-      </g>
-      <g transform="translate(935, 12)">
-        <rect width="135" height="26" class="perm-read"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#0369a1">PPE BADGE LOG</text>
-      </g>
-    </g>
-
-    <!-- ROW 5: Front Gate Security -->
-    <g transform="translate(16, 276)">
-      <rect width="1088" height="50" class="role-row"/>
-      <circle cx="20" cy="25" r="10" fill="#7c3aed"/>
-      <text x="20" y="29" text-anchor="middle" class="font-sans" font-size="9px" font-weight="800" fill="#ffffff">SC</text>
-      <text x="40" y="22" class="font-sans" font-size="11px" font-weight="700" fill="#0f172a">Facility Security &amp; Reception</text>
-      <text x="40" y="38" class="font-sans" font-size="9px" fill="#64748b">Perimeter gate access, NDA signing, visitor roster</text>
-
-      <g transform="translate(295, 12)">
-        <rect width="135" height="26" class="perm-none"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" fill="#94a3b8">RESTRICTED</text>
-      </g>
-      <g transform="translate(455, 12)">
-        <rect width="135" height="26" class="perm-none"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" fill="#94a3b8">RESTRICTED</text>
-      </g>
-      <g transform="translate(615, 12)">
-        <rect width="135" height="26" class="perm-none"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" fill="#94a3b8">RESTRICTED</text>
-      </g>
-      <g transform="translate(775, 12)">
-        <rect width="135" height="26" class="perm-none"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" fill="#94a3b8">RESTRICTED</text>
-      </g>
-      <g transform="translate(935, 12)">
-        <rect width="135" height="26" class="perm-full"/>
-        <text x="67" y="17" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="700" fill="#166534">KIOSK &amp; BADGE ISSUANCE</text>
-      </g>
-    </g>
+    <rect x="242" y="358" width="104" height="22" class="pill-tag"/>
+    <text x="294" y="372" text-anchor="middle" class="font-mono" font-size="8.5px" font-weight="600" fill="#047857">Zero Setup Clutter</text>
   </g>
 
-  <!-- 3 SYSTEMS DESIGN HIGHLIGHT CARDS (Bottom Row) -->
-  <g transform="translate(40, 430)">
-    
-    <!-- Card 1 -->
-    <g transform="translate(0, 0)">
-      <rect width="360" height="125" class="matrix-card"/>
-      <rect width="360" height="4" fill="#38bdf8" rx="2"/>
-      <text x="16" y="24" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">01 / Dynamic UI Adaptation by Role</text>
-      <text x="16" y="44" class="font-sans" font-size="9.5px" fill="#475569" width="320">The platform shell automatically adapts the interface based on authenticated RBAC tokens. Sensitive ERP revenue figures or Vision AI weights are completely stripped from shop-floor views to protect IP and reduce cognitive load.</text>
-      <rect x="16" y="92" width="180" height="20" rx="3" fill="#f0f9ff" stroke="#bae6fd"/>
-      <text x="24" y="105" class="font-sans" font-size="8.5px" font-weight="600" fill="#0284c7">Zero Cognitive Noise for Operators</text>
+  <!-- ========================================================= -->
+  <!-- CARD 2: QUALITY / VISION ENGINEER (Precision Authoring)   -->
+  <!-- ========================================================= -->
+  <g transform="translate(418, 92)">
+    <rect width="364" height="394" class="card"/>
+    <rect width="364" height="4" fill="#0284c7"/>
+
+    <!-- Persona Header -->
+    <rect x="18" y="18" width="32" height="32" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="1"/>
+    <text x="34" y="38" text-anchor="middle" class="font-mono" font-size="11px" font-weight="700" fill="#0369a1">QA</text>
+    <text x="60" y="31" class="font-sans" font-size="13px" font-weight="700" fill="#0f172a">Optical QA Engineer</text>
+    <text x="60" y="46" class="font-sans" font-size="10px" fill="#64748b">Calibration desk · Precision mouse &amp; CAD review</text>
+
+    <!-- Mini Adaptive UI Mockup -->
+    <g transform="translate(18, 66)">
+      <rect width="328" height="206" class="screen-frame"/>
+      <!-- App Top Chrome -->
+      <rect width="328" height="28" fill="#0f172a"/>
+      <text x="10" y="18" class="font-mono" font-size="9px" font-weight="700" fill="#f8fafc">Part Setup · Draft v2.4</text>
+      <rect x="206" y="6" width="112" height="16" fill="#0284c7"/>
+      <text x="262" y="17" text-anchor="middle" class="font-mono" font-size="8px" font-weight="700" fill="#ffffff">Approve &amp; Lock</text>
+
+      <!-- Dual Sidebar Mini Representation -->
+      <!-- Rail 1 -->
+      <rect x="8" y="36" width="54" height="160" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8"/>
+      <rect x="14" y="44" width="42" height="10" fill="#e2e8f0"/>
+      <rect x="14" y="60" width="42" height="10" fill="#e2e8f0"/>
+      <rect x="14" y="76" width="42" height="14" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.8"/>
+      <rect x="14" y="96" width="42" height="10" fill="#e2e8f0"/>
+      <rect x="14" y="112" width="42" height="10" fill="#e2e8f0"/>
+      <text x="35" y="186" text-anchor="middle" class="font-mono" font-size="7px" fill="#64748b">Steps</text>
+
+      <!-- Rail 2 -->
+      <rect x="68" y="36" width="76" height="160" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8"/>
+      <rect x="74" y="44" width="30" height="22" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.8"/>
+      <rect x="108" y="44" width="30" height="22" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.8"/>
+      <rect x="74" y="72" width="30" height="22" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.8"/>
+      <rect x="108" y="72" width="30" height="22" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.8"/>
+      <rect x="74" y="100" width="30" height="22" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.8"/>
+      <rect x="108" y="100" width="30" height="22" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.8"/>
+      <text x="106" y="186" text-anchor="middle" class="font-mono" font-size="7px" fill="#0284c7">Tools</text>
+
+      <!-- Center Optical Caliper Canvas -->
+      <rect x="150" y="36" width="106" height="160" fill="#0f172a"/>
+      <circle cx="203" cy="116" r="42" fill="#334155"/>
+      <rect x="191" y="84" width="24" height="64" fill="#020617"/>
+      <line x1="176" y1="84" x2="176" y2="148" stroke="#38bdf8" stroke-width="1.2"/>
+      <line x1="172" y1="84" x2="180" y2="84" stroke="#38bdf8" stroke-width="1.2"/>
+      <line x1="172" y1="148" x2="180" y2="148" stroke="#38bdf8" stroke-width="1.2"/>
+      <rect x="160" y="109" width="34" height="12" fill="#0284c7"/>
+      <text x="177" y="118" text-anchor="middle" class="font-mono" font-size="6.5px" fill="#ffffff">23.91mm</text>
+
+      <!-- Right Tolerance Panel -->
+      <rect x="262" y="36" width="58" height="160" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8"/>
+      <rect x="267" y="44" width="48" height="28" fill="#0f172a"/>
+      <text x="291" y="56" text-anchor="middle" class="font-mono" font-size="7px" fill="#34d399">±0.02mm</text>
+      <text x="291" y="66" text-anchor="middle" class="font-mono" font-size="6px" fill="#94a3b8">ISO 2768</text>
+      <rect x="267" y="78" width="48" height="28" fill="#0f172a"/>
+      <text x="291" y="90" text-anchor="middle" class="font-mono" font-size="7px" fill="#34d399">17.00mm</text>
+      <text x="291" y="100" text-anchor="middle" class="font-mono" font-size="6px" fill="#94a3b8">H-Scale</text>
     </g>
 
-    <!-- Card 2 -->
-    <g transform="translate(380, 0)">
-      <rect width="360" height="125" class="matrix-card"/>
-      <rect width="360" height="4" fill="#059669" rx="2"/>
-      <text x="16" y="24" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">02 / Hardware-Specific Ergonomic Targets</text>
-      <text x="16" y="44" class="font-sans" font-size="9.5px" fill="#475569">Systems design encompassed device constraints: MES interfaces feature 44px minimum touch targets and high-contrast alert bars for gloved factory operators, while Vision interfaces feature darkroom-optimized palettes for optical specialists.</text>
-      <rect x="16" y="92" width="190" height="20" rx="3" fill="#f0fdf4" stroke="#bbf7d0"/>
-      <text x="24" y="105" class="font-sans" font-size="8.5px" font-weight="600" fill="#059669">44px Touch Targets &amp; Darkroom Modes</text>
+    <!-- IxD Explanation -->
+    <text x="18" y="294" class="font-sans" font-size="10.5px" font-weight="700" fill="#0f172a">Interaction Priority: Precision &amp; Discoverability</text>
+    <text x="18" y="312" class="font-sans" font-size="10px" fill="#475569">
+      <tspan x="18" dy="0">Unlocks the full Dual Sidebar authoring workspace:</tspan>
+      <tspan x="18" dy="15">CAD overlays, optical calipers, and ISO tolerances.</tspan>
+      <tspan x="18" dy="15">One click freezes the spec for production shifts.</tspan>
+    </text>
+
+    <!-- Bottom Chips -->
+    <rect x="18" y="358" width="110" height="22" class="pill-tag"/>
+    <text x="73" y="372" text-anchor="middle" class="font-mono" font-size="8.5px" font-weight="600" fill="#0369a1">Dual Sidebar Tools</text>
+
+    <rect x="136" y="358" width="98" height="22" class="pill-tag"/>
+    <text x="185" y="372" text-anchor="middle" class="font-mono" font-size="8.5px" font-weight="600" fill="#0369a1">Sub-mm Calipers</text>
+
+    <rect x="242" y="358" width="104" height="22" class="pill-tag"/>
+    <text x="294" y="372" text-anchor="middle" class="font-mono" font-size="8.5px" font-weight="600" fill="#0369a1">Publish &amp; Freeze</text>
+  </g>
+
+  <!-- ========================================================= -->
+  <!-- CARD 3: PLANT MANAGER & AUDITOR (Oversight & Sign-Off)    -->
+  <!-- ========================================================= -->
+  <g transform="translate(804, 92)">
+    <rect width="364" height="394" class="card"/>
+    <rect width="364" height="4" fill="#d97706"/>
+
+    <!-- Persona Header -->
+    <rect x="18" y="18" width="32" height="32" fill="#fffbeb" stroke="#fcd34d" stroke-width="1"/>
+    <text x="34" y="38" text-anchor="middle" class="font-mono" font-size="11px" font-weight="700" fill="#b45309">Mg</text>
+    <text x="60" y="31" class="font-sans" font-size="13px" font-weight="700" fill="#0f172a">Plant Manager &amp; Auditor</text>
+    <text x="60" y="46" class="font-sans" font-size="10px" fill="#64748b">Multi-monitor office · Yield trends &amp; ISO audits</text>
+
+    <!-- Mini Adaptive UI Mockup -->
+    <g transform="translate(18, 66)">
+      <rect width="328" height="206" class="screen-frame"/>
+      <!-- App Top Chrome -->
+      <rect width="328" height="28" fill="#0f172a"/>
+      <text x="10" y="18" class="font-mono" font-size="9px" font-weight="700" fill="#f8fafc">Plant #04 · Audit Trail</text>
+      <rect x="218" y="6" width="100" height="16" fill="#78350f" stroke="#fbbf24" stroke-width="0.8"/>
+      <text x="268" y="17" text-anchor="middle" class="font-mono" font-size="8px" font-weight="700" fill="#fde68a">Read-Safe View</text>
+
+      <!-- 3 KPI Cards -->
+      <rect x="10" y="36" width="98" height="44" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8"/>
+      <text x="18" y="50" class="font-mono" font-size="7.5px" fill="#64748b">Shift OEE</text>
+      <text x="18" y="70" class="font-sans" font-size="14px" font-weight="800" fill="#0f172a">89.4%</text>
+
+      <rect x="115" y="36" width="98" height="44" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8"/>
+      <text x="123" y="50" class="font-mono" font-size="7.5px" fill="#64748b">Scrap Rate</text>
+      <text x="123" y="70" class="font-sans" font-size="14px" font-weight="800" fill="#059669">0.04%</text>
+
+      <rect x="220" y="36" width="98" height="44" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8"/>
+      <text x="228" y="50" class="font-mono" font-size="7.5px" fill="#64748b">Open CAPA</text>
+      <text x="228" y="70" class="font-sans" font-size="14px" font-weight="800" fill="#d97706">2</text>
+
+      <!-- Traceability Timeline Block -->
+      <rect x="10" y="88" width="308" height="72" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8"/>
+      <text x="18" y="103" class="font-mono" font-size="8px" font-weight="700" fill="#0f172a">Lot #884 Digital Provenance</text>
+
+      <!-- Timeline nodes -->
+      <line x1="28" y1="126" x2="292" y2="126" stroke="#cbd5e1" stroke-width="1.5"/>
+      <circle cx="28" cy="126" r="5" fill="#059669"/>
+      <text x="28" y="144" text-anchor="middle" class="font-mono" font-size="7px" fill="#475569">ERP Lot</text>
+
+      <circle cx="116" cy="126" r="5" fill="#0284c7"/>
+      <text x="116" y="144" text-anchor="middle" class="font-mono" font-size="7px" fill="#475569">Vision Scan</text>
+
+      <circle cx="204" cy="126" r="5" fill="#d97706"/>
+      <text x="204" y="144" text-anchor="middle" class="font-mono" font-size="7px" fill="#475569">CAPA Log</text>
+
+      <circle cx="292" cy="126" r="5" fill="#0f172a"/>
+      <text x="292" y="144" text-anchor="middle" class="font-mono" font-size="7px" fill="#0f172a" font-weight="700">Sign-Off</text>
+
+      <!-- Action Footer -->
+      <rect x="10" y="168" width="186" height="28" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.8"/>
+      <text x="20" y="185" class="font-sans" font-size="8.5px" fill="#64748b">Live line controls safely isolated</text>
+      <rect x="204" y="168" width="114" height="28" fill="#d97706"/>
+      <text x="261" y="185" text-anchor="middle" class="font-sans" font-size="9px" font-weight="700" fill="#ffffff">Export ISO PDF</text>
     </g>
 
-    <!-- Card 3 -->
-    <g transform="translate(760, 0)">
-      <rect width="360" height="125" class="matrix-card"/>
-      <rect width="360" height="4" fill="#d97706" rx="2"/>
-      <text x="16" y="24" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">03 / Multi-Tenant Plant Hierarchy</text>
-      <text x="16" y="44" class="font-sans" font-size="9.5px" fill="#475569">Designed the multi-tenant governance model allowing enterprise supervisors to switch between geographic plants (e.g., Gothenburg vs Stuttgart) while keeping line operators strictly isolated to their active physical workstation and shift.</text>
-      <rect x="16" y="92" width="200" height="20" rx="3" fill="#fffbeb" stroke="#fde68a"/>
-      <text x="24" y="105" class="font-sans" font-size="8.5px" font-weight="600" fill="#d97706">Facility → Plant → Line → Station</text>
+    <!-- IxD Explanation -->
+    <text x="18" y="294" class="font-sans" font-size="10.5px" font-weight="700" fill="#0f172a">Interaction Priority: Clarity &amp; Safe Oversight</text>
+    <text x="18" y="312" class="font-sans" font-size="10px" fill="#475569">
+      <tspan x="18" dy="0">Surfaces cross-plant yield, defect evidence, and</tspan>
+      <tspan x="18" dy="15">one-click audit exports in a read-safe shell—so</tspan>
+      <tspan x="18" dy="15">reviewers inspect data without risking live lines.</tspan>
+    </text>
+
+    <!-- Bottom Chips -->
+    <rect x="18" y="358" width="112" height="22" class="pill-tag"/>
+    <text x="74" y="372" text-anchor="middle" class="font-mono" font-size="8.5px" font-weight="600" fill="#b45309">Read-Safe Oversight</text>
+
+    <rect x="138" y="358" width="104" height="22" class="pill-tag"/>
+    <text x="190" y="372" text-anchor="middle" class="font-mono" font-size="8.5px" font-weight="600" fill="#b45309">Full Traceability</text>
+
+    <rect x="250" y="358" width="96" height="22" class="pill-tag"/>
+    <text x="298" y="372" text-anchor="middle" class="font-mono" font-size="8.5px" font-weight="600" fill="#b45309">1-Click Sign-Off</text>
+  </g>
+
+  <!-- ========================================================= -->
+  <!-- BOTTOM IXD PRINCIPLES STRIP (3 Clean Wrapped Takeaways)   -->
+  <!-- ========================================================= -->
+  <g transform="translate(32, 504)">
+    <!-- Takeaway 1 -->
+    <rect width="364" height="96" class="card"/>
+    <text x="18" y="24" class="font-mono" font-size="9.5px" font-weight="700" fill="#059669">IxD Principle 01</text>
+    <text x="18" y="42" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">Progressive Redaction over Disabled States</text>
+    <text x="18" y="60" class="font-sans" font-size="10px" fill="#475569">
+      <tspan x="18" dy="0">Hiding irrelevant actions cuts visual noise by ~70% on</tspan>
+      <tspan x="18" dy="15">the floor—eliminating "Access Denied" dead ends.</tspan>
+    </text>
+
+    <!-- Takeaway 2 -->
+    <g transform="translate(386, 0)">
+      <rect width="364" height="96" class="card"/>
+      <text x="18" y="24" class="font-mono" font-size="9.5px" font-weight="700" fill="#0284c7">IxD Principle 02</text>
+      <text x="18" y="42" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">Density Adapts to Physical Environment</text>
+      <text x="18" y="60" class="font-sans" font-size="10px" fill="#475569">
+        <tspan x="18" dy="0">Scales from 48px high-contrast touch buttons for</tspan>
+        <tspan x="18" dy="15">gloved hands to dense tool palettes at the QA desk.</tspan>
+      </text>
     </g>
 
+    <!-- Takeaway 3 -->
+    <g transform="translate(772, 0)">
+      <rect width="364" height="96" class="card"/>
+      <text x="18" y="24" class="font-mono" font-size="9.5px" font-weight="700" fill="#d97706">IxD Principle 03</text>
+      <text x="18" y="42" class="font-sans" font-size="11.5px" font-weight="700" fill="#0f172a">Guardrails Built Into the Interface</text>
+      <text x="18" y="60" class="font-sans" font-size="10px" fill="#475569">
+        <tspan x="18" dy="0">Once QA locks an inspection profile, edit affordances</tspan>
+        <tspan x="18" dy="15">disappear on active shifts to prevent human error.</tspan>
+      </text>
+    </g>
   </g>
 </svg>

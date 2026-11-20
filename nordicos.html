@@ -1,10 +1,13 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nordic OS — Machine Vision &amp; Hardware Operations Workspace | Case Study</title>
-  <meta name="description" content="An internal operations workspace designed and built by an Industrial Interaction Designer—unifying physical optical testing, 3D CAD design approval stages, 11-role access control, and vibe coding to replace broken spreadsheets.">
+  <meta name="description"
+    content="Industrial Interaction Design case study for Nordic OS: designing and building an internal operating system for high-precision machine vision—unifying optical lab testing, 9-stage engineering handoffs, 11-role access control, and working web prototypes to eliminate costly hardware rework.">
+
   <!-- Site Access Gate (Password: 8962) -->
   <script src="design-system/gate.js"></script>
   <!-- Portfolio Design System (1200px max-width, Inter font, 0px radiuses + pill controls) -->
@@ -12,282 +15,670 @@
   <!-- Project Journey Navigator -->
   <script src="design-system/journey-nav.js" defer></script>
   <style>
-    /* Project Specific Custom Styles for Nordic OS */
-    .module-stack-grid {
+    /* ===================================================================== */
+    /* JOURNEY BUILDER STYLE HORIZONTAL PROGRESS NAV BAR (Light Swiss Theme) */
+    /* ===================================================================== */
+    .journey-progress-bar {
+      display: none !important;
+    }
+
+    .journey-top-bar {
+      background: rgba(255, 255, 255, 0.96) !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid #e6e9ef !important;
+      border-bottom: 1px solid #e6e9ef !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      height: 60px;
+      display: flex;
+      align-items: center;
+    }
+
+    .journey-top-bar.is-stuck {
+      border-top-color: transparent !important;
+      box-shadow: 0 1px 0 #e6e9ef !important;
+    }
+
+    .journey-top-inner {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 32px !important;
+      width: min(1200px, calc(100vw - 48px)) !important;
+      margin: 0 auto !important;
+      height: 100%;
+      padding: 0 !important;
+    }
+
+    .journey-top-brand {
+      display: flex !important;
+      align-items: center !important;
+      gap: 14px !important;
+      flex-shrink: 0;
+    }
+
+    .journey-back-btn {
+      width: 34px !important;
+      height: 34px !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      border: 1px solid #d5dce6 !important;
+      background: #ffffff !important;
+      color: #0a0a0a !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease !important;
+    }
+
+    .journey-back-btn svg {
+      width: 15px !important;
+      height: 15px !important;
+    }
+
+    .journey-back-btn:hover {
+      background: #0a0a0a !important;
+      border-color: #0a0a0a !important;
+      color: #ffffff !important;
+    }
+
+    .journey-project-tag {
+      text-transform: none !important;
+      letter-spacing: -0.01em !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      color: #0a0a0a !important;
+      border-left: none !important;
+      padding-left: 0 !important;
+      white-space: nowrap;
+    }
+
+    .journey-track-wrapper {
+      flex: 1 !important;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .journey-track-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .journey-track {
+      display: flex !important;
+      align-items: center !important;
+      width: 100% !important;
+      gap: 0 !important;
+      padding: 0 !important;
+    }
+
+    .journey-pill {
+      text-transform: none !important;
+      letter-spacing: 0.01em !important;
+      background: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      padding: 6px 2px !important;
+      font-size: 12.5px !important;
+      font-weight: 500 !important;
+      color: #9aa2b1 !important;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: color 0.2s ease !important;
+    }
+
+    .journey-pill:hover {
+      color: #0a0a0a !important;
+      background: transparent !important;
+    }
+
+    .journey-pill.active {
+      color: #0a0a0a !important;
+      font-weight: 600 !important;
+      background: transparent !important;
+    }
+
+    .nav-connector {
+      display: inline-flex !important;
+      align-items: center !important;
+      flex: 1 1 24px !important;
+      min-width: 16px !important;
+      max-width: 56px !important;
+      height: 1.5px !important;
+      background: #e2e8f0 !important;
+      margin: 0 8px !important;
+      position: relative !important;
+    }
+
+    .nav-connector-fill {
+      position: absolute !important;
+      left: 0 !important;
+      top: 0 !important;
+      height: 100% !important;
+      width: 0% !important;
+      background: #0a0a0a !important;
+      transition: width 0.15s ease-out !important;
+    }
+
+    /* Container & Typography Setup */
+    .hero-compact-header {
+      padding-top: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #e6e9ef;
+    }
+
+    .hero-compact-h1 {
+      font-size: clamp(30px, 3.6vw, 46px);
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+      font-weight: 600;
+      color: #0a0a0a;
+      margin: 0 0 12px 0;
+    }
+
+    .hero-compact-subtitle {
+      font-size: clamp(15px, 1.4vw, 17px);
+      line-height: 1.6;
+      color: #525866;
+      max-width: 900px;
+      margin: 0 0 16px 0;
+    }
+
+    .hero-compact-disciplines {
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #64748b;
+    }
+
+    .hero-body {
+      padding-top: 36px;
+      padding-bottom: 64px;
+    }
+
+    .hero-visual img,
+    .fig img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+    }
+
+    /* Clean Editorial Spec Strip */
+    .spec-table {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 44px;
+    }
+
+    .spec-row {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      padding: 16px 0;
+      border-bottom: 1px solid #e6e9ef;
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    .spec-label {
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .spec-value {
+      color: #0a0a0a;
+    }
+
+    .spec-value strong {
+      font-weight: 600;
+    }
+
+    /* Contribution & Impact Split */
+    .impact-duo-wrapper {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: stretch;
+      gap: 20px;
+      margin: 48px 0;
+    }
+
+    .impact-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-top: 2px solid #0a0a0a;
+      padding: 30px 32px;
+      color: #0a0a0a;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .impact-card:last-child {
+      background: #f8fafc;
+    }
+
+    .impact-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #d5dce6;
+      background: #ffffff;
+      color: #0a0a0a;
+      flex-shrink: 0;
+    }
+
+    .impact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #64748b;
+    }
+
+    .impact-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: #0a0a0a;
+    }
+
+    .badge-result .impact-badge-dot {
+      background: #059669;
+    }
+
+    .impact-heading {
+      font-size: 20px;
+      font-weight: 600;
+      color: #0a0a0a;
+      margin: 0;
+      line-height: 1.3;
+      letter-spacing: -0.025em;
+    }
+
+    .impact-list {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .impact-list li {
+      font-size: 13.5px;
+      line-height: 1.58;
+      color: #525866;
+      position: relative;
+      padding: 11px 0 11px 16px;
+      border-top: 1px solid #e6e9ef;
+    }
+
+    .impact-list li:last-child {
+      padding-bottom: 0;
+    }
+
+    .impact-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 19px;
+      width: 5px;
+      height: 5px;
+      background: #94a3b8;
+    }
+
+    .impact-card:last-child .impact-list li::before {
+      background: #0a0a0a;
+    }
+
+    .impact-list li strong {
+      color: #0a0a0a;
+      font-weight: 600;
+    }
+
+    /* Section & Editorial Heading Styles */
+    .section {
+      padding-top: 96px;
+      padding-bottom: 96px;
+      border-top: 1px solid #e6e9ef;
+    }
+
+    .sec-label {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .sec-num {
+      font-size: 11px;
+      font-weight: 600;
+      color: #94a3b8;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .sec-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #0a0a0a;
+      letter-spacing: -0.01em;
+    }
+
+    .ixd-statement {
+      font-size: clamp(24px, 3.2vw, 38px);
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      font-weight: 500;
+      color: #9ca3af;
+      margin: 0 0 36px;
+      max-width: 100%;
+    }
+
+    .ixd-statement strong {
+      color: #0a0a0a;
+      font-weight: 600;
+    }
+
+    .ixd-statement-eyebrow {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+
+    /* 3-Column Swiss Hairline Ledger */
+    .process-hairline-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-4);
-      margin-top: var(--space-5);
-    }
-    .module-box {
-      background: var(--color-canvas-wash);
-      border: 1px solid var(--color-border-hairline);
-      padding: var(--space-5);
-      border-radius: var(--radius-none);
-    }
-    .module-num {
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-accent-primary);
-      margin-bottom: 6px;
-    }
-    .module-box h3 {
-      font-size: 15px;
-      font-weight: 700;
-      margin: 0 0 6px;
-      color: var(--color-ink-primary);
-    }
-    .module-box p {
-      font-size: 12px;
-      line-height: 1.6;
-      color: var(--color-ink-secondary);
-      margin: 0;
+      gap: 32px;
+      border-top: 2px solid #0a0a0a;
+      padding-top: 24px;
+      margin: 40px 0;
     }
 
-    .key-callout {
-      background: #f4f6fb;
-      border-left: 3px solid var(--color-accent-primary);
-      padding: 20px 24px;
-      margin: var(--space-6) 0;
-    }
-    .key-callout p {
-      font-size: clamp(15px, 1.4vw, 18px);
-      line-height: 1.6;
-      font-weight: 600;
-      color: var(--color-ink-primary);
-      margin: 0;
-    }
-    .key-callout span {
-      display: block;
+    .process-hairline-item .idx {
       font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-accent-primary);
+      font-weight: 600;
+      color: #94a3b8;
+      display: block;
       margin-bottom: 6px;
-      font-weight: 700;
     }
 
+    .process-hairline-item strong {
+      font-size: 16px;
+      font-weight: 600;
+      color: #0a0a0a;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .process-hairline-item p {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #525866;
+      margin: 0;
+    }
+
+    /* Clean Card Grids */
     .triad-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-4);
-      margin-top: var(--space-5);
+      gap: 16px;
+      margin-top: 32px;
     }
+
     .triad-card {
-      background: var(--color-canvas-wash);
-      border: 1px solid var(--color-border-hairline);
-      padding: var(--space-5);
-    }
-    .triad-card h3 {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--color-ink-primary);
-      margin: 0 0 8px;
-    }
-    .triad-card p {
-      font-size: 12px;
-      line-height: 1.6;
-      color: var(--color-ink-secondary);
-      margin: 0;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 24px;
     }
 
-    .role-grid-5 {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
-      margin-top: var(--space-5);
-    }
-    .role-card {
-      background: var(--color-canvas-wash);
-      border: 1px solid var(--color-border-hairline);
-      padding: 16px 14px;
-    }
-    .role-card-num {
-      font-size: 10px;
-      font-weight: 800;
-      color: var(--color-accent-primary);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .role-card h4 {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--color-ink-primary);
-      margin: 0 0 6px;
-    }
-    .role-card p {
+    .triad-card .card-num {
       font-size: 11px;
-      line-height: 1.5;
-      color: var(--color-ink-secondary);
-      margin: 0;
+      font-weight: 600;
+      color: #6366f1;
+      margin-bottom: 8px;
     }
 
-    .credits-box {
-      background: var(--color-canvas-wash);
-      border: 1px solid var(--color-border-hairline);
-      padding: var(--space-6);
-      margin: var(--space-7) 0 var(--space-6);
+    .triad-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #0a0a0a;
+      margin: 0 0 8px;
+      line-height: 1.35;
     }
-    .credits-box h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin: 0 0 6px;
-      color: var(--color-ink-primary);
-    }
-    .credits-box p {
+
+    .triad-card p {
       font-size: 13px;
-      color: var(--color-ink-muted);
+      line-height: 1.55;
+      color: #525866;
       margin: 0;
     }
 
     /* Systems Architecture & High-Res Diagram Showcase */
     .system-diagram-slot {
-      margin-top: var(--space-6);
-      background: var(--color-surface-pure);
-      border: 1px solid var(--color-border-hairline);
+      margin-top: 40px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
       position: relative;
     }
+
     .system-diagram-topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 18px;
-      background: var(--color-canvas-wash);
-      border-bottom: 1px solid var(--color-border-hairline);
-      font-size: 11px;
-      color: var(--color-ink-muted);
+      padding: 12px 20px;
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 12px;
+      color: #64748b;
     }
+
     .system-diagram-tag {
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--color-accent-primary);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #0a0a0a;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
+
     .system-diagram-tag::before {
       content: "";
-      width: 7px;
-      height: 7px;
-      background: var(--color-accent-primary);
+      width: 6px;
+      height: 6px;
+      background: #6366f1;
       display: inline-block;
     }
+
     .system-diagram-body {
-      padding: 14px;
-      background: #fafbfe;
+      padding: 16px;
+      background: #ffffff;
       display: flex;
       justify-content: center;
       align-items: center;
       overflow-x: auto;
     }
+
     .system-diagram-body img {
       width: 100%;
       height: auto;
       display: block;
-      max-height: 750px;
-      object-fit: contain;
+      border: 1px solid #e2e8f0;
     }
+
     .system-diagram-caption {
-      padding: 14px 18px;
-      background: var(--color-canvas-wash);
-      border-top: 1px solid var(--color-border-hairline);
+      padding: 14px 20px;
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
       display: flex;
       justify-content: space-between;
       gap: 16px;
-      font-size: 11px;
-      color: var(--color-ink-muted);
+      font-size: 12px;
+      color: #64748b;
     }
+
     .scenario-breakdown-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: var(--space-5);
+      gap: 16px;
+      margin-top: 24px;
     }
+
     .scenario-card {
-      background: var(--color-canvas-wash);
-      border: 1px solid var(--color-border-hairline);
-      padding: 14px 16px;
-      border-left: 3px solid #6366f1;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-top: 2px solid #6366f1;
+      padding: 20px;
     }
-    .scenario-card.caution {
-      border-left-color: #f59e0b;
-      background: #fffdfa;
-    }
+
     .scenario-card.success {
-      border-left-color: #10b981;
-      background: #f8fdfb;
+      border-top-color: #10b981;
     }
+
+    .scenario-card.caution {
+      border-top-color: #f59e0b;
+    }
+
     .scenario-card.danger {
-      border-left-color: #ef4444;
-      background: #fdf8f8;
+      border-top-color: #ef4444;
     }
+
     .scenario-card-num {
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--color-ink-muted);
-      margin-bottom: 4px;
-    }
-    .scenario-card h4 {
-      font-size: 13px;
-      font-weight: 700;
-      margin: 0 0 6px;
-      color: var(--color-ink-primary);
-    }
-    .scenario-card p {
       font-size: 11px;
-      line-height: 1.5;
-      color: var(--color-ink-secondary);
+      font-weight: 600;
+      color: #64748b;
+      margin-bottom: 6px;
+    }
+
+    .scenario-card h4 {
+      font-size: 14.5px;
+      font-weight: 600;
+      margin: 0 0 8px;
+      color: #0a0a0a;
+    }
+
+    .scenario-card p {
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: #525866;
       margin: 0;
     }
+
     .param-chips {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 8px;
+      margin-top: 12px;
     }
+
     .param-chip {
-      font-size: 9px;
-      font-weight: 700;
-      padding: 2px 7px;
-      background: #f0f3fa;
-      border: 1px solid #dbe2ef;
-      color: var(--color-ink-primary);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 8px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #334155;
     }
+
     .param-chip.req {
       background: #fee2e2;
-      border-color: #fca5a5;
+      border-color: #fecaca;
       color: #991b1b;
     }
 
-    @media (max-width: 992px) {
-      .module-stack-grid, .triad-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .role-grid-5 {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .scenario-breakdown-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    /* Clean Stacked Figure Captions */
+    figure {
+      margin: 0;
     }
-    @media (max-width: 600px) {
-      .module-stack-grid, .triad-grid, .role-grid-5, .scenario-breakdown-grid {
+
+    .fig {
+      margin: 48px 0 0 0;
+      width: 100%;
+    }
+
+    .fig-cap {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 14px;
+    }
+
+    .fig-cap span:first-child {
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: -0.01em;
+      color: #0a0a0a;
+    }
+
+    .fig-cap span:last-child {
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: #6b7280;
+      max-width: 80ch;
+    }
+
+    /* Callout Strip */
+    .key-callout {
+      background: #f8fafc;
+      border-left: 3px solid #0a0a0a;
+      padding: 20px 24px;
+      margin: 36px 0;
+    }
+
+    .key-callout span {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      color: #64748b;
+      margin-bottom: 6px;
+    }
+
+    .key-callout p {
+      font-size: clamp(15px, 1.3vw, 17px);
+      line-height: 1.6;
+      font-weight: 500;
+      color: #0a0a0a;
+      margin: 0;
+    }
+
+    @media (max-width: 860px) {
+      .spec-row {
         grid-template-columns: 1fr;
-      }
-      .system-diagram-caption {
-        flex-direction: column;
         gap: 6px;
       }
+
+      .impact-duo-wrapper {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .impact-connector {
+        justify-self: center;
+        transform: rotate(90deg);
+      }
+
+      .process-hairline-grid,
+      .triad-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .scenario-breakdown-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <!-- Global Reading Progress Bar -->
@@ -295,11 +686,12 @@
 
   <main id="main-content">
 
-    <!-- Compact Top Header (Established Portfolio Standard) -->
+    <!-- Compact Top Header -->
     <div class="hero-compact-header wrap">
       <nav class="back-nav" aria-label="Breadcrumbs">
         <a href="index.html" class="back-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
           </svg>
@@ -307,579 +699,585 @@
         </a>
       </nav>
       <div class="hero-compact-content">
-        <h1 id="hero-heading" class="hero-compact-h1">Connecting Machine Vision Engineering, Hardware Quotations, and Shop-Floor Handoffs</h1>
-        <p class="hero-compact-subtitle">Nordic OS · An internal operations workspace designed and built by an Industrial Interaction Designer—unifying physical optical testing, 3D CAD design approval stages, role-wise access control, and rapid vibe coding to replace broken spreadsheets between Sales, Engineering, and Procurement.</p>
-        <div class="hero-compact-disciplines">Industrial Design · Interaction Design · Role-Wise Access (RBAC) · Vibe Coding &amp; Working Web Prototypes</div>
+        <h1 id="hero-heading" class="hero-compact-h1">Nordic OS — Machine Vision &amp; Hardware Operations Workspace</h1>
+        <p class="hero-compact-subtitle">Designing and building an internal operating system for high-precision machine vision—unifying optical lab testing, 9-stage engineering handoffs, 11-role access control, and working web prototypes to eliminate costly hardware rework.</p>
+        <div class="hero-compact-disciplines">Industrial Interaction Design · Stage-Gated Operations · 11-Role RBAC · Prototyping &amp; Vibe Coding</div>
       </div>
     </div>
 
-    <!-- Hero Visual & End-to-End Ownership Metadata -->
+    <!-- Hero Visual & Believable Enterprise Metadata -->
     <section class="hero-body wrap" aria-label="Nordic OS Hero Presentation">
-      <!-- [ASSET: NORDICOS-IMG-01] Hero Visual -->
       <div class="hero-visual" id="slot-nordicos-img-01">
-        <img id="nordicos-img-01" data-asset-id="NORDICOS-IMG-01" src="assets/projects/nordicos/nordicos-hero.svg" alt="Nordic OS Projects Workspace interface running at localhost:3002 showing project pipeline execution, Stage 2 of 9 POC, and engineering feasibility reports" loading="eager">
+        <img id="nordicos-img-01" src="assets/projects/nordicos/nordicos-hero.svg"
+          alt="Nordic OS Projects Workspace interface running at localhost:3002 showing project pipeline execution, Stage 2 of 9 POC, and engineering feasibility reports"
+          loading="eager">
       </div>
-      <div class="caption">
-        <span>Nordic OS · Projects Workspace &amp; Daily Activity Hub</span>
-        <span>Live web application running at localhost:3002 · Connecting optical discovery, 9-stage engineering handoffs, and role-based access</span>
+      <figcaption class="fig-cap" style="margin-top: 16px;">
+        <span>Projects Workspace &amp; Daily Operational Hub (localhost:3002)</span>
+        <span>Replaced fragmented spreadsheets, private WhatsApp chats, and untracked emails with a central industrial cockpit: monitoring active projects (e.g. BD 28 0004 · ₹77.0 L), 9-stage progress steppers, bottleneck callouts, and 1-click inter-departmental nudges.</span>
+      </figcaption>
+
+      <!-- Spec Table -->
+      <div class="spec-table">
+        <div class="spec-row">
+          <div class="spec-label">Project &amp; Platform</div>
+          <div class="spec-value">
+            <strong>Nordic OS</strong> · Internal Operations Workspace &amp; Hardware Lifecycle Cockpit
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <div class="spec-label">Industry</div>
+          <div class="spec-value">
+            <strong>Machine Vision, Automation &amp; Precision Manufacturing</strong> · Optical Inspection &amp; Factory Systems
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <div class="spec-label">Timeline</div>
+          <div class="spec-value">
+            <strong>4 Months</strong> · Hardware workflow audits, 11-role permission architecture, working web prototyping (<code>localhost:3002</code>) &amp; shop-floor handoffs
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <div class="spec-label">Role &amp; Practice</div>
+          <div class="spec-value">
+            <strong>Lead Industrial Interaction Designer &amp; Prototyper</strong> · System Architecture, Stage Gates, 11-Role RBAC Matrix, Frontend Implementation
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <div class="spec-label">Team &amp; Stakeholders</div>
+          <div class="spec-value">
+            Lead Designer (Me) · 1 Backend Developer · Company CEO · Direct startup collaboration from lab optics to live web deployment
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <div class="spec-label">Core Challenge</div>
+          <div class="spec-value">
+            <strong>Hardware mistakes are brutally expensive:</strong> Sales issued commercial quotes before optical trials verified lens focal depth, Engineering spent 40+ billable hours detailing 3D CAD before customers signed POs or paid advances, and physical part samples sat untracked while Procurement waited on disconnected spreadsheets.
+          </div>
+        </div>
       </div>
 
-      <!-- Project Metadata Grid (Industrial Interaction Designer + Vibe Coder Breakdown) -->
-      <div class="meta">
-        <div class="meta-role-block">
-          <label>Role</label>
-          <strong>Industrial Interaction Designer &amp; Tool Builder (Design + Vibe Coding)</strong>
-          <ul class="meta-role-desc">
-            <li><strong>Hardware-Aware Workflow Design:</strong> Mapped the physical 9-stage machine vision lifecycle from part reflectivity discovery and optical sizing to 3D CAD freezes and shop-floor assembly</li>
-            <li><strong>Role-Wise Access Architecture:</strong> Defined operational views and stage-gate permissions for 11 distinct departmental roles (Admin, CEO, CTO, CFO, Engineering, Sales, Robotics, and Procurement)</li>
-            <li><strong>Projects Workspace Interface:</strong> Designed the high-density desktop control room (running at localhost:3002) with quick engineering nudges, live stage trackers (Stage 2 of 9), and instant handover actions</li>
-            <li><strong>Hands-On Vibe Coding:</strong> Bridged the gap between Figma mockups and running web code, rapidly building out the reactive frontend, modular layout components, and live handover triggers</li>
-          </ul>
+      <!-- Contribution & Impact Split -->
+      <div class="impact-duo-wrapper" aria-label="Contribution and Result Highlights">
+        <div class="impact-card">
+          <div class="impact-badge badge-contribution">
+            <span class="impact-badge-dot" aria-hidden="true"></span>
+            <span>01 · My Contribution</span>
+          </div>
+          <h3 class="impact-heading">From Physical Hardware Reality to Working Operations Software</h3>
+          <div class="impact-body">
+            <ul class="impact-list">
+              <li><strong>9-Stage Deterministic Pipeline:</strong> Mapped every physical and commercial milestone—from part reflectivity testing and camera sizing to internal DAP, confirmed costings, and signed PO uploads.</li>
+              <li><strong>11-Role Access Architecture (RBAC):</strong> Architected distinct operational views and stage permissions across Executive (Admin, CEO, CTO), Commercial (Sales, CFO), Engineering (Head of Eng, Technical), and Execution (Projects, Robotics, Procurement).</li>
+              <li><strong>Hands-On Vibe Coding (localhost:3002):</strong> Bridged Figma to working code, rapidly authoring reactive project cards, stage steppers (<code>Stage 2 of 9</code>), bottleneck prompts, and 1-click inter-departmental nudges alongside 1 backend engineer.</li>
+            </ul>
+          </div>
         </div>
 
-        <div>
-          <label>Collaborators</label>
-          <ul class="meta-list">
-            <li><strong>Me (Industrial Interaction Designer &amp; Vibe Coder)</strong> — UX/UI, System Flows, Role Matrix &amp; Frontend Prototyping</li>
-            <li><strong>1 Software Developer</strong> — Backend APIs, Database Support &amp; Production Integration</li>
-            <li><strong>Company CEO</strong> — Operational Scope, Workflow Approvals &amp; Executive Reviews</li>
-          </ul>
+        <div class="impact-connector" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="square" stroke-linejoin="miter">
+            <line x1="4" y1="12" x2="19" y2="12"></line>
+            <polyline points="13 6 19 12 13 18"></polyline>
+          </svg>
         </div>
 
-        <div>
-          <label>Product</label>
-          <strong>Nordic OS</strong>
-          <span style="display: block; font-size: 12px; color: var(--color-ink-muted); margin-top: 4px; line-height: 1.45;">
-            Scope: Industrial Interaction Design · 9-Stage Pipeline · 11-Role RBAC Matrix · Working Web Prototype
-          </span>
-        </div>
-
-        <div>
-          <label>Project Type</label>
-          <strong>Internal Industrial Platform &amp; Operations Tool</strong>
-          <span style="display: block; font-size: 12px; color: var(--color-ink-muted); margin-top: 4px; line-height: 1.45;">
-            Machine Vision, Automation &amp; Hardware Manufacturing · Custom Workflow System
-          </span>
+        <div class="impact-card">
+          <div class="impact-badge badge-result">
+            <span class="impact-badge-dot" aria-hidden="true"></span>
+            <span>02 · Result &amp; Impact</span>
+          </div>
+          <h3 class="impact-heading">100% Optical Sign-Off Before Quotes &amp; Zero Wasted CAD Hours</h3>
+          <div class="impact-body">
+            <ul class="impact-list">
+              <li><strong>Zero Premature Quotations:</strong> Enforced hard stage locks—Step 5 commercial costings remain strictly locked until Step 3 optical POC trial images verify camera resolution and lighting angles.</li>
+              <li><strong>100% Protected Engineering Hours:</strong> Detailed 3D CAD freezes and DFM tooling only unlock after Sales logs the signed customer PO and confirmed 50% advance.</li>
+              <li><strong>Unified Operational Rhythm:</strong> Replaced private spreadsheets and blind WhatsApp chats with a single living cockpit used daily by 11 departmental roles across our organization.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Sticky Project Journey Navigation Bar (Introduced after Role Section) -->
+    <!-- Sticky Project Journey Navigation Bar -->
     <nav class="journey-top-bar" id="top-nav" aria-label="Project Journey Navigation">
       <div class="wrap journey-top-inner">
-        
-        <!-- Left: Back to Home & Project Tag -->
+
+        <!-- Left: Square Back Button & Project Title -->
         <div class="journey-top-brand">
-          <a href="index.html" class="journey-back-btn" title="Return to portfolio homepage">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <a href="index.html" class="journey-back-btn" title="Return to portfolio homepage"
+            aria-label="Back to homepage">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"
+              stroke-linejoin="miter" aria-hidden="true">
               <line x1="19" y1="12" x2="5" y2="12"></line>
-              <polyline points="12 19 5 12 12 5"></polyline>
+              <polyline points="11 6 5 12 11 18"></polyline>
             </svg>
-            <span>Home</span>
           </a>
-          <span class="journey-project-tag">NORDIC OS // 01</span>
+          <span class="journey-project-tag">Nordic OS</span>
         </div>
 
-        <!-- Center: Horizontal Scrollable Chapter Track -->
-        <div class="journey-track-wrapper" aria-label="Project Chapters">
+        <!-- Horizontal Chapter Spine with Live Progress Connectors -->
+        <nav class="journey-track-wrapper" aria-label="Project Chapters">
           <div class="journey-track">
-            <a href="#overview" class="journey-pill active"><span class="pill-num">01</span> Overview</a>
-            <a href="#role" class="journey-pill"><span class="pill-num">02</span> Role &amp; Team</a>
-            <a href="#problem" class="journey-pill"><span class="pill-num">03</span> Problem</a>
-            <a href="#understanding-system" class="journey-pill"><span class="pill-num">04</span> Discovery</a>
-            <a href="#how-it-works" class="journey-pill"><span class="pill-num">05</span> Architecture</a>
-            <a href="#product-architecture" class="journey-pill"><span class="pill-num">06</span> 11 Roles &amp; RBAC</a>
-            <a href="#building-product" class="journey-pill"><span class="pill-num">07</span> Vibe Coding</a>
-            <a href="#outcome" class="journey-pill"><span class="pill-num">08</span> Outcome</a>
+            <a href="#overview" class="journey-pill active" data-step="0">Overview</a>
+            <span class="nav-connector" aria-hidden="true"><span class="nav-connector-fill" data-seg="0"></span></span>
+            <a href="#roles" class="journey-pill" data-step="1">11 Roles &amp; RBAC</a>
+            <span class="nav-connector" aria-hidden="true"><span class="nav-connector-fill" data-seg="1"></span></span>
+            <a href="#friction" class="journey-pill" data-step="2">Friction</a>
+            <span class="nav-connector" aria-hidden="true"><span class="nav-connector-fill" data-seg="2"></span></span>
+            <a href="#pipeline" class="journey-pill" data-step="3">9-Stage Pipeline</a>
+            <span class="nav-connector" aria-hidden="true"><span class="nav-connector-fill" data-seg="3"></span></span>
+            <a href="#workspace" class="journey-pill" data-step="4">Workspace UI</a>
+            <span class="nav-connector" aria-hidden="true"><span class="nav-connector-fill" data-seg="4"></span></span>
+            <a href="#vibe-coding" class="journey-pill" data-step="5">Vibe Coding</a>
+            <span class="nav-connector" aria-hidden="true"><span class="nav-connector-fill" data-seg="5"></span></span>
+            <a href="#outcome" class="journey-pill" data-step="6">Outcome</a>
           </div>
-        </div>
-
-        <!-- Right: Quick Jump / Skip to Outcome -->
-        <div class="journey-top-actions">
-          <a href="#outcome" class="journey-skip-btn">
-            <span class="skip-text-full">Outcome</span>
-            <span class="arrow">↘</span>
-          </a>
-        </div>
+        </nav>
 
       </div>
     </nav>
 
-    <!-- SECTION 01: Operational Overview -->
+    <!-- SECTION 01: Operational Reality & Overview -->
     <section class="section wrap" id="overview">
       <div class="sec-label">
         <span class="sec-num">01</span>
-        <span class="sec-title">Operational Overview</span>
+        <span class="sec-title">Operational Reality</span>
       </div>
       <div class="sec-content">
-        <h2>Eliminating the disconnect between physical machine vision testing, commercial quotes, and shop-floor assembly.</h2>
-        <p>In high-precision machine vision and industrial automation, projects are grounded in physical realities. A customer sends sample parts with irregular reflectivity, curved surfaces, or challenging surface finishes. Before anyone can promise a price or cycle time, an optical engineer has to test camera sensors, lenses, and lighting in the lab.</p>
-        <p>Yet in day-to-day operations, teams were constantly working out of sync. Sales would draft commercial quotations and proforma invoices before optical feasibility was verified. Engineering would spend weeks detailing 3D CAD models before the customer confirmed advance payment terms. And Procurement sat waiting on bills of materials while physical samples sat untracked in the incoming mail bin.</p>
-        <p>Nordic OS was created to replace scattered WhatsApp messages, private Excel cost sheets, and untracked PDFs with an intuitive internal operating system. As an Industrial Interaction Designer who learned modern software development and vibe coding, I designed the platform to bridge hardware physics, commercial handoffs, and team permissions into one clear visual workflow.</p>
+        <div class="ixd-statement">
+          <span class="ixd-statement-eyebrow">Physical Reality Over Abstract Software</span>
+          <div>In precision machine vision, hardware mistakes are brutally expensive. <strong>A quotation should never leave without optical validation, and 3D CAD should never freeze without a confirmed PO.</strong></div>
+        </div>
 
-        <div class="key-callout">
-          <span>The Core Operational Thesis</span>
-          <p>A machine vision quotation should never be sent without optical validation, and physical 3D CAD should never be frozen without a confirmed commercial commitment.</p>
+        <p>In high-precision machine vision and industrial automation, projects are grounded in unforgiving physics. A customer sends physical sample parts with irregular reflectivity, curved surfaces, or challenging surface finishes. Before anyone can promise a price or cycle time, an optical engineer has to test camera sensors, lenses, and lighting angles in the lab.</p>
+        <p>Yet in day-to-day operations, teams were constantly working out of sync. Sales would draft commercial quotations before optical feasibility was verified. Engineering would spend weeks detailing 3D CAD models before the customer confirmed advance payment terms. And Procurement sat waiting on bills of materials while physical samples sat untracked in incoming mail bins.</p>
+        <p>Nordic OS was created to replace scattered WhatsApp messages, private Excel cost sheets, and untracked PDFs with an intuitive internal operating cockpit. As an Industrial Interaction Designer who learned modern software development and vibe coding, I designed the platform to bridge hardware physics, commercial handoffs, and team permissions into one clear visual workflow.</p>
+
+        <!-- 3-Column Swiss Hairline Ledger -->
+        <div class="process-hairline-grid">
+          <div class="process-hairline-item">
+            <span class="idx">01 / Physical Grounding</span>
+            <strong>Optics Dictates Code</strong>
+            <p>Reflective chrome, curved glass, or dark rubber require custom camera, lens, and lighting lab trials before costs or cycle times can be promised.</p>
+          </div>
+          <div class="process-hairline-item">
+            <span class="idx">02 / Operational Blindspot</span>
+            <strong>Fragmented Handoffs</strong>
+            <p>Sales, Engineering, and Procurement operated in silos—relying on private spreadsheets, WhatsApp chats, and untracked sample receipts.</p>
+          </div>
+          <div class="process-hairline-item">
+            <span class="idx">03 / The Mission</span>
+            <strong>Enforced Stage Gates</strong>
+            <p>Build a living internal operating cockpit that enforces physical verification, protects billable engineering time, and gives 11 roles instant clarity.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 02: Role & Execution -->
-    <section class="section wrap" id="role">
+    <!-- SECTION 02: 11-Role Access Architecture & Stakeholders -->
+    <section class="section wrap" id="roles">
       <div class="sec-label">
         <span class="sec-num">02</span>
-        <span class="sec-title">Role &amp; Execution</span>
+        <span class="sec-title">Role-Based Access (RBAC)</span>
       </div>
       <div class="sec-content">
-        <h2>Industrial interaction design meets vibe coding: Designing the workflow and building the tool.</h2>
-        <p>As an Industrial Interaction Designer, I think in terms of physical objects, ergonomics, and the flow of material and information. But I didn't want my work to stop at static Figma screens that get misinterpreted during development. By picking up modern software development and vibe coding, I was able to design the system flows and directly build the interactive web interfaces myself.</p>
-        <p>Working alongside just <strong>one software developer</strong> (who supported backend API connections) and reviewing daily flows directly with our <strong>CEO</strong>, I owned the product experience from physical discovery to running web prototype:</p>
+        <div class="ixd-statement">
+          <span class="ixd-statement-eyebrow">Multi-Role Architecture</span>
+          <div>One organization, eleven distinct operational mental models. <strong>Tailored views prevent cognitive overload, protect sensitive margins, and eliminate unauthorized edits.</strong></div>
+        </div>
 
-        <div class="role-grid-5">
-          <div class="role-card">
-            <div class="role-card-num">01 / Hardware Journey</div>
-            <h4>9-Stage Pipeline Mapping</h4>
-            <p>Traced every handoff from part reflectivity testing and optical sizing to mechanical DAP and 3D CAD freeze.</p>
+        <p>An internal operations system only succeeds if every team member sees exactly what they need to do their job without visual noise or unauthorized edit privileges. On a dedicated affinity board, I clustered the 11 key operational roles—synthesizing their direct friction quotes, target routes, and cross-department handshakes around the central Projects Workspace hub.</p>
+
+        <!-- [ASSET: NORDICOS-SYS-02] Trigger-Action Taxonomy Whiteboard Screenshot Slot -->
+        <div class="system-diagram-slot" id="slot-nordicos-sys-02">
+          <div class="system-diagram-topbar">
+            <span class="system-diagram-tag">11-Role Access Ecosystem Board · Permission Matrix &amp; Handshake Web</span>
+            <span>Slot: NORDICOS-SYS-02 · High-Res Architecture Export</span>
           </div>
-          <div class="role-card">
-            <div class="role-card-num">02 / Role-Based Access</div>
-            <h4>11 Departmental Personas</h4>
-            <p>Architected tailored views and stage permissions for Admin, CEO, CTO, CFO, Sales, Engineering, and Robotics.</p>
+          <div class="system-diagram-body">
+            <img id="nordicos-sys-02" src="assets/projects/nordicos/nordicos-trigger-action-tree.svg"
+              alt="11-role access ecosystem board showing sticky notes, user quotes, and interrelated yarn connections across Executive, Commercial, Engineering, and Execution departments"
+              loading="eager">
           </div>
-          <div class="role-card">
-            <div class="role-card-num">03 / Projects Workspace</div>
-            <h4>High-Density Interface</h4>
-            <p>Designed the central control room with live stage progress (Stage 2 of 9), project values (₹77.0 L), and quick nudges.</p>
-          </div>
-          <div class="role-card">
-            <div class="role-card-num">04 / Vibe Coding</div>
-            <h4>Working Code Prototyping</h4>
-            <p>Brought Figma concepts directly into a working web app (localhost:3002), iterating on live layouts and tactile buttons.</p>
-          </div>
-          <div class="role-card">
-            <div class="role-card-num">05 / Team Alignment</div>
-            <h4>Cross-Functional Buy-In</h4>
-            <p>Validated the tool directly with project engineers, sales leads, and our CEO to ensure every stage solved real friction.</p>
+          <div class="system-diagram-caption">
+            <span><strong>11-Role Access Ecosystem Board:</strong> Synthesizing direct user quotes, route targets (/ceo, /admin, /department/*), and permission guardrails into a single operating cockpit.</span>
+            <span style="font-family: var(--font-mono, monospace); font-size: 11px;">[Slot NORDICOS-SYS-02: 11-role ecosystem]</span>
           </div>
         </div>
 
-        <p style="margin-top: var(--space-5);">This combination of industrial design thinking and rapid vibe coding meant we didn't waste months in abstract spec docs. We could test real buttons, review live sample statuses, and tweak operational rules on the fly.</p>
+        <!-- 4-Tier Role Breakdown Cards -->
+        <div class="scenario-breakdown-grid">
+          <div class="scenario-card">
+            <div class="scenario-card-num">Role Tier 01 · Executive</div>
+            <h4>CEO, CTO &amp; Admin</h4>
+            <p><strong>admin:</strong> Platform config, user &amp; role management, and security logs (/admin).<br><strong>ceo:</strong> Company-wide executive dashboard, strategic KPIs, and oversight (/ceo).<br><strong>cto:</strong> Engineering standards, technology architecture, and technical governance.</p>
+            <div class="param-chips">
+              <span class="param-chip req">/admin</span>
+              <span class="param-chip req">/ceo</span>
+              <span class="param-chip">/department/engineering</span>
+            </div>
+          </div>
+          <div class="scenario-card">
+            <div class="scenario-card-num">Role Tier 02 · Commercial</div>
+            <h4>Sales Team &amp; CFO</h4>
+            <p><strong>cfo:</strong> Financial ops, project margins, pricing approvals, and billing (/department/finance).<br><strong>sales:</strong> Sales pipeline, commercial inquiries, and auto-populated proforma generation (/department/business-development).</p>
+            <div class="param-chips">
+              <span class="param-chip req">/department/finance</span>
+              <span class="param-chip req">/department/business-development</span>
+            </div>
+          </div>
+          <div class="scenario-card">
+            <div class="scenario-card-num">Role Tier 03 · Engineering</div>
+            <h4>Head of Eng &amp; Tech Team</h4>
+            <p><strong>eng_head:</strong> Technical pipeline, project execution oversight, team management, and design sign-offs.<br><strong>technical:</strong> Optical part specs discovery, trial image captures, and POC feasibility reports.</p>
+            <div class="param-chips">
+              <span class="param-chip req">Technical Pipeline</span>
+              <span class="param-chip req">Design Sign-Offs</span>
+              <span class="param-chip">Optics &amp; Specs</span>
+            </div>
+          </div>
+          <div class="scenario-card">
+            <div class="scenario-card-num">Role Tier 04 · Execution</div>
+            <h4>Projects, Robotics &amp; BOM</h4>
+            <p><strong>proj_head:</strong> Common project pipeline, trial sign-offs, and FAT/SAT delivery.<br><strong>robotics_head:</strong> Special Purpose Machinery (SPM) and automation pipelines.<br><strong>procurement:</strong> Component BOM requisitions and supplier PO tracking.</p>
+            <div class="param-chips">
+              <span class="param-chip req">FAT / SAT Delivery</span>
+              <span class="param-chip req">Robotics &amp; SPM</span>
+              <span class="param-chip">BOM Sourcing</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- SECTION 03: Operational Friction -->
-    <section class="section wrap" id="problem">
+    <section class="section wrap" id="friction">
       <div class="sec-label">
         <span class="sec-num">03</span>
         <span class="sec-title">Operational Friction</span>
       </div>
       <div class="sec-content">
-        <h2>Premature pricing, unconfirmed CAD freezes, and fragmented handoffs.</h2>
-        <p>In custom industrial automation, hardware mistakes are expensive. Sizing the wrong camera lens or building a mechanical frame without verified sample parts can cost hundreds of thousands of rupees in rework. Before Nordic OS, three critical bottlenecks created recurring friction:</p>
+        <div class="ixd-statement">
+          <span class="ixd-statement-eyebrow">The Root Problem</span>
+          <div>Premature pricing, unconfirmed CAD freezes, and untracked sample receipts. <strong>Hardware rework costs hundreds of thousands in scrap and delayed shipments.</strong></div>
+        </div>
+
+        <p>In custom industrial automation, hardware mistakes are expensive. Sizing the wrong camera lens or machining a mechanical frame without verified sample parts can cost hundreds of thousands of rupees in rework. Before Nordic OS, three critical bottlenecks created recurring friction:</p>
 
         <div class="triad-grid">
           <div class="triad-card">
-            <div class="module-num">Friction Point 01</div>
+            <div class="card-num">Friction Point 01</div>
             <h3>Quoting Before Optical Validation</h3>
             <p>Sales teams were eager to send commercial quotations, but without a confirmed Proof of Concept (POC) validating camera resolution and lighting angles, quotes routinely missed crucial hardware costs.</p>
           </div>
           <div class="triad-card">
-            <div class="module-num">Friction Point 02</div>
+            <div class="card-num">Friction Point 02</div>
             <h3>Premature 3D CAD Detailing</h3>
             <p>Engineering would invest 40+ hours modeling detailed 3D CAD assemblies and Design for Manufacturing (DFM) layouts before the customer had formally signed the PO or paid the 50% advance.</p>
           </div>
           <div class="triad-card">
-            <div class="module-num">Friction Point 03</div>
-            <h3>Siloed Handoffs &amp; Blindspots</h3>
+            <div class="card-num">Friction Point 03</div>
+            <h3>Siloed Handoffs &amp; Untracked Parts</h3>
             <p>Sales, Engineering, and Procurement communicated through disjointed spreadsheets and emails. When physical samples arrived at the lab, nobody outside the receiving dock knew they were ready for trial.</p>
           </div>
         </div>
 
         <div class="key-callout">
-          <span>The Need for Stage Gates</span>
-          <p>Sales shouldn't issue a proforma invoice until engineering signs off on feasibility, and engineering shouldn't freeze 3D CAD until the customer signs the PO.</p>
+          <span>The Deterministic Stage Rule</span>
+          <p>Sales cannot issue a proforma invoice until engineering signs off on optical feasibility, and engineering cannot freeze 3D CAD until the customer signs the PO and confirms the advance.</p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 04: Platform Architecture & Departmental Workspaces -->
-    <section class="section wrap" id="understanding-system">
+    <!-- SECTION 04: The 9-Stage Machine Vision Pipeline -->
+    <section class="section wrap" id="pipeline">
       <div class="sec-label">
         <span class="sec-num">04</span>
-        <span class="sec-title">Platform Architecture</span>
+        <span class="sec-title">9-Stage Pipeline</span>
       </div>
       <div class="sec-content">
-        <h2>Structuring operations into dedicated departmental workspaces.</h2>
-        <p>Instead of forcing every team member into a bloated, one-size-fits-all ERP, Nordic OS breaks the company's daily operations into focused, role-specific navigation pills visible in the top navigation bar:</p>
+        <div class="ixd-statement">
+          <span class="ixd-statement-eyebrow">Deterministic Milestones</span>
+          <div>Progress isn't an arbitrary progress bar. <strong>It is a chain of deterministic physical milestones and verified departmental handshakes.</strong></div>
+        </div>
 
-        <div class="module-stack-grid">
-          <div class="module-box">
-            <div class="module-num">Workspace 01</div>
-            <h3>Overview &amp; Executive KPIs</h3>
-            <p>Gives company leadership and executive stakeholders high-level bird's-eye metrics across active projects in flight.</p>
+        <p>In Nordic OS, progress advances only when the responsible department completes their verified step. This eliminates the classic hardware dilemma: Engineering can focus on optical sample testing without premature commercial pressure, while Sales gets automatically populated proformas with guaranteed margins the moment technical feasibility is confirmed.</p>
+
+        <!-- [ASSET: NORDICOS-SYS-01] State Machine Whiteboard Screenshot Slot -->
+        <div class="system-diagram-slot" id="slot-nordicos-sys-01">
+          <div class="system-diagram-topbar">
+            <span class="system-diagram-tag">9-Stage Machine Vision Pipeline · Optical Discovery to Post-PO CAD Freeze</span>
+            <span>Slot: NORDICOS-SYS-01 · High-Res Pipeline Architecture</span>
           </div>
-
-          <div class="module-box">
-            <div class="module-num">Workspace 02</div>
-            <h3>Sales &amp; Business Development</h3>
-            <p>Dedicated pipeline tracking customer inquiries, auto-populated proforma commercial invoices, and signed PO uploads.</p>
+          <div class="system-diagram-body">
+            <img id="nordicos-sys-01" src="assets/projects/nordicos/nordicos-state-machine.svg"
+              alt="FigJam design research board showing sticky notes, user quotes, and an interrelated web connecting optical discovery, costings, proforma invoices, and 3D CAD freezes"
+              loading="eager">
           </div>
-
-          <div class="module-box">
-            <div class="module-num">Workspace 03</div>
-            <h3>Projects Workspace (Central Hub)</h3>
-            <p>The daily operational command center—monitoring active project cards (e.g., BD 28 0004 · ₹77.0 L), 9-stage progress, and handover details.</p>
-          </div>
-
-          <div class="module-box">
-            <div class="module-num">Workspace 04</div>
-            <h3>Engineering &amp; Technical Pipeline</h3>
-            <p>Where engineers log part reflectivity, capture optical trial POCs, manage feasibility reports, and execute 3D CAD freezes.</p>
-          </div>
-
-          <div class="module-box">
-            <div class="module-num">Workspace 05</div>
-            <h3>Procurement &amp; BOM</h3>
-            <p>Connects confirmed engineering quotations directly to component purchase orders, tracking vendor lead times and warehouse receipt.</p>
-          </div>
-
-          <div class="module-box">
-            <div class="module-num">Workspace 06</div>
-            <h3>Admin &amp; Security Setup</h3>
-            <p>Separate governance panel for user onboarding, team credential assignments, and role-wise permission configurations.</p>
+          <div class="system-diagram-caption">
+            <span><strong>9-Stage Machine Vision &amp; Engineering Pipeline:</strong> Mapping physical part reflectivity, optical trial POCs, internal DAP, confirmed costings, commercial advance gates, and final 3D CAD freeze.</span>
+            <span style="font-family: var(--font-mono, monospace); font-size: 11px;">[Slot NORDICOS-SYS-01: 9-stage pipeline]</span>
           </div>
         </div>
 
-        <p style="margin-top: var(--space-5);">By tailoring these views to each department, nobody is overwhelmed by unrelated data, but everyone shares the exact same live project status.</p>
-
-        <!-- [ASSET: NORDICOS-IMG-02] Six Operational Layers Grid Visual -->
-        <figure class="fig" id="slot-nordicos-img-02" style="margin-top: var(--space-6);">
-          <img id="nordicos-img-02" data-asset-id="NORDICOS-IMG-02" src="assets/projects/nordicos/nordicos-modules-grid.svg" alt="Six operational workspaces of Nordic OS showing Overview, Sales & BD, Projects, Engineering, Procurement, and Admin" loading="lazy">
-          <figcaption class="fig-cap">
-            <span>The Connected Departmental Workspaces of Nordic OS</span>
-            <span>Dedicated workspaces tailored to Sales, Engineering, Project Management, and Executive Leadership</span>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- SECTION 05: The Operational Flow & Stage Gates -->
-    <section class="section wrap" id="how-it-works">
-      <div class="sec-label">
-        <span class="sec-num">05</span>
-        <span class="sec-title">Operational Flow</span>
-      </div>
-      <div class="sec-content">
-        <h2>Connecting hardware discovery to commercial invoicing and shop-floor CAD freeze.</h2>
-        <p>In Nordic OS, progress isn't just an arbitrary percentage bar. It is governed by physical milestones and formal departmental handshakes. A project advances only when the responsible team completes their verified step:</p>
-
-        <div class="key-callout">
-          <span>The 9-Stage Operational Pipeline</span>
-          <p>Technical Discovery → Hardware Sizing → POC Trial → Internal DAP → Confirmed Costings → Proforma Invoice → Customer Acceptance (50% Advance) → Signed PO Upload → Post-PO CAD Freeze</p>
+        <!-- 4-Phase Stage Gate Ledger -->
+        <div class="scenario-breakdown-grid">
+          <div class="scenario-card">
+            <div class="scenario-card-num">Steps 01–03 · Feasibility Gate</div>
+            <h4>Optical Testing &amp; POC (No Costing)</h4>
+            <p>Technical discovery catalogs part specs and surface reflectivity. Hardware sizing establishes camera resolution and optics. POC captures trial images under motion—with commercial costing strictly locked until optics pass.</p>
+          </div>
+          <div class="scenario-card success">
+            <div class="scenario-card-num">Steps 04–05 · Design &amp; Costing</div>
+            <h4>Internal DAP &amp; Confirmed Costing</h4>
+            <p>Engineering completes the mechanical layout and system architecture. The costing engine compiles the Bill of Materials (BOM), labor hours, profit margin, and commercial terms into a verified quote approved for Sales release.</p>
+          </div>
+          <div class="scenario-card caution">
+            <div class="scenario-card-num">Steps 06–07 · Commercial Handshake</div>
+            <h4>Proforma Invoice &amp; 50% Advance</h4>
+            <p>Sales auto-populates the proforma commercial invoice directly from confirmed costings. The quote is issued to the client under standard 50% advance terms, awaiting customer review and sign-off.</p>
+          </div>
+          <div class="scenario-card danger">
+            <div class="scenario-card-num">Steps 08–09 · Manufacturing Release</div>
+            <h4>Signed PO &amp; Post-PO 3D CAD Freeze</h4>
+            <p>Sales uploads the signed official customer PO (logging PO #, date, and signed PDF). Only then is Post-PO DAP unlocked for detailed 3D CAD freeze, Design for Manufacturing (DFM), and component procurement.</p>
+          </div>
         </div>
-
-        <p>This flow solves the classic hardware dilemma: Engineering can focus on optical sample testing without premature commercial pressure, while Sales gets automatically populated proformas with guaranteed margins the moment technical feasibility is confirmed.</p>
 
         <!-- [ASSET: NORDICOS-IMG-03] Connected Lifecycle Pipeline Visual -->
-        <figure class="fig" id="slot-nordicos-img-03" style="margin-top: var(--space-6);">
-          <img id="nordicos-img-03" data-asset-id="NORDICOS-IMG-03" src="assets/projects/nordicos/nordicos-lifecycle.svg" alt="Connected lifecycle pipeline diagram showing Project Context to DAP to BOM to Procurement to Assembly to Progress" loading="lazy">
+        <figure class="fig" id="slot-nordicos-img-03">
+          <img id="nordicos-img-03" src="assets/projects/nordicos/nordicos-lifecycle.svg"
+            alt="Connected lifecycle pipeline diagram showing Project Context to DAP to BOM to Procurement to Assembly to Progress"
+            loading="eager">
           <figcaption class="fig-cap">
             <span>The Closed-Loop Hardware &amp; Commercial Pipeline</span>
-            <span>Deterministic stage handoffs ensuring optical feasibility and commercial advance before shop-floor procurement</span>
+            <span>Deterministic stage handoffs ensuring optical feasibility and commercial advance before shop-floor procurement.</span>
           </figcaption>
         </figure>
-
-        <!-- 05A: Field Research & Systems Synthesis: The Hardware-to-Sales Web -->
-        <div style="margin-top: var(--space-7); padding-top: var(--space-6); border-top: 1px solid var(--color-border-hairline);">
-          <h3 style="font-size: 20px; font-weight: 700; color: var(--color-ink-primary); margin: 0 0 8px;">05A — Field Research &amp; Systems Synthesis: The Hardware-to-Sales Web</h3>
-          <p style="font-size: 13.5px; color: var(--color-ink-secondary); line-height: 1.6; max-width: 820px; margin: 0 0 var(--space-5);">Rather than jumping into UI wireframes or developer schemas, I built a design research board using sticky notes, field interview quotes, and interrelated dependency webs. This synthesis visualizes why hardware projects were failing: Sales was quoting prices before physical sample parts arrived at the optics lab, and Engineering was wasting weeks detailing 3D CAD models before customers signed advance terms.</p>
-
-          <!-- [ASSET: NORDICOS-SYS-01] State Machine Whiteboard Screenshot Slot -->
-          <div class="system-diagram-slot" id="slot-nordicos-sys-01">
-            <div class="system-diagram-topbar">
-              <span class="system-diagram-tag">FigJam Research Board · Sticky Note Affinity Mapping &amp; Interrelated Web</span>
-              <span>Slot: NORDICOS-SYS-01 · 1200×940px High-Res Synthesis Board</span>
-            </div>
-            <div class="system-diagram-body">
-              <img id="nordicos-sys-01" data-asset-id="NORDICOS-SYS-01" src="assets/projects/nordicos/nordicos-state-machine.svg" alt="FigJam design research board showing sticky notes, user quotes, and an interrelated web connecting optical discovery, costings, proforma invoices, and 3D CAD freezes" loading="lazy">
-            </div>
-            <div class="system-diagram-caption">
-              <span><strong>Design Research Synthesis Board:</strong> Mapping real-world friction quotes, optical lab realities, commercial advance gates, and the 9-stage operational thread.</span>
-              <span style="font-family: var(--font-mono, monospace); font-size: 10px;">[Slot NORDICOS-SYS-01: FigJam sticky note &amp; web board]</span>
-            </div>
-          </div>
-
-          <!-- Scenario Breakdown Grid (Matching the 9 Stages) -->
-          <div class="scenario-breakdown-grid">
-            <div class="scenario-card">
-              <div class="scenario-card-num">Steps 01–03 / Feasibility Gate</div>
-              <h4>Optical Testing &amp; POC (No Costing)</h4>
-              <p>Technical discovery catalogs part specs and surface reflectivity. Hardware sizing establishes camera resolution and optics. POC captures trial images under motion—with commercial costing strictly locked until optics pass.</p>
-            </div>
-            <div class="scenario-card success">
-              <div class="scenario-card-num">Steps 04–05 / Design &amp; Costing</div>
-              <h4>Internal DAP &amp; Confirmed Costing</h4>
-              <p>Engineering completes the mechanical layout and system architecture. The costing engine compiles the Bill of Materials (BOM), labor hours, profit margin, and commercial terms into a verified quote approved for Sales release.</p>
-            </div>
-            <div class="scenario-card caution">
-              <div class="scenario-card-num">Steps 06–07 / Commercial Handshake</div>
-              <h4>Proforma Invoice &amp; 50% Advance</h4>
-              <p>Sales auto-populates the proforma commercial invoice directly from confirmed costings. The quote is issued to the client under standard 50% advance terms, awaiting customer review and sign-off.</p>
-            </div>
-            <div class="scenario-card danger">
-              <div class="scenario-card-num">Steps 08–09 / Manufacturing Release</div>
-              <h4>Signed PO &amp; Post-PO 3D CAD Freeze</h4>
-              <p>Sales uploads the signed official customer PO (logging PO #, date, and signed PDF). Only then is Post-PO DAP unlocked for detailed 3D CAD freeze, Design for Manufacturing (DFM), and component procurement.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- 05B: The 11-Role Departmental Web & Access Affinity Board -->
-        <div style="margin-top: var(--space-7); padding-top: var(--space-6); border-top: 1px solid var(--color-border-hairline);">
-          <h3 style="font-size: 20px; font-weight: 700; color: var(--color-ink-primary); margin: 0 0 8px;">05B — The 11-Role Departmental Web &amp; Access Affinity Board</h3>
-          <p style="font-size: 13.5px; color: var(--color-ink-secondary); line-height: 1.6; max-width: 820px; margin: 0 0 var(--space-5);">An internal operations system only succeeds if every team member sees exactly what they need to do their job without visual noise or unauthorized edit privileges. On a dedicated affinity board, I clustered the 11 key operational roles—synthesizing their direct friction quotes, target routes, and cross-department handshakes around the central Projects Workspace hub.</p>
-
-          <!-- [ASSET: NORDICOS-SYS-02] Trigger-Action Taxonomy Whiteboard Screenshot Slot -->
-          <div class="system-diagram-slot" id="slot-nordicos-sys-02">
-            <div class="system-diagram-topbar">
-              <span class="system-diagram-tag">FigJam Ecosystem Board · 11-Role Sticky Notes &amp; Permission Web</span>
-              <span>Slot: NORDICOS-SYS-02 · 1200×940px High-Res Matrix Export</span>
-            </div>
-            <div class="system-diagram-body">
-              <img id="nordicos-sys-02" data-asset-id="NORDICOS-SYS-02" src="assets/projects/nordicos/nordicos-trigger-action-tree.svg" alt="11-role access ecosystem board showing sticky notes, user quotes, and interrelated yarn connections across Executive, Commercial, Engineering, and Execution departments" loading="lazy">
-            </div>
-            <div class="system-diagram-caption">
-              <span><strong>11-Role Access Ecosystem Board:</strong> Synthesizing direct user quotes, route targets (/ceo, /admin, /department/*), and permission guardrails into a single operating cockpit.</span>
-              <span style="font-family: var(--font-mono, monospace); font-size: 10px;">[Slot NORDICOS-SYS-02: 11-role sticky note affinity board]</span>
-            </div>
-          </div>
-
-          <!-- Parameter Schemas & Role Breakdown -->
-          <div class="scenario-breakdown-grid">
-            <div class="scenario-card">
-              <div class="scenario-card-num">Role Tier 01 / Executive</div>
-              <h4>CEO, CTO &amp; Admin</h4>
-              <p><strong>admin:</strong> Platform config, user &amp; role management, and security logs (/admin).<br><strong>ceo:</strong> Company-wide executive dashboard, strategic KPIs, and oversight (/ceo).<br><strong>cto:</strong> Engineering standards, technology architecture, and technical governance.</p>
-              <div class="param-chips">
-                <span class="param-chip req">/admin</span>
-                <span class="param-chip req">/ceo</span>
-                <span class="param-chip">/department/engineering</span>
-              </div>
-            </div>
-            <div class="scenario-card">
-              <div class="scenario-card-num">Role Tier 02 / Commercial</div>
-              <h4>Sales Team &amp; CFO</h4>
-              <p><strong>cfo:</strong> Financial ops, project margins, pricing approvals, and billing (/department/finance).<br><strong>sales:</strong> Sales pipeline, commercial inquiries, and auto-populated proforma generation (/department/business-development).</p>
-              <div class="param-chips">
-                <span class="param-chip req">/department/finance</span>
-                <span class="param-chip req">/department/business-development</span>
-              </div>
-            </div>
-            <div class="scenario-card">
-              <div class="scenario-card-num">Role Tier 03 / Engineering</div>
-              <h4>Head of Engineering &amp; Tech Team</h4>
-              <p><strong>eng_head:</strong> Technical pipeline, project execution oversight, team management, and design sign-offs.<br><strong>technical:</strong> Optical part specs discovery, trial image captures, and POC feasibility reports.</p>
-              <div class="param-chips">
-                <span class="param-chip req">Technical Pipeline</span>
-                <span class="param-chip req">Design Sign-Offs</span>
-                <span class="param-chip">Optics &amp; Specs</span>
-              </div>
-            </div>
-            <div class="scenario-card">
-              <div class="scenario-card-num">Role Tier 04 / Execution</div>
-              <h4>Projects, Robotics &amp; Procurement</h4>
-              <p><strong>proj_head:</strong> Common project pipeline, trial sign-offs, and FAT/SAT delivery.<br><strong>robotics_head:</strong> Special Purpose Machinery (SPM) and automation pipelines.<br><strong>procurement:</strong> Component BOM requisitions and supplier PO tracking.</p>
-              <div class="param-chips">
-                <span class="param-chip req">FAT / SAT Delivery</span>
-                <span class="param-chip req">Robotics &amp; SPM</span>
-                <span class="param-chip">BOM Sourcing</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- SECTION 06: Designing the Projects Workspace UI -->
-    <section class="section wrap" id="design-challenge">
+    <!-- SECTION 05: The Projects Workspace Interface -->
+    <section class="section wrap" id="workspace">
       <div class="sec-label">
-        <span class="sec-num">06</span>
+        <span class="sec-num">05</span>
         <span class="sec-title">Workspace UI</span>
       </div>
       <div class="sec-content">
-        <h2>Designing the Projects Workspace: High-density clarity for active hardware in flight.</h2>
-        <p>The core daily touchpoint of Nordic OS is the <strong>Projects Workspace</strong> (hosted locally at <code>localhost:3002/daily-activity</code>). Rather than hiding information behind nested navigation, the interface surfaces active projects as rich operational cards:</p>
+        <div class="ixd-statement">
+          <span class="ixd-statement-eyebrow">Projects Workspace</span>
+          <div>High-density scannability for active hardware in flight. <strong>Zero nested navigation menus, glanceable project cards, and 1-click inter-departmental nudges.</strong></div>
+        </div>
+
+        <p>The daily operational touchpoint of Nordic OS is the <strong>Projects Workspace</strong> (hosted locally at <code>localhost:3002/daily-activity</code>). Rather than hiding vital project metrics behind nested tables, the interface surfaces active projects as rich operational cards:</p>
 
         <div class="triad-grid">
           <div class="triad-card">
-            <div class="module-num">UI Feature 01</div>
+            <div class="card-num">UI Feature 01</div>
             <h3>Project Status Cards</h3>
             <p>Cards like <code>BD 28 0004 · Rung 2 · tt</code> (Valued at ₹77.0 L) display stage ownership, account leads, and an expandable 9-segment progress bar showing <code>POC (Client) · Stage 2 of 9</code>.</p>
           </div>
           <div class="triad-card">
-            <div class="module-num">UI Feature 02</div>
-            <h3>Contextual Action Prompts</h3>
+            <div class="card-num">UI Feature 02</div>
+            <h3>Contextual Bottleneck Prompts</h3>
             <p>When a step is blocked, Nordic OS clearly displays the bottleneck: <code>Step 5 · Customer Feasibility Trial Report · Awaiting Engineering POC captures · Action With: Engineering</code> with tactile action buttons.</p>
           </div>
           <div class="triad-card">
-            <div class="module-num">UI Feature 03</div>
-            <h3>Direct Inter-Departmental Nudges</h3>
+            <div class="card-num">UI Feature 03</div>
+            <h3>1-Click Operational Nudges</h3>
             <p>Instead of sending detached emails, sales leads can click <code>Nudge Engineering Lead</code> or <code>Prepare Drawing &amp; Specs Early →</code> to unblock tasks directly within the workspace.</p>
           </div>
         </div>
+
+        <!-- [ASSET: NORDICOS-IMG-02] Six Operational Layers Grid Visual -->
+        <figure class="fig" id="slot-nordicos-img-02">
+          <img id="nordicos-img-02" src="assets/projects/nordicos/nordicos-modules-grid.svg"
+            alt="Six operational workspaces of Nordic OS showing Overview, Sales & BD, Projects, Engineering, Procurement, and Admin"
+            loading="eager">
+          <figcaption class="fig-cap">
+            <span>Six Tailored Departmental Workspaces</span>
+            <span>Tailored views for Overview, Sales &amp; BD, Projects, Engineering, Procurement, and Admin—sharing the same live project database without visual clutter.</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- SECTION 07: The Industrial Design System -->
-    <section class="section wrap" id="product-architecture">
+    <!-- SECTION 06: Hands-On Vibe Coding & Web Prototyping -->
+    <section class="section wrap" id="vibe-coding">
       <div class="sec-label">
-        <span class="sec-num">07</span>
-        <span class="sec-title">Industrial Design System</span>
+        <span class="sec-num">06</span>
+        <span class="sec-title">Vibe Coding &amp; Code</span>
       </div>
       <div class="sec-content">
-        <h2>Zero-radius geometry, high-density typography, and standardized operational tokens.</h2>
-        <p>I built the Nordic OS design system specifically for technical industrial operations. Unlike consumer web apps that rely on rounded corners and generous whitespace, manufacturing tools require precision, dense scannability, and screen efficiency.</p>
-        <p>The design system enforces a strict <strong>0px border-radius</strong> philosophy: panels, cards, data table cells, and status indicators fit together like milled machine blocks. This maximizes tabular data density on desktop displays while giving tablet HMIs clean, unmistakable touch zones.</p>
-
-        <div class="key-callout">
-          <span>The Industrial Aesthetic Principle</span>
-          <p>Industrial software should feel like precision equipment: dense, legible, zero visual noise, and engineered for high-throughput daily use.</p>
+        <div class="ixd-statement">
+          <span class="ixd-statement-eyebrow">Direct Implementation</span>
+          <div>Design didn't stop in Figma. <strong>Writing frontend code brought the workspace to life at localhost:3002—validating real interactions in hours instead of weeks.</strong></div>
         </div>
-      </div>
-    </section>
 
-    <!-- SECTION 08: Vibe Coding & Tool Prototyping -->
-    <section class="section wrap" id="building-product">
-      <div class="sec-label">
-        <span class="sec-num">08</span>
-        <span class="sec-title">Vibe Coding &amp; Prototyping</span>
-      </div>
-      <div class="sec-content">
-        <h2>From Figma whiteboard to running code: Prototyping at localhost:3002.</h2>
         <p>Rather than stopping at static design mockups, I embraced vibe coding to rapidly bring the Projects Workspace into a live, interactive web application. By writing the frontend code directly, I could test real state handoffs and refine user interactions in real time:</p>
-        <p><strong>Interactive Frontend Components:</strong> Built reactive project cards, stage steppers (Stage 2 of 9), and pipeline tab switchers (Technical Pipeline, Project Pipeline Execution, Procurement &amp; BOM, Sales Pipeline) that respond instantly to user clicks.</p>
-        <p><strong>Close Collaboration with 1 Developer:</strong> I worked closely with our single backend engineer, who wired up the API endpoints and authentication handlers while I focused on the interface logic, component states, and workflow design.</p>
-        <p><strong>Iterative Reviews with the CEO:</strong> Rather than presenting theoretical slides, we reviewed live builds running at <code>localhost:3002</code> directly with our CEO, refining permission gates and commercial advance thresholds based on actual operational needs.</p>
-
-        <!-- [ASSET: NORDICOS-IMG-04] Full-Stack Architecture & Implementation Visual -->
-        <figure class="fig" id="slot-nordicos-img-04" style="margin-top: var(--space-6);">
-          <img id="nordicos-img-04" data-asset-id="NORDICOS-IMG-04" src="assets/projects/nordicos/nordicos-architecture-code.svg" alt="Projects workspace design and frontend implementation showing component architecture, live state, and responsive desktop layout" loading="lazy">
-          <figcaption class="fig-cap">
-            <span>From Figma Prototype to Working Web Application</span>
-            <span>Iterative UI prototyping at localhost:3002 · Bridging design tokens, interactive components, and real operational data</span>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- SECTION 09: Operational Impact & Production Deployment -->
-    <section class="section wrap" id="outcome">
-      <div class="sec-label">
-        <span class="sec-num">09</span>
-        <span class="sec-title">Operational Impact</span>
-      </div>
-      <div class="sec-content">
-        <h2>A working internal platform: Real clarity between sales inquiries and CAD freezes.</h2>
-        <p>Nordic OS successfully transformed how our team collaborates across hardware automation projects. By replacing disjointed tools with an internally deployed, working workspace, the platform delivered measurable improvements:</p>
-        <p><strong>No More Premature Quotations:</strong> By locking Step 5 commercial costings until Step 3 POC trial images are verified, sales quotes are always grounded in verified optical and mechanical reality.</p>
-        <p><strong>Zero Unconfirmed 3D CAD Detailing:</strong> Engineering only spends billable hours on detailed 3D CAD freezes and DFM once Sales has uploaded the signed customer PO and confirmed 50% advance terms.</p>
-        <p><strong>11 Roles Working in Harmony:</strong> From the CEO monitoring high-level pipeline health to Procurement ordering verified BOM components, every department has their dedicated view without losing sight of overall project progress.</p>
-
-        <!-- [ASSET: NORDICOS-IMG-05] Outcome Working System Composite Visual -->
-        <figure class="fig" id="slot-nordicos-img-05" style="margin-top: var(--space-6);">
-          <img id="nordicos-img-05" data-asset-id="NORDICOS-IMG-05" src="assets/projects/nordicos/nordicos-composite-final.svg" alt="Working system composite showing desktop project hub alongside rugged shop floor assembly tablet" loading="lazy">
-          <figcaption class="fig-cap">
-            <span>Production Operating System in Active Operation</span>
-            <span>Projects Workspace control room paired with role-based pipeline routing across Engineering, Sales, and Operations</span>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- SECTION 10: Systems Principles -->
-    <section class="section wrap" id="what-i-learned">
-      <div class="sec-label">
-        <span class="sec-num">10</span>
-        <span class="sec-title">Systems Principles</span>
-      </div>
-      <div class="sec-content">
-        <h2>What building industrial tools teaches an interaction designer.</h2>
-        <p>Combining industrial interaction design with hands-on vibe coding reinforced three fundamental lessons for building enterprise tools:</p>
 
         <div class="triad-grid">
           <div class="triad-card">
-            <div class="module-num">Principle 01</div>
+            <div class="card-num">Vibe Coding 01</div>
+            <h3>Reactive Frontend Logic</h3>
+            <p>Built reactive project cards, stage steppers (<code>Stage 2 of 9</code>), and pipeline tab switchers (Technical Pipeline, Project Pipeline Execution, Procurement &amp; BOM, Sales Pipeline) that respond instantly to user clicks.</p>
+          </div>
+          <div class="triad-card">
+            <div class="card-num">Vibe Coding 02</div>
+            <h3>Pairing with 1 Developer</h3>
+            <p>I worked closely with our single backend engineer, who wired up the API endpoints and authentication handlers while I focused on the interface logic, component states, and workflow design.</p>
+          </div>
+          <div class="triad-card">
+            <div class="card-num">Vibe Coding 03</div>
+            <h3>Live CEO Walkthroughs</h3>
+            <p>Rather than presenting theoretical slides, we reviewed live builds running at <code>localhost:3002</code> directly with our CEO, refining permission gates and commercial advance thresholds based on actual operational needs.</p>
+          </div>
+        </div>
+
+        <!-- [ASSET: NORDICOS-IMG-04] Full-Stack Architecture & Implementation Visual -->
+        <figure class="fig" id="slot-nordicos-img-04">
+          <img id="nordicos-img-04" src="assets/projects/nordicos/nordicos-architecture-code.svg"
+            alt="Projects workspace design and frontend implementation showing component architecture, live state, and responsive desktop layout"
+            loading="eager">
+          <figcaption class="fig-cap">
+            <span>From Figma Prototype to Working Web Application</span>
+            <span>Iterative UI prototyping at localhost:3002 · Bridging design tokens, interactive components, and real operational data.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 07: Measurable Outcome & Systems Principles -->
+    <section class="section wrap" id="outcome">
+      <div class="sec-label">
+        <span class="sec-num">07</span>
+        <span class="sec-title">Outcome &amp; Principles</span>
+      </div>
+      <div class="sec-content">
+        <div class="ixd-statement">
+          <span class="ixd-statement-eyebrow">Enterprise Impact</span>
+          <div>A deployed operating system. <strong>Nordic OS permanently eliminated blind commercial quotations and protected engineering billable hours.</strong></div>
+        </div>
+
+        <p>Nordic OS successfully transformed how our team collaborates across hardware automation projects. By replacing disjointed tools with an internally deployed, working workspace, the platform delivered measurable improvements:</p>
+
+        <!-- [ASSET: NORDICOS-IMG-05] Outcome Working System Composite Visual -->
+        <figure class="fig" id="slot-nordicos-img-05">
+          <img id="nordicos-img-05" src="assets/projects/nordicos/nordicos-composite-final.svg"
+            alt="Working system composite showing desktop project hub alongside rugged shop floor assembly tablet"
+            loading="eager">
+          <figcaption class="fig-cap">
+            <span>Production Operating System in Active Operation</span>
+            <span>Projects Workspace control room paired with role-based pipeline routing across Engineering, Sales, and Operations.</span>
+          </figcaption>
+        </figure>
+
+        <!-- 3-Column Swiss Hairline Ledger for Impact -->
+        <div class="process-hairline-grid">
+          <div class="process-hairline-item">
+            <span class="idx">Impact 01</span>
+            <strong>Zero Blind Quotations</strong>
+            <p>100% of commercial quotations are backed by verified camera, lens, and lighting POC trials. Zero missed hardware costs.</p>
+          </div>
+          <div class="process-hairline-item">
+            <span class="idx">Impact 02</span>
+            <strong>100% Protected CAD Hours</strong>
+            <p>Engineering only invests billable 3D CAD detailing once Sales has logged the signed customer PO and confirmed 50% advance.</p>
+          </div>
+          <div class="process-hairline-item">
+            <span class="idx">Impact 03</span>
+            <strong>Sub-Minute Status Clarity</strong>
+            <p>Any team member, engineer, or executive can locate project state, bottleneck ownership, and next handoff in seconds.</p>
+          </div>
+        </div>
+
+        <h3 style="font-size: 20px; font-weight: 600; color: #0a0a0a; margin: 48px 0 16px;">What Building Industrial Tools Teaches an Interaction Designer</h3>
+        <div class="triad-grid">
+          <div class="triad-card">
+            <div class="card-num">Principle 01</div>
             <h3>Physical Reality Dictates UI</h3>
             <p>Software for hardware operations cannot be designed in an abstract vacuum. Surface reflectivity, camera focal lengths, and physical sample deliveries dictate the exact sequence of digital screens.</p>
           </div>
           <div class="triad-card">
-            <div class="module-num">Principle 02</div>
+            <div class="card-num">Principle 02</div>
             <h3>Role Clarity Over Feature Bloat</h3>
             <p>More features don't make better enterprise software. Tailoring clean, focused views for 11 distinct personas ensures everyone moves fast without drowning in another department's data.</p>
           </div>
           <div class="triad-card">
-            <div class="module-num">Principle 03</div>
+            <div class="card-num">Principle 03</div>
             <h3>Vibe Coding is a Design Superpower</h3>
-            <p>Being able to turn Figma layouts into running code (`localhost:3002`) eliminates misinterpretation. It allows designers to test real interactions, refine button feedback, and align with leadership in hours instead of weeks.</p>
+            <p>Being able to turn Figma layouts into running code (<code>localhost:3002</code>) eliminates misinterpretation. It allows designers to test real interactions, refine button feedback, and align with leadership in hours instead of weeks.</p>
           </div>
         </div>
 
         <!-- Project Credits Box -->
-        <div class="credits-box">
-          <h3>Nordic OS — Internal Operations &amp; Projects Workspace</h3>
-          <p>Industrial Interaction Design · Hardware Stage Gates · 11-Role RBAC · Vibe Coding &amp; Working Web Prototype</p>
+        <div class="credits-box" style="margin-top: 48px; padding: 24px; border: 1px solid #e2e8f0; background: #ffffff;">
+          <h3 style="margin: 0 0 6px; font-size: 16px; font-weight: 600; color: #0a0a0a;">Nordic OS — Machine Vision &amp; Hardware Operations Workspace</h3>
+          <p style="margin: 0; font-size: 13px; color: #64748b;">Industrial Interaction Design · Hardware Stage Gates · 11-Role RBAC · Prototyping &amp; Working Web Prototype</p>
         </div>
       </div>
     </section>
 
     <!-- Bottom Selected Work / Explore Other Projects Navigation -->
-    <section class="section wrap" id="selected-work" style="border-top: 1px solid var(--color-border-subtle); padding-top: var(--space-7); margin-top: var(--space-7);">
+    <section class="section wrap" id="selected-work"
+      style="border-top: 1px solid #e6e9ef; padding-top: 56px; margin-top: 56px;">
       <div class="sec-label">
         <span class="sec-num">Explore</span>
         <span class="sec-title">More Projects</span>
       </div>
       <div class="sec-content">
-        <h2>Explore other case studies</h2>
-        <div class="more-projects-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); margin-top: var(--space-5);">
-          
-          <!-- Project 1: AERA -->
-          <a href="aera.html" class="more-project-card" style="text-decoration: none; color: inherit; display: block; border: 1px solid var(--color-border-hairline); background: var(--color-canvas-wash); padding: var(--space-5);">
-            <div style="font-size: 11px; font-weight: 700; color: var(--color-accent-primary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">Case Study 01</div>
-            <h3 style="font-size: 16px; margin: 0 0 6px; color: var(--color-ink-primary);">AERA</h3>
-            <p style="font-size: 12px; color: var(--color-ink-secondary); margin: 0 0 14px; line-height: 1.55;">
-              Improving clean air distribution in commercial workspaces through modular architectural air-purification.
+        <h2 style="font-size: 22px; font-weight: 600; color: #0a0a0a; margin: 0 0 24px 0;">Explore other case studies</h2>
+        <div class="more-projects-grid"
+          style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+
+          <!-- Project 1: Nordic ONE -->
+          <a href="nordic.html" class="more-project-card"
+            style="text-decoration: none; color: inherit; display: block; border: 1px solid #e2e8f0; background: #ffffff; padding: 20px;">
+            <div style="font-size: 11px; font-weight: 600; color: #64748b; margin-bottom: 6px;">Case Study 03</div>
+            <h3 style="font-size: 16px; margin: 0 0 6px; color: #0a0a0a;">Nordic ONE</h3>
+            <p style="font-size: 12.5px; color: #525866; margin: 0 0 14px; line-height: 1.55;">
+              Industrial software platform unifying Vision (Flagship), MES, ERP &amp; EQMS.
             </p>
-            <span style="font-size: 12px; font-weight: 600; color: var(--color-ink-primary);">View case study →</span>
+            <span style="font-size: 12px; font-weight: 600; color: #0a0a0a;">View case study →</span>
           </a>
 
-          <!-- Project 2: GLIDE -->
-          <a href="glide.html" class="more-project-card" style="text-decoration: none; color: inherit; display: block; border: 1px solid var(--color-border-hairline); background: var(--color-canvas-wash); padding: var(--space-5);">
-            <div style="font-size: 11px; font-weight: 700; color: var(--color-accent-primary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">Case Study 02</div>
-            <h3 style="font-size: 16px; margin: 0 0 6px; color: var(--color-ink-primary);">GLIDE</h3>
-            <p style="font-size: 12px; color: var(--color-ink-secondary); margin: 0 0 14px; line-height: 1.55;">
-              Taking local businesses beyond the storefront with a transformable electric vehicle and pop-up retail system.
+          <!-- Project 2: Nordic Visitor (VMS) -->
+          <a href="vms.html" class="more-project-card"
+            style="text-decoration: none; color: inherit; display: block; border: 1px solid #e2e8f0; background: #ffffff; padding: 20px;">
+            <div style="font-size: 11px; font-weight: 600; color: #64748b; margin-bottom: 6px;">Case Study 05</div>
+            <h3 style="font-size: 16px; margin: 0 0 6px; color: #0a0a0a;">Nordic Visitor</h3>
+            <p style="font-size: 12.5px; color: #525866; margin: 0 0 14px; line-height: 1.55;">
+              Multi-role software unifying employee host invites, visitor mobile pre-check-in, and security guard gate clearance.
             </p>
-            <span style="font-size: 12px; font-weight: 600; color: var(--color-ink-primary);">View case study →</span>
+            <span style="font-size: 12px; font-weight: 600; color: #0a0a0a;">View case study →</span>
           </a>
 
-          <!-- Project 3: Nordic ONE -->
-          <a href="nordic.html" class="more-project-card" style="text-decoration: none; color: inherit; display: block; border: 1px solid var(--color-border-hairline); background: var(--color-canvas-wash); padding: var(--space-5);">
-            <div style="font-size: 11px; font-weight: 700; color: var(--color-accent-primary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">Case Study 03</div>
-            <h3 style="font-size: 16px; margin: 0 0 6px; color: var(--color-ink-primary);">Nordic ONE</h3>
-            <p style="font-size: 12px; color: var(--color-ink-secondary); margin: 0 0 14px; line-height: 1.55;">
-              Connected industrial software platform unifying Vision, ERP, MES, EQMS &amp; Visitor Management.
+          <!-- Project 3: AERA -->
+          <a href="aera.html" class="more-project-card"
+            style="text-decoration: none; color: inherit; display: block; border: 1px solid #e2e8f0; background: #ffffff; padding: 20px;">
+            <div style="font-size: 11px; font-weight: 600; color: #64748b; margin-bottom: 6px;">Case Study 01</div>
+            <h3 style="font-size: 16px; margin: 0 0 6px; color: #0a0a0a;">AERA</h3>
+            <p style="font-size: 12.5px; color: #525866; margin: 0 0 14px; line-height: 1.55;">
+              Modular architectural air purification system for modern commercial environments.
             </p>
-            <span style="font-size: 12px; font-weight: 600; color: var(--color-ink-primary);">View case study →</span>
+            <span style="font-size: 12px; font-weight: 600; color: #0a0a0a;">View case study →</span>
           </a>
 
-          <!-- Project 4: Extra Work -->
-          <a href="extra-work.html" class="more-project-card" style="text-decoration: none; color: inherit; display: block; border: 1px solid var(--color-border-hairline); background: var(--color-canvas-wash); padding: var(--space-5);">
-            <div style="font-size: 11px; font-weight: 700; color: var(--color-accent-primary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">Case Study 05</div>
-            <h3 style="font-size: 16px; margin: 0 0 6px; color: var(--color-ink-primary);">Extra Work</h3>
-            <p style="font-size: 12px; color: var(--color-ink-secondary); margin: 0 0 14px; line-height: 1.55;">
-              Physical hardware consoles, vibe-coded canvas utilities, and foam ergonomics studies.
+          <!-- Project 4: GLIDE -->
+          <a href="glide.html" class="more-project-card"
+            style="text-decoration: none; color: inherit; display: block; border: 1px solid #e2e8f0; background: #ffffff; padding: 20px;">
+            <div style="font-size: 11px; font-weight: 600; color: #64748b; margin-bottom: 6px;">Case Study 02</div>
+            <h3 style="font-size: 16px; margin: 0 0 6px; color: #0a0a0a;">GLIDE</h3>
+            <p style="font-size: 12.5px; color: #525866; margin: 0 0 14px; line-height: 1.55;">
+              Transformable electric micro-mobility vehicle and pop-up retail system.
             </p>
-            <span style="font-size: 12px; font-weight: 600; color: var(--color-ink-primary);">View explorations →</span>
+            <span style="font-size: 12px; font-weight: 600; color: #0a0a0a;">View case study →</span>
           </a>
 
         </div>
@@ -902,11 +1300,12 @@
         });
       }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-      document.querySelectorAll('.section, .hero-body, .fig, .key-callout, .module-box, .triad-card, .role-card').forEach(function (el) {
+      document.querySelectorAll('.section, .hero-body, .fig, .key-callout, .triad-card, .scenario-card').forEach(function (el) {
         el.classList.add('reveal-on-scroll');
         observer.observe(el);
       });
     })();
   </script>
 </body>
+
 </html>

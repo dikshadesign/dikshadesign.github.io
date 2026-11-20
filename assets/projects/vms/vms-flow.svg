@@ -1,0 +1,212 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <style>
+      .flow-bg { fill: #0b1120; }
+      .flow-card { fill: #131d33; stroke: #24324f; stroke-width: 1.2; rx: 6; }
+      .flow-card-inner { fill: #0a0f1d; stroke: #1e293b; stroke-width: 1; rx: 4; }
+      .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+      .step-num { font-family: "Inter", sans-serif; font-size: 11px; font-weight: 700; }
+      .step-title { font-family: "Inter", sans-serif; font-size: 14px; font-weight: 700; fill: #f8fafc; }
+      .step-role { font-family: "Inter", sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+      .step-desc { font-family: "Inter", sans-serif; font-size: 11.5px; fill: #94a3b8; line-height: 1.5; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="420" class="flow-bg"/>
+
+  <!-- Top Title Strip -->
+  <g transform="translate(40, 32)">
+    <text x="0" y="16" class="font-sans" font-size="16px" font-weight="700" fill="#f8fafc">End-to-End Multi-Role Access Clearance Flow</text>
+    <text x="0" y="36" class="font-sans" font-size="12px" fill="#64748b">How invitations travel from Company Hosts → Visitor Pre-Registration → Security Guard Final Clearance → Facility Sync</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- STEP 01: HOST INVITATION                                       -->
+  <!-- ============================================================== -->
+  <g transform="translate(40, 95)">
+    <rect width="255" height="280" class="flow-card"/>
+
+    <!-- Role Badge -->
+    <g transform="translate(18, 18)">
+      <rect x="0" y="0" width="100" height="18" rx="3" fill="rgba(168, 85, 247, 0.15)" stroke="#a855f7"/>
+      <text x="50" y="12" text-anchor="middle" class="font-sans step-role" fill="#c084fc">ROLE 01 · HOST</text>
+    </g>
+
+    <!-- Step Title -->
+    <text x="18" y="60" class="step-title">01 / Create Invitation</text>
+    <text x="18" y="78" class="font-sans" font-size="11px" fill="#64748b">Company Employee Portal</text>
+
+    <!-- Mini Wireframe -->
+    <g transform="translate(18, 92)">
+      <rect width="219" height="110" class="flow-card-inner"/>
+      <text x="12" y="20" class="font-sans" font-size="10px" font-weight="600" fill="#f1f5f9">Invite Guest Form</text>
+      <rect x="12" y="28" width="195" height="18" rx="2" fill="#131c31" stroke="#334155"/>
+      <text x="18" y="40" class="font-sans" font-size="9px" fill="#94a3b8">Marcus Vance (Apex Tooling)</text>
+
+      <rect x="12" y="52" width="92" height="18" rx="2" fill="#131c31" stroke="#334155"/>
+      <text x="18" y="64" class="font-sans" font-size="9px" fill="#a855f7">Zone: CNC Bay</text>
+
+      <rect x="110" y="52" width="97" height="18" rx="2" fill="#131c31" stroke="#334155"/>
+      <text x="116" y="64" class="font-sans" font-size="9px" fill="#34d399">✓ Require NDA</text>
+
+      <rect x="12" y="78" width="195" height="20" rx="3" fill="#8b5cf6"/>
+      <text x="109" y="92" text-anchor="middle" class="font-sans" font-size="9.5px" font-weight="600" fill="#ffffff">Send Invitation Link ↗</text>
+    </g>
+
+    <!-- Description -->
+    <text x="18" y="224" class="font-sans" font-size="11px" fill="#cbd5e1" font-weight="600">Employee initiates visit:</text>
+    <text x="18" y="242" class="step-desc">Sets visitor details, arrival date,</text>
+    <text x="18" y="258" class="step-desc">cleanroom zone, and NDA rule.</text>
+  </g>
+
+  <!-- Flow Arrow 1 -> 2 -->
+  <g transform="translate(305, 230)">
+    <line x1="0" y1="0" x2="20" y2="0" stroke="#8b5cf6" stroke-width="2"/>
+    <polygon points="24,0 18,-4 18,4" fill="#8b5cf6"/>
+    <text x="12" y="-8" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#c084fc">SMS</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- STEP 02: VISITOR PRE-REGISTRATION                              -->
+  <!-- ============================================================== -->
+  <g transform="translate(335, 95)">
+    <rect width="255" height="280" class="flow-card"/>
+
+    <!-- Role Badge -->
+    <g transform="translate(18, 18)">
+      <rect x="0" y="0" width="110" height="18" rx="3" fill="rgba(59, 130, 246, 0.15)" stroke="#3b82f6"/>
+      <text x="55" y="12" text-anchor="middle" class="font-sans step-role" fill="#60a5fa">ROLE 02 · VISITOR</text>
+    </g>
+
+    <!-- Step Title -->
+    <text x="18" y="60" class="step-title">02 / Pre-Check-in</text>
+    <text x="18" y="78" class="font-sans" font-size="11px" fill="#64748b">Frictionless Mobile Web</text>
+
+    <!-- Mini Wireframe -->
+    <g transform="translate(18, 92)">
+      <rect width="219" height="110" class="flow-card-inner"/>
+      <text x="12" y="18" class="font-sans" font-size="10px" font-weight="600" fill="#f1f5f9">Pre-Arrival Confirmation</text>
+
+      <!-- Checklist -->
+      <g transform="translate(12, 26)">
+        <circle cx="6" cy="6" r="5" fill="#10b981"/>
+        <path d="M 4 6 L 5.5 7.5 L 8 4.5" stroke="#ffffff" stroke-width="1" fill="none"/>
+        <text x="16" y="9" class="font-sans" font-size="9px" fill="#cbd5e1">Vehicle Plate: HH-TX 489</text>
+
+        <circle cx="6" cy="22" r="5" fill="#10b981"/>
+        <path d="M 4 22 L 5.5 23.5 L 8 20.5" stroke="#ffffff" stroke-width="1" fill="none"/>
+        <text x="16" y="25" class="font-sans" font-size="9px" fill="#cbd5e1">Mutual NDA Signed</text>
+
+        <circle cx="6" cy="38" r="5" fill="#10b981"/>
+        <path d="M 4 38 L 5.5 39.5 L 8 36.5" stroke="#ffffff" stroke-width="1" fill="none"/>
+        <text x="16" y="41" class="font-sans" font-size="9px" fill="#cbd5e1">PPE Safety Rules Accepted</text>
+      </g>
+
+      <rect x="12" y="78" width="195" height="20" rx="3" fill="#0284c7"/>
+      <text x="109" y="92" text-anchor="middle" class="font-sans" font-size="9.5px" font-weight="600" fill="#ffffff">Digital QR Pass Issued ✓</text>
+    </g>
+
+    <!-- Description -->
+    <text x="18" y="224" class="font-sans" font-size="11px" fill="#cbd5e1" font-weight="600">Visitor pre-confirms:</text>
+    <text x="18" y="242" class="step-desc">Completes required details &amp; legal</text>
+    <text x="18" y="258" class="step-desc">terms before setting foot on site.</text>
+  </g>
+
+  <!-- Flow Arrow 2 -> 3 -->
+  <g transform="translate(600, 230)">
+    <line x1="0" y1="0" x2="20" y2="0" stroke="#3b82f6" stroke-width="2"/>
+    <polygon points="24,0 18,-4 18,4" fill="#3b82f6"/>
+    <text x="12" y="-8" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#60a5fa">QR SCAN</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- STEP 03: GUARD VERIFICATION & ACCESS GRANT                     -->
+  <!-- ============================================================== -->
+  <g transform="translate(630, 95)">
+    <rect width="255" height="280" class="flow-card"/>
+
+    <!-- Role Badge -->
+    <g transform="translate(18, 18)">
+      <rect x="0" y="0" width="105" height="18" rx="3" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981"/>
+      <text x="52" y="12" text-anchor="middle" class="font-sans step-role" fill="#34d399">ROLE 03 · GUARD</text>
+    </g>
+
+    <!-- Step Title -->
+    <text x="18" y="60" class="step-title">03 / Grant Access</text>
+    <text x="18" y="78" class="font-sans" font-size="11px" fill="#64748b">Perimeter Gate Console</text>
+
+    <!-- Mini Wireframe -->
+    <g transform="translate(18, 92)">
+      <rect width="219" height="110" class="flow-card-inner"/>
+      <text x="12" y="18" class="font-sans" font-size="10px" font-weight="600" fill="#f1f5f9">Gate 01 Arrival Lookup</text>
+
+      <!-- Badge card -->
+      <g transform="translate(12, 26)">
+        <rect width="195" height="38" rx="2" fill="#131c31" stroke="#334155"/>
+        <circle cx="16" cy="19" r="10" fill="#475569"/>
+        <text x="32" y="16" class="font-sans" font-size="9.5px" font-weight="600" fill="#ffffff">Marcus Vance</text>
+        <text x="32" y="28" class="font-sans" font-size="8px" fill="#34d399">● Pre-Filled &amp; Verified</text>
+        <rect x="145" y="10" width="42" height="18" rx="2" fill="#1e293b"/>
+        <text x="166" y="22" text-anchor="middle" class="font-sans" font-size="7.5px" fill="#a855f7">Bay 04</text>
+      </g>
+
+      <rect x="12" y="74" width="195" height="26" rx="3" fill="#10b981"/>
+      <text x="109" y="90" text-anchor="middle" class="font-sans" font-size="10.5px" font-weight="700" fill="#ffffff">✓ Grant Final Access</text>
+    </g>
+
+    <!-- Description -->
+    <text x="18" y="224" class="font-sans" font-size="11px" fill="#cbd5e1" font-weight="600">Guard final decision:</text>
+    <text x="18" y="242" class="step-desc">1-click clearance releases turnstile</text>
+    <text x="18" y="258" class="step-desc">and issues on-site badge.</text>
+  </g>
+
+  <!-- Flow Arrow 3 -> 4 -->
+  <g transform="translate(895, 230)">
+    <line x1="0" y1="0" x2="20" y2="0" stroke="#10b981" stroke-width="2"/>
+    <polygon points="24,0 18,-4 18,4" fill="#10b981"/>
+    <text x="12" y="-8" text-anchor="middle" class="font-sans" font-size="8.5px" font-weight="600" fill="#34d399">SYNC</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- STEP 04: REAL-TIME NOTIFICATION & MUSTER SYNC                 -->
+  <!-- ============================================================== -->
+  <g transform="translate(925, 95)">
+    <rect width="235" height="280" class="flow-card"/>
+
+    <!-- Role Badge -->
+    <g transform="translate(18, 18)">
+      <rect x="0" y="0" width="100" height="18" rx="3" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b"/>
+      <text x="50" y="12" text-anchor="middle" class="font-sans step-role" fill="#fbbf24">SYNC &amp; SAFETY</text>
+    </g>
+
+    <!-- Step Title -->
+    <text x="18" y="60" class="step-title">04 / Facility Sync</text>
+    <text x="18" y="78" class="font-sans" font-size="11px" fill="#64748b">Automated Loop</text>
+
+    <!-- Mini Wireframe -->
+    <g transform="translate(18, 92)">
+      <rect width="199" height="110" class="flow-card-inner"/>
+
+      <!-- Notification alert -->
+      <g transform="translate(10, 12)">
+        <rect width="179" height="38" rx="2" fill="#131c31" stroke="#334155"/>
+        <text x="8" y="15" class="font-sans" font-size="8.5px" font-weight="600" fill="#a855f7">Slack Alert → Sarah Lin</text>
+        <text x="8" y="29" class="font-sans" font-size="7.5px" fill="#94a3b8">"Marcus Vance is at Gate 01"</text>
+      </g>
+
+      <!-- Muster Headcount -->
+      <g transform="translate(10, 58)">
+        <rect width="179" height="42" rx="2" fill="#131c31" stroke="#334155"/>
+        <text x="8" y="16" class="font-sans" font-size="8.5px" font-weight="600" fill="#f8fafc">Live Muster Roster</text>
+        <text x="8" y="32" class="font-sans" font-size="12px" font-weight="800" fill="#10b981">18 <tspan font-size="8px" font-weight="500" fill="#94a3b8">active on-site</tspan></text>
+      </g>
+    </g>
+
+    <!-- Description -->
+    <text x="18" y="224" class="font-sans" font-size="11px" fill="#cbd5e1" font-weight="600">Zero blindspots:</text>
+    <text x="18" y="242" class="step-desc">Host notified instantly. Safety</text>
+    <text x="18" y="258" class="step-desc">roster updated in real time.</text>
+  </g>
+
+</svg>

@@ -1,0 +1,328 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1246" width="100%" height="100%">
+  <defs>
+    <style>
+      .paper { fill: #fcfcfd; }
+      .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+      .font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+
+      /* Clean Studio Lines */
+      .hairline     { stroke: #e5e9f0; stroke-width: 1; fill: none; }
+      .rail-slate   { stroke: #334155; stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .rail-muted   { stroke: #cbd5e1; stroke-width: 1.3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .rail-cobalt  { stroke: #0284c7; stroke-width: 1.65; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .rail-emerald { stroke: #059669; stroke-width: 1.65; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .rail-dash    { stroke: #94a3b8; stroke-width: 1.2; stroke-dasharray: 4,3; fill: none; }
+
+      /* Airy Designer Cards */
+      .card         { fill: #ffffff; stroke: #d5dce6; stroke-width: 1.25; }
+      .card-slate   { fill: #ffffff; stroke: #334155; stroke-width: 1.6; }
+      .card-cobalt  { fill: #f0f9ff; stroke: #0284c7; stroke-width: 1.6; }
+      .card-emerald { fill: #ecfdf5; stroke: #059669; stroke-width: 1.6; }
+      .card-ink     { fill: #1e293b; stroke: #1e293b; stroke-width: 1.5; }
+    </style>
+
+    <marker id="arr-slate" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8 5 L 1 8.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-cobalt" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8 5 L 1 8.5 z" fill="#0284c7"/>
+    </marker>
+    <marker id="arr-emerald" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8 5 L 1 8.5 z" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <!-- Warm Minimal Studio Paper -->
+  <rect width="1200" height="1246" class="paper"/>
+
+  <!-- ===================================================================== -->
+  <!-- EDITORIAL HEADER + LEGIBLE MINIMALIST LEGEND                          -->
+  <!-- ===================================================================== -->
+  <text x="36" y="48" class="font-sans" font-size="24px" font-weight="300" fill="#0f172a">Nordic Vision</text>
+  <text x="190" y="48" class="font-sans" font-size="13.5px" font-weight="500" fill="#64748b">Information Architecture &amp; Station Flows</text>
+
+  <!-- Minimalist Color & Shape Legend -->
+  <g transform="translate(612, 35)">
+    <line x1="0" y1="8" x2="20" y2="8" class="rail-emerald"/>
+    <text x="27" y="12.5" class="font-sans" font-size="12px" font-weight="500" fill="#047857">Step 07 → Visual AI</text>
+
+    <line x1="168" y1="8" x2="188" y2="8" class="rail-cobalt"/>
+    <text x="195" y="12.5" class="font-sans" font-size="12px" font-weight="500" fill="#0369a1">Step 03 → Metrology CAD</text>
+
+    <polygon points="384,1 391,8 384,15 377,8" fill="#ffffff" stroke="#059669" stroke-width="1.4"/>
+    <text x="400" y="12.5" class="font-sans" font-size="12px" font-weight="500" fill="#475569">Quality Gate</text>
+  </g>
+
+  <line x1="36" y1="68" x2="1164" y2="68" class="hairline"/>
+
+  <!-- ===================================================================== -->
+  <!-- 01 / Platform Suite Architecture                                      -->
+  <!-- ===================================================================== -->
+  <text x="36" y="100" class="font-sans" font-size="12.5px" font-weight="600" fill="#475569">01 / Platform Suite Architecture</text>
+
+  <!-- Root Shell Pill -->
+  <rect x="330" y="116" width="540" height="52" rx="26" class="card-ink"/>
+  <text x="600" y="139" text-anchor="middle" class="font-sans" font-size="15px" font-weight="600" fill="#ffffff">Nordic One · Shared Workspace Shell</text>
+  <text x="600" y="157" text-anchor="middle" class="font-mono" font-size="10.5px" fill="#94a3b8">Facility → Plant → Line → Station  ·  ⌘K Search  ·  Role-Adaptive UI</text>
+
+  <!-- Smooth Rounded-Elbow Tree Connectors -->
+  <line x1="600" y1="168" x2="600" y2="186" class="rail-slate"/>
+  <path d="M 174 202 L 174 194 Q 174 186 182 186 L 934 186 Q 942 186 942 194 L 942 202" class="rail-muted"/>
+  <path d="M 600 186 L 182 186 Q 174 186 174 194 L 174 202" class="rail-slate"/>
+  <line x1="432" y1="186" x2="432" y2="202" class="rail-muted"/>
+  <line x1="688" y1="186" x2="688" y2="202" class="rail-muted"/>
+
+  <!-- Suite 01: Nordic Vision -->
+  <rect x="36" y="202" width="274" height="70" rx="11" class="card-slate"/>
+  <text x="52" y="223" class="font-sans" font-size="11px" font-weight="600" fill="#334155">Flagship · 6-mo MVP Core</text>
+  <text x="52" y="244" class="font-sans" font-size="15.5px" font-weight="700" fill="#0f172a">Nordic Vision</text>
+  <text x="52" y="262" class="font-sans" font-size="11.5px" fill="#475569">Hardware, visual AI &amp; metrology</text>
+
+  <!-- Suite 02: Nordic MES -->
+  <rect x="326" y="202" width="214" height="70" rx="11" class="card"/>
+  <text x="342" y="223" class="font-sans" font-size="11px" font-weight="500" fill="#94a3b8">Suite 02 · Floor Ops</text>
+  <text x="342" y="244" class="font-sans" font-size="15px" font-weight="600" fill="#0f172a">Nordic MES</text>
+  <text x="342" y="262" class="font-sans" font-size="11.5px" fill="#64748b">Work orders, status &amp; OEE</text>
+
+  <!-- Suite 03: Nordic ERP -->
+  <rect x="580" y="202" width="214" height="70" rx="11" class="card"/>
+  <text x="596" y="223" class="font-sans" font-size="11px" font-weight="500" fill="#94a3b8">Suite 03 · Planning</text>
+  <text x="596" y="244" class="font-sans" font-size="15px" font-weight="600" fill="#0f172a">Nordic ERP</text>
+  <text x="596" y="262" class="font-sans" font-size="11.5px" fill="#64748b">Lots, stock &amp; procurement</text>
+
+  <!-- Suite 04: Nordic EQMS -->
+  <rect x="834" y="202" width="214" height="70" rx="11" class="card"/>
+  <text x="850" y="223" class="font-sans" font-size="11px" font-weight="500" fill="#94a3b8">Suite 04 · Quality</text>
+  <text x="850" y="244" class="font-sans" font-size="15px" font-weight="600" fill="#0f172a">Nordic EQMS</text>
+  <text x="850" y="262" class="font-sans" font-size="11.5px" fill="#64748b">CAPA, NCRs &amp; plant audits</text>
+
+  <!-- Separate VMS Satellite Pill -->
+  <line x1="1048" y1="237" x2="1072" y2="237" class="rail-dash"/>
+  <rect x="1074" y="209" width="90" height="56" rx="11" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="1119" y="234" text-anchor="middle" class="font-sans" font-size="12px" font-weight="600" fill="#64748b">VMS</text>
+  <text x="1119" y="252" text-anchor="middle" class="font-sans" font-size="11px" fill="#94a3b8">Separate</text>
+
+  <!-- Generous Breathing Divider -->
+  <line x1="36" y1="306" x2="1164" y2="306" class="hairline"/>
+  <line x1="174" y1="272" x2="174" y2="302" class="rail-slate" marker-end="url(#arr-slate)"/>
+
+  <!-- ===================================================================== -->
+  <!-- 02 / Nordic Vision Lifecycle — Aligned Spine + Vertical Tree + Air    -->
+  <!-- ===================================================================== -->
+  <text x="36" y="340" class="font-sans" font-size="12.5px" font-weight="600" fill="#475569">02 / Nordic Vision Lifecycle · Hardware Tree → Shared Profile → Both Stations → Quality Overview</text>
+
+  <g transform="translate(36, 368)">
+    <!-- TIER 1 (LEFT, ALIGNED ON MAIN HORIZONTAL SPINE y=124): 01 Hardware Setup + Vertical Extension Below -->
+    <rect x="0" y="91" width="236" height="66" rx="11" class="card-slate"/>
+    <text x="18" y="115" class="font-sans" font-size="11px" font-weight="600" fill="#475569">01 · Hardware Setup</text>
+    <text x="18" y="139" class="font-sans" font-size="15px" font-weight="700" fill="#0f172a">Edge &amp; PLC Setup</text>
+
+    <!-- Vertical Hardware Extension Tree Dropping Cleanly Below -->
+    <path d="M 22 157 L 22 293 Q 22 301 30 301 L 44 301" class="rail-slate"/>
+    <path d="M 22 193 Q 22 201 30 201 L 44 201" class="rail-slate"/>
+    <path d="M 22 243 Q 22 251 30 251 L 44 251" class="rail-slate"/>
+
+    <rect x="46" y="183" width="190" height="36" rx="9" class="card"/>
+    <text x="60" y="205" class="font-sans" font-size="12px" font-weight="500" fill="#1e293b">Cameras &amp; Ring Light</text>
+
+    <rect x="46" y="233" width="190" height="36" rx="9" class="card"/>
+    <text x="60" y="255" class="font-sans" font-size="12px" font-weight="500" fill="#1e293b">ROI Crop &amp; Exposure</text>
+
+    <rect x="46" y="283" width="190" height="36" rx="9" class="card"/>
+    <text x="60" y="305" class="font-sans" font-size="12px" font-weight="500" fill="#1e293b">PLC I/O &amp; Triggers</text>
+
+    <text x="48" y="341" class="font-sans" font-size="10.5px" fill="#94a3b8">One-time line commissioning</text>
+
+    <!-- Straight Unbroken Horizontal Spine: Hardware -> Shared Part Setup -->
+    <line x1="236" y1="124" x2="320" y2="124" class="rail-slate" marker-end="url(#arr-slate)"/>
+
+    <!-- TIER 2 (CENTER-LEFT, ALIGNED ON SAME LINE y=124): 02 Shared Part Setup -->
+    <rect x="326" y="65" width="214" height="118" rx="12" class="card-ink"/>
+    <text x="344" y="89" class="font-sans" font-size="11px" font-weight="500" fill="#94a3b8">02 · Shared Truth</text>
+    <text x="344" y="113" class="font-sans" font-size="16px" font-weight="600" fill="#ffffff">Part Setup</text>
+    <text x="344" y="135" class="font-sans" font-size="12px" fill="#cbd5e1">8-step locked profile</text>
+    <text x="344" y="153" class="font-sans" font-size="12px" fill="#cbd5e1">recognized by both bays</text>
+    <rect x="344" y="165" width="84" height="4" rx="2" fill="#34d399"/>
+    <rect x="434" y="165" width="84" height="4" rx="2" fill="#38bdf8"/>
+    <text x="336" y="205" class="font-sans" font-size="11px" font-weight="600" fill="#64748b">Expanded in Flow 03 ↓</text>
+
+    <!-- Spacious Twin-Rail Fork (Both) -->
+    <line x1="540" y1="124" x2="592" y2="124" class="rail-slate"/>
+    <path d="M 592 124 L 592 48 Q 592 38 602 38 L 648 38" class="rail-emerald" marker-end="url(#arr-emerald)"/>
+    <path d="M 592 124 L 592 214 Q 592 224 602 224 L 648 224" class="rail-cobalt" marker-end="url(#arr-cobalt)"/>
+
+    <rect x="567" y="110" width="50" height="28" rx="14" class="card-ink"/>
+    <text x="592" y="128" text-anchor="middle" class="font-sans" font-size="11px" font-weight="600" fill="#ffffff">Both</text>
+
+    <!-- TRACK A (TOP-RIGHT, EMERALD): Model Trainer -> Live Inspection -->
+    <rect x="654" y="0" width="206" height="76" rx="11" class="card-emerald"/>
+    <text x="670" y="22" class="font-sans" font-size="11px" font-weight="600" fill="#047857">03 · Train</text>
+    <rect x="786" y="10" width="60" height="19" rx="9.5" fill="#059669"/>
+    <text x="816" y="23" text-anchor="middle" class="font-sans" font-size="9.5px" font-weight="600" fill="#ffffff">Step 07</text>
+    <text x="670" y="45" class="font-sans" font-size="14.5px" font-weight="700" fill="#0f172a">Model Trainer</text>
+    <text x="670" y="64" class="font-sans" font-size="11.5px" fill="#065f46">Learns NG vs Golden OK</text>
+
+    <!-- Open Floating Notes Under Model Trainer -->
+    <text x="660" y="98" class="font-sans" font-size="11px" fill="#475569">• Step 07 = OK baseline</text>
+    <text x="660" y="116" class="font-sans" font-size="11px" fill="#475569">• Labels scratches &amp; dents</text>
+
+    <!-- Airy Connector: Model Trainer -> Live Inspection -->
+    <line x1="860" y1="38" x2="892" y2="38" class="rail-emerald" marker-end="url(#arr-emerald)"/>
+
+    <rect x="898" y="0" width="230" height="76" rx="11" class="card-emerald"/>
+    <text x="914" y="22" class="font-sans" font-size="11px" font-weight="600" fill="#047857">Station A · Visual AI</text>
+    <text x="914" y="45" class="font-sans" font-size="15px" font-weight="700" fill="#0f172a">Live Inspection</text>
+    <text x="914" y="64" class="font-sans" font-size="11.5px" fill="#065f46">Real-time surface check</text>
+    <!-- Crisp OK / NG Pills -->
+    <rect x="1038" y="48" width="36" height="19" rx="9.5" fill="#059669"/>
+    <text x="1056" y="61" text-anchor="middle" class="font-sans" font-size="9.5px" font-weight="600" fill="#ffffff">OK</text>
+    <rect x="1078" y="48" width="36" height="19" rx="9.5" fill="#e11d48"/>
+    <text x="1096" y="61" text-anchor="middle" class="font-sans" font-size="9.5px" font-weight="600" fill="#ffffff">NG</text>
+
+    <!-- Open Floating Notes Under Live Inspection -->
+    <text x="904" y="98" class="font-sans" font-size="11px" fill="#475569">• PLC capture trigger</text>
+    <text x="904" y="116" class="font-sans" font-size="11px" fill="#475569">• Instant pass / reject</text>
+
+    <!-- TRACK B (MID-RIGHT, COBALT): Station B Metrology -->
+    <rect x="654" y="178" width="376" height="90" rx="11" class="card-cobalt"/>
+    <text x="672" y="201" class="font-sans" font-size="11px" font-weight="600" fill="#0369a1">Station B · Dimensional Accuracy (Flow 04 ↓)</text>
+    <rect x="918" y="188" width="98" height="19" rx="9.5" fill="#0284c7"/>
+    <text x="967" y="201" text-anchor="middle" class="font-sans" font-size="9.5px" font-weight="600" fill="#ffffff">Step 03 CAD</text>
+    <text x="672" y="226" class="font-sans" font-size="15px" font-weight="700" fill="#0f172a">Metrology Calibration &amp; Run</text>
+    <text x="672" y="249" class="font-sans" font-size="11.5px" fill="#075985">2D/3D CAD targets · 5-step caliper run</text>
+    <!-- Crisp Pass / Fail Pills -->
+    <rect x="920" y="236" width="44" height="19" rx="9.5" fill="#0284c7"/>
+    <text x="942" y="249" text-anchor="middle" class="font-sans" font-size="9.5px" font-weight="600" fill="#ffffff">Pass</text>
+    <rect x="968" y="236" width="44" height="19" rx="9.5" fill="#e11d48"/>
+    <text x="990" y="249" text-anchor="middle" class="font-sans" font-size="9.5px" font-weight="600" fill="#ffffff">Fail</text>
+
+    <!-- TWO CLEAN VERTICAL EXPRESS RAILS DROPPING INTO BOTTOM-RIGHT QUALITY DASHBOARD -->
+    <line x1="1080" y1="76" x2="1080" y2="308" class="rail-emerald" marker-end="url(#arr-emerald)"/>
+    <line x1="842" y1="268" x2="842" y2="308" class="rail-cobalt" marker-end="url(#arr-cobalt)"/>
+
+    <!-- TIER 3 (BOTTOM-RIGHT CLIMAX): WIDE FOLDED-CORNER QUALITY DASHBOARD -->
+    <g transform="translate(756, 314)">
+      <path d="M 0 10 Q 0 0 10 0 L 350 0 L 372 22 L 372 86 Q 372 96 362 96 L 10 96 Q 0 96 0 86 Z" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+      <path d="M 350 0 L 350 18 Q 350 22 354 22 L 372 22" fill="#f1f5f9" stroke="#334155" stroke-width="1.2"/>
+      <text x="20" y="25" class="font-sans" font-size="11px" font-weight="600" fill="#64748b">Final · Read-Only Overview</text>
+      <text x="20" y="50" class="font-sans" font-size="16px" font-weight="700" fill="#0f172a">Quality Dashboard</text>
+      <text x="20" y="75" class="font-sans" font-size="12px" fill="#475569">Visual OK/NG stream  ·  Metrology logs  ·  Lot audit trail</text>
+    </g>
+  </g>
+
+  <!-- Generous Breathing Divider -->
+  <line x1="36" y1="816" x2="1164" y2="816" class="hairline"/>
+
+  <!-- ===================================================================== -->
+  <!-- 03 / Flow A: Shared 8-Step Part Setup (Legible Snake S-Flow)          -->
+  <!-- ===================================================================== -->
+  <text x="36" y="848" class="font-sans" font-size="12.5px" font-weight="600" fill="#475569">03 / Flow A · Shared Part Setup (8-Step Gated Wizard Recognized by Both Stations)</text>
+
+  <!-- Row 1 (Left -> Right): Steps 01 -> 04 -->
+  <g transform="translate(36, 868)">
+    <rect x="0" y="0" width="262" height="72" rx="11" class="card"/>
+    <text x="16" y="23" class="font-sans" font-size="11px" font-weight="500" fill="#94a3b8">Step 01</text>
+    <text x="16" y="43" class="font-sans" font-size="14.5px" font-weight="600" fill="#0f172a">Part Info</text>
+    <text x="16" y="60" class="font-sans" font-size="11.5px" fill="#64748b">Shared SKU, revision &amp; part ID</text>
+    <line x1="262" y1="36" x2="284" y2="36" class="rail-slate" marker-end="url(#arr-slate)"/>
+
+    <rect x="288" y="0" width="262" height="72" rx="11" class="card"/>
+    <text x="304" y="23" class="font-sans" font-size="11px" font-weight="500" fill="#94a3b8">Step 02</text>
+    <text x="304" y="43" class="font-sans" font-size="14.5px" font-weight="600" fill="#0f172a">People &amp; Contacts</text>
+    <text x="304" y="60" class="font-sans" font-size="11.5px" fill="#64748b">QA owner &amp; escalation sign-off</text>
+    <line x1="550" y1="36" x2="572" y2="36" class="rail-slate" marker-end="url(#arr-slate)"/>
+
+    <!-- Step 03 (Cobalt -> Metrology) -->
+    <rect x="576" y="0" width="262" height="72" rx="11" class="card-cobalt"/>
+    <text x="592" y="23" class="font-sans" font-size="11px" font-weight="600" fill="#0369a1">Step 03</text>
+    <rect x="720" y="10" width="106" height="19" rx="9.5" fill="#0284c7"/>
+    <text x="773" y="23" text-anchor="middle" class="font-sans" font-size="9.5px" font-weight="600" fill="#ffffff">→ Metrology</text>
+    <text x="592" y="43" class="font-sans" font-size="14.5px" font-weight="700" fill="#0f172a">Files &amp; Standards</text>
+    <text x="592" y="60" class="font-sans" font-size="11px" fill="#075985">2D/3D CAD &amp; ISO → metrology specs</text>
+    <line x1="838" y1="36" x2="860" y2="36" class="rail-slate" marker-end="url(#arr-slate)"/>
+
+    <rect x="864" y="0" width="264" height="72" rx="11" class="card"/>
+    <text x="880" y="23" class="font-sans" font-size="11px" font-weight="500" fill="#94a3b8">Step 04</text>
+    <text x="880" y="43" class="font-sans" font-size="14.5px" font-weight="600" fill="#0f172a">Dim Mapping</text>
+    <text x="880" y="60" class="font-sans" font-size="11.5px" fill="#64748b">Target tolerances for Metrology</text>
+  </g>
+
+  <!-- Direct Vertical Drop: Step 04 -> Step 05 -->
+  <line x1="1032" y1="940" x2="1032" y2="968" class="rail-slate" marker-end="url(#arr-slate)"/>
+
+  <!-- Row 2 (Snake / Right -> Left): Steps 08 <- ◇ <- 07 <- 06 <- 05 -->
+  <g transform="translate(36, 974)">
+    <!-- Step 08 (Spec Freeze Pill Card) -->
+    <rect x="0" y="0" width="236" height="72" rx="36" class="card-ink"/>
+    <text x="26" y="24" class="font-sans" font-size="10.5px" font-weight="500" fill="#94a3b8">Step 08 · Spec Freeze</text>
+    <text x="26" y="44" class="font-sans" font-size="14.5px" font-weight="600" fill="#ffffff">Approve &amp; Lock</text>
+    <text x="26" y="60" class="font-sans" font-size="11px" fill="#cbd5e1">Unlocks both stations</text>
+
+    <!-- Gate Diamond between Step 07 and Step 08 -->
+    <line x1="288" y1="36" x2="278" y2="36" class="rail-emerald"/>
+    <polygon points="264,19 281,36 264,53 247,36" fill="#ffffff" stroke="#059669" stroke-width="1.6"/>
+    <text x="264" y="39.5" text-anchor="middle" class="font-mono" font-size="9px" font-weight="700" fill="#047857">≥3?</text>
+    <line x1="247" y1="36" x2="241" y2="36" class="rail-emerald" marker-end="url(#arr-emerald)"/>
+
+    <!-- Step 07 (Emerald -> Trainer & Live) -->
+    <rect x="288" y="0" width="262" height="72" rx="11" class="card-emerald"/>
+    <text x="304" y="23" class="font-sans" font-size="11px" font-weight="600" fill="#047857">Step 07 · Gate</text>
+    <rect x="418" y="10" width="122" height="19" rx="9.5" fill="#059669"/>
+    <text x="479" y="23" text-anchor="middle" class="font-sans" font-size="9.5px" font-weight="600" fill="#ffffff">→ Trainer &amp; Live</text>
+    <text x="304" y="43" class="font-sans" font-size="14.5px" font-weight="700" fill="#0f172a">Golden Images (OK)</text>
+    <text x="304" y="60" class="font-sans" font-size="11px" fill="#065f46">Good baseline · blocks until ≥3</text>
+
+    <line x1="576" y1="36" x2="554" y2="36" class="rail-slate" marker-end="url(#arr-slate)"/>
+
+    <rect x="576" y="0" width="262" height="72" rx="11" class="card"/>
+    <text x="592" y="23" class="font-sans" font-size="11px" font-weight="500" fill="#94a3b8">Step 06</text>
+    <text x="592" y="43" class="font-sans" font-size="14.5px" font-weight="600" fill="#0f172a">Part Optics</text>
+    <text x="592" y="60" class="font-sans" font-size="11.5px" fill="#64748b">Part-specific visual tuning</text>
+
+    <line x1="864" y1="36" x2="842" y2="36" class="rail-slate" marker-end="url(#arr-slate)"/>
+
+    <rect x="864" y="0" width="264" height="72" rx="11" class="card"/>
+    <text x="880" y="23" class="font-sans" font-size="11px" font-weight="500" fill="#94a3b8">Step 05</text>
+    <text x="880" y="43" class="font-sans" font-size="14.5px" font-weight="600" fill="#0f172a">Validation Config</text>
+    <text x="880" y="60" class="font-sans" font-size="11.5px" fill="#64748b">Sampling &amp; pass/fail rules</text>
+  </g>
+
+  <line x1="36" y1="1080" x2="1164" y2="1080" class="hairline"/>
+
+  <!-- ===================================================================== -->
+  <!-- 04 / Flow B: Metrology Station (Cobalt Lineage — 5 Steps)             -->
+  <!-- ===================================================================== -->
+  <circle cx="42" cy="1108" r="4.5" fill="#0284c7"/>
+  <text x="54" y="1112" class="font-sans" font-size="12.5px" font-weight="600" fill="#0369a1">04 / Flow B · Metrology Station (Pulls Part ID + Step 03 CAD → 5-Step Calibration &amp; Run)</text>
+
+  <g transform="translate(36, 1132)">
+    <rect x="0" y="0" width="206" height="78" rx="11" class="card-cobalt"/>
+    <text x="14" y="24" class="font-sans" font-size="11px" font-weight="600" fill="#0369a1">Step 01</text>
+    <text x="14" y="45" class="font-sans" font-size="14px" font-weight="600" fill="#0f172a">Load Reference</text>
+    <text x="14" y="63" class="font-sans" font-size="11px" fill="#075985">Part ID + Step 03 CAD</text>
+    <line x1="206" y1="39" x2="226" y2="39" class="rail-cobalt" marker-end="url(#arr-cobalt)"/>
+
+    <rect x="230" y="0" width="206" height="78" rx="11" class="card"/>
+    <text x="244" y="24" class="font-sans" font-size="11px" font-weight="500" fill="#0284c7">Step 02</text>
+    <text x="244" y="45" class="font-sans" font-size="14px" font-weight="600" fill="#0f172a">Mark Position</text>
+    <text x="244" y="63" class="font-sans" font-size="11px" fill="#64748b">Origin &amp; datum lock</text>
+    <line x1="436" y1="39" x2="456" y2="39" class="rail-cobalt" marker-end="url(#arr-cobalt)"/>
+
+    <rect x="460" y="0" width="206" height="78" rx="11" class="card"/>
+    <text x="474" y="24" class="font-sans" font-size="11px" font-weight="500" fill="#0284c7">Step 03</text>
+    <text x="474" y="45" class="font-sans" font-size="14px" font-weight="600" fill="#0f172a">Vertical Scale</text>
+    <text x="474" y="63" class="font-sans" font-size="11px" fill="#64748b">Calibrate Y-axis mm</text>
+    <line x1="666" y1="39" x2="686" y2="39" class="rail-cobalt" marker-end="url(#arr-cobalt)"/>
+
+    <rect x="690" y="0" width="206" height="78" rx="11" class="card"/>
+    <text x="704" y="24" class="font-sans" font-size="11px" font-weight="500" fill="#0284c7">Step 04</text>
+    <text x="704" y="45" class="font-sans" font-size="14px" font-weight="600" fill="#0f172a">Horizontal Scale</text>
+    <text x="704" y="63" class="font-sans" font-size="11px" fill="#64748b">Calibrate X-axis mm</text>
+    <line x1="896" y1="39" x2="916" y2="39" class="rail-cobalt" marker-end="url(#arr-cobalt)"/>
+
+    <rect x="920" y="0" width="208" height="78" rx="11" class="card-ink"/>
+    <text x="934" y="24" class="font-sans" font-size="10.5px" font-weight="500" fill="#7dd3fc">Step 05 · Dual Rail</text>
+    <text x="934" y="45" class="font-sans" font-size="14px" font-weight="600" fill="#ffffff">Measure &amp; Run</text>
+    <text x="934" y="63" class="font-sans" font-size="11px" fill="#cbd5e1">Verify CAD → Dashboard</text>
+  </g>
+</svg>

@@ -1,0 +1,259 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #0b1120; }
+      .shell { fill: #0f172a; stroke: #1e293b; stroke-width: 1.5; rx: 8; }
+      .panel { fill: #131d33; stroke: #24324f; stroke-width: 1.2; rx: 6; }
+      .panel-sub { fill: #0a0f1d; stroke: #1e293b; stroke-width: 1; rx: 4; }
+      .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+      .sec-title { font-family: "Inter", sans-serif; font-size: 15px; font-weight: 700; fill: #f8fafc; }
+      .sec-sub { font-family: "Inter", sans-serif; font-size: 11px; fill: #94a3b8; }
+    </style>
+    <linearGradient id="grantAccessGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="680" class="bg"/>
+
+  <!-- Desktop Operating Window Frame -->
+  <g transform="translate(30, 20)">
+    <rect width="1140" height="640" class="shell"/>
+
+    <!-- App Shell Header -->
+    <path d="M 0 8 Q 0 0 8 0 L 1132 0 Q 1140 0 1140 8 L 1140 52 L 0 52 Z" fill="#090e1a"/>
+    <line x1="0" y1="52" x2="1140" y2="52" stroke="#1e293b" stroke-width="1.2"/>
+
+    <!-- Window Controls -->
+    <circle cx="25" cy="26" r="5" fill="#ef4444"/>
+    <circle cx="42" cy="26" r="5" fill="#f59e0b"/>
+    <circle cx="59" cy="26" r="5" fill="#10b981"/>
+
+    <!-- Header Brand & Station Title -->
+    <g transform="translate(90, 16)">
+      <rect x="0" y="0" width="22" height="22" rx="4" fill="#10b981"/>
+      <circle cx="11" cy="9" r="4" fill="#090e1a"/>
+      <path d="M 5 19 Q 11 14 17 19" fill="#090e1a"/>
+      <text x="32" y="16" class="font-sans" font-size="13px" font-weight="700" fill="#f8fafc" letter-spacing="0.04em">Nordic <tspan fill="#34d399">Security Console</tspan></text>
+      <text x="210" y="16" class="font-sans" font-size="11.5px" font-weight="500" fill="#64748b">/ Gate 01 Perimeter Clearance</text>
+    </g>
+
+    <!-- Top Action & Headcount KPI -->
+    <g transform="translate(800, 12)">
+      <!-- Muster Button -->
+      <rect x="0" y="4" width="165" height="26" rx="4" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
+      <circle cx="14" cy="17" r="4" fill="#ef4444"/>
+      <text x="26" y="21" class="font-sans" font-size="10.5px" font-weight="700" fill="#f87171">Emergency Muster Roll ↗</text>
+
+      <!-- Active Guard Profile -->
+      <circle cx="195" cy="17" r="13" fill="#334155"/>
+      <text x="195" y="21" text-anchor="middle" class="font-sans" font-size="9.5px" font-weight="700" fill="#f8fafc">G-01</text>
+      <text x="218" y="21" class="font-sans" font-size="10.5px" font-weight="600" fill="#cbd5e1">Officer J. Ray</text>
+    </g>
+
+    <!-- KPI Metric Strip (Full Width) -->
+    <g transform="translate(30, 72)">
+      <!-- KPI 1: Active Headcount -->
+      <g transform="translate(0, 0)">
+        <rect width="255" height="58" class="panel"/>
+        <text x="16" y="22" class="font-sans" font-size="10px" font-weight="700" fill="#64748b" letter-spacing="0.05em">ACTIVE ON-SITE VISITORS</text>
+        <text x="16" y="48" class="font-sans" font-size="24px" font-weight="800" fill="#f8fafc">18 <tspan font-size="11px" font-weight="500" fill="#34d399">● Real-time sync</tspan></text>
+      </g>
+
+      <!-- KPI 2: Pre-Registered Today -->
+      <g transform="translate(275, 0)">
+        <rect width="255" height="58" class="panel"/>
+        <text x="16" y="22" class="font-sans" font-size="10px" font-weight="700" fill="#64748b" letter-spacing="0.05em">CONFIRMED ARRIVALS</text>
+        <text x="16" y="48" class="font-sans" font-size="24px" font-weight="800" fill="#f8fafc">42 <tspan font-size="11px" font-weight="500" fill="#94a3b8">/ 45 Expected</tspan></text>
+      </g>
+
+      <!-- KPI 3: Overstay Warnings -->
+      <g transform="translate(550, 0)">
+        <rect width="255" height="58" class="panel"/>
+        <text x="16" y="22" class="font-sans" font-size="10px" font-weight="700" fill="#64748b" letter-spacing="0.05em">PERMIT OVERSTAYS</text>
+        <text x="16" y="48" class="font-sans" font-size="24px" font-weight="800" fill="#fbbf24">1 <tspan font-size="11px" font-weight="500" fill="#f59e0b">● Zone Bay 2 Warning</tspan></text>
+      </g>
+
+      <!-- KPI 4: Compliance Status -->
+      <g transform="translate(825, 0)">
+        <rect width="255" height="58" class="panel"/>
+        <text x="16" y="22" class="font-sans" font-size="10px" font-weight="700" fill="#64748b" letter-spacing="0.05em">LEGAL COMPLIANCE</text>
+        <text x="16" y="48" class="font-sans" font-size="24px" font-weight="800" fill="#10b981">100% <tspan font-size="11px" font-weight="500" fill="#34d399">Signed NDAs</tspan></text>
+      </g>
+    </g>
+
+    <!-- Main Workspace Split: Left = Active Verification & Clearance, Right = On-Site Roster -->
+    <!-- ============================================================== -->
+    <!-- LEFT: ACTIVE VERIFICATION & DECISION (460px)                  -->
+    <!-- ============================================================== -->
+    <g transform="translate(30, 146)">
+      <rect width="460" height="470" class="panel"/>
+
+      <!-- Search & Scan Input -->
+      <g transform="translate(20, 20)">
+        <rect width="420" height="38" rx="4" fill="#0b1120" stroke="#3b82f6" stroke-width="1.2"/>
+        <!-- Scanner Icon -->
+        <g transform="translate(14, 11)">
+          <path d="M 0 5 L 0 0 L 5 0 M 11 0 L 16 0 L 16 5 M 0 11 L 0 16 L 5 16 M 11 16 L 16 16 L 16 11" stroke="#3b82f6" stroke-width="1.5" fill="none"/>
+        </g>
+        <text x="40" y="24" class="font-sans" font-size="12px" fill="#f8fafc">Scan QR Pass or Enter Visitor Name... [⌘K]</text>
+        <rect x="360" y="8" width="48" height="22" rx="3" fill="#1e293b"/>
+        <text x="384" y="23" text-anchor="middle" class="font-sans" font-size="9.5px" font-weight="600" fill="#94a3b8">SCAN</text>
+      </g>
+
+      <!-- Active Matched Record Card -->
+      <g transform="translate(20, 72)">
+        <rect width="420" height="310" class="panel-sub"/>
+
+        <!-- Match Banner -->
+        <g transform="translate(16, 16)">
+          <rect x="0" y="0" width="130" height="20" rx="3" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981"/>
+          <circle cx="10" cy="10" r="3.5" fill="#10b981"/>
+          <text x="20" y="14" class="font-sans" font-size="10px" font-weight="700" fill="#34d399">MATCH: PRE-CONFIRMED</text>
+
+          <text x="310" y="14" class="font-sans" font-size="10px" fill="#64748b">ID: #VIS-8924</text>
+        </g>
+
+        <!-- Visitor Photo & Core Identity -->
+        <g transform="translate(16, 48)">
+          <rect x="0" y="0" width="56" height="56" rx="4" fill="#1e293b" stroke="#334155"/>
+          <circle cx="28" cy="22" r="11" fill="#64748b"/>
+          <path d="M 12 50 Q 28 36 44 50" fill="#64748b"/>
+
+          <text x="70" y="18" class="font-sans" font-size="15px" font-weight="700" fill="#ffffff">Marcus Vance</text>
+          <text x="70" y="34" class="font-sans" font-size="11.5px" fill="#94a3b8">Contractor · Apex Tooling GmbH</text>
+          <text x="70" y="50" class="font-sans" font-size="11px" fill="#cbd5e1">Vehicle: <tspan font-weight="600" fill="#f8fafc">HH-TX 489</tspan> (Gate 01 Visitor Bay 3)</text>
+        </g>
+
+        <line x1="16" y1="120" x2="404" y2="120" stroke="#1e293b" stroke-width="1"/>
+
+        <!-- Verification Checklist Table -->
+        <g transform="translate(16, 134)">
+          <text x="0" y="12" class="font-sans" font-size="10px" font-weight="600" fill="#64748b">HOST SPONSOR</text>
+          <text x="0" y="28" class="font-sans" font-size="12px" font-weight="600" fill="#f1f5f9">Sarah Lin (Quality Lead · Ext 842)</text>
+
+          <text x="210" y="12" class="font-sans" font-size="10px" font-weight="600" fill="#64748b">ALLOWED FACILITY ZONE</text>
+          <rect x="210" y="16" width="140" height="20" rx="3" fill="rgba(168, 85, 247, 0.15)" stroke="#a855f7"/>
+          <text x="280" y="30" text-anchor="middle" class="font-sans" font-size="10px" font-weight="700" fill="#c084fc">CNC Machining Bay 04</text>
+
+          <text x="0" y="58" class="font-sans" font-size="10px" font-weight="600" fill="#64748b">LEGAL NDA AGREEMENT</text>
+          <text x="0" y="74" class="font-sans" font-size="11px" font-weight="600" fill="#34d399">✓ Signed Digitally (Nov 24, 09:14)</text>
+
+          <text x="210" y="58" class="font-sans" font-size="10px" font-weight="600" fill="#64748b">SAFETY BRIEFING</text>
+          <text x="210" y="74" class="font-sans" font-size="11px" font-weight="600" fill="#34d399">✓ PPE Compliance Accepted</text>
+        </g>
+
+        <!-- Final Access Grant Action Button -->
+        <g transform="translate(16, 236)">
+          <rect width="388" height="42" rx="4" fill="url(#grantAccessGrad)"/>
+          <text x="194" y="26" text-anchor="middle" class="font-sans" font-size="13.5px" font-weight="700" fill="#ffffff">✓ Grant Final Access &amp; Issue Badge</text>
+        </g>
+      </g>
+
+      <!-- Guard Shortcut Help -->
+      <text x="20" y="416" class="font-sans" font-size="10.5px" fill="#64748b">Action triggers automated Slack host alert to Sarah Lin + adds visitor to live muster roster.</text>
+    </g>
+
+    <!-- ============================================================== -->
+    <!-- RIGHT: LIVE ON-SITE ROSTER & HEADCOUNT (620px)                -->
+    <!-- ============================================================== -->
+    <g transform="translate(510, 146)">
+      <rect width="600" height="470" class="panel"/>
+
+      <!-- Header & Filter -->
+      <g transform="translate(24, 20)">
+        <text x="0" y="16" class="sec-title">Live On-Site Visitor Roster (18 Active)</text>
+        <text x="0" y="34" class="sec-sub">Real-time facility tracking with automated overstay detection &amp; 1-click check-out.</text>
+      </g>
+
+      <!-- Table Header -->
+      <g transform="translate(24, 72)">
+        <rect width="552" height="28" fill="#0a0f1d" rx="3"/>
+        <text x="16" y="18" class="font-sans" font-size="10px" font-weight="700" fill="#64748b">VISITOR / ORG</text>
+        <text x="175" y="18" class="font-sans" font-size="10px" font-weight="700" fill="#64748b">ZONE</text>
+        <text x="295" y="18" class="font-sans" font-size="10px" font-weight="700" fill="#64748b">HOST</text>
+        <text x="390" y="18" class="font-sans" font-size="10px" font-weight="700" fill="#64748b">ENTRY</text>
+        <text x="480" y="18" class="font-sans" font-size="10px" font-weight="700" fill="#64748b">ACTION</text>
+      </g>
+
+      <!-- Row 1: Overstay Warning -->
+      <g transform="translate(24, 108)">
+        <rect width="552" height="46" rx="2" fill="#131c31" stroke="#ef4444" stroke-width="0.8"/>
+        <text x="16" y="20" class="font-sans" font-size="11.5px" font-weight="700" fill="#f87171">K. Jensen</text>
+        <text x="16" y="34" class="font-sans" font-size="9.5px" fill="#94a3b8">Atlas Calibration</text>
+
+        <rect x="175" y="12" width="76" height="20" rx="3" fill="#1e293b"/>
+        <text x="213" y="26" text-anchor="middle" class="font-sans" font-size="9.5px" fill="#f87171">Metrology</text>
+
+        <text x="295" y="26" class="font-sans" font-size="10.5px" fill="#cbd5e1">M. Weber</text>
+        <text x="390" y="26" class="font-sans" font-size="10.5px" font-weight="600" fill="#f87171">+28m Over</text>
+
+        <rect x="470" y="12" width="68" height="22" rx="3" fill="#1e293b" stroke="#334155"/>
+        <text x="504" y="27" text-anchor="middle" class="font-sans" font-size="9.5px" fill="#f1f5f9">Check Out</text>
+      </g>
+
+      <!-- Row 2: Normal Active -->
+      <g transform="translate(24, 160)">
+        <rect width="552" height="46" rx="2" fill="#0f172a" stroke="#1e293b"/>
+        <text x="16" y="20" class="font-sans" font-size="11.5px" font-weight="700" fill="#ffffff">A. Chen</text>
+        <text x="16" y="34" class="font-sans" font-size="9.5px" fill="#94a3b8">Siemens Automation</text>
+
+        <rect x="175" y="12" width="76" height="20" rx="3" fill="#1e293b"/>
+        <text x="213" y="26" text-anchor="middle" class="font-sans" font-size="9.5px" fill="#c084fc">CNC Bay 4</text>
+
+        <text x="295" y="26" class="font-sans" font-size="10.5px" fill="#cbd5e1">S. Lin</text>
+        <text x="390" y="26" class="font-sans" font-size="10.5px" fill="#34d399">13:45 (OK)</text>
+
+        <rect x="470" y="12" width="68" height="22" rx="3" fill="#1e293b" stroke="#334155"/>
+        <text x="504" y="27" text-anchor="middle" class="font-sans" font-size="9.5px" fill="#f1f5f9">Check Out</text>
+      </g>
+
+      <!-- Row 3: Normal Active -->
+      <g transform="translate(24, 212)">
+        <rect width="552" height="46" rx="2" fill="#0f172a" stroke="#1e293b"/>
+        <text x="16" y="20" class="font-sans" font-size="11.5px" font-weight="700" fill="#ffffff">D. Meier</text>
+        <text x="16" y="34" class="font-sans" font-size="9.5px" fill="#94a3b8">TUV Rheinland (ISO)</text>
+
+        <rect x="175" y="12" width="76" height="20" rx="3" fill="#1e293b"/>
+        <text x="213" y="26" text-anchor="middle" class="font-sans" font-size="9.5px" fill="#60a5fa">Cleanroom</text>
+
+        <text x="295" y="26" class="font-sans" font-size="10.5px" fill="#cbd5e1">D. Vance</text>
+        <text x="390" y="26" class="font-sans" font-size="10.5px" fill="#34d399">14:10 (OK)</text>
+
+        <rect x="470" y="12" width="68" height="22" rx="3" fill="#1e293b" stroke="#334155"/>
+        <text x="504" y="27" text-anchor="middle" class="font-sans" font-size="9.5px" fill="#f1f5f9">Check Out</text>
+      </g>
+
+      <!-- Row 4: Normal Active -->
+      <g transform="translate(24, 264)">
+        <rect width="552" height="46" rx="2" fill="#0f172a" stroke="#1e293b"/>
+        <text x="16" y="20" class="font-sans" font-size="11.5px" font-weight="700" fill="#ffffff">T. Kowalski</text>
+        <text x="16" y="34" class="font-sans" font-size="9.5px" fill="#94a3b8">Fanuc Robotics</text>
+
+        <rect x="175" y="12" width="76" height="20" rx="3" fill="#1e293b"/>
+        <text x="213" y="26" text-anchor="middle" class="font-sans" font-size="9.5px" fill="#c084fc">CNC Bay 1</text>
+
+        <text x="295" y="26" class="font-sans" font-size="10.5px" fill="#cbd5e1">H. Braun</text>
+        <text x="390" y="26" class="font-sans" font-size="10.5px" fill="#34d399">14:30 (OK)</text>
+
+        <rect x="470" y="12" width="68" height="22" rx="3" fill="#1e293b" stroke="#334155"/>
+        <text x="504" y="27" text-anchor="middle" class="font-sans" font-size="9.5px" fill="#f1f5f9">Check Out</text>
+      </g>
+
+      <!-- Muster Roll Export Strip -->
+      <g transform="translate(24, 330)">
+        <rect width="552" height="74" rx="4" fill="#0a0f1d" stroke="#1e293b"/>
+        <g transform="translate(16, 16)">
+          <text x="0" y="14" class="font-sans" font-size="11px" font-weight="700" fill="#f8fafc">Emergency Evacuation &amp; Plant Safety Muster</text>
+          <text x="0" y="32" class="font-sans" font-size="10px" fill="#94a3b8">Instant 1-click export transmits all 18 active guest names, zone locations, and emergency contacts to Fire Incident Command.</text>
+          <rect x="420" y="6" width="100" height="28" rx="3" fill="#ef4444"/>
+          <text x="470" y="24" text-anchor="middle" class="font-sans" font-size="10.5px" font-weight="700" fill="#ffffff">Export Roll ↗</text>
+        </g>
+      </g>
+
+    </g>
+
+  </g>
+</svg>
