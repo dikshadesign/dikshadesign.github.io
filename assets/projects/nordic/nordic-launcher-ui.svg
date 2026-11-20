@@ -12,7 +12,7 @@
       .badge-erp { fill: #4f46e5; }
       .badge-mes { fill: #059669; }
       .badge-eqms { fill: #d97706; }
-      .badge-visitor { fill: #7c3aed; }
+      .badge-telemetry { fill: #7c3aed; }
       .callout-box { fill: #1e293b; stroke: #38bdf8; stroke-width: 1.2; rx: 4; }
       .callout-title { font-family: Inter, sans-serif; font-size: 11px; font-weight: 700; fill: #38bdf8; }
       .callout-text { font-family: Inter, sans-serif; font-size: 9.5px; fill: #cbd5e1; line-height: 1.4; }
@@ -167,15 +167,15 @@
           <text x="62" y="60" class="font-sans" font-size="9px" fill="#fbbf24">↗ Non-conformance #4402</text>
         </g>
 
-        <!-- App 5: Nordic Visitor Management -->
+        <!-- App: Plant Telemetry & History -->
         <g transform="translate(0, 160)">
           <rect width="248" height="68" class="app-hover"/>
-          <rect x="12" y="14" width="40" height="40" rx="4" class="badge-visitor"/>
-          <text x="32" y="38" text-anchor="middle" class="font-sans" font-size="13px" font-weight="800" fill="#ffffff">Vis</text>
-          <text x="62" y="30" class="font-sans" font-size="12.5px" font-weight="700" fill="#f8fafc">Visitor Access</text>
-          <text x="62" y="46" class="font-sans" font-size="10px" fill="#94a3b8">Facility Badging &amp; Nda Kiosk</text>
+          <rect x="12" y="14" width="40" height="40" rx="4" class="badge-telemetry"/>
+          <text x="32" y="38" text-anchor="middle" class="font-sans" font-size="13px" font-weight="800" fill="#ffffff">Tel</text>
+          <text x="62" y="30" class="font-sans" font-size="12.5px" font-weight="700" fill="#f8fafc">Plant Telemetry</text>
+          <text x="62" y="46" class="font-sans" font-size="10px" fill="#94a3b8">Real-Time Sensor &amp; Run History</text>
           <circle cx="230" cy="22" r="3.5" fill="#10b981"/>
-          <text x="62" y="60" class="font-sans" font-size="9px" fill="#c084fc">↗ Gate 01 Contractor Roster</text>
+          <text x="62" y="60" class="font-sans" font-size="9px" fill="#c084fc">↗ Line 04 Camera Diagnostics</text>
         </g>
 
         <!-- Ecosystem Settings / Admin Launcher Tile -->
@@ -235,7 +235,7 @@
       <text x="27" y="29" text-anchor="middle" class="font-sans" font-size="11px" font-weight="800" fill="#0f172a">03</text>
       <text x="48" y="29" class="callout-title">Cross-Ecosystem Federated Search</text>
       <text x="16" y="52" class="callout-text">Industrial operators frequently search by physical entity (e.g. batch serial number). Universal search queries all connected databases in parallel—locating the Vision inspection frame, MES run-sheet, and ERP dispatch record in one keystroke.</text>
-      <text x="16" y="86" class="font-sans" font-size="9.5px" font-weight="600" fill="#38bdf8">Query Results: Machine ID · Defect Case · Visitor Pass · Supplier SKU</text>
+      <text x="16" y="86" class="font-sans" font-size="9.5px" font-weight="600" fill="#38bdf8">Query Results: Machine ID · Defect Case · Work Order · Supplier SKU</text>
     </g>
   </g>
 </svg>
