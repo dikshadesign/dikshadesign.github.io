@@ -3014,6 +3014,154 @@
         gap: 10px;
       }
     }
+
+    /* WHAT FAILED ALONG THE WAY · FIELD RETROSPECTIVE */
+    .what-failed-panel {
+      background: #fbfcfd;
+      border: 1px solid var(--color-border-hairline);
+      padding: 32px 36px;
+      margin-top: 48px;
+    }
+
+    .what-failed-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .what-failed-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #991b1b;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      padding: 4px 10px;
+    }
+
+    .what-failed-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #dc2626;
+    }
+
+    .what-failed-sub {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-ink-tertiary);
+      font-family: var(--font-mono, monospace);
+    }
+
+    .what-failed-heading {
+      font-size: clamp(18px, 1.8vw, 22px);
+      font-weight: 700;
+      color: var(--color-ink-primary);
+      margin: 0 0 10px 0;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+    }
+
+    .what-failed-intro {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--color-ink-secondary);
+      margin: 0 0 24px 0;
+      max-width: 780px;
+    }
+
+    .what-failed-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .what-failed-card {
+      padding: 22px 24px;
+      border: 1px solid var(--color-border-hairline);
+      background: #ffffff;
+    }
+
+    .what-failed-card.what-failed-broken {
+      border-top: 3px solid #dc2626;
+      background: #fffafa;
+    }
+
+    .what-failed-card.what-failed-pivot {
+      border-top: 3px solid #0284c7;
+      background: #f8fafc;
+    }
+
+    .what-failed-card-tag {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .what-failed-broken .what-failed-card-tag {
+      color: #b91c1c;
+    }
+
+    .what-failed-pivot .what-failed-card-tag {
+      color: #0369a1;
+    }
+
+    .what-failed-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-ink-primary);
+      margin: 0 0 12px 0;
+      letter-spacing: -0.01em;
+    }
+
+    .what-failed-card ul {
+      margin: 0;
+      padding: 0 0 0 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .what-failed-card li {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--color-ink-secondary);
+    }
+
+    .what-failed-card li strong {
+      color: var(--color-ink-primary);
+    }
+
+    .what-failed-card code {
+      font-family: var(--font-mono, monospace);
+      font-size: 11px;
+      padding: 2px 6px;
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 2px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    @media (max-width: 768px) {
+      .what-failed-panel {
+        padding: 24px 20px;
+      }
+      .what-failed-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
   </style>
 </head>
 
@@ -3143,15 +3291,12 @@
             <span class="impact-badge-dot" aria-hidden="true"></span>
             <span>01 · My Contribution</span>
           </div>
-          <h3 class="impact-heading">From First-Principles IxD to Working Code</h3>
+          <h3 class="impact-heading">From Prototype to Working Code</h3>
           <div class="impact-body">
             <ul class="impact-list">
-              <li><strong>Audit &amp; Testing:</strong> Audited every raw feature and ran hands-on task walkthroughs to
-                pinpoint workflow dead ends.</li>
-              <li><strong>Interaction Architecture:</strong> Designed guided flows, component patterns, and
-                role-adaptive layouts for floor and desk users.</li>
-              <li><strong>Hands-On Code:</strong> Built working frontend screens and calibration logic directly
-                alongside engineering.</li>
+              <li><strong>Audit &amp; Testing:</strong> Pinpointed workflow dead ends across raw engineering software.</li>
+              <li><strong>Interaction Architecture:</strong> Designed the 8-step guided wizard, Dual Sidebar, and gloved touch targets.</li>
+              <li><strong>Frontend Code:</strong> Built production UI and calibration math directly alongside 1 developer.</li>
             </ul>
           </div>
         </div>
@@ -3169,15 +3314,12 @@
             <span class="impact-badge-dot" aria-hidden="true"></span>
             <span>02 · Result &amp; Impact</span>
           </div>
-          <h3 class="impact-heading">Predictable Setup &amp; Protected Runs</h3>
+          <h3 class="impact-heading">Predictable Setup &amp; Protected Shifts</h3>
           <div class="impact-body">
             <ul class="impact-list">
-              <li><strong>15-Minute Guided Setup:</strong> Replaced hours of fragmented trial-and-error with clear step
-                guardrails.</li>
-              <li><strong>Tamper-Safe Shifts:</strong> Approved profiles lock automatically during live production runs.
-              </li>
-              <li><strong>Unified Suite Foundation:</strong> One consistent navigation and visual foundation across 4
-                standalone apps.</li>
+              <li><strong>15-Minute Setup:</strong> Cut part onboarding from hours to 15 minutes with gated step validation.</li>
+              <li><strong>Protected Shifts:</strong> Approved calibration profiles lock automatically during live runs.</li>
+              <li><strong>Unified Suite:</strong> One shared navigation, search, and design foundation across all 4 apps.</li>
             </ul>
           </div>
         </div>
@@ -3231,47 +3373,29 @@
       </div>
       <div class="sec-content">
         <div class="ixd-statement" style="margin-top: 0;">
-          <span class="ixd-statement-eyebrow">Goals · MVP · Information Architecture</span>
+          <span class="ixd-statement-eyebrow">Architecture &amp; Scoping Rules</span>
           <div>With one developer and four industrial suites, <strong>ruthless MVP scoping and clear information
               architecture came before pixels.</strong></div>
         </div>
 
-        <!-- 3-Column Swiss Hairline Ledger: Goals / MVP Scope / Metrics -->
-        <div class="process-hairline-grid" style="margin-top: 0; border-top-color: #0a0a0a;">
+        <!-- 3-Column Swiss Hairline Ledger: Architectural Scoping Rules -->
+        <div class="process-hairline-grid" style="margin-top: 0; margin-bottom: 40px; border-top-color: #0a0a0a;">
           <div class="process-hairline-item">
-            <span class="idx">01 / Design Goals</span>
-            <strong>What Had to Be True</strong>
-            <ul class="mvp-list">
-              <li><strong>Predictable Setup:</strong> Let operators calibrate a new part without developer help.</li>
-              <li><strong>Tamper-Safe Shifts:</strong> Make accidental tolerance edits impossible during live runs.</li>
-              <li><strong>Shared Context:</strong> Carry station and lot lineage cleanly across all four suites.</li>
-            </ul>
+            <span class="idx">01 / Scoping Rule</span>
+            <strong>Vision-First Allocation</strong>
+            <p>80% of design and code focused on Nordic Vision (the core revenue driver). The other 3 suites adopted shared navigation, search, and tables without custom rewrites.</p>
           </div>
 
           <div class="process-hairline-item">
-            <span class="idx">02 / MVP Prioritization</span>
-            <strong>Shipped First vs. Deferred</strong>
-            <ul class="mvp-list">
-              <li><strong>MVP Core (6 Mo):</strong> Nordic Vision 8-step part setup, Dual Sidebar metrology, and spec
-                locks.</li>
-              <li><strong>Suite Alignment (~1 Mo):</strong> Shared top shell, search, and tables across ERP, MES &amp;
-                EQMS.</li>
-              <li><strong>Decoupled / Later:</strong> Visitor management software (VMS) spun off separately; multi-plant BI deferred
-                post-MVP.</li>
-            </ul>
+            <span class="idx">02 / Hardware Rule</span>
+            <strong>Physical Gate Validation</strong>
+            <p>Setup workflows never advance on arbitrary clicks. Progression is strictly gated by physical camera triggers and &ge;3 verified golden captures.</p>
           </div>
 
           <div class="process-hairline-item">
-            <span class="idx">03 / Success Metrics</span>
-            <strong>Observable Workflow Signals</strong>
-            <ul class="mvp-list">
-              <li><strong>~15-Min Part Setup:</strong> Cut from hours of trial-and-error through linear progression.
-              </li>
-              <li><strong>100% Gated Readiness:</strong> Progression blocked until ≥3 golden captures and QA sign-off.
-              </li>
-              <li><strong>Zero Live Edit Risk:</strong> Calibration controls completely redacted on active shift
-                screens.</li>
-            </ul>
+            <span class="idx">03 / Data Spine</span>
+            <strong>Shared Lot Lineage</strong>
+            <p>CAD specs and defect records synchronize across apps via persistent Lot IDs—eliminating manual paper logs and duplicate floor re-entry.</p>
           </div>
         </div>
 
@@ -3827,8 +3951,8 @@
             </button>
             <button type="button" class="decision-item" data-decision="04">
               <div class="decision-item-num"><span class="decision-dot" aria-hidden="true"></span>Decision 04</div>
-              <h4>Production Freeze</h4>
-              <p>Approved profiles lock automatically—preventing accidental tolerance edits on live shifts.</p>
+              <h4>Locking the Golden Profile</h4>
+              <p>Why operators can’t accidentally tweak camera calibrations during a live run—approved profiles lock automatically.</p>
             </button>
           </div>
 
@@ -3877,13 +4001,13 @@
                 <span>Decision 01 <span class="badge-desc">· Macro-Stage Lifecycle Rail</span></span>
               </div>
 
-              <!-- Highlight Box 4: Decision 04 (Immutable Production Freeze) -->
+              <!-- Highlight Box 4: Decision 04 (Locking the Golden Profile) -->
               <div class="screen-highlight-box theme-decision-04" data-pin="04"
                 style="top: 1.2%; left: 69%; width: 28%; height: 4.8%;">
               </div>
               <div class="screen-callout-badge badge-decision-04" data-pin="04" style="top: 6.8%; left: 56%;">
                 <span class="badge-dot"></span>
-                <span>Decision 04 <span class="badge-desc">· Locked Production Freeze</span></span>
+                <span>Decision 04 <span class="badge-desc">· Locked Golden Profile</span></span>
               </div>
 
               <!-- Highlight Box 5: Guardrail (Blocked Until 3 Golden Captures) -->
@@ -4163,6 +4287,46 @@
             <span>Planning (ERP) → Execution (MES) → Inspection (Vision) → Quality Containment (EQMS).</span>
           </figcaption>
         </figure>
+
+        <!-- [CALLOUT: WHAT FAILED ALONG THE WAY · FIELD RETROSPECTIVE] -->
+        <div class="what-failed-panel">
+          <div class="what-failed-header">
+            <div class="what-failed-badge">
+              <span class="what-failed-badge-dot"></span>
+              <span>What Failed Along the Way · Field Retrospective</span>
+            </div>
+            <span class="what-failed-sub">Pilot Test 01 → Production Pivot</span>
+          </div>
+
+          <h3 class="what-failed-heading">The Unified Telemetry Wall (And Why Pilot Shift 2 Failed)</h3>
+          <p class="what-failed-intro">In our first interactive prototype, we designed a single "command dashboard" combining live 60 FPS camera feeds, CNC vibration telemetry, and ERP work orders on one screen. On the shop floor, it collapsed within 30 minutes.</p>
+
+          <div class="what-failed-grid">
+            <div class="what-failed-card what-failed-broken">
+              <div class="what-failed-card-tag">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                What Broke on the Factory Floor
+              </div>
+              <h4>Sensory Overload &amp; Gloved Mis-Taps</h4>
+              <ul>
+                <li><strong>Flickering Data Noise:</strong> In a noisy 85 dB plant under humming high-bay lights, operators in safety glasses couldn't distinguish a critical micro-crack alert from routine spindle RPM spikes.</li>
+                <li><strong>32px Web Targets:</strong> An operator wearing thick, oil-resistant nitrile gloves attempted to pause Line 04 and accidentally tapped "Dismiss Alert"—letting two out-of-spec steering brackets travel downstream before the physical line e-stop was pulled.</li>
+              </ul>
+            </div>
+
+            <div class="what-failed-card what-failed-pivot">
+              <div class="what-failed-card-tag">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                The Floor-First Pivot
+              </div>
+              <h4>Binary Machine State + 48px Glove Targets</h4>
+              <ul>
+                <li><strong>Stripped 85% of On-Screen Data:</strong> Floor touchscreens now show only high-contrast binary state (Normal Running vs. Line Paused) with zero nested menus or streaming telemetry walls.</li>
+                <li><strong>Rugged Target Spacing:</strong> Primary line actions were enlarged to <strong>48px</strong> minimum height with <strong>16px dead zones</strong> and hardware keyboard triggers (<code>Space</code> to halt). Deep engineering telemetry was relocated exclusively to desk terminals.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
