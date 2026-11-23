@@ -384,6 +384,452 @@
     }
 
     /* Systems Decision In-Screen Highlighting & Annotation Pins */
+
+
+
+
+    /* ==========================================================================
+       EXACT PINPOINT CALLOUTS ON UI (Matching user reference · NO BLUE)
+       ========================================================================== */
+
+
+
+    /* ==========================================================================
+       HERO STICKY PIN + SLIDING DRAWER SHEET (Classic UX presentation pattern)
+       Strict 1200px width alignment, clean natural drawer flow
+       ========================================================================== */
+    .hero-drawer-stage {
+      position: relative;
+      width: min(1200px, calc(100vw - 48px));
+      margin: 0 auto;
+    }
+
+    .hero-sticky-pin {
+      position: sticky;
+      top: 24px;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .hero-sticky-pin .hero-visual {
+      margin-top: 0;
+      border: 1px solid var(--color-border-hairline, #e6e9ef);
+      background: var(--color-canvas-wash, #f8f9fb);
+      height: clamp(340px, 48vw, 560px);
+    }
+
+    .hero-sliding-drawer {
+      position: relative;
+      z-index: 10;
+      background: #ffffff;
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid #e6e9ef;
+      box-shadow: 0 -24px 48px -12px rgba(0, 0, 0, 0.08);
+      border-radius: 0;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .hero-sliding-drawer .caption {
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-sticky-pin {
+        position: relative;
+        top: 0;
+      }
+
+      .hero-sliding-drawer {
+        box-shadow: none;
+        border-top: none;
+        margin-top: 16px;
+        padding-top: 0;
+      }
+    }
+
+    /* ==========================================================================
+       EARLIER VISION INTERFACES: SIDE-BY-SIDE UX PRESENTATION
+       (Image on Left, All 3 items on Right matching "Design decisions" .change-ledger)
+       ========================================================================== */
+    .ux-scroll-slideshow {
+      position: relative;
+      height: 240vh;
+      /* Smooth, natural scroll pacing across 4 items */
+      margin: 0;
+    }
+
+    .ux-slideshow-sticky {
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .ux-slideshow-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .ux-slideshow-heading-group {
+      margin-bottom: 24px;
+    }
+
+    .ux-slideshow-grid {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 36px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .ux-slideshow-media {
+      position: relative;
+      width: 100%;
+      border: 1px solid #e6e9ef;
+      background: #ffffff;
+      line-height: 0;
+      /* Native 1024x548 resolution matching screenshots · Zero top/bottom letterbox padding */
+      aspect-ratio: 1024 / 548;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .ux-slide-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      background: #ffffff;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+      display: block;
+    }
+
+    .ux-slide-img.is-active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .ux-slideshow-sidebar {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .ux-slideshow-ledger {
+      width: 100%;
+      margin: 0 !important;
+      max-width: none !important;
+    }
+
+    .ux-ledger-item {
+      cursor: pointer;
+      opacity: 0.45;
+      transition: opacity 0.25s ease, color 0.25s ease;
+      user-select: none;
+    }
+
+    .ux-ledger-item:hover {
+      opacity: 0.85;
+    }
+
+    .ux-ledger-item.is-active {
+      opacity: 1;
+      color: #0a0a0a;
+    }
+
+    .ux-ledger-item::before {
+      transition: background-color 0.25s ease;
+      background: #a0a6b1;
+    }
+
+    .ux-ledger-item.is-active::before {
+      background: #0a0a0a !important;
+    }
+
+    @media (max-width: 768px) {
+      .ux-scroll-slideshow {
+        height: auto;
+        margin-bottom: 32px;
+      }
+
+      .ux-slideshow-sticky {
+        position: relative;
+        top: 0;
+      }
+
+      .ux-slideshow-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .ux-slideshow-media {
+        aspect-ratio: auto;
+      }
+
+      .ux-slide-img {
+        position: relative;
+        opacity: 1 !important;
+        visibility: visible !important;
+        margin-bottom: 8px;
+      }
+
+      .ux-ledger-item {
+        opacity: 1 !important;
+      }
+    }
+
+    .part-setup-editorial-showcase {
+      margin-top: 24px;
+      position: relative;
+    }
+
+    /* 2-Column Ledger Grids Above & Below matching user screenshot */
+    .part-setup-ledger-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+
+    .part-setup-ledger-grid.top-grid {
+      margin-bottom: 24px;
+    }
+
+    .part-setup-ledger-grid.bottom-grid {
+      margin-top: 24px;
+    }
+
+    /* Hero Media Frame - SVG 100% Width */
+    .part-setup-media-frame {
+      position: relative;
+      width: 100%;
+      border: 1px solid #d8dde6;
+      background: #ffffff;
+      box-shadow: 0 12px 36px -6px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+      line-height: 0;
+      overflow: visible;
+      margin: 48px 0;
+    }
+
+    .part-setup-media-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Pinpoint Callout Component (Matching user reference · NO BLUE · Pure #0a0a0a & #ffffff) */
+    .pinpoint-callout {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      z-index: 10;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Top Pointers: Pill is outside above image, line extends down, dot touches UI */
+    .pinpoint-callout.pointer-top {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+
+    /* Bottom Pointers: Pill is outside below image, line extends up, dot touches UI */
+    .pinpoint-callout.pointer-bottom {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Outer halo circle + inner dot (NO BLUE) */
+    .pinpoint-target-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(10, 10, 10, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .pinpoint-target-dot::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #0a0a0a;
+    }
+
+    /* Connector line (NO BLUE) */
+    .pinpoint-line {
+      background: #0a0a0a;
+      flex-shrink: 0;
+      width: 1.5px;
+    }
+
+    /* Stadium Capsule Pill (Matching user reference · NO BLUE · Pure #0a0a0a & #ffffff) */
+    .pinpoint-pill {
+      background: #ffffff;
+      border: 1.5px solid #0a0a0a;
+      border-radius: 9999px;
+      padding: 6px 16px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0a0a0a;
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
+      white-space: nowrap;
+    }
+
+    /* Exact outside positions: Pointers sit cleanly in whitespace margins outside the UI */
+    /* 1. Guided workflow sidebar: Pill sits outside above top-left, line reaches workflow rail */
+    .pin-top-guided-setup {
+      top: -24px;
+      left: 3.5%;
+    }
+
+    .pin-top-guided-setup .pinpoint-line {
+      height: clamp(48px, 10vw, 115px);
+    }
+
+    /* 2. Protected approved profiles: Pill sits outside above top-right, line reaches Draft lock */
+    .pin-top-approved-profiles {
+      top: -24px;
+      right: 3.5%;
+    }
+
+    .pin-top-approved-profiles .pinpoint-line {
+      height: clamp(28px, 4vw, 42px);
+    }
+
+    /* 3. Task-based navigation: Pill sits outside below, line reaches Part Setup tab */
+    .pin-bottom-task-nav {
+      bottom: -24px;
+      left: 23%;
+    }
+
+    .pin-bottom-task-nav .pinpoint-line {
+      height: clamp(26px, 3.5vw, 36px);
+    }
+
+    /* 4. Hardware-adaptive navigation: Pill sits below, line reaches Adaptive hardware stages */
+    .pin-bottom-hardware-nav {
+      bottom: -24px;
+      right: 18%;
+    }
+
+    .pin-bottom-hardware-nav .pinpoint-line {
+      height: clamp(26px, 3.5vw, 36px);
+    }
+
+    /* Metrology Setup Callout Pins (Inside Black Photo Margin · Pushed Far Apart) */
+    #slot-nordic-vision-metrology .part-setup-media-frame {
+      background: #000000;
+      border: 1px solid #1f242f;
+      box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.35);
+      margin: 28px 0;
+      /* Saved space */
+    }
+
+    #slot-nordic-vision-metrology .pinpoint-line {
+      background: #ffffff;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
+      width: 2px;
+    }
+
+    #slot-nordic-vision-metrology .pinpoint-target-dot {
+      background: rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+
+    #slot-nordic-vision-metrology .pinpoint-target-dot::after {
+      background: #ffffff;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+    }
+
+    /* 1. Fixed calibration steps (Inside top black area, pointing down to Rail 1) */
+    .pin-metrology-steps {
+      top: 24px;
+      left: 14%;
+    }
+
+    .pin-metrology-steps .pinpoint-line {
+      height: clamp(65px, 10vw, 130px);
+    }
+
+    /* 2. Measurement results (Inside top black area, pointing down to Stored Dimensions) */
+    .pin-metrology-results {
+      top: 24px;
+      right: 14%;
+    }
+
+    .pin-metrology-results .pinpoint-line {
+      height: clamp(65px, 10vw, 130px);
+    }
+
+    /* 3. Grouped measurement tools (Inside bottom black area, pushed far to the left) */
+    .pin-metrology-tools {
+      bottom: 28px;
+      left: 14%;
+    }
+
+    .pin-metrology-tools .pinpoint-line {
+      height: clamp(130px, 19vw, 230px);
+    }
+
+    /* 4. On-screen measurement overlay (Inside bottom black area, pushed far to the right) */
+    .pin-metrology-overlay {
+      bottom: 28px;
+      right: 14%;
+    }
+
+    .pin-metrology-overlay .pinpoint-line {
+      height: clamp(130px, 19vw, 230px);
+    }
+
+    @media (max-width: 960px) {
+      .part-setup-ledger-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .pinpoint-pill {
+        font-size: 11px;
+        padding: 4px 11px;
+      }
+
+      .pinpoint-target-dot {
+        width: 16px;
+        height: 16px;
+      }
+
+      .pinpoint-target-dot::after {
+        width: 6px;
+        height: 6px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .pinpoint-callout {
+        display: none;
+        /* keep uncluttered on phone screens */
+      }
+
+      .part-setup-media-frame {
+        margin: 20px 0;
+      }
+    }
+
     .annotated-screen-container {
       position: relative;
       width: 100%;
@@ -1251,7 +1697,7 @@
       margin-bottom: 20px;
     }
 
-    
+
     .sec-content p {
       font-size: 15px;
       line-height: 1.68;
@@ -1261,7 +1707,7 @@
       margin-bottom: var(--space-3);
     }
 
-    
+
     /* Balanced Swiss 2-Column Layouts for Section 02 */
     .intro-dual-text {
       display: grid;
@@ -1284,7 +1730,7 @@
       margin-top: 18px;
     }
 
-    
+
     /* Full-width balanced grid & card typography */
     .intro-dual-text p,
     .deepdive-header-row p,
@@ -1324,12 +1770,14 @@
     }
 
     @media (max-width: 860px) {
+
       .intro-dual-text,
       .decisions-split-grid,
       .deepdive-header-row {
         grid-template-columns: 1fr;
         gap: 16px;
       }
+
       .deepdive-header-row {
         margin-top: 40px;
       }
@@ -1380,7 +1828,7 @@
       color: #0a0a0a;
       font-weight: 600;
     }
-  
+
     .sec-content>p {
       font-size: 15px;
       line-height: 1.68;
@@ -3279,6 +3727,7 @@
       .what-failed-panel {
         padding: 24px 20px;
       }
+
       .what-failed-grid {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -3308,126 +3757,148 @@
       </nav>
       <div class="hero-compact-content">
         <h1 id="hero-heading" class="hero-compact-h1">Designed a Connected Industrial software ecosystem</h1>
-        <p class="hero-compact-subtitle">Nordic ONE · I led interaction design and vibe coded implementation for Nordic's flagship machine vision platform. Bringing four standalone manufacturing applications together through a consistent, intuitive experience</p>
+        <p class="hero-compact-subtitle">Nordic ONE · I led interaction design and vibe coded implementation for
+          Nordic's flagship machine vision platform. Bringing four standalone manufacturing applications together
+          through a consistent, intuitive experience</p>
         <div class="hero-compact-disciplines">Industrial Interaction Design · Enterprise UX · Systems Thinking ·
           Prototyping &amp; Implementation</div>
       </div>
     </div>
 
     <!-- Hero Visual & Believable Enterprise Metadata -->
-    <section class="hero-body wrap" aria-label="Nordic ONE Hero Presentation">
-      <!-- [ASSET: NORDIC-IMG-01] Hero Visual -->
-      <div class="hero-visual" id="slot-nordic-img-01">
-        <img id="nordic-img-01" data-asset-id="NORDIC-IMG-01" src="assets/projects/nordic/nordic-hero.svg?v=2"
-          alt="Nordic ONE full-width platform overview screenshot showing central application launcher and connected ecosystem"
-          loading="eager">
-      </div>
-      <div class="caption">
-        <span>Nordic ONE · Connected Industrial Experience</span>
-        <span>Four standalone manufacturing applications unified under one shared design language: Vision (Flagship),
-          ERP, MES &amp; EQMS</span>
+    <!-- Hero Visual & Believable Enterprise Metadata -->
+    <section class="hero-body wrap hero-drawer-stage" aria-label="Nordic ONE Hero Presentation">
+      <!-- Sticky Pinned Hero Visual -->
+      <div class="hero-sticky-pin">
+        <div class="hero-visual" id="slot-nordic-img-01">
+          <img id="nordic-img-01" data-asset-id="NORDIC-IMG-01" src="assets/projects/nordic/nordic-hero.svg?v=2"
+            alt="Nordic ONE full-width platform overview screenshot showing central application launcher and connected ecosystem"
+            loading="eager">
+        </div>
       </div>
 
-      <!-- Project Spec Sheet (Clean, Concise Key-Value Summary) -->
-      <div class="project-spec-sheet" aria-label="Project Specifications">
-        <div class="spec-row">
-          <div class="spec-label">Industry</div>
-          <div class="spec-value">
-            <span class="spec-primary">Industrial technology and precision manufacturing</span>
-            <span class="spec-secondary">Optical inspection, automotive, and high throughput shop floors</span>
-          </div>
+      <!-- Sliding Drawer Sheet (Slides up over hero visual like a classic UX drawer) -->
+      <div class="hero-sliding-drawer">
+        <div class="caption">
+          <span>Nordic ONE · Connected Industrial Experience</span>
+          <span>Four standalone manufacturing applications unified under one shared design language: Vision (Flagship),
+            ERP, MES &amp; EQMS</span>
         </div>
 
-        <div class="spec-row">
-          <div class="spec-label">Timeline</div>
-          <div class="spec-value">
-            <span class="spec-primary">6 months on Nordic Vision</span>
-            <span class="spec-secondary">2 weeks each on ERP, MES, and EQMS alignment</span>
+        <!-- Project Spec Sheet (Clean, Concise Key-Value Summary) -->
+        <div class="project-spec-sheet" aria-label="Project Specifications">
+          <div class="spec-row">
+            <div class="spec-label">Industry</div>
+            <div class="spec-value">
+              <span class="spec-primary">Industrial technology and precision manufacturing</span>
+              <span class="spec-secondary">Optical inspection, automotive, and high throughput shop floors</span>
+            </div>
           </div>
-        </div>
 
-        <div class="spec-row">
-          <div class="spec-label">Scope</div>
-          <div class="spec-value">
-            <div class="spec-scope-block" style="display: flex; flex-direction: column; gap: 8px;">
-              <div class="spec-scope-item"
-                style="font-size: 13px; line-height: 1.5; color: var(--color-ink-secondary);">
-                <strong style="color: var(--color-ink-primary); font-weight: 600;">Nordic Vision · Flagship:</strong> Led interaction design and usability walkthroughs, and built frontend and backend features for the machine vision product.
+          <div class="spec-row">
+            <div class="spec-label">Timeline</div>
+            <div class="spec-value">
+              <span class="spec-primary">6 months on Nordic Vision</span>
+              <span class="spec-secondary">2 weeks each on ERP, MES, and EQMS alignment</span>
+            </div>
+          </div>
+
+          <div class="spec-row">
+            <div class="spec-label">Scope</div>
+            <div class="spec-value">
+              <div class="spec-scope-block" style="display: flex; flex-direction: column; gap: 8px;">
+                <div class="spec-scope-item"
+                  style="font-size: 13px; line-height: 1.5; color: var(--color-ink-secondary);">
+                  <strong style="color: var(--color-ink-primary); font-weight: 600;">Nordic Vision · Flagship:</strong>
+                  Led interaction design and usability walkthroughs, and built frontend and backend features for the
+                  machine vision product.
+                </div>
+                <div class="spec-scope-item"
+                  style="font-size: 13px; line-height: 1.5; color: var(--color-ink-secondary);">
+                  <strong style="color: var(--color-ink-primary); font-weight: 600;">Nordic ERP, MES, and EQMS:</strong>
+                  Aligned navigation, table hierarchy, and shared interaction patterns across developer prototypes.
+                </div>
               </div>
-              <div class="spec-scope-item"
-                style="font-size: 13px; line-height: 1.5; color: var(--color-ink-secondary);">
-                <strong style="color: var(--color-ink-primary); font-weight: 600;">Nordic ERP, MES, and EQMS:</strong> Aligned navigation, table hierarchy, and shared interaction patterns across developer prototypes.
+            </div>
+          </div>
+
+          <div class="spec-row">
+            <div class="spec-label">Role</div>
+            <div class="spec-value">
+              <span class="spec-primary">Lead Industrial Interaction Designer</span>
+              <span class="spec-secondary">Interaction design · Usability testing · Frontend and backend
+                implementation</span>
+            </div>
+          </div>
+
+          <div class="spec-row">
+            <div class="spec-label">Team</div>
+            <div class="spec-value">
+              <span class="spec-primary">Lead Designer (Me) · 1 software developer · CEO</span>
+              <span class="spec-secondary">Worked directly with the team from prototype review through factory hardware
+                use.</span>
+            </div>
+          </div>
+
+          <div class="spec-row">
+            <div class="spec-label">Goal</div>
+            <div class="spec-value">
+              <div class="spec-goal-container">
+                <div class="spec-goal-bar" aria-hidden="true"></div>
+                <p class="spec-goal-text">
+                  Make specialist manufacturing tools easier to set up and operate, while creating a consistent
+                  experience across four standalone applications.
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="spec-row">
-          <div class="spec-label">Role</div>
-          <div class="spec-value">
-            <span class="spec-primary">Lead Industrial Interaction Designer</span>
-            <span class="spec-secondary">Interaction design · Usability testing · Frontend and backend implementation</span>
-          </div>
-        </div>
-
-        <div class="spec-row">
-          <div class="spec-label">Team</div>
-          <div class="spec-value">
-            <span class="spec-primary">Lead Designer (Me) · 1 software developer · CEO</span>
-            <span class="spec-secondary">Worked directly with the team from prototype review through factory hardware use.</span>
-          </div>
-        </div>
-
-        <div class="spec-row">
-          <div class="spec-label">Goal</div>
-          <div class="spec-value">
-            <div class="spec-goal-container">
-              <div class="spec-goal-bar" aria-hidden="true"></div>
-              <p class="spec-goal-text">
-                Make specialist manufacturing tools easier to set up and operate, while creating a consistent experience across four standalone applications.
-              </p>
+        <!-- Contribution & Impact Light Swiss Split -->
+        <div class="impact-duo-wrapper" aria-label="Contribution and Result Highlights">
+          <div class="impact-card">
+            <div class="impact-badge badge-contribution">
+              <span class="impact-badge-dot" aria-hidden="true"></span>
+              <span>01 · My Contribution</span>
+            </div>
+            <h3 class="impact-heading">From Prototype to Working Code</h3>
+            <div class="impact-body">
+              <ul class="impact-list">
+                <li><strong>Audit &amp; Testing:</strong> Pinpointed workflow dead ends across raw engineering software.
+                </li>
+                <li><strong>Interaction Architecture:</strong> Designed the 8-step guided wizard, Dual Sidebar, and
+                  gloved touch targets.</li>
+                <li><strong>Frontend Code:</strong> Built production UI and calibration math directly alongside 1
+                  developer.</li>
+              </ul>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Contribution & Impact Light Swiss Split -->
-      <div class="impact-duo-wrapper" aria-label="Contribution and Result Highlights">
-        <div class="impact-card">
-          <div class="impact-badge badge-contribution">
-            <span class="impact-badge-dot" aria-hidden="true"></span>
-            <span>01 · My Contribution</span>
+          <div class="impact-connector" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="square" stroke-linejoin="miter">
+              <line x1="4" y1="12" x2="19" y2="12"></line>
+              <polyline points="13 6 19 12 13 18"></polyline>
+            </svg>
           </div>
-          <h3 class="impact-heading">From Prototype to Working Code</h3>
-          <div class="impact-body">
-            <ul class="impact-list">
-              <li><strong>Audit &amp; Testing:</strong> Pinpointed workflow dead ends across raw engineering software.</li>
-              <li><strong>Interaction Architecture:</strong> Designed the 8-step guided wizard, Dual Sidebar, and gloved touch targets.</li>
-              <li><strong>Frontend Code:</strong> Built production UI and calibration math directly alongside 1 developer.</li>
-            </ul>
-          </div>
-        </div>
 
-        <div class="impact-connector" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="square" stroke-linejoin="miter">
-            <line x1="4" y1="12" x2="19" y2="12"></line>
-            <polyline points="13 6 19 12 13 18"></polyline>
-          </svg>
-        </div>
-
-        <div class="impact-card">
-          <div class="impact-badge badge-result">
-            <span class="impact-badge-dot" aria-hidden="true"></span>
-            <span>02 · Result &amp; Impact</span>
-          </div>
-          <h3 class="impact-heading">Predictable Setup &amp; Protected Shifts</h3>
-          <div class="impact-body">
-            <ul class="impact-list">
-              <li><strong>15-Minute Part Calibration:</strong> Cut new part onboarding from 3.5+ hours of developer-assisted trial-and-error down to 15 minutes (measured in end-to-end calibration walkthroughs alongside engineering).</li>
-              <li><strong>Approved Tolerances Locked:</strong> Validated part profiles freeze automatically so floor operators cannot alter calibration specs during live runs.</li>
-              <li><strong>Unified Suite Navigation:</strong> One consistent top shell, persistent breadcrumbs, and search foundation across Vision, ERP, MES, and EQMS.</li>
-            </ul>
+          <div class="impact-card">
+            <div class="impact-badge badge-result">
+              <span class="impact-badge-dot" aria-hidden="true"></span>
+              <span>02 · Result &amp; Impact</span>
+            </div>
+            <h3 class="impact-heading">Predictable Setup &amp; Protected Shifts</h3>
+            <div class="impact-body">
+              <ul class="impact-list">
+                <li><strong>15-Minute Part Calibration:</strong> Cut new part onboarding from 3.5+ hours of
+                  developer-assisted trial-and-error down to 15 minutes (measured in end-to-end calibration walkthroughs
+                  alongside engineering).</li>
+                <li><strong>Approved Tolerances Locked:</strong> Validated part profiles freeze automatically so floor
+                  operators cannot alter calibration specs during live runs.</li>
+                <li><strong>Unified Suite Navigation:</strong> One consistent top shell, persistent breadcrumbs, and
+                  search foundation across Vision, ERP, MES, and EQMS.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -3457,7 +3928,7 @@
             <span class="nav-connector" aria-hidden="true"><span class="nav-connector-fill" data-seg="0"></span></span>
             <a href="#scope-ia" class="journey-pill active" data-step="1">Scope &amp; IA</a>
             <span class="nav-connector" aria-hidden="true"><span class="nav-connector-fill" data-seg="1"></span></span>
-            <a href="#role" class="journey-pill" data-step="2">Vision</a>
+            <a href="#role" class="journey-pill" data-step="2">Identified Gaps</a>
             <span class="nav-connector" aria-hidden="true"><span class="nav-connector-fill" data-seg="2"></span></span>
             <a href="#challenge" class="journey-pill" data-step="3">Floor UX</a>
             <span class="nav-connector" aria-hidden="true"><span class="nav-connector-fill" data-seg="3"></span></span>
@@ -3481,7 +3952,8 @@
       <div class="sec-content">
         <div class="ixd-statement" style="margin-top: 0;">
           <span class="ixd-statement-eyebrow">Information Architecture</span>
-          <div>Across four industrial suites, <strong>I prioritized Nordic Vision’s core workflows and established shared design patterns for the product family.</strong></div>
+          <div>Across four industrial suites, <strong>I prioritized Nordic Vision’s core workflows and established
+              shared design patterns for the product family.</strong></div>
         </div>
 
         <!-- 3-Column Swiss Hairline Ledger: Architecture Foundations -->
@@ -3489,7 +3961,8 @@
           <div class="process-hairline-item">
             <span class="idx">01 / Access</span>
             <strong>Role-Based Structure</strong>
-            <p>Tailored information and actions for shop-floor operators, QA engineers, and plant managers, so each role could focus on the tasks relevant to them.</p>
+            <p>Tailored information and actions for shop-floor operators, QA engineers, and plant managers, so each role
+              could focus on the tasks relevant to them.</p>
           </div>
 
           <div class="process-hairline-item">
@@ -3501,7 +3974,8 @@
           <div class="process-hairline-item">
             <span class="idx">03 / Data Continuity</span>
             <strong>Less Repeated Entry</strong>
-            <p>Designed workflows around persistent Lot IDs, so users could carry CAD specifications and defect records across apps instead of entering the same information again.</p>
+            <p>Designed workflows around persistent Lot IDs, so users could carry CAD specifications and defect records
+              across apps instead of entering the same information again.</p>
           </div>
         </div>
 
@@ -3951,207 +4425,219 @@
     </section>
 
     <!-- SECTION 02: Nordic Vision Flagship Redesign -->
-    <!-- SECTION 02: Nordic Vision Flagship Redesign -->
-    <section class="section wrap" id="role">
-      <div class="sec-label">
-        <span class="sec-num">02</span>
-        <span class="sec-title">Vision</span>
+    <section class="section wrap" id="role" style="padding-top: 0;">
+      <!-- UX PRESENTATION SCROLL SLIDESHOW: Centered Presentation Deck with Heading -->
+      <div class="ux-scroll-slideshow" id="before-vision-slideshow">
+        <div class="ux-slideshow-sticky">
+          <div class="ux-slideshow-container">
+            <!-- Section Heading (Centered together with slideshow) -->
+            <div class="ux-slideshow-heading-group">
+              <div class="sec-label" style="margin-bottom: 8px;">
+                <span class="sec-num">02</span>
+                <span class="sec-title">Identified Gaps</span>
+              </div>
+              <div class="ixd-statement" style="margin-top: 0; margin-bottom: 24px;">
+                <div>Turning engineering controls into <strong>guided workflows.</strong></div>
+              </div>
+            </div>
+
+            <div class="ux-slideshow-grid">
+              <!-- Left: Slideshow Media Frame (3 authentic prototype screenshots) -->
+              <div class="ux-slideshow-media">
+                <img class="ux-slide-img is-active"
+                  src="assets/projects/nordic/nordic-vision-before-inspector-error.png"
+                  alt="Desktop prototype showing configuration errors without clear guidance" loading="lazy">
+                <img class="ux-slide-img" src="assets/projects/nordic/nordic-vision-before-cv-parameters.jpg"
+                  alt="Web interface showing 15+ computer vision controls competing on one screen" loading="lazy">
+                <img class="ux-slide-img" src="assets/projects/nordic/nordic-vision-before-pipeline-editor.png"
+                  alt="Pipeline editor requiring users to assemble inspection recipes from technical blocks"
+                  loading="lazy">
+              </div>
+
+              <!-- Right: All 4 points displayed together matching Design decisions .change-ledger -->
+              <div class="ux-slideshow-sidebar">
+                <ul class="change-ledger ux-slideshow-ledger">
+                  <li class="ux-ledger-item is-active" data-index="0">
+                    <strong>Desktop prototype · Errors without guidance</strong> — System errors showed technical
+                    details but no clear next step.
+                  </li>
+                  <li class="ux-ledger-item" data-index="1">
+                    <strong>Web interface · Too many controls at once</strong> — 15+ image-processing controls appeared
+                    without a clear sequence.
+                  </li>
+                  <li class="ux-ledger-item" data-index="2">
+                    <strong>Pipeline editor · Setup built from blocks</strong> — Operators had to assemble inspection
+                    recipes from technical blocks.
+                  </li>
+                  <li class="ux-ledger-item" data-index="3">
+                    <strong>Independent engineering</strong> — Early Vision interfaces were built independently by
+                    different engineers. Each exposed a different problem for operators.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="sec-content">
-        <div class="ixd-statement" style="margin-top: 0; margin-bottom: 32px;">
-          <span class="ixd-statement-eyebrow">Nordic Vision</span>
-          <div>Turning engineering controls into <strong>guided workflows.</strong></div>
-        </div>
 
-        <!-- 2-Column Balanced Intro: Independent Origins vs Operator Tasks -->
-        <div class="intro-dual-text">
-          <p>The Nordic apps were developed independently by different engineers. In Vision, the early interfaces exposed technical controls directly to operators, with little guidance on what to do next.</p>
-          <p>One earlier version asked users to assemble inspection recipes from pipeline blocks. Other prototypes showed cryptic errors or crowded more than 15 image-processing controls onto one screen. I reorganized the experience around the operator’s tasks: set up a part, review its requirements, calibrate measurements, and check quality results.</p>
-        </div>
+      <div class="sec-content" style="padding-top: 48px;">
+        <!-- Design response transition -->
+        <h3 class="sec-subhead" style="margin-top: 0; margin-bottom: 24px;">Design response</h3>
 
-        <!-- [BEFORE SCREENSHOTS: 3 Earlier Prototypes Across Full Width] -->
-        <h3 class="sec-subhead" style="margin-top: 48px; margin-bottom: 8px;">Earlier Vision interfaces</h3>
-        <p style="margin-bottom: 20px;">Fragmented engineering prototypes exposed raw code logic, unhandled exceptions, and unguided parameter dumps directly to users:</p>
-
-        <div class="before-grid">
-          <figure class="fig" id="slot-before-inspector" style="margin: 0;">
-            <div class="before-pill">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                aria-hidden="true">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
-              </svg>
-              Before 01 · Raw Prototype
-            </div>
-            <img id="before-inspector-img" src="assets/projects/nordic/nordic-vision-before-inspector-error.png"
-              alt="Raw engineering desktop prototype showing fatal unhandled modal error, missing config.json, and cryptic model weights"
-              loading="lazy">
-            <figcaption class="fig-cap">
-              <span>Raw engineering prototype</span>
-              <span>Configuration files and model-related errors were visible to users, with no clear recovery path.</span>
-            </figcaption>
-          </figure>
-
-          <figure class="fig" id="slot-before-studio" style="margin: 0;">
-            <div class="before-pill">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                aria-hidden="true">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
-              </svg>
-              Before 02 · Web Parameter Dump
-            </div>
-            <img id="before-studio-img" src="assets/projects/nordic/nordic-vision-before-cv-parameters.jpg"
-              alt="Raw engineering web interface dumping 15+ computer vision filters, manual pixel crop inputs, and exposure sliders onto one screen"
-              loading="lazy">
-            <figcaption class="fig-cap">
-              <span>Web parameter interface</span>
-              <span>More than 15 image-processing controls, pixel crop inputs, and exposure settings competed for attention on one screen.</span>
-            </figcaption>
-          </figure>
-
-          <figure class="fig" id="slot-before-pipeline" style="margin: 0;">
-            <div class="before-pill">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                aria-hidden="true">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
-              </svg>
-              Before 03 · Pipeline Editor
-            </div>
-            <img id="before-pipeline-img" src="assets/projects/nordic/nordic-vision-before-pipeline-editor.png"
-              alt="Earlier pipeline editor interface requiring operators to assemble inspection steps from technical blocks with setup controls and station actions on the same screen"
-              loading="lazy">
-            <figcaption class="fig-cap">
-              <span>Earlier pipeline editor</span>
-              <span>Operators assembled inspection steps from technical blocks, with setup controls and station actions on the same screen.</span>
-            </figcaption>
-          </figure>
-        </div>
-
-        <!-- WHAT I CHANGED: Design decisions in Balanced 2-Column Grid -->
-        <div style="margin-top: 56px; margin-bottom: 56px;">
-          <h3 class="sec-subhead" style="margin-top: 0; margin-bottom: 12px;">Design decisions</h3>
-          <div class="decisions-split-grid">
-            <ul class="change-ledger" style="max-width: none; margin: 0;">
-              <li><strong>Clearer interface</strong> — Redesigned the dark, error-prone screens with a brighter layout and clearer language for factory use.</li>
-              <li><strong>Guided part setup</strong> — Organized calibration into eight steps and made golden capture and approval requirements visible in the flow.</li>
-              <li><strong>Task-based navigation</strong> — Added a stage rail to help users move between Part Setup, Live Inspection, Metrology, and Quality.</li>
-            </ul>
-            <ul class="change-ledger" style="max-width: none; margin: 0;">
-              <li><strong>Findable measurement tools</strong> — Designed the Dual Sidebar to keep calibration steps visible while grouping measurement tools into clear categories.</li>
-              <li><strong>Protected approved profiles</strong> — Designed the interface to show approved tolerances as locked during live production runs.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- PART SETUP DEEP DIVE: Two-Column Section Header -->
-        <div class="deepdive-header-row">
-          <h3 class="sec-subhead">Part setup</h3>
-          <p>The <strong>Files &amp; Standards</strong> step brings together the information needed to configure a part, including CAD drawings, relevant ISO standards, and visual references. I made these inputs easier to review in one place and showed what still needed approval.</p>
-        </div>
-
-        <!-- Large Full-Width Figure: Part Setup with 3 Clean Callouts -->
-        <figure class="fig" id="slot-nordic-vision-files" style="margin: 0;">
-          <div class="after-pill">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              aria-hidden="true">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            Redesigned Flow · Part Setup (Step 3 of 8)
-          </div>
-          <div class="annotated-screen-container">
-            <img id="nordic-vision-files" src="assets/projects/nordic/nordic-vision-files-standards.jpg"
-              alt="Nordic Vision Part Setup Step 3: Files and Standards showing CAD drawings, ISO standards, and 8-step wizard rail"
-              loading="lazy">
-
-            <!-- Callout 1: 8-Step Setup Wizard Rail -->
-            <div class="screen-highlight-box theme-decision-02"
-              style="top: 7%; left: 0.6%; width: 11.5%; height: 86%;"></div>
-            <div class="screen-callout-badge badge-decision-02" style="top: 2%; left: 0.6%;">
-              <span class="badge-dot"></span>
-              <span>8-Step Guided Wizard</span>
+        <figure class="fig" id="slot-nordic-vision-files" style="margin: 0 0 56px 0;">
+          <div class="part-setup-editorial-showcase">
+            <!-- Decisions Row (Above Photo) using exact .change-ledger styling -->
+            <div class="part-setup-ledger-grid top-grid">
+              <ul class="change-ledger" style="max-width: none; margin: 0;">
+                <li>
+                  <strong>Guided workflow sidebar</strong> — Created a persistent process rail across stages to
+                  structure complex engineering tasks, keeping progress milestones and approval requirements visible.
+                </li>
+              </ul>
+              <ul class="change-ledger" style="max-width: none; margin: 0;">
+                <li>
+                  <strong>Protected approved profiles</strong> — Designed the interface to show approved tolerances as
+                  locked during live production runs.
+                </li>
+              </ul>
             </div>
 
-            <!-- Callout 2: Three Truth Layers -->
-            <div class="screen-highlight-box theme-decision-03"
-              style="top: 13.8%; left: 13.5%; width: 52%; height: 6.8%;"></div>
-            <div class="screen-callout-badge badge-decision-03" style="top: 8.5%; left: 13.5%;">
-              <span class="badge-dot"></span>
-              <span>CAD, Standards &amp; Feeds</span>
+            <!-- Hero Media Stage: SVG Image 100% Width -->
+            <div class="part-setup-media-frame">
+              <img id="nordic-vision-files" src="assets/projects/nordic/nordic-vision-part-setup.svg"
+                alt="Nordic Vision Redesigned Part Setup vector interface showing 8-step wizard rail, Part Information form, draft status badge, and camera-adaptive bottom navigation"
+                loading="lazy">
+
+              <!-- 1. Guided workflow sidebar (Pill outside above top-left, pointing to workflow rail) -->
+              <div class="pinpoint-callout pointer-top pin-top-guided-setup" title="Guided workflow sidebar">
+                <div class="pinpoint-target-dot"></div>
+                <div class="pinpoint-line"></div>
+                <div class="pinpoint-pill">Guided workflow sidebar</div>
+              </div>
+
+              <!-- 2. Protected approved profiles (Pill outside above top-right, pointing to Draft/Approved lock) -->
+              <div class="pinpoint-callout pointer-top pin-top-approved-profiles" title="Protected approved profiles">
+                <div class="pinpoint-target-dot"></div>
+                <div class="pinpoint-line"></div>
+                <div class="pinpoint-pill">Protected approved profiles</div>
+              </div>
+
+              <!-- 3. Task-based navigation (Pill outside below, pointing to Part Setup & Metrology stages) -->
+              <div class="pinpoint-callout pointer-bottom pin-bottom-task-nav" title="Task-based navigation">
+                <div class="pinpoint-target-dot"></div>
+                <div class="pinpoint-line"></div>
+                <div class="pinpoint-pill">Task-based navigation</div>
+              </div>
+
+              <!-- 4. Hardware-adaptive navigation (Pill outside below, pointing to Hardware adaptive camera stages) -->
+              <div class="pinpoint-callout pointer-bottom pin-bottom-hardware-nav" title="Hardware-adaptive navigation">
+                <div class="pinpoint-target-dot"></div>
+                <div class="pinpoint-line"></div>
+                <div class="pinpoint-pill">Hardware-adaptive navigation</div>
+              </div>
             </div>
 
-            <!-- Callout 3: Approved Tolerances Locked -->
-            <div class="screen-highlight-box theme-decision-04"
-              style="top: 1.2%; right: 1.5%; width: 28%; height: 4.8%;"></div>
-            <div class="screen-callout-badge badge-decision-04" style="top: 6.8%; right: 1.5%;">
-              <span class="badge-dot"></span>
-              <span>Approved Tolerances Locked</span>
+            <!-- Decisions Row (Below Photo) using exact .change-ledger styling -->
+            <div class="part-setup-ledger-grid bottom-grid">
+              <ul class="change-ledger" style="max-width: none; margin: 0;">
+                <li>
+                  <strong>Task-based navigation</strong> — Added a stage rail to help users move between Part Setup,
+                  Live Inspection, Metrology, and Quality.
+                </li>
+              </ul>
+              <ul class="change-ledger" style="max-width: none; margin: 0;">
+                <li>
+                  <strong>Hardware-adaptive navigation</strong> — Automatically adds or subtracts bottom navigation
+                  stages based on physical cameras configured in hardware setup.
+                </li>
+              </ul>
             </div>
           </div>
-          <figcaption class="fig-cap">
-            <span>Part Setup · Files &amp; Standards (Step 3 of 8)</span>
-            <span>Organized part configuration into a visible 8-step progression, consolidating CAD geometry, ISO rules, and golden reference images.</span>
-          </figcaption>
         </figure>
 
         <!-- METROLOGY SETUP DEEP DIVE: Two-Column Section Header -->
-        <div class="deepdive-header-row">
+        <div class="deepdive-header-row" style="margin-top: 48px; margin-bottom: 24px;">
           <h3 class="sec-subhead">Metrology setup</h3>
-          <p>Users needed to follow a fixed calibration sequence while choosing from many measurement tools. The Dual Sidebar keeps both tasks visible. The process rail shows where users are in the sequence, while the adjacent tool drawer groups measurements for easier scanning.</p>
+          <p>The layout keeps calibration steps, measurement tools, the inspection canvas, and saved results visible in
+            one unified workspace.</p>
         </div>
 
-        <!-- Large Full-Width Figure: Metrology Setup with 3 Clean Callouts -->
-        <figure class="fig" id="slot-nordic-vision-metrology" style="margin: 0;">
-          <div class="after-pill">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              aria-hidden="true">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            Redesigned Flow · Metrology Setup &amp; Dual Sidebar
+        <!-- Large Full-Width Figure: Metrology Setup Editorial Showcase (Matching Part Setup showcase pattern) -->
+        <figure class="fig" id="slot-nordic-vision-metrology" style="margin: 0 0 56px 0;">
+          <div class="part-setup-editorial-showcase">
+            <!-- Decisions Row (Above Photo) using exact .change-ledger styling -->
+            <div class="part-setup-ledger-grid top-grid">
+              <ul class="change-ledger" style="max-width: none; margin: 0;">
+                <li>
+                  <strong>Fixed calibration steps</strong> — Keeps the user oriented through the measurement sequence.
+                </li>
+              </ul>
+              <ul class="change-ledger" style="max-width: none; margin: 0;">
+                <li>
+                  <strong>Measurement results</strong> — Keeps saved dimensions and their status visible alongside the
+                  image.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Hero Media Stage: High-Resolution Industrial Display Stage -->
+            <div class="part-setup-media-frame">
+              <img id="nordic-vision-metrology" src="assets/projects/nordic/nordic-vision-metrology.png"
+                alt="Nordic Vision Metrology Setup on industrial display showing calibration steps, measurement tools, inspection canvas, and saved results"
+                loading="lazy">
+
+              <!-- 1. Fixed calibration steps (Inside top black area, pointing down to Rail 1) -->
+              <div class="pinpoint-callout pointer-top pin-metrology-steps" title="Fixed calibration steps">
+                <div class="pinpoint-target-dot"></div>
+                <div class="pinpoint-line"></div>
+                <div class="pinpoint-pill">Fixed calibration steps</div>
+              </div>
+
+              <!-- 2. Measurement results (Inside top black area, pointing down to Stored Dimensions) -->
+              <div class="pinpoint-callout pointer-top pin-metrology-results" title="Measurement results">
+                <div class="pinpoint-target-dot"></div>
+                <div class="pinpoint-line"></div>
+                <div class="pinpoint-pill">Measurement results</div>
+              </div>
+
+              <!-- 3. Grouped measurement tools (Inside bottom black area, pushed far to the left) -->
+              <div class="pinpoint-callout pointer-bottom pin-metrology-tools" title="Grouped measurement tools">
+                <div class="pinpoint-target-dot"></div>
+                <div class="pinpoint-line"></div>
+                <div class="pinpoint-pill">Grouped measurement tools</div>
+              </div>
+
+              <!-- 4. On-screen measurement overlay (Inside bottom black area, pushed far to the right) -->
+              <div class="pinpoint-callout pointer-bottom pin-metrology-overlay" title="On-screen measurement overlay">
+                <div class="pinpoint-target-dot"></div>
+                <div class="pinpoint-line"></div>
+                <div class="pinpoint-pill">On-screen measurement overlay</div>
+              </div>
+            </div>
+
+            <!-- Decisions Row (Below Photo) using exact .change-ledger styling -->
+            <div class="part-setup-ledger-grid bottom-grid">
+              <ul class="change-ledger" style="max-width: none; margin: 0;">
+                <li>
+                  <strong>Grouped measurement tools</strong> — Makes geometric tools easier to scan beside the canvas.
+                </li>
+              </ul>
+              <ul class="change-ledger" style="max-width: none; margin: 0;">
+                <li>
+                  <strong>On-screen measurement overlay</strong> — Projects live dimension calipers and datum alignment
+                  brackets directly over the part silhouette.
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="annotated-screen-container">
-            <img id="nordic-vision-metrology" src="assets/projects/nordic/nordic-vision-metrology-setup.jpg"
-              alt="Nordic Vision Metrology Setup showing Dual Sidebar component with 5-step process spine and categorized tool drawer alongside optical caliper measurement overlay"
-              loading="lazy">
-
-            <!-- Callout 1: Rail 1 Fixed 5-Step Process Spine -->
-            <div class="screen-highlight-box theme-decision-02"
-              style="top: 1.5%; left: 1.0%; width: 11.4%; height: 73.5%;"></div>
-            <div class="screen-callout-badge badge-decision-02" style="top: 77%; left: 1.0%;">
-              <span class="badge-dot"></span>
-              <span>Rail 1 · Fixed 5-Step Spine</span>
-            </div>
-
-            <!-- Callout 2: Rail 2 Categorized Tool Drawer -->
-            <div class="screen-highlight-box theme-decision-01"
-              style="top: 1.5%; left: 12.9%; width: 15.4%; height: 61.5%;"></div>
-            <div class="screen-callout-badge badge-decision-01" style="top: 65.5%; left: 12.9%;">
-              <span class="badge-dot"></span>
-              <span>Rail 2 · Categorized Tools</span>
-            </div>
-
-            <!-- Callout 3: Live Caliper & Tolerance Bounds -->
-            <div class="screen-highlight-box theme-decision-04"
-              style="top: 1.5%; left: 84.8%; width: 14.0%; height: 42.5%;"></div>
-            <div class="screen-callout-badge badge-decision-04" style="top: 46.5%; right: 1.2%;">
-              <span class="badge-dot"></span>
-              <span>Tolerance Ledger</span>
-            </div>
-          </div>
-          <figcaption class="fig-cap">
-            <span>Metrology Workspace · Dual Sidebar Pattern</span>
-            <span>The process spine on the left keeps calibration linear, while the adjacent tool drawer organizes geometric measurements into scannable tabs.</span>
-          </figcaption>
         </figure>
 
         <!-- OUTCOME CALLOUT -->
         <div class="key-callout" style="margin-top: 48px; margin-bottom: 48px;">
           <span>CALIBRATION BENCHMARK · OUTCOME</span>
-          <p>In end-to-end calibration walkthroughs with engineering, the guided flow took around <strong>30 minutes</strong>, compared with more than <strong>3.5 hours</strong> in the previous developer-assisted process.</p>
+          <p>In end-to-end calibration walkthroughs with engineering, the guided flow took around <strong>30
+              minutes</strong>, compared with more than <strong>3.5 hours</strong> in the previous developer-assisted
+            process.</p>
         </div>
 
         <!-- OVERSIZED EDITORIAL DISPLAY STATEMENT (ROLE-ADAPTIVE UI) -->
@@ -4160,7 +4646,9 @@
           <div>The same product, <strong>shaped around different roles.</strong></div>
         </div>
 
-        <p>I adapted the interface to the needs of shop-floor operators, QA engineers, and plant managers. Operators see larger, simpler controls for use on the floor. QA engineers get access to detailed inspection tools. Managers see a higher-level view for monitoring work.</p>
+        <p>I adapted the interface to the needs of shop-floor operators, QA engineers, and plant managers. Operators see
+          larger, simpler controls for use on the floor. QA engineers get access to detailed inspection tools. Managers
+          see a higher-level view for monitoring work.</p>
 
         <figure class="fig" id="slot-nordic-img-02a" style="margin-top: 24px;">
           <img id="nordic-img-02a" data-asset-id="NORDIC-IMG-02A"
@@ -4186,7 +4674,9 @@
           <div>Designing for <strong>different work settings.</strong></div>
         </div>
 
-        <p>Shop-floor operators and desk-based QA teams use the software in different conditions. I adjusted screen hierarchy, information density, and touch target size to suit each context, while keeping a consistent visual language across the independently developed apps.</p>
+        <p>Shop-floor operators and desk-based QA teams use the software in different conditions. I adjusted screen
+          hierarchy, information density, and touch target size to suit each context, while keeping a consistent visual
+          language across the independently developed apps.</p>
 
         <!-- [ASSET: NORDIC-IMG-05] Cross-Application Screen Comparison -->
         <figure class="fig" id="slot-nordic-img-05" style="margin-top: 24px;">
@@ -4213,38 +4703,49 @@
           <div>Designing for a <strong>Part That Fails Inspection.</strong></div>
         </div>
 
-        <p style="max-width: 860px; margin-bottom: 32px;">A defect affects more than the inspection station. It can require production and quality teams to respond, and inventory teams to contain affected parts. I mapped how that information could move across Vision, MES, EQMS, and ERP.</p>
+        <p style="max-width: 860px; margin-bottom: 32px;">A defect affects more than the inspection station. It can
+          require production and quality teams to respond, and inventory teams to contain affected parts. I mapped how
+          that information could move across Vision, MES, EQMS, and ERP.</p>
 
         <!-- [ASSET: NORDIC-IMG-06] Large Process Diagram -->
         <figure class="fig" id="slot-nordic-img-06" style="margin: 0;">
           <img id="nordic-img-06" data-asset-id="NORDIC-IMG-06" src="assets/projects/nordic/nordic-factory-flow.svg?v=2"
-            alt="Process diagram mapping the target defect workflow across Vision, MES, EQMS, and ERP"
-            loading="lazy">
+            alt="Process diagram mapping the target defect workflow across Vision, MES, EQMS, and ERP" loading="lazy">
           <figcaption class="fig-cap">
             <span>End-to-end workflow · Target architecture</span>
-            <span>The diagram shows the intended flow across the four independently developed applications. Cross-app automation was explored in a connected prototype. These handoffs were not shipped as an integrated event system.</span>
+            <span>The diagram shows the intended flow across the four independently developed applications. Cross-app
+              automation was explored in a connected prototype. These handoffs were not shipped as an integrated event
+              system.</span>
           </figcaption>
         </figure>
 
         <!-- Architecture Reality: Implemented Vision Work vs Prototype Downstream Handoffs -->
         <div class="challenge-dual-grid" style="margin-top: 36px; margin-bottom: 48px;">
           <div class="challenge-panel">
-            <div class="principle-num" style="color: #0284c7; margin-bottom: 6px;">Nordic Vision · Implemented work</div>
+            <div class="principle-num" style="color: #0284c7; margin-bottom: 6px;">Nordic Vision · Implemented work
+            </div>
             <h3>Detecting and responding to defects</h3>
-            <p>I worked with engineering on the Vision interface and calibration workflow. The software classified visual defects against approved profiles. The local line-stop interlock was handled by engineering.</p>
+            <p>I worked with engineering on the Vision interface and calibration workflow. The software classified
+              visual defects against approved profiles. The local line-stop interlock was handled by engineering.</p>
           </div>
           <div class="challenge-panel">
             <div class="principle-num" style="color: #6366f1; margin-bottom: 6px;">Cross-app workflow · Prototype</div>
             <h3>Exploring downstream handoffs</h3>
-            <p>The prototype illustrated how a defect could create an EQMS non-conformance record, pause a MES work order, and flag related inventory in ERP. These interactions represent the target workflow, not shipped cross-app automation.</p>
+            <p>The prototype illustrated how a defect could create an EQMS non-conformance record, pause a MES work
+              order, and flag related inventory in ERP. These interactions represent the target workflow, not shipped
+              cross-app automation.</p>
           </div>
         </div>
 
         <!-- Floor UX · Design exploration -->
         <div class="floor-ux-panel" style="margin-top: 48px; border-top: 1px solid #e6e9ef; padding-top: 36px;">
           <div class="principle-num" style="color: #64748b; margin-bottom: 8px;">Floor UX · Design exploration</div>
-          <h3 class="sec-subhead" style="margin-top: 0; margin-bottom: 12px;">Reducing distractions on the shop floor</h3>
-          <p style="max-width: 860px; margin-bottom: 28px;">The early concept combined camera feeds, machine data, and work orders in one view. I explored a simpler floor interface that gives operators a clear machine state and makes the primary action easier to reach, while keeping detailed engineering information in desk-based views.</p>
+          <h3 class="sec-subhead" style="margin-top: 0; margin-bottom: 12px;">Reducing distractions on the shop floor
+          </h3>
+          <p style="max-width: 860px; margin-bottom: 28px;">The early concept combined camera feeds, machine data, and
+            work orders in one view. I explored a simpler floor interface that gives operators a clear machine state and
+            makes the primary action easier to reach, while keeping detailed engineering information in desk-based
+            views.</p>
 
           <div class="process-hairline-grid" style="margin-top: 0; border-top: none; padding-top: 0;">
             <div class="process-hairline-item">
@@ -4279,7 +4780,9 @@
           <div>Consistent patterns across <strong>independently developed apps.</strong></div>
         </div>
 
-        <p style="max-width: 860px; margin-bottom: 32px;">Vision, ERP, MES, and EQMS were built independently by different engineers. I defined shared interaction patterns to make the apps feel more consistent where users move between them.</p>
+        <p style="max-width: 860px; margin-bottom: 32px;">Vision, ERP, MES, and EQMS were built independently by
+          different engineers. I defined shared interaction patterns to make the apps feel more consistent where users
+          move between them.</p>
 
         <div class="principles-grid-4" style="margin-top: 28px;">
           <div class="principle-card">
@@ -4329,7 +4832,10 @@
           <div>Making complex workflows <strong>easier to follow.</strong></div>
         </div>
 
-        <p style="max-width: 860px; margin-bottom: 32px;">I worked across interaction design, walkthroughs, and frontend implementation for Nordic Vision, while defining shared patterns for the wider suite. The work turned fragmented engineering interfaces into clearer setup, inspection, and measurement workflows, and explored how the four apps could support a more connected factory process.</p>
+        <p style="max-width: 860px; margin-bottom: 32px;">I worked across interaction design, walkthroughs, and frontend
+          implementation for Nordic Vision, while defining shared patterns for the wider suite. The work turned
+          fragmented engineering interfaces into clearer setup, inspection, and measurement workflows, and explored how
+          the four apps could support a more connected factory process.</p>
 
         <!-- [ASSET: NORDIC-IMG-09] Final Composition Visual -->
         <figure class="fig" id="slot-nordic-img-09" style="margin: 0;">
@@ -5225,6 +5731,73 @@
       })();
     })();
   </script>
+
+  <!-- Script: UX Presentation Scroll Slideshow Controller -->
+  <script>
+    (function initUxScrollSlideshow() {
+      var slideshow = document.getElementById('before-vision-slideshow');
+      if (!slideshow) return;
+
+      var images = slideshow.querySelectorAll('.ux-slide-img');
+      var items = slideshow.querySelectorAll('.ux-ledger-item');
+      var total = items.length;
+      var currentIndex = 0;
+
+      function setActive(index) {
+        if (index === currentIndex) return;
+        currentIndex = index;
+
+        // Image index sticks on 3rd image (index 2) for the 4th point
+        var imgIndex = Math.min(index, images.length - 1);
+
+        images.forEach(function (img, i) {
+          img.classList.toggle('is-active', i === imgIndex);
+        });
+        items.forEach(function (item, i) {
+          item.classList.toggle('is-active', i === index);
+        });
+      }
+
+      // Allow click on right ledger items to switch slides directly
+      items.forEach(function (item, idx) {
+        item.addEventListener('click', function () {
+          setActive(idx);
+        });
+      });
+
+      var ticking = false;
+      function updateOnScroll() {
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            if (window.innerWidth > 768) {
+              var rect = slideshow.getBoundingClientRect();
+              var windowHeight = window.innerHeight;
+
+              // Smoothly map scroll position through the slideshow
+              if (rect.top <= 60 && rect.bottom >= windowHeight) {
+                var scrollable = slideshow.offsetHeight - windowHeight;
+                var scrolled = -rect.top + 60;
+                var progress = Math.min(Math.max(scrolled / scrollable, 0), 0.999);
+                var index = Math.floor(progress * total);
+                setActive(index);
+              } else if (rect.top > 60) {
+                setActive(0);
+              } else if (rect.bottom < windowHeight) {
+                setActive(total - 1);
+              }
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', updateOnScroll, { passive: true });
+      window.addEventListener('resize', updateOnScroll, { passive: true });
+      updateOnScroll();
+    })();
+  </script>
+
 </body>
 
 </html>
